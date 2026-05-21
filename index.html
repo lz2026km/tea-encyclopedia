@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>茶叶大全 v1.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<style>
+/* ============================================
+   茶叶大全 v1.0 — 清新雅致中国风
+   ============================================ */
+:root {
+  --c1: #2D6A4F;     /* 茶山绿 - 主色 */
+  --c2: #52B788;     /* 新芽绿 - 辅助 */
+  --c3: #95D5B2;     /* 嫩叶绿 - 点缀 */
+  --c4: #D8F3DC;     /* 茶汤浅 - 卡片背景 */
+  --c5: #1B4332;     /* 老叶深 - 强调文字 */
+  --bg: #FEFCF3;     /* 宣纸白 - 页面背景 */
+  --text: #2C3E2D;   /* 墨绿 - 正文 */
+  --border: #B7E4C7; /* 边框 */
+  --white: #FFFFFF;
+  --shadow: 0 2px 8px rgba(45,106,79,0.08);
+  --shadow-md: 0 4px 16px rgba(45,106,79,0.12);
+  --shadow-lg: 0 8px 32px rgba(45,106,79,0.16);
+  --radius: 12px;
+  --font: 'Noto Serif SC', 'SimSun', serif;
+  --base: 18px;
+}
+[data-theme="dark"] {
+  --bg: #1A2E1A;
+  --text: #D8F3DC;
+  --c1: #52B788;
+  --c2: #74C69D;
+  --c4: #2D6A4F;
+  --c5: #95D5B2;
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--base); }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.8; min-height: 100vh; }
+
+/* ===== HEADER ===== */
+.hdr { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow); }
+.hdr-logo { font-size: 1.4rem; color: var(--c1); white-space: nowrap; }
+.hdr-logo span { background: var(--c1); color: #fff; border-radius: 8px; padding: .1em .4em; font-size: .9rem; margin-right: .3em; }
+.hdr-title { font-size: 1.3rem; color: var(--c5); font-weight: 700; flex: 1; }
+.hdr-search { flex: 2; max-width: 360px; }
+.hdr-search input { width: 100%; padding: .5rem .9rem; border: 2px solid var(--border); border-radius: 25px; background: var(--white); color: var(--text); font-size: .95rem; outline: none; }
+.hdr-search input:focus { border-color: var(--c2); box-shadow: 0 0 0 3px rgba(82,183,136,0.2); }
+.hdr-actions { display: flex; gap: .5rem; align-items: center; }
+.hdr-btn { background: var(--c1); color: #fff; border: none; border-radius: 8px; padding: .45rem .8rem; cursor: pointer; font-size: .85rem; font-family: inherit; display: flex; align-items: center; gap: .3rem; transition: background .2s; }
+.hdr-btn:hover { background: var(--c2); }
+.hdr-btn-outline { background: transparent; color: var(--c1); border: 2px solid var(--border); }
+.hdr-btn-outline:hover { border-color: var(--c1); background: var(--c4); }
+
+/* ===== MAIN LAYOUT ===== */
+.layout { display: flex; min-height: calc(100vh - 60px); }
+
+/* ===== SIDEBAR ===== */
+.sidebar { width: 260px; min-width: 260px; background: var(--white); border-right: 2px solid var(--border); padding: 1.2rem; overflow-y: auto; max-height: calc(100vh - 60px); position: sticky; top: 60px; }
+.sb-section { margin-bottom: 1.2rem; }
+.sb-title { font-size: .85rem; color: var(--c2); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem; padding-left: .5rem; border-left: 3px solid var(--c1); }
+.sb-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.sb-tag { background: var(--c4); color: var(--c5); border: 1.5px solid var(--border); border-radius: 20px; padding: .2rem .7rem; font-size: .82rem; cursor: pointer; transition: all .2s; user-select: none; }
+.sb-tag:hover { background: var(--c3); border-color: var(--c2); }
+.sb-tag.active { background: var(--c1); color: #fff; border-color: var(--c1); }
+.sb-tag-count { background: var(--c2); color: #fff; border-radius: 10px; padding: 0 .35rem; font-size: .7rem; margin-left: .2rem; }
+
+/* ===== MAIN CONTENT ===== */
+.main { flex: 1; padding: 1.5rem; overflow: auto; }
+
+/* ===== BANNER ===== */
+.banner { background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%); border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem; color: #fff; text-align: center; box-shadow: var(--shadow-md); }
+.banner h1 { font-size: 2rem; margin-bottom: .5rem; }
+.banner p { font-size: 1rem; opacity: .9; }
+
+/* ===== FILTER BAR ===== */
+.filter-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.2rem; align-items: center; }
+.filter-tag { background: var(--c4); color: var(--text); border: 1.5px solid var(--border); border-radius: 20px; padding: .25rem .7rem; font-size: .82rem; cursor: pointer; display: flex; align-items: center; gap: .3rem; }
+.filter-tag.active { background: var(--c1); color: #fff; border-color: var(--c1); }
+.filter-clear { color: var(--c2); font-size: .8rem; cursor: pointer; margin-left: auto; text-decoration: underline; }
+
+/* ===== RESULTS COUNT ===== */
+.results-info { font-size: .9rem; color: var(--c2); margin-bottom: 1rem; }
+.results-info strong { color: var(--c1); font-size: 1.1rem; }
+
+/* ===== TEA GRID ===== */
+.tea-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+.tea-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .2s, box-shadow .2s; border: 1.5px solid var(--border); display: flex; flex-direction: column; }
+.tea-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.tea-img-wrap { width: 100%; height: 160px; overflow: hidden; background: var(--c4); position: relative; }
+.tea-img { width: 100%; height: 100%; object-fit: cover; }
+.tea-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, var(--c4) 0%, var(--c3) 100%); color: var(--c1); }
+.tea-type-badge { position: absolute; top: .5rem; right: .5rem; background: var(--c1); color: #fff; border-radius: 20px; padding: .15rem .5rem; font-size: .72rem; }
+.tea-grade-badge { position: absolute; top: .5rem; left: .5rem; background: var(--c5); color: #fff; border-radius: 20px; padding: .15rem .5rem; font-size: .72rem; }
+.tea-body { padding: .8rem; flex: 1; display: flex; flex-direction: column; }
+.tea-name { font-size: 1.05rem; font-weight: 700; color: var(--c5); margin-bottom: .3rem; }
+.tea-origin { font-size: .78rem; color: var(--c2); margin-bottom: .4rem; display: flex; align-items: center; gap: .3rem; }
+.tea-desc { font-size: .82rem; color: var(--text); opacity: .8; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6; }
+.tea-footer { margin-top: .5rem; display: flex; justify-content: space-between; align-items: center; }
+.tea-period { font-size: .72rem; color: var(--c2); background: var(--c4); border-radius: 10px; padding: .1rem .4rem; }
+.tea-fav-btn { background: none; border: none; cursor: pointer; font-size: 1.1rem; color: var(--border); transition: color .2s; }
+.tea-fav-btn.faved { color: #e53e3e; }
+
+/* ===== MODAL ===== */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--bg); border-radius: var(--radius); max-width: 700px; width: 100%; max-height: 88vh; overflow: auto; box-shadow: var(--shadow-lg); position: relative; }
+.modal-close { position: absolute; top: .8rem; right: .8rem; background: var(--white); border: 2px solid var(--border); border-radius: 50%; width: 2.2rem; height: 2.2rem; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; }
+.modal-close:hover { background: var(--c4); }
+.modal-img { width: 100%; height: 280px; object-fit: cover; background: var(--c4); }
+.modal-img-placeholder { width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 5rem; background: linear-gradient(135deg, var(--c4) 0%, var(--c3) 100%); color: var(--c1); }
+.modal-body { padding: 1.5rem; }
+.modal-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.modal-title { font-size: 1.6rem; font-weight: 700; color: var(--c5); }
+.modal-badges { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .3rem; }
+.modal-badge { background: var(--c4); color: var(--c5); border-radius: 20px; padding: .2rem .6rem; font-size: .78rem; border: 1.5px solid var(--border); }
+.modal-badge.type { background: var(--c1); color: #fff; border-color: var(--c1); }
+.modal-section { margin-bottom: 1.2rem; }
+.modal-section-title { font-size: .9rem; color: var(--c1); font-weight: 700; margin-bottom: .4rem; display: flex; align-items: center; gap: .4rem; }
+.modal-section-title::before { content: ''; width: 4px; height: 1em; background: var(--c1); border-radius: 2px; }
+.modal-text { font-size: .95rem; line-height: 1.9; color: var(--text); }
+.modal-story { background: var(--c4); border-radius: 10px; padding: 1rem; border-left: 4px solid var(--c1); font-size: .92rem; line-height: 1.8; }
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.modal-grid-item { background: var(--white); border-radius: 8px; padding: .7rem .9rem; border: 1.5px solid var(--border); }
+.modal-grid-label { font-size: .75rem; color: var(--c2); margin-bottom: .2rem; }
+.modal-grid-value { font-size: .9rem; color: var(--c5); font-weight: 600; }
+.modal-fav-btn { background: var(--c1); color: #fff; border: none; border-radius: 25px; padding: .6rem 1.5rem; font-size: .95rem; cursor: pointer; font-family: inherit; margin-right: .5rem; }
+.modal-fav-btn.faved { background: #e53e3e; }
+
+/* ===== MOBILE FILTER ===== */
+.mobile-filter-btn { display: none; position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 150; background: var(--c1); color: #fff; border: none; border-radius: 50%; width: 3.5rem; height: 3.5rem; font-size: 1.5rem; cursor: pointer; box-shadow: var(--shadow-md); }
+.mob-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 199; }
+.mob-overlay.on { display: block; }
+.mob-panel { position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg); z-index: 200; border-radius: 20px 20px 0 0; box-shadow: 0 -4px 30px rgba(0,0,0,.2); transform: translateY(100%); transition: transform .3s ease; max-height: 75vh; overflow-y: auto; padding: 1.2rem; }
+.mob-panel.on { transform: translateY(0); }
+.mob-panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.mob-panel-title { font-size: 1.1rem; font-weight: 700; color: var(--c5); }
+.mob-panel-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text); }
+.mob-panel-apply { background: var(--c1); color: #fff; border: none; border-radius: 25px; padding: .6rem 2rem; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 1rem; font-family: inherit; }
+
+/* ===== TOAST ===== */
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--c5); color: #fff; border-radius: 25px; padding: .6rem 1.5rem; font-size: .9rem; z-index: 300; transition: transform .3s ease; pointer-events: none; }
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px) {
+  .sidebar { display: none; }
+  .mobile-filter-btn { display: flex; align-items: center; justify-content: center; }
+  .hdr-title { display: none; }
+  .hdr-search { max-width: 200px; }
+  .tea-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .8rem; }
+  .tea-img-wrap { height: 130px; }
+  .modal-img { height: 200px; }
+  .modal-grid { grid-template-columns: 1fr; }
+  .modal-body { padding: 1rem; }
+}
+@media(max-width: 480px) {
+  .tea-grid { grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .tea-body { padding: .6rem; }
+  .tea-name { font-size: .9rem; }
+  .hdr { padding: .5rem .8rem; gap: .5rem; }
+  .banner { padding: 1.2rem; }
+  .banner h1 { font-size: 1.4rem; }
+}
+
+/* ===== EMPTY STATE ===== */
+.empty { text-align: center; padding: 4rem 1rem; color: var(--c2); }
+.empty-icon { font-size: 4rem; margin-bottom: 1rem; }
+.empty p { font-size: 1.1rem; }
+
+/* ===== NO RESULT ===== */
+.no-result { text-align: center; padding: 3rem; color: var(--c2); font-size: 1.1rem; }
+
+/* ===== TIMELINE TAB ===== */
+.tab-bar { display: flex; gap: .4rem; margin-bottom: 1.2rem; border-bottom: 2px solid var(--border); padding-bottom: .5rem; }
+.tab-btn { background: none; border: none; border-bottom: 3px solid transparent; padding: .4rem .8rem; cursor: pointer; font-size: .9rem; font-family: inherit; color: var(--text); opacity: .7; transition: all .2s; }
+.tab-btn:hover { opacity: 1; }
+.tab-btn.active { color: var(--c1); opacity: 1; border-bottom-color: var(--c1); font-weight: 700; }
+
+/* ===== TIMELINE VIEW ===== */
+.timeline { display: none; }
+.timeline.active { display: block; }
+.timeline-item { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+.timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c1); border: 3px solid var(--c3); flex-shrink: 0; margin-top: .4rem; }
+.timeline-content { flex: 1; background: var(--white); border-radius: var(--radius); padding: 1rem 1.2rem; border: 1.5px solid var(--border); box-shadow: var(--shadow); }
+.timeline-era { font-size: .78rem; color: var(--c2); margin-bottom: .2rem; }
+.timeline-period { font-size: 1.1rem; font-weight: 700; color: var(--c5); margin-bottom: .4rem; }
+.timeline-desc { font-size: .88rem; line-height: 1.8; color: var(--text); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.tea-card { animation: fadeIn .3s ease; }
+
+/* ===== FAVORITES PAGE ===== */
+.fav-page { display: none; }
+.fav-page.active { display: block; }
+.grid-page { display: block; }
+.grid-page.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-logo"><span>v1.0</span>🍃</div>
+  <div class="hdr-title">茶叶大全</div>
+  <div class="hdr-search">
+    <input type="text" id="searchInput" placeholder="🔍 搜索茶叶名称、产地…" autocomplete="off">
+  </div>
+  <div class="hdr-actions">
+    <button class="hdr-btn" onclick="showRandom()">🎲 随机看看</button>
+    <button class="hdr-btn" id="favHeaderBtn" onclick="toggleFavPage()">❤️ 收藏 <span id="favCount">0</span></button>
+    <button class="hdr-btn-outline" onclick="toggleTheme()" title="切换深色模式">🌙</button>
+  </div>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-section">
+    <div class="sb-title">🍵 茶类</div>
+    <div class="sb-tags" id="typeTags"></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-title">📍 产地</div>
+    <div class="sb-tags" id="originTags"></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-title">⭐ 等级</div>
+    <div class="sb-tags" id="gradeTags"></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-title">📅 历史时期</div>
+    <div class="sb-tags" id="periodTags"></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-title">🌿 功效</div>
+    <div class="sb-tags" id="efficacyTags"></div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- BANNER -->
+  <div class="banner">
+    <h1>🍃 茶叶大全</h1>
+    <p>从神农时代到现代 · 六大茶类 · 50种名茶 · 趣事传说 · 产地等级</p>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('grid', this)">🍵 名茶浏览</button>
+    <button class="tab-btn" onclick="switchTab('timeline', this)">📜 历史长河</button>
+    <button class="tab-btn" onclick="switchTab('origin', this)">📍 产地分布</button>
+  </div>
+
+  <!-- GRID PAGE -->
+  <div class="grid-page" id="gridPage">
+    <div class="filter-bar" id="filterBar">
+      <div id="activeFilters"></div>
+      <span class="filter-clear" onclick="clearAllFilters()" style="display:none" id="clearAllBtn">✕ 清除筛选</span>
+    </div>
+    <div class="results-info" id="resultsInfo"></div>
+    <div class="tea-grid" id="teaGrid"></div>
+    <div class="no-result" id="noResult" style="display:none">没有找到匹配的茶叶，试试其他关键词</div>
+  </div>
+
+  <!-- TIMELINE PAGE -->
+  <div class="timeline" id="timelinePage">
+    <div id="timelineList"></div>
+  </div>
+
+  <!-- ORIGIN PAGE -->
+  <div class="timeline" id="originPage">
+    <div id="originList"></div>
+  </div>
+
+  <!-- FAVORITES PAGE -->
+  <div class="fav-page" id="favPage">
+    <div class="results-info">❤️ 我的收藏 · <strong id="favPageCount">0</strong> 种茶叶</div>
+    <div class="tea-grid" id="favGrid"></div>
+    <div class="empty" id="favEmpty" style="display:none">
+      <div class="empty-icon">🍵</div>
+      <p>还没有收藏茶叶</p>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<!-- MOBILE FILTER BUTTON -->
+<button class="mobile-filter-btn" id="mobFilterBtn" onclick="openMobFilter()">🔍</button>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobFilter()"></div>
+
+<!-- MOBILE FILTER PANEL -->
+<div class="mob-panel" id="mobPanel">
+  <div class="mob-panel-header">
+    <div class="mob-panel-title">🍃 筛选茶叶</div>
+    <button class="mob-panel-close" onclick="closeMobFilter()">✕</button>
+  </div>
+  <div id="mobFilters"></div>
+  <button class="mob-panel-apply" onclick="applyMobFilters()">应用筛选</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalImgWrap"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="tea_data.js"></script>
+<script src="tea_history.js"></script>
+<script>
+// ============================================================
+// 茶叶大全 v1.0 — Main Application
+// ============================================================
+
+// ---------- STATE ----------
+let currentFilters = { type: null, origin: null, grade: null, period: null, efficacy: null };
+let searchText = '';
+let favorites = [];
+let darkMode = false;
+let currentView = 'grid';
+
+// ---------- INIT ----------
+(function init() {
+  loadFavorites();
+  loadTheme();
+  renderSidebarTags();
+  renderGrid();
+  bindEvents();
+})();
+
+function loadFavorites() {
+  try { favorites = JSON.parse(localStorage.getItem('tea_favs') || '[]'); } catch(e) { favorites = []; }
+  updateFavCount();
+}
+
+function loadTheme() {
+  try {
+    const t = localStorage.getItem('tea_theme');
+    if (t === 'dark') { darkMode = true; document.documentElement.setAttribute('data-theme','dark'); }
+  } catch(e) {}
+}
+
+function updateFavCount() {
+  document.getElementById('favCount').textContent = favorites.length;
+  document.getElementById('favPageCount').textContent = favorites.length;
+}
+
+// ---------- EVENTS ----------
+function bindEvents() {
+  document.getElementById('searchInput').addEventListener('input', debounce(function() {
+    searchText = this.value.trim();
+    renderGrid();
+  }, 250));
+}
+
+// ---------- RENDER SIDEBAR ----------
+function renderSidebarTags() {
+  const types = [...new Set(TEA_DATA.map(t => t.type))];
+  const origins = [...new Set(TEA_DATA.map(t => t.origin.replace(/[^\u4e00-\u9fa5]/g,'').slice(0,2))].filter(Boolean);
+  const grades = ['特级','一级','二级','三级','四级','五级'];
+  const periods = [...new Set(TEA_DATA.map(t => t.period))].filter(Boolean);
+
+  function tagList(arr, field, containerId) {
+    const cont = document.getElementById(containerId);
+    cont.innerHTML = arr.map(item => {
+      const count = TEA_DATA.filter(t => {
+        if (field === 'type') return t.type === item;
+        if (field === 'origin') return t.origin.includes(item);
+        if (field === 'grade') return t.grade === item;
+        if (field === 'period') return t.period === item;
+      }).length;
+      const active = currentFilters.type === item ? 'active' : '';
+      return `<span class="sb-tag ${active}" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
+    }).join('');
+  }
+
+  tagList(types, 'type', 'typeTags');
+  tagList(origins.slice(0,12), 'origin', 'originTags');
+  tagList(grades.filter(g => TEA_DATA.some(t => t.grade === g)), 'grade', 'gradeTags');
+  tagList(periods.filter(Boolean), 'period', 'periodTags');
+
+  // Efficacy tags
+  const effTags = ['提神醒脑','清热解毒','消食去腻','减肥降脂','抗氧化','延缓衰老','护齿明目','暖胃养胃'];
+  document.getElementById('efficacyTags').innerHTML = effTags.map(e =>
+    `<span class="sb-tag" onclick="toggleFilter('efficacy','${e}',this)">${e}</span>`
+  ).join('');
+
+  renderMobFilters();
+}
+
+function renderMobFilters() {
+  const containers = ['typeTags','originTags','gradeTags','periodTags','efficacyTags'];
+  const labels = { typeTags:'🍵 茶类', originTags:'📍 产地', gradeTags:'⭐ 等级', periodTags:'📅 时期', efficacyTags:'🌿 功效' };
+  let html = '';
+  containers.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    html += `<div style="margin-bottom:1rem"><div style="font-size:.85rem;font-weight:700;color:var(--c2);margin-bottom:.4rem">${labels[id]||id}</div><div class="sb-tags">${el.innerHTML}</div></div>`;
+  });
+  document.getElementById('mobFilters').innerHTML = html;
+}
+
+// ---------- FILTER ----------
+function toggleFilter(field, value, el) {
+  if (currentFilters[field] === value) {
+    currentFilters[field] = null;
+    el.classList.remove('active');
+  } else {
+    document.querySelectorAll(`#${el.closest('.sb-tags').id} .sb-tag`).forEach(t => t.classList.remove('active'));
+    currentFilters[field] = value;
+    el.classList.add('active');
+  }
+  renderGrid();
+}
+
+function clearAllFilters() {
+  currentFilters = { type: null, origin: null, grade: null, period: null, efficacy: null };
+  document.querySelectorAll('.sb-tag').forEach(t => t.classList.remove('active'));
+  renderGrid();
+}
+
+function getFilteredTeas() {
+  return TEA_DATA.filter(tea => {
+    if (currentFilters.type && tea.type !== currentFilters.type) return false;
+    if (currentFilters.origin && !tea.origin.includes(currentFilters.origin)) return false;
+    if (currentFilters.grade && tea.grade !== currentFilters.grade) return false;
+    if (currentFilters.period && tea.period !== currentFilters.period) return false;
+    if (currentFilters.efficacy && !tea.efficacy.includes(currentFilters.efficacy)) return false;
+    if (searchText) {
+      const s = searchText.toLowerCase();
+      if (!tea.name.includes(searchText) && !tea.desc.includes(searchText) && !tea.origin.includes(searchText) && !tea.type.includes(searchText)) return false;
+    }
+    return true;
+  });
+}
+
+// ---------- RENDER GRID ----------
+function renderGrid() {
+  const teas = getFilteredTeas();
+  const info = document.getElementById('resultsInfo');
+  const grid = document.getElementById('teaGrid');
+  const noResult = document.getElementById('noResult');
+  const clearBtn = document.getElementById('clearAllBtn');
+
+  const hasFilters = Object.values(currentFilters).some(v => v) || searchText;
+  clearBtn.style.display = hasFilters ? 'block' : 'none';
+
+  if (teas.length === 0) {
+    grid.innerHTML = '';
+    noResult.style.display = 'block';
+    info.innerHTML = '';
+    return;
+  }
+
+  noResult.style.display = 'none';
+  info.innerHTML = `共找到 <strong>${teas.length}</strong> 种茶叶`;
+
+  grid.innerHTML = teas.map(tea => {
+    const imgUrl = getTeaImage(tea);
+    const isFav = favorites.includes(tea.id);
+    const placeholder = getTeaEmoji(tea.type);
+    return `
+    <div class="tea-card" onclick="openModal(${tea.id})">
+      <div class="tea-img-wrap">
+        <img class="tea-img" src="${imgUrl}" alt="${tea.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tea-img-placeholder" style="display:none">${placeholder}</div>
+        <span class="tea-type-badge">${tea.type}</span>
+        <span class="tea-grade-badge">${tea.grade}</span>
+      </div>
+      <div class="tea-body">
+        <div class="tea-name">${tea.name}</div>
+        <div class="tea-origin">📍 ${tea.origin}</div>
+        <div class="tea-desc">${tea.desc}</div>
+        <div class="tea-footer">
+          <span class="tea-period">${tea.period||''}</span>
+          <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ---------- FAVORITES ----------
+function toggleFav(id) {
+  const idx = favorites.indexOf(id);
+  if (idx >= 0) { favorites.splice(idx, 1); showToast('已取消收藏'); }
+  else { favorites.push(id); showToast('已添加到收藏'); }
+  try { localStorage.setItem('tea_favs', JSON.stringify(favorites)); } catch(e) {}
+  updateFavCount();
+  renderGrid();
+  renderFavGrid();
+}
+
+function renderFavGrid() {
+  const favTeas = TEA_DATA.filter(t => favorites.includes(t.id));
+  const grid = document.getElementById('favGrid');
+  const empty = document.getElementById('favEmpty');
+  if (favTeas.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  grid.innerHTML = favTeas.map(tea => {
+    const imgUrl = getTeaImage(tea);
+    const placeholder = getTeaEmoji(tea.type);
+    return `
+    <div class="tea-card" onclick="openModal(${tea.id})">
+      <div class="tea-img-wrap">
+        <img class="tea-img" src="${imgUrl}" alt="${tea.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tea-img-placeholder" style="display:none">${placeholder}</div>
+        <span class="tea-type-badge">${tea.type}</span>
+        <span class="tea-grade-badge">${tea.grade}</span>
+      </div>
+      <div class="tea-body">
+        <div class="tea-name">${tea.name}</div>
+        <div class="tea-origin">📍 ${tea.origin}</div>
+        <div class="tea-desc">${tea.desc}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleFavPage() {
+  const favPage = document.getElementById('favPage');
+  const gridPage = document.getElementById('gridPage');
+  if (currentView === 'fav') {
+    currentView = 'grid';
+    favPage.classList.remove('active');
+    gridPage.classList.remove('hidden');
+    document.getElementById('favHeaderBtn').textContent = '❤️ 收藏 ' + favorites.length;
+  } else {
+    currentView = 'fav';
+    gridPage.classList.add('hidden');
+    favPage.classList.add('active');
+    renderFavGrid();
+    document.getElementById('favHeaderBtn').textContent = '← 返回';
+  }
+}
+
+// ---------- MODAL ----------
+function openModal(id) {
+  const tea = TEA_DATA.find(t => t.id === id);
+  if (!tea) return;
+  const imgUrl = getTeaImage(tea);
+  const placeholder = getTeaEmoji(tea.type);
+  const isFav = favorites.includes(tea.id);
+
+  document.getElementById('modalImgWrap').innerHTML =
+    `<img class="modal-img" src="${imgUrl}" alt="${tea.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+     <div class="modal-img-placeholder" style="display:none">${placeholder}</div>`;
+
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-header">
+      <div class="modal-title">${tea.name}</div>
+      <div class="modal-badges">
+        <span class="modal-badge type">${tea.type}</span>
+        <span class="modal-badge">${tea.grade}</span>
+        <span class="modal-badge">📍 ${tea.origin}</span>
+        ${tea.period ? `<span class="modal-badge">📅 ${tea.period}</span>` : ''}
+      </div>
+    </div>
+    <div class="modal-grid">
+      <div class="modal-grid-item"><div class="modal-grid-label">茶汤颜色</div><div class="modal-grid-value">${tea.color||'淡黄/绿'}</div></div>
+      <div class="modal-grid-item"><div class="modal-grid-label">主要功效</div><div class="modal-grid-value">${tea.efficacy||'清热解毒'}</div></div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">简介</div>
+      <div class="modal-text">${tea.desc}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">详细介绍</div>
+      <div class="modal-text">${tea.detail||tea.desc}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">冲泡方法</div>
+      <div class="modal-text">${tea.brewing||'85-90℃热水，冲泡2-3分钟'}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">等级鉴别</div>
+      <div class="modal-text">${tea.gradeDesc||'特级茶叶以芽头嫩度最高，一芽一叶初展为佳'}</div>
+    </div>
+    ${tea.story ? `
+    <div class="modal-section">
+      <div class="modal-section-title">趣事传说</div>
+      <div class="modal-story">${tea.story}</div>
+    </div>` : ''}
+    <div style="margin-top:1rem">
+      <button class="modal-fav-btn ${isFav?'faved':''}" onclick="toggleFav(${tea.id});openModal(${tea.id})">
+        ${isFav?'❤️ 已收藏':'🤍 加入收藏'}
+      </button>
+      <button class="modal-fav-btn" onclick="copyShare(${tea.id})">🔗 分享</button>
+    </div>
+  `;
+
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function copyShare(id) {
+  const tea = TEA_DATA.find(t => t.id === id);
+  if (!tea) return;
+  const text = `🍃 ${tea.name}（${tea.type}·${tea.origin}）\n${tea.desc}\n来自「茶叶大全」`;
+  if (navigator.clipboard) { navigator.clipboard.writeText(text); showToast('链接已复制'); }
+  else showToast('复制失败');
+}
+
+// ---------- TIMELINE ----------
+function renderTimeline() {
+  const list = document.getElementById('timelineList');
+  list.innerHTML = TEA_HISTORY.map(h => `
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-era">${h.era}</div>
+        <div class="timeline-period">${h.period}</div>
+        <div class="timeline-desc">${h.desc}</div>
+        ${getRelatedTeas(h.period)}
+      </div>
+    </div>`).join('');
+}
+
+function getRelatedTeas(period) {
+  const related = TEA_DATA.filter(t => t.period === period).slice(0, 5);
+  if (related.length === 0) return '';
+  return `<div style="margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.4rem">
+    ${related.map(t => `<span style="background:var(--c1);color:#fff;border-radius:20px;padding:.15rem .6rem;font-size:.75rem;cursor:pointer" onclick="openModal(${t.id})">${t.name}</span>`).join('')}
+  </div>`;
+}
+
+// ---------- ORIGIN MAP ----------
+function renderOriginMap() {
+  const originGroups = {};
+  TEA_DATA.forEach(t => {
+    const prov = t.origin.replace(/[^\u4e00-\u9fa5]/g,'').slice(0,2);
+    if (!originGroups[prov]) originGroups[prov] = [];
+    originGroups[prov].push(t);
+  });
+
+  const list = document.getElementById('originList');
+  const sorted = Object.entries(originGroups).sort((a,b) => b[1].length - a[1].length);
+
+  list.innerHTML = sorted.map(([prov, teas]) => `
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--c2)"></div>
+      <div class="timeline-content">
+        <div class="timeline-period">📍 ${prov}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem">
+          ${teas.map(t => `<span style="background:var(--c4);border:1.5px solid var(--border);border-radius:20px;padding:.15rem .6rem;font-size:.75rem;cursor:pointer" onclick="openModal(${t.id})">${t.name}（${t.type}）</span>`).join('')}
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ---------- TABS ----------
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  if (tab === 'timeline') { renderTimeline(); }
+  if (tab === 'origin') { renderOriginMap(); }
+
+  document.getElementById('gridPage').classList.toggle('hidden', tab !== 'grid');
+  document.getElementById('timelinePage').classList.toggle('active', tab === 'timeline');
+  document.getElementById('originPage').classList.toggle('active', tab === 'origin');
+  document.getElementById('favPage').classList.remove('active');
+  currentView = tab;
+}
+
+// ---------- RANDOM ----------
+function showRandom() {
+  if (TEA_DATA.length === 0) return;
+  const tea = TEA_DATA[Math.floor(Math.random() * TEA_DATA.length)];
+  openModal(tea.id);
+}
+
+// ---------- THEME ----------
+function toggleTheme() {
+  darkMode = !darkMode;
+  document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : '');
+  try { localStorage.setItem('tea_theme', darkMode ? 'dark' : 'light'); } catch(e) {}
+  document.querySelector('.hdr-btn-outline').textContent = darkMode ? '☀️' : '🌙';
+}
+
+// ---------- MOBILE FILTER ----------
+function openMobFilter() {
+  document.getElementById('mobOverlay').classList.add('on');
+  document.getElementById('mobPanel').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobFilter() {
+  document.getElementById('mobOverlay').classList.remove('on');
+  document.getElementById('mobPanel').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function applyMobFilters() {
+  closeMobFilter();
+}
+
+// ---------- TOAST ----------
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ---------- UTILS ----------
+function debounce(fn, delay) {
+  let timer;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+function getTeaImageUrl(tea) {
+  // Wikimedia Commons 可靠茶类图片（CC BY-SA）
+  const wikiImages = {
+    // 龙井/绿茶
+    '西湖龙井': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Longjing_Tea_201.JPG/440px-Longjing_Tea_201.JPG',
+    '碧螺春': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Bi_Luo_Chun_tea.jpg/440px-Bi_Luo_Chun_tea.jpg',
+    '黄山毛峰': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg',
+    '信阳毛尖': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Xinyang_Maojian_Tea.jpg/440px-Xinyang_Maojian_Tea.jpg',
+    '正山小种': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lapsang_Souchong_tea.jpg/440px-Lapsang_Souchong_tea.jpg',
+    '滇红': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Yunnan_Dianhong_Black_Tea.jpg/440px-Yunnan_Dianhong_Black_Tea.jpg',
+    '祁门红茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Qimen_Black_Tea.jpg/440px-Qimen_Black_Tea.jpg',
+    '安溪铁观音': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tieguanyin_Oolong_Tea.jpg/440px-Tieguanyin_Oolong_Tea.jpg',
+    '大红袍': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Da_Hong_Pao_Oolong_Tea.jpg/440px-Da_Hong_Pao_Oolong_Tea.jpg',
+    '凤凰单丛': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fenghuang_Dancong_Tea.jpg/440px-Fenghuang_Dancong_Tea.jpg',
+    '白毫银针': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/White_Peony_Tea.jpg/440px-White_Peony_Tea.jpg',
+    '云南普洱': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Pu-erh_Tea_Cake.jpg/440px-Pu-erh_Tea_Cake.jpg',
+    '君山银针': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Junshan_Yinzhen_Tea.jpg/440px-Junshan_Yinzhen_Tea.jpg',
+    '茉莉花茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Jasmine_Tea.jpg/440px-Jasmine_Tea.jpg',
+  };
+  if (wikiImages[tea.name]) return wikiImages[tea.name];
+  // 按茶类默认图
+  const typeDefault = {
+    '绿茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg',
+    '红茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lapsang_Souchong_tea.jpg/440px-Lapsang_Souchong_tea.jpg',
+    '乌龙茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tieguanyin_Oolong_Tea.jpg/440px-Tieguanyin_Oolong_Tea.jpg',
+    '白茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/White_Peony_Tea.jpg/440px-White_Peony_Tea.jpg',
+    '黄茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Junshan_Yinzhen_Tea.jpg/440px-Junshan_Yinzhen_Tea.jpg',
+    '黑茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Pu-erh_Tea_Cake.jpg/440px-Pu-erh_Tea_Cake.jpg',
+  };
+  return typeDefault[tea.type] || 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg';
+}
+
+function getTeaImage(tea) { return getTeaImageUrl(tea); }
+
+function getTeaEmoji(type) {
+  const map = {
+    '绿茶': '🍵', '红茶': '☕', '乌龙茶': '🫖',
+    '白茶': '🌿', '黄茶': '🍃', '黑茶': '🧉', '其他': '🍵'
+  };
+  return map[type] || '🍵';
+}
+</script>
+</body>
+</html>
