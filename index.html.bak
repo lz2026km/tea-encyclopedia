@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
-   茶叶大全 v3.1 — 清新雅致中国风
+   茶叶大全 v3.0 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -207,26 +207,17 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 /* ===== RESPONSIVE ===== */
 @media(max-width: 768px) {
-@media(max-width: 768px) {
+  html { font-size: 15px; }
   .sidebar { display: none; }
   .mobile-filter-btn { display: flex; align-items: center; justify-content: center; }
   .hdr-title { display: none; }
   .hdr-search { max-width: 200px; }
-  .tea-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .7rem; }
-  .tea-img-wrap { height: 110px; }
+  .tea-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .8rem; }
+  .tea-img-wrap { height: 130px; }
   .modal-img { height: 200px; }
   .modal-grid { grid-template-columns: 1fr; }
   .modal-body { padding: 1rem; }
-  /* 禁用卡片翻转效果 */
-  .card-flip { transform: none !important; }
-  .card-flip-inner { transform: none !important; }
-  .card-back { transform: none !important; position: static; display: none; }
-  .tea-card.flipped .card-back { display: none; }
-  .tea-card.flipped .card-front { display: block; }
-  /* 隐藏分享和泡茶按钮 */
-  .tea-share-btn { display: none; }
-  .brew-quick-btn { display: none; }
-}
+  .compare-bar { flex-wrap: wrap; gap: .5rem; padding: .6rem; }
   .compare-items { max-width: 100%; overflow-x: auto; }
   .compare-item { min-width: 100px; font-size: .75rem; flex-shrink: 0; }
 }
