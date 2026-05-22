@@ -31,12 +31,15 @@
   --base: 18px;
 }
 [data-theme="dark"] {
-  --bg: #1A2E1A;
-  --text: #D8F3DC;
+  --bg: #1a1a2e;
+  --white: #2d2d44;
+  --text: #e0e0e0;
+  --border: #3d3d5c;
   --c1: #52B788;
-  --c2: #74C69D;
-  --c4: #2D6A4F;
-  --c5: #95D5B2;
+  --c2: #40916C;
+  --c3: #2D6A4F;
+  --c4: #1B4332;
+  --c5: #74C69D;
   --shadow: 0 2px 8px rgba(0,0,0,0.3);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
 }
@@ -1072,6 +1075,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   <button class="compare-close" onclick="clearCompare()">✕</button>
 </div>
 
+<script src="lazy-modal.js"></script>
 <script src="tea_data.js"></script>
 <script src="tea_history.js"></script>
 <script>
@@ -1371,30 +1375,54 @@ function bindEvents() {
   });
 
   // Keyboard shortcuts
+  let selectedCardIndex = -1;
   document.addEventListener('keydown', (e) => {
+    const tag = document.activeElement.tagName;
+    // J 键：选中下一张卡片
+    if ((e.key === 'j' || e.key === 'J') && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      const cards = document.querySelectorAll('.tea-card');
+      if (selectedCardIndex < cards.length - 1) {
+        selectedCardIndex++;
+        cards[selectedCardIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+    // K 键：选中上一张卡片
+    if ((e.key === 'k' || e.key === 'K') && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      if (selectedCardIndex > 0) {
+        selectedCardIndex--;
+        const cards = document.querySelectorAll('.tea-card');
+        cards[selectedCardIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+    // Enter 键：打开选中的卡片详情
+    if (e.key === 'Enter' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      const cards = document.querySelectorAll('.tea-card');
+      if (cards[selectedCardIndex]) cards[selectedCardIndex].click();
+    }
     // / 键：聚焦搜索框
-    if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+    if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
       e.preventDefault();
       document.getElementById('searchInput').focus();
     }
     // ? 键：显示快捷键说明
-    if (e.key === '?' && document.activeElement.tagName !== 'INPUT') {
-      showToast('🔑 快捷键: / 搜索 | ? 帮助 | G 宫格 | L 列表 | T 主题 | R 随机茶叶');
+    if (e.key === '?' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      showToast('🔑 快捷键: J/K 选卡 | Enter 打开 | / 搜索 | G 宫格 | L 列表 | T 主题 | R 随机茶叶');
     }
     // G 键：切换到宫格视图
-    if (e.key === 'g' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') setView('grid');
+    if (e.key === 'g' && !e.ctrlKey && tag !== 'INPUT' && tag !== 'TEXTAREA') setView('grid');
     // L 键：切换到列表视图
-    if (e.key === 'l' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') setView('list');
+    if (e.key === 'l' && !e.ctrlKey && tag !== 'INPUT' && tag !== 'TEXTAREA') setView('list');
     // T 键：切换主题
-    if (e.key === 't' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') toggleTheme();
+    if (e.key === 't' && !e.ctrlKey && tag !== 'INPUT' && tag !== 'TEXTAREA') toggleTheme();
     // R 键：随机茶叶
-    if (e.key === 'r' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') showRandom();
+    if (e.key === 'r' && !e.ctrlKey && tag !== 'INPUT' && tag !== 'TEXTAREA') showRandom();
     // Escape：关闭弹窗
     if (e.key === 'Escape') {
       closeModal();
       closeVideoModal();
       closeEncyclopediaModal();
       hideContextMenu();
+      closeMobFilter();
     }
   });
 
@@ -2304,11 +2332,28 @@ function showRandom() {
 
 // ---------- THEME ----------
 function toggleTheme() {
-  darkMode = !darkMode;
-  document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : '');
-  try { localStorage.setItem('tea_theme', darkMode ? 'dark' : 'light'); } catch(e) {}
-  document.querySelector('.hdr-btn-outline').textContent = darkMode ? '☀️' : '🌙';
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const newTheme = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('tea_theme', newTheme);
+  updateThemeIcon();
 }
+
+function updateThemeIcon() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const btn = document.querySelector('.hdr-btn-outline[onclick*="toggleTheme"]');
+  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('tea_theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  updateThemeIcon();
+})();
 
 // ---------- MOBILE FILTER ----------
 function openMobFilter() {
