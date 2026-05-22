@@ -1187,8 +1187,8 @@ function renderSidebarTags() {
       }).length;
       const active = currentFilters.type === item ? 'active' : '';
       const len = item.length;
-      const fontSize = 0.82 + (len % 5) * 0.05;
-      return `<span class="sb-tag ${active}" style="font-size:${fontSize}rem" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
+      const fontSize = '0.85rem';
+      return `<span class="sb-tag ${active}" style="font-size:${fontSize}" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
     }).join('');
   }
 
@@ -1201,8 +1201,8 @@ function renderSidebarTags() {
   const effTags = ['提神醒脑','清热解毒','消食去腻','减肥降脂','抗氧化','延缓衰老','护齿明目','暖胃养胃'];
   document.getElementById('efficacyTags').innerHTML = effTags.map(e => {
     const len = e.length;
-    const fontSize = 0.82 + (len % 5) * 0.05;
-    return `<span class="sb-tag" style="font-size:${fontSize}rem" onclick="toggleFilter('efficacy','${e}',this)">${e}</span>`;
+    const fontSize = '0.85rem';
+    return `<span class="sb-tag" style="font-size:${fontSize}" onclick="toggleFilter('efficacy','${e}',this)">${e}</span>`;
   }).join('');
 
   // Season tags
