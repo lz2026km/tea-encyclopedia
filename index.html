@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>茶叶大全 v1.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶大全 v3.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
-   茶叶大全 v1.0 — 清新雅致中国风
+   茶叶大全 v3.0 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -121,6 +121,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .tea-share-btn { background: none; border: none; cursor: pointer; font-size: 1rem; color: var(--border); transition: color .2s, opacity .2s; opacity: 0; }
 .tea-card:hover .tea-share-btn { opacity: 1; }
 .tea-share-btn:hover { color: var(--c1); }
+.brew-quick-btn { background: none; border: none; cursor: pointer; font-size: 1rem; color: var(--border); transition: color .2s, opacity .2s; opacity: 0; }
+.tea-card:hover .brew-quick-btn { opacity: 1; }
+.brew-quick-btn:hover { color: var(--c1); }
 
 /* ===== 卡片徽章系统 ===== */
 .tea-card-wrap { position: relative; perspective: 800px; }
@@ -436,7 +439,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     margin: .5rem 0;
   }
   .tea-detail-panel::before {
-    content: '茶叶大全 v1.0 — ' attr(data-tea-name);
+    content: '茶叶大全 v3.0 — ' attr(data-tea-name);
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
@@ -638,7 +641,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v1.0 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v3.0 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -655,7 +658,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v1.0</span>🍃</div>
+  <div class="hdr-logo"><span>v3.0</span>🍃</div>
   <div class="hdr-title">茶叶大全</div>
   <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="🔍 搜索茶叶名称、产地…" autocomplete="off">
@@ -1661,6 +1664,7 @@ function renderGrid() {
                 <span class="tea-period">${tea.period||''}</span>
                 <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
                 <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+                <button class="brew-quick-btn" onclick="event.stopPropagation();openBrewModal(${tea.id})">☕</button>
               </div>
             </div>
             <div class="tea-detail" id="detail_${tea.id}"></div>
@@ -1917,8 +1921,8 @@ function openModal(id) {
       <div class="modal-text">${tea.detail||tea.desc}</div>
     </div>
     <div class="modal-section">
-      <div class="modal-section-title">冲泡方法</div>
-      <div class="modal-text">${tea.brewing||'85-90℃热水，冲泡2-3分钟'}</div>
+      <div class="modal-section-title">☕ 冲泡方法</div>
+      <div class="modal-text">${tea.brewing ? `水温：${tea.brewing.temperature || '85-90℃'}｜茶具：${tea.brewing.teaware || '盖碗'}｜步骤：${tea.brewing.steps ? tea.brewing.steps.replace(/[；;]/g,' → ') : '常规冲泡'}` : '85-90℃热水，冲泡2-3分钟'}</div>
     </div>
     <div class="modal-section">
       <div class="modal-section-title">等级鉴别</div>
@@ -2167,8 +2171,16 @@ function renderOriginMap() {
 
 // ---------- TABS ----------
 function switchTab(tab, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  } else {
+    const targetBtn = document.querySelector(`.tab-btn[onclick*="switchTab('${tab}'"]`);
+    if (targetBtn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      targetBtn.classList.add('active');
+    }
+  }
 
   if (tab === 'timeline') { renderTimeline(); }
   if (tab === 'origin') { renderOriginMap(); }
