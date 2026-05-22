@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>茶叶大全 v1.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2D6A4F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
    茶叶大全 v1.0 — 清新雅致中国风
@@ -188,30 +193,341 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .timeline-period { font-size: 1.1rem; font-weight: 700; color: var(--c5); margin-bottom: .4rem; }
 .timeline-desc { font-size: .88rem; line-height: 1.8; color: var(--text); }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.tea-card { animation: fadeIn .3s ease; }
+/* ===== LOADING PROGRESS BAR ===== */
+#loadingBar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #52B788, #2D6A4F); z-index: 9999; width: 0%; transition: width .3s ease; }
+#loadingBar.done { width: 100%; opacity: 0; transition: width .3s ease, opacity .5s ease .3s; }
+
+/* ===== PAGE FADE IN ===== */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.layout { animation: fadeIn .6s ease; }
+
+/* ===== CARD FLY IN ===== */
+@keyframes cardFlyIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.tea-card { animation: cardFlyIn .5s ease both; }
+
+/* ===== COMPARISON BAR ===== */
+.compare-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 2px solid var(--c1); box-shadow: 0 -4px 20px rgba(45,106,79,.2); z-index: 180; padding: .8rem 1rem; display: none; align-items: center; gap: 1rem; }
+.compare-bar.active { display: flex; }
+.compare-bar-title { font-weight: 700; color: var(--c1); font-size: .9rem; white-space: nowrap; }
+.compare-items { display: flex; gap: .6rem; flex: 1; overflow-x: auto; }
+.compare-item { background: var(--c4); border: 1.5px solid var(--border); border-radius: 8px; padding: .4rem .8rem; min-width: 120px; text-align: center; font-size: .8rem; }
+.compare-item-name { font-weight: 700; color: var(--c5); font-size: .85rem; margin-bottom: .2rem; }
+.compare-item-meta { color: var(--c2); font-size: .72rem; }
+.compare-close { background: var(--c1); color: #fff; border: none; border-radius: 50%; width: 1.8rem; height: 1.8rem; cursor: pointer; font-size: .9rem; display: flex; align-items: center; justify-content: center; }
+
+/* ===== SEARCH HISTORY ===== */
+.search-wrap { position: relative; flex: 2; max-width: 360px; }
+.search-wrap input { width: 100%; padding: .5rem .9rem; border: 2px solid var(--border); border-radius: 25px; background: var(--white); color: var(--text); font-size: .95rem; outline: none; }
+.search-wrap input:focus { border-color: var(--c2); box-shadow: 0 0 0 3px rgba(82,183,136,.2); }
+.search-history { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-md); z-index: 150; display: none; overflow: hidden; margin-top: .3rem; }
+.search-history.show { display: block; }
+.search-history-item { padding: .5rem .8rem; cursor: pointer; font-size: .88rem; color: var(--text); display: flex; align-items: center; justify-content: space-between; transition: background .15s; }
+.search-history-item:hover { background: var(--c4); }
+.search-history-item .hist-text { flex: 1; }
+.search-history-item .hist-del { color: var(--c2); font-size: .75rem; padding: .2rem; opacity: .6; }
+.search-history-item .hist-del:hover { opacity: 1; color: #e53e3e; }
+.search-history-empty { padding: .5rem .8rem; color: var(--c2); font-size: .85rem; text-align: center; }
+.search-history-header { padding: .4rem .8rem; background: var(--c4); font-size: .75rem; color: var(--c2); font-weight: 700; }
+
+/* ===== SIDEBAR COLLAPSE ===== */
+.sidebar-toggle { background: var(--c1); color: #fff; border: none; border-radius: 50%; width: 1.6rem; height: 1.6rem; cursor: pointer; font-size: .8rem; display: flex; align-items: center; justify-content: center; margin-bottom: .8rem; transition: background .2s; }
+.sidebar-toggle:hover { background: var(--c2); }
+.sidebar.collapsed { width: 60px; min-width: 60px; padding: .8rem .5rem; }
+.sidebar.collapsed .sb-section { display: none; }
+.sidebar.collapsed .sidebar-toggle { margin: 0 auto .8rem; }
+.sidebar.collapsed .sb-title { display: none; }
+
+/* ===== CARD CHECKBOX ===== */
+.tea-card { position: relative; }
+.tea-card .card-check { position: absolute; top: .4rem; left: .4rem; width: 1.2rem; height: 1.2rem; border-radius: 4px; border: 2px solid rgba(255,255,255,.7); background: rgba(0,0,0,.2); cursor: pointer; z-index: 5; display: flex; align-items: center; justify-content: center; font-size: .7rem; color: #fff; opacity: 0; transition: opacity .2s; }
+.tea-card:hover .card-check { opacity: 1; }
+.tea-card .card-check.checked { background: var(--c1); border-color: var(--c1); opacity: 1; }
 
 /* ===== FAVORITES PAGE ===== */
 .fav-page { display: none; }
 .fav-page.active { display: block; }
 .grid-page { display: block; }
 .grid-page.hidden { display: none; }
+
+/* ===== IMAGE CAROUSEL ===== */
+.carousel-wrap { position: relative; width: 100%; height: 160px; overflow: hidden; background: var(--c4); }
+.carousel-wrap .tea-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-wrap .tea-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, var(--c4) 0%, var(--c3) 100%); color: var(--c1); }
+.carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; border: none; cursor: pointer; font-size: .9rem; line-height: 28px; text-align: center; z-index: 5; transition: background .2s; display: flex; align-items: center; justify-content: center; }
+.carousel-arrow:hover { background: rgba(0,0,0,.7); }
+.carousel-arrow.prev { left: 6px; }
+.carousel-arrow.next { right: 6px; }
+.carousel-dots { position: absolute; bottom: 6px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; z-index: 5; }
+.carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; transition: background .2s; border: none; }
+.carousel-dot.active { background: #fff; }
+.carousel-counter { position: absolute; top: 5px; right: 8px; background: rgba(0,0,0,.4); color: #fff; border-radius: 10px; padding: .1rem .4rem; font-size: .65rem; z-index: 5; }
+
+/* ===== MODAL CAROUSEL ===== */
+.modal-carousel-wrap { position: relative; width: 100%; height: 280px; overflow: hidden; background: var(--c4); margin-bottom: 1rem; border-radius: var(--radius) var(--radius) 0 0; }
+.modal-carousel-wrap .modal-carousel-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.modal-carousel-wrap .modal-carousel-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, var(--c4) 0%, var(--c3) 100%); color: var(--c1); }
+.modal-carousel-wrap .carousel-arrow { width: 34px; height: 34px; font-size: 1rem; line-height: 34px; }
+.modal-carousel-wrap .carousel-dots { bottom: 8px; }
+.modal-carousel-wrap .carousel-dot { width: 7px; height: 7px; }
+
+/* ===== VIDEO MODAL ===== */
+.video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; border-radius: 0 0 var(--radius) var(--radius); overflow: hidden; }
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* ===== ENCYCLOPEDIA MODAL ===== */
+.enc-content { padding: .5rem 0; }
+.enc-section { margin-bottom: 1.5rem; }
+.enc-section-title { font-size: 1rem; font-weight: 700; color: var(--c5); margin-bottom: .8rem; padding-bottom: .3rem; border-bottom: 1.5px solid var(--border); }
+.process-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.process-col { background: var(--c4); border-radius: var(--radius); padding: .8rem; text-align: center; border: 1.5px solid var(--border); position: relative; }
+.process-title { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+.process-arrow { font-size: .78rem; color: var(--text); line-height: 1.5; margin-bottom: .3rem; font-family: monospace; }
+.process-desc { font-size: .72rem; color: var(--c2); }
+.process-dot { width: 10px; height: 10px; border-radius: 50%; position: absolute; bottom: -.5rem; left: 50%; transform: translateX(-50%); border: 2px solid var(--bg); }
+.terms-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; }
+.term-item { background: var(--c4); border-radius: 8px; padding: .6rem; border: 1px solid var(--border); }
+.term-title { font-size: .85rem; font-weight: 700; color: var(--c1); margin-bottom: .2rem; }
+.term-desc { font-size: .75rem; color: var(--text); line-height: 1.5; }
+.health-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+.health-item { display: flex; gap: .6rem; background: var(--c4); border-radius: 8px; padding: .7rem; border: 1px solid var(--border); align-items: flex-start; }
+.health-icon { font-size: 1.6rem; flex-shrink: 0; }
+.health-name { font-size: .85rem; font-weight: 700; color: var(--c5); margin-bottom: .2rem; }
+.health-desc { font-size: .75rem; color: var(--text); line-height: 1.5; }
+.tips-list { display: flex; flex-direction: column; gap: .4rem; }
+.tip-item { font-size: .8rem; color: var(--text); padding: .3rem 0; border-bottom: 1px dashed var(--border); }
+
+/* ===== 五行颜色标签 ===== */
+.wu-xing-tag { display: inline-flex; align-items: center; gap: .2rem; border-radius: 12px; padding: .1rem .5rem; font-size: .72rem; font-weight: 600; }
+.wu-xing-tag.metal { background: #E8E8E8; color: #666; }
+.wu-xing-tag.wood { background: #90EE90; color: #2D6A4F; }
+.wu-xing-tag.water { background: #4A4A4A; color: #fff; }
+.wu-xing-tag.fire { background: #FF6B6B; color: #fff; }
+.wu-xing-tag.earth { background: #DAA520; color: #fff; }
+
+/* ===== 卡片详情展开面板 ===== */
+.tea-detail {
+  display: none;
+  background: var(--c4);
+  border-top: 1.5px solid var(--border);
+  padding: 1rem;
+  animation: slideDown .3s ease;
+}
+.tea-detail.open { display: block; }
+@keyframes slideDown {
+  from { opacity: 0; max-height: 0; transform: translateY(-10px); }
+  to { opacity: 1; max-height: 500px; transform: translateY(0); }
+}
+.tea-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-bottom: .8rem; }
+.tea-detail-item { background: var(--white); border-radius: 8px; padding: .5rem .7rem; border: 1px solid var(--border); }
+.tea-detail-label { font-size: .7rem; color: var(--c2); margin-bottom: .15rem; }
+.tea-detail-value { font-size: .85rem; color: var(--c5); font-weight: 600; }
+.tea-detail-section { margin-bottom: .6rem; }
+.tea-detail-section-title { font-size: .8rem; color: var(--c1); font-weight: 700; margin-bottom: .3rem; display: flex; align-items: center; gap: .3rem; }
+.tea-detail-section-title::before { content: ''; width: 3px; height: .8em; background: var(--c1); border-radius: 2px; }
+.tea-detail-text { font-size: .82rem; line-height: 1.7; color: var(--text); }
+.tea-detail-story { background: var(--white); border-radius: 8px; padding: .7rem; border-left: 3px solid var(--c1); font-size: .8rem; line-height: 1.7; }
+.tea-detail-actions { display: flex; gap: .4rem; margin-top: .7rem; flex-wrap: wrap; }
+.tea-detail-btn { background: var(--c1); color: #fff; border: none; border-radius: 20px; padding: .35rem .8rem; font-size: .78rem; cursor: pointer; font-family: inherit; }
+.tea-detail-btn:hover { background: var(--c2); }
+.tea-detail-btn.faved { background: #e53e3e; }
+
+/* ===== 自定义右键菜单 ===== */
+.custom-context-menu {
+  position: fixed;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  z-index: 500;
+  min-width: 140px;
+  overflow: hidden;
+  display: none;
+}
+.custom-context-menu.show { display: block; }
+.context-menu-item {
+  padding: .5rem .8rem;
+  font-size: .85rem;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  transition: background .15s;
+}
+.context-menu-item:hover { background: var(--c4); }
+.context-menu-item.danger { color: #e53e3e; }
+.context-menu-divider { height: 1px; background: var(--border); margin: .2rem 0; }
+
+/* ===== KEYBOARD HINT ===== */
+.kb-hint { position: fixed; bottom: 1rem; right: 1rem; background: var(--white); border: 1.5px solid var(--border); border-radius: 10px; padding: .5rem .8rem; font-size: .72rem; color: var(--c2); z-index: 50; display: none; }
+.kb-hint.show { display: block; }
+.kb-hint kbd { background: var(--c4); border: 1px solid var(--border); border-radius: 4px; padding: .1rem .3rem; font-family: inherit; font-size: .7rem; }
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .hdr, .sidebar, .tab-btn, .tea-fav-btn, .compare-bar, .mobile-filter-btn,
+  .toast, .context-menu, .modal-overlay, .compare-bar, .filter-bar,
+  .banner, .fav-page, .tab-bar { display: none !important; }
+  .layout { display: block !important; }
+  .main { padding: 0 !important; }
+  .tea-detail-panel {
+    display: block !important;
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: .5rem 0;
+  }
+  .tea-detail-panel::before {
+    content: '茶叶大全 v1.0 — ' attr(data-tea-name);
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2D6A4F;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: .3rem;
+  }
+  .tea-grid { display: none !important; }
+  .tea-detail { display: none !important; }
+  .tea-detail-panel { display: block !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .print-header { display: block !important; font-size: .9rem; color: #666; margin-bottom: 1rem; }
+}
+
+/* ===== SEARCH AUTOCOMPLETE ===== */
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  z-index: 160;
+  display: none;
+  overflow: hidden;
+  margin-top: .3rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.autocomplete-list.show { display: block; }
+.autocomplete-item {
+  padding: .5rem .8rem;
+  cursor: pointer;
+  font-size: .88rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  transition: background .15s;
+}
+.autocomplete-item:hover, .autocomplete-item.active { background: var(--c4); }
+.autocomplete-item .ac-name { font-weight: 600; color: var(--c5); }
+.autocomplete-item .ac-meta { font-size: .75rem; color: var(--c2); margin-left: auto; }
+.autocomplete-empty { padding: .5rem .8rem; color: var(--c2); font-size: .85rem; text-align: center; }
+
+/* ===== PWA INSTALL PROMPT ===== */
+.pwa-install-bar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--white);
+  border: 2px solid var(--c1);
+  border-radius: 16px;
+  padding: .7rem 1.2rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: .88rem;
+  transition: transform .35s ease;
+  max-width: 90vw;
+}
+.pwa-install-bar.show { transform: translateX(-50%) translateY(0); }
+.pwa-install-bar .pwa-icon { font-size: 1.8rem; flex-shrink: 0; }
+.pwa-install-bar .pwa-text { flex: 1; }
+.pwa-install-bar .pwa-title { font-weight: 700; color: var(--c5); margin-bottom: .1rem; }
+.pwa-install-bar .pwa-desc { font-size: .75rem; color: var(--c2); }
+.pwa-install-bar .pwa-btns { display: flex; gap: .4rem; }
+.pwa-install-bar .pwa-accept {
+  background: var(--c1); color: #fff; border: none; border-radius: 20px;
+  padding: .4rem .9rem; font-size: .82rem; cursor: pointer; font-family: inherit;
+}
+.pwa-install-bar .pwa-dismiss {
+  background: transparent; color: var(--c2); border: 1.5px solid var(--border);
+  border-radius: 20px; padding: .4rem .7rem; font-size: .82rem; cursor: pointer;
+}
+
+/* ===== BOOKMARKLET HINT ===== */
+.bookmarklet-btn {
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  color: #fff; border: none; border-radius: 8px;
+  padding: .45rem .8rem; font-size: .82rem; cursor: pointer;
+  font-family: inherit; display: flex; align-items: center; gap: .3rem;
+}
+
+/* ===== PRINT HEADER (shown only when printing) ===== */
+.print-header { display: none; }
+
+/* ===== SKELETON SCREEN ===== */
+.skeleton-wrap { display: flex; flex-wrap: wrap; gap: 1.2rem; padding: 1.5rem; }
+.skeleton-card {
+  width: 220px; height: 300px; border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--c4) 25%, var(--c3) 50%, var(--c4) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.skeleton-wrap.hidden { display: none; }
 </style>
 </head>
 <body>
+
+<!-- LOADING PROGRESS BAR -->
+<div id="loadingBar"></div>
+
+<!-- SKELETON SCREEN (shown before JS loads) -->
+<div class="skeleton-wrap" id="skeletonScreen">
+  <div class="skeleton-card"></div>
+  <div class="skeleton-card"></div>
+  <div class="skeleton-card"></div>
+  <div class="skeleton-card"></div>
+</div>
+
+<!-- PRINT HEADER -->
+<div class="print-header">茶叶大全 v1.0 — 打印时间：<span id="printDate"></span></div>
+
+<!-- PWA INSTALL BAR -->
+<div class="pwa-install-bar" id="pwaInstallBar">
+  <div class="pwa-icon">🍃</div>
+  <div class="pwa-text">
+    <div class="pwa-title">安装茶叶百科 App</div>
+    <div class="pwa-desc">离线访问 · 更流畅体验</div>
+  </div>
+  <div class="pwa-btns">
+    <button class="pwa-accept" id="pwaAcceptBtn">安装</button>
+    <button class="pwa-dismiss" id="pwaDismissBtn">稍后</button>
+  </div>
+</div>
 
 <!-- HEADER -->
 <header class="hdr">
   <div class="hdr-logo"><span>v1.0</span>🍃</div>
   <div class="hdr-title">茶叶大全</div>
-  <div class="hdr-search">
+  <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="🔍 搜索茶叶名称、产地…" autocomplete="off">
+    <div class="search-history" id="searchHistory"></div>
+    <div class="autocomplete-list" id="autocompleteList"></div>
   </div>
   <div class="hdr-actions">
     <button class="hdr-btn" onclick="showRandom()">🎲 随机看看</button>
     <button class="hdr-btn" id="favHeaderBtn" onclick="toggleFavPage()">❤️ 收藏 <span id="favCount">0</span></button>
+    <button class="hdr-btn" onclick="openEncyclopediaModal()" title="茶百科">📖 百科</button>
     <button class="hdr-btn-outline" onclick="toggleTheme()" title="切换深色模式">🌙</button>
+    <button class="bookmarklet-btn" onclick="showBookmarkletHint()" title="搜索书签">🔖</button>
   </div>
 </header>
 
@@ -220,6 +536,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
+  <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="折叠侧边栏">☰</button>
   <div class="sb-section">
     <div class="sb-title">🍵 茶类</div>
     <div class="sb-tags" id="typeTags"></div>
@@ -240,6 +557,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <div class="sb-title">🌿 功效</div>
     <div class="sb-tags" id="efficacyTags"></div>
   </div>
+  <div class="sb-section">
+    <div class="sb-title">🍃 季节</div>
+    <div class="sb-tags" id="seasonTags"></div>
+  </div>
 </aside>
 
 <!-- MAIN -->
@@ -249,6 +570,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   <div class="banner">
     <h1>🍃 茶叶大全</h1>
     <p>从神农时代到现代 · 六大茶类 · 50种名茶 · 趣事传说 · 产地等级</p>
+    <div id="solarTermBanner" style="margin-top:.8rem;font-size:.9rem;opacity:.9"></div>
   </div>
 
   <!-- TAB BAR -->
@@ -256,6 +578,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <button class="tab-btn active" onclick="switchTab('grid', this)">🍵 名茶浏览</button>
     <button class="tab-btn" onclick="switchTab('timeline', this)">📜 历史长河</button>
     <button class="tab-btn" onclick="switchTab('origin', this)">📍 产地分布</button>
+    <button class="tab-btn" onclick="switchTab('recent', this)">🕒 最近浏览</button>
   </div>
 
   <!-- GRID PAGE -->
@@ -286,6 +609,16 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <div class="empty" id="favEmpty" style="display:none">
       <div class="empty-icon">🍵</div>
       <p>还没有收藏茶叶</p>
+    </div>
+  </div>
+
+  <!-- RECENT PAGE -->
+  <div class="fav-page" id="recentPage">
+    <div class="results-info">🕒 最近浏览 · <strong id="recentPageCount">0</strong> 条记录</div>
+    <div class="tea-grid" id="recentGrid"></div>
+    <div class="empty" id="recentEmpty" style="display:none">
+      <div class="empty-icon">🕒</div>
+      <p>暂无浏览记录</p>
     </div>
   </div>
 
@@ -320,28 +653,317 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<script src="tea_data.js"></script>
-<script src="tea_history.js"></script>
+<!-- CUSTOM CONTEXT MENU -->
+<div class="custom-context-menu" id="contextMenu">
+  <div class="context-menu-item" onclick="ctxOpenDetail()">📖 查看详情</div>
+  <div class="context-menu-item" onclick="ctxToggleFav()">❤️ <span id="ctxFavText">收藏</span></div>
+  <div class="context-menu-divider"></div>
+  <div class="context-menu-item" onclick="ctxOpenModal()">🔗 完整信息</div>
+</div>
+
+<!-- KEYBOARD HINT -->
+<div class="kb-hint" id="kbHint">
+  <kbd>/</kbd> 搜索 &nbsp; <kbd>←</kbd><kbd>→</kbd> 切换 &nbsp; <kbd>Esc</kbd> 关闭
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="videoModalOverlay" onclick="if(event.target===this)closeVideoModal()">
+  <div class="modal" id="videoModal" style="max-width:800px">
+    <button class="modal-close" onclick="closeVideoModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-title">📺 冲泡视频</div>
+    </div>
+    <div class="video-wrap" id="videoWrap">
+      <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ENCYCLOPEDIA MODAL -->
+<div class="modal-overlay" id="encModalOverlay" onclick="if(event.target===this)closeEncyclopediaModal()">
+  <div class="modal" id="encModal" style="max-width:900px;max-height:85vh;overflow-y:auto">
+    <button class="modal-close" onclick="closeEncyclopediaModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-title">📖 茶百科</div>
+    </div>
+    <div class="enc-content">
+      <!-- 六大茶类工艺流程 -->
+      <div class="enc-section">
+        <div class="enc-section-title">🍃 六大茶类工艺流程</div>
+        <div class="process-flow">
+          <div class="process-col">
+            <div class="process-title" style="color:#52B788">绿茶</div>
+            <div class="process-arrow">杀青 → 揉捻 → 干燥</div>
+            <div class="process-desc">炒青/烘青/蒸青</div>
+            <div class="process-dot" style="background:#52B788"></div>
+          </div>
+          <div class="process-col">
+            <div class="process-title" style="color:#e74c3c">红茶</div>
+            <div class="process-arrow">萎凋 → 揉捻 → 发酵 → 干燥</div>
+            <div class="process-desc">全发酵·红汤红叶</div>
+            <div class="process-dot" style="background:#e74c3c"></div>
+          </div>
+          <div class="process-col">
+            <div class="process-title" style="color:#8e44ad">乌龙茶</div>
+            <div class="process-arrow">晒青 → 晾青 → 摇青 → 杀青 → 揉捻 → 干燥</div>
+            <div class="process-desc">半发酵·绿叶红镶边</div>
+            <div class="process-dot" style="background:#8e44ad"></div>
+          </div>
+          <div class="process-col">
+            <div class="process-title" style="color:#f1c40f">黄茶</div>
+            <div class="process-arrow">杀青 → 闷黄 → 揉捻 → 干燥</div>
+            <div class="process-desc">轻发酵·黄汤黄叶</div>
+            <div class="process-dot" style="background:#f1c40f"></div>
+          </div>
+          <div class="process-col">
+            <div class="process-title" style="color:#ecf0f1">白茶</div>
+            <div class="process-arrow">萎凋 → 干燥</div>
+            <div class="process-desc">微发酵·不揉不捻</div>
+            <div class="process-dot" style="background:#bdc3c7"></div>
+          </div>
+          <div class="process-col">
+            <div class="process-title" style="color:#2c3e50">黑茶</div>
+            <div class="process-arrow">杀青 → 揉捻 → 渥堆 → 干燥</div>
+            <div class="process-desc">后发酵·越陈越香</div>
+            <div class="process-dot" style="background:#2c3e50"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 二十四节气饮茶 -->
+      <div class="enc-section">
+        <div class="enc-section-title">🌾 二十四节气饮茶指南</div>
+        <div id="solarTermsEnc"></div>
+      </div>
+      <!-- 五行茶类 -->
+      <div class="enc-section">
+        <div class="enc-section-title">☯️ 五行茶类归属</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem" id="wuXingEnc"></div>
+      </div>
+      <!-- 中医茶疗 -->
+      <div class="enc-section">
+        <div class="enc-section-title">💊 中医茶疗养生</div>
+        <div class="health-grid" id="teaRecipesEnc"></div>
+      </div>
+      <!-- 品鉴术语 -->
+      <div class="enc-section">
+        <div class="enc-section-title">🔍 品鉴术语</div>
+        <div class="terms-grid">
+          <div class="term-item"><div class="term-title">干茶</div><div class="term-desc">外形、色泽、整碎、净度</div></div>
+          <div class="term-item"><div class="term-title">香气</div><div class="term-desc">高扬、清纯、馥郁、幽雅、浓烈</div></div>
+          <div class="term-item"><div class="term-title">汤色</div><div class="term-desc">清澈、明亮、透亮、浑浊</div></div>
+          <div class="term-item"><div class="term-title">滋味</div><div class="term-desc">鲜爽、甘醇、浓厚、回甘、生津</div></div>
+          <div class="term-item"><div class="term-title">叶底</div><div class="term-desc">嫩度、匀度、弹性、亮度</div></div>
+          <div class="term-item"><div class="term-title">回甘</div><div class="term-desc">入口先微苦后转为甘甜</div></div>
+          <div class="term-item"><div class="term-title">喉韵</div><div class="term-desc">入口顺滑、喉部润滑、回味悠长</div></div>
+          <div class="term-item"><div class="term-title">耐泡度</div><div class="term-desc">多次冲泡后滋味仍能保持</div></div>
+        </div>
+      </div>
+      <!-- 茶叶养生知识 -->
+      <div class="enc-section">
+        <div class="enc-section-title">🌿 茶叶养生知识</div>
+        <div class="health-grid">
+          <div class="health-item"><div class="health-icon">🍵</div><div class="health-name">绿茶</div><div class="health-desc">清热解毒、提神醒脑、抗氧化、延缓衰老、预防心血管疾病</div></div>
+          <div class="health-item"><div class="health-icon">☕</div><div class="health-name">红茶</div><div class="health-desc">暖胃养胃、助消化、舒张血管、抗氧化，适合秋冬饮用</div></div>
+          <div class="health-item"><div class="health-icon">🫖</div><div class="health-name">乌龙茶</div><div class="health-desc">消食去腻、减肥降脂、清除自由基、抗过敏</div></div>
+          <div class="health-item"><div class="health-icon">🌿</div><div class="health-name">白茶</div><div class="health-desc">清热润肺、解毒消暑、保护肝脏、血糖调节</div></div>
+          <div class="health-item"><div class="health-icon">🍃</div><div class="health-name">黄茶</div><div class="health-desc">清热解毒、消食化积、脾胃调理</div></div>
+          <div class="health-item"><div class="health-icon">🧉</div><div class="health-name">黑茶</div><div class="health-desc">调节肠胃、降低血脂血压、抗氧化、延年益寿</div></div>
+        </div>
+        <div class="health-tips">
+          <div class="enc-section-title" style="font-size:.95rem;margin-top:.8rem">💡 饮茶小贴士</div>
+          <div class="tips-list">
+            <div class="tip-item">🍵 不宜空腹饮茶，以免刺激胃黏膜</div>
+            <div class="tip-item">🕐 服药前后1小时避免饮茶</div>
+            <div class="tip-item">💧 水温因茶而异：绿茶80-85℃，红茶90-95℃，普洱98℃</div>
+            <div class="tip-item">🌡️ 茶汤不宜过烫，长期饮用超65℃热茶增加食道癌风险</div>
+            <div class="tip-item">🍽️ 饭后半小时再饮茶，有助消化</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON BAR -->
+<div class="compare-bar" id="compareBar">
+  <span class="compare-bar-title">⚖️ 对比 (<span id="compareCount">0</span>)</span>
+  <div class="compare-items" id="compareItems"></div>
+  <button class="compare-close" onclick="clearCompare()">✕</button>
+</div>
+
+<script defer src="tea_data.js"></script>
+<script defer src="tea_history.js"></script>
 <script>
 // ============================================================
 // 茶叶大全 v1.0 — Main Application
 // ============================================================
 
+// ---------- 二十四节气数据 ----------
+const SOLAR_TERMS = [
+  { name: '立春', date: '02-03~05', desc: '万物复苏，宜饮陈年普洱、老白茶', tea: ['云南普洱', '寿眉', '老白茶'] },
+  { name: '雨水', date: '02-18~20', desc: '春雨绵绵，宜饮红茶、桂花乌龙', tea: ['正山小种', '祁门红茶', '桂花乌龙'] },
+  { name: '惊蛰', date: '03-05~07', desc: '春雷始鸣，宜饮铁观音、凤凰单丛', tea: ['安溪铁观音', '凤凰单丛', '碧螺春'] },
+  { name: '春分', date: '03-20~22', desc: '昼夜平分，宜饮茉莉花茶', tea: ['茉莉花茶', '黄山毛峰', '太平猴魁'] },
+  { name: '清明', date: '04-04~06', desc: '清明时节，宜饮明前龙井', tea: ['西湖龙井', '黄山毛峰', '碧螺春'] },
+  { name: '谷雨', date: '04-19~21', desc: '雨生百谷，宜饮恩施玉露、信阳毛尖', tea: ['恩施玉露', '信阳毛尖', '六安瓜片'] },
+  { name: '立夏', date: '05-05~07', desc: '夏季开始，宜饮绿茶、白茶', tea: ['西湖龙井', '碧螺春', '白毫银针'] },
+  { name: '小满', date: '05-20~22', desc: '小满未满，宜饮绿茶、普洱生茶', tea: ['竹叶青', '黄山毛峰', '云南普洱'] },
+  { name: '芒种', date: '06-05~07', desc: '忙于收割，宜饮绿茶、苦丁茶', tea: ['六安瓜片', '太平猴魁', '苦丁茶'] },
+  { name: '夏至', date: '06-21~22', desc: '阳气最盛，宜饮白茶、绿茶', tea: ['白毫银针', '白牡丹', '恩施玉露'] },
+  { name: '小暑', date: '07-06~08', desc: '暑气渐盛，宜饮绿茶、六堡茶', tea: ['竹叶青', '信阳毛尖', '六堡茶'] },
+  { name: '大暑', date: '07-22~24', desc: '大热之时，宜饮绿茶、苦丁茶', tea: ['碧螺春', '六安瓜片', '苦丁茶'] },
+  { name: '立秋', date: '08-07~09', desc: '秋季开始，宜饮乌龙茶、桂花茶', tea: ['铁观音', '东方美人', '桂花乌龙'] },
+  { name: '处暑', date: '08-22~24', desc: '暑气将去，宜饮乌龙茶、老白茶', tea: ['大红袍', '凤凰单丛', '贡眉'] },
+  { name: '白露', date: '09-07~09', desc: '露凝而白，宜饮白茶、乌龙茶', tea: ['白毫银针', '白牡丹', '冻顶乌龙'] },
+  { name: '秋分', date: '09-22~24', desc: '昼夜平分，宜饮乌龙茶、红茶', tea: ['大红袍', '铁观音', '正山小种'] },
+  { name: '寒露', date: '10-08~10', desc: '露气寒冷，宜饮红茶、熟普洱', tea: ['滇红', '祁门红茶', '云南熟普洱'] },
+  { name: '霜降', date: '10-23~24', desc: '霜始降，宜饮红茶、黑茶', tea: ['金骏眉', '宜红', '安化黑茶'] },
+  { name: '立冬', date: '11-07~08', desc: '冬季开始，宜饮红茶、熟普洱', tea: ['正山小种', '滇红', '云南熟普洱'] },
+  { name: '小雪', date: '11-22~23', desc: '小雪初降，宜饮红茶、黑茶', tea: ['祁门红茶', '青砖茶', '泾阳茯茶'] },
+  { name: '大雪', date: '12-06~08', desc: '大雪封山，宜饮红茶、藏茶', tea: ['宁红', '川红', '藏茶'] },
+  { name: '冬至', date: '12-21~23', desc: '阴极阳生，宜饮陈年普洱、红茶', tea: ['云南普洱', '金骏眉', '正山小种'] },
+  { name: '小寒', date: '01-05~07', desc: '寒气渐盛，宜饮红茶、老白茶', tea: ['祁门红茶', '寿眉', '老白茶'] },
+  { name: '大寒', date: '01-20~21', desc: '最寒之时，宜饮红茶、熟普洱', tea: ['正山小种', '云南熟普洱', '安化黑茶'] }
+];
+
+// ---------- 五行茶类分类 ----------
+const WU_XING_TEA = {
+  '金': { desc: '白茶类，茶性清淡，白色对应金，象征纯洁', color: '#E8E8E8', icon: '⚪', teas: ['白毫银针', '白牡丹', '贡眉', '寿眉', '月光白', '资溪白茶', '茉莉花茶', '桂花乌龙'] },
+  '木': { desc: '绿茶类，茶性偏寒，绿色对应木，象征生机', color: '#90EE90', icon: '🟢', teas: ['西湖龙井', '碧螺春', '黄山毛峰', '信阳毛尖', '六安瓜片', '太平猴魁', '竹叶青', '恩施玉露', '铁观音', '凤凰单丛', '东方美人', '冻顶乌龙', '永春佛手', '白芽奇兰', '苦丁茶', '柿叶茶', '罗布麻茶', '绞股蓝茶'] },
+  '水': { desc: '黑茶类，茶性温和，黑色对应水，象征深邃', color: '#4A4A4A', icon: '⚫', teas: ['云南普洱', '安化黑茶', '六堡茶', '藏茶', '青砖茶', '湖北老青茶', '泾阳茯茶', '云南熟普洱'] },
+  '火': { desc: '红茶类，茶性温热，红色对应火，象征温暖', color: '#FF6B6B', icon: '🔴', teas: ['正山小种', '金骏眉', '祁门红茶', '滇红', '英德红茶', '川红', '宁红', '宜红'] },
+  '土': { desc: '岩茶/黄茶类，茶性平和，黄色对应土，象征厚重', color: '#DAA520', icon: '🟡', teas: ['大红袍', '武夷岩茶', '君山银针', '蒙顶甘露', '霍山黄芽', '平阳黄汤', '沩山毛尖', '杜仲茶'] }
+};
+
+// ---------- 中医茶疗配方 ----------
+const TEA_RECIPES = [
+  { name: '姜苏红茶', ingredients: ['红茶5g', '生姜3片', '紫苏叶3g', '红糖适量'], effect: '疏风散寒、和胃止痛',适用: '风寒感冒、胃寒呕吐' },
+  { name: '枸杞菊花茶', ingredients: ['白菊花3g', '枸杞10粒', '决明子5g', '热水300ml'], effect: '清肝明目、降压降脂',适用: '肝火旺盛、目赤肿痛' },
+  { name: '山楂陈皮茶', ingredients: ['山楂10g', '陈皮5g', '普洱熟茶5g', '热水400ml'], effect: '消食化积、健脾祛湿',适用: '食积腹胀、脾虚湿困' },
+  { name: '桂花蜂蜜茶', ingredients: ['干桂花3g', '蜂蜜适量', '绿茶3g', '热水250ml'], effect: '温中散寒、润肺止咳',适用: '胃寒咳嗽、口臭痰多' },
+  { name: '荷叶决明茶', ingredients: ['荷叶3g', '决明子10g', '普洱熟茶5g', '热水400ml'], effect: '清暑利湿、降脂减肥',适用: '暑热口渴、高血脂' },
+  { name: '玫瑰茉莉茶', ingredients: ['玫瑰花5g', '茉莉花3g', '蜂蜜适量', '热水300ml'], effect: '疏肝解郁、养颜美容',适用: '肝气郁结、情绪抑郁' },
+  { name: '薄荷绿茶', ingredients: ['薄荷叶3g', '绿茶5g', '柠檬片2片', '冷水250ml'], effect: '清热解暑、提神醒脑',适用: '暑热头晕、精神不振' },
+  { name: '红枣桂圆茶', ingredients: ['红枣5颗', '桂圆10g', '红茶5g', '红糖适量', '热水400ml'], effect: '补气养血、暖胃健脾',适用: '气血两虚、手脚冰凉' }
+];
+
 // ---------- STATE ----------
-let currentFilters = { type: null, origin: null, grade: null, period: null, efficacy: null };
+let currentFilters = { type: null, origin: null, grade: null, period: null, efficacy: null, season: null };
 let searchText = '';
 let favorites = [];
 let darkMode = false;
 let currentView = 'grid';
+let compareList = [];
+let searchHistory = [];
 
 // ---------- INIT ----------
 (function init() {
+  const bar = document.getElementById('loadingBar');
+  bar.style.width = '30%';
   loadFavorites();
   loadTheme();
+  bar.style.width = '50%';
+  loadSearchHistory();
+  bar.style.width = '60%';
+  loadFilterHistory();
+  // 骨架屏先显示，JS加载后隐藏
+  bar.style.width = '70%';
+  // 初始化 IndexedDB 浏览历史
+  initIndexedDB();
+  bar.style.width = '80%';
   renderSidebarTags();
+  bar.style.width = '90%';
   renderGrid();
   bindEvents();
+  // 注册 Service Worker
+  registerSW();
+  // 监听 PWA 安装提示
+  setupPWAInstallPrompt();
+  // 监听系统主题变化
+  listenSystemTheme();
+  // WebP 检测
+  detectWebP();
+  bar.style.width = '100%';
+  setTimeout(() => bar.classList.add('done'), 300);
+  // 隐藏骨架屏
+  setTimeout(() => {
+    const sk = document.getElementById('skeletonScreen');
+    if (sk) sk.classList.add('hidden');
+  }, 100);
+  // 每日一茶
+  checkDailyTea();
+  // 二十四节气Banner
+  renderSolarTermBanner();
+  // 打印日期
+  const pd = document.getElementById('printDate');
+  if (pd) pd.textContent = new Date().toLocaleString('zh-CN');
 })();
+
+function loadSearchHistory() {
+  try { searchHistory = JSON.parse(localStorage.getItem('tea_search_history') || '[]'); } catch(e) { searchHistory = []; }
+}
+
+function saveSearchHistory(text) {
+  if (!text) return;
+  searchHistory = searchHistory.filter(h => h !== text);
+  searchHistory.unshift(text);
+  searchHistory = searchHistory.slice(0, 10);
+  try { localStorage.setItem('tea_search_history', JSON.stringify(searchHistory)); } catch(e) {}
+  renderSearchHistory();
+}
+
+function renderSearchHistory() {
+  const el = document.getElementById('searchHistory');
+  if (searchHistory.length === 0) {
+    el.innerHTML = '<div class="search-history-empty">无搜索历史</div>';
+    return;
+  }
+  el.innerHTML = '<div class="search-history-header">搜索历史</div>' +
+    searchHistory.map((h, i) => `
+    <div class="search-history-item" onclick="useSearchHistory('${h.replace(/'/g,"\\'")}')">
+      <span class="hist-text">${h}</span>
+      <span class="hist-del" onclick="event.stopPropagation();deleteHistoryItem(${i})">✕</span>
+    </div>`).join('');
+}
+
+function useSearchHistory(text) {
+  document.getElementById('searchInput').value = text;
+  searchText = text;
+  document.getElementById('searchHistory').classList.remove('show');
+  renderGrid();
+}
+
+function deleteHistoryItem(index) {
+  searchHistory.splice(index, 1);
+  try { localStorage.setItem('tea_search_history', JSON.stringify(searchHistory)); } catch(e) {}
+  renderSearchHistory();
+}
+
+function loadFilterHistory() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('tea_current_filters') || '{}');
+    if (Object.keys(saved).length > 0) {
+      currentFilters = { type: null, origin: null, grade: null, period: null, efficacy: null, season: null, ...saved };
+      // Restore active states on sidebar tags
+      Object.entries(currentFilters).forEach(([field, value]) => {
+        if (!value) return;
+        const containerMap = { type: 'typeTags', origin: 'originTags', grade: 'gradeTags', period: 'periodTags', efficacy: 'efficacyTags', season: 'seasonTags' };
+        const container = document.getElementById(containerMap[field]);
+        if (!container) return;
+        container.querySelectorAll('.sb-tag').forEach(tag => {
+          if (tag.textContent.replace(/[0-9]/g,'').trim() === value ||
+              tag.textContent.includes(value)) {
+            tag.classList.add('active');
+          }
+        });
+      });
+    }
+  } catch(e) {}
+}
+
+function saveFilterHistory() {
+  try { localStorage.setItem('tea_current_filters', JSON.stringify(currentFilters)); } catch(e) {}
+}
 
 function loadFavorites() {
   try { favorites = JSON.parse(localStorage.getItem('tea_favs') || '[]'); } catch(e) { favorites = []; }
@@ -362,10 +984,186 @@ function updateFavCount() {
 
 // ---------- EVENTS ----------
 function bindEvents() {
-  document.getElementById('searchInput').addEventListener('input', debounce(function() {
-    searchText = this.value.trim();
+  const searchInput = document.getElementById('searchInput');
+
+  // Combined search input handler: autocomplete + grid filter
+  searchInput.addEventListener('input', debounce(function() {
+    const val = this.value.trim().toLowerCase();
+    searchText = val;
+    // Hide history, show autocomplete
+    document.getElementById('searchHistory').classList.remove('show');
+    document.getElementById('autocompleteList').classList.remove('show');
+    if (!val) { renderGrid(); return; }
+    // Autocomplete matches
+    const matches = TEA_DATA.filter(t =>
+      t.name.toLowerCase().includes(val) ||
+      t.origin.toLowerCase().includes(val) ||
+      t.type.toLowerCase().includes(val)
+    );
+    renderAutocomplete(matches);
     renderGrid();
-  }, 250));
+  }, 150));
+
+  searchInput.addEventListener('keydown', function(e) {
+    if (!document.getElementById('autocompleteList').classList.contains('show')) return;
+    if (e.key === 'ArrowDown') { e.preventDefault(); navigateAutocomplete(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); navigateAutocomplete(-1); }
+    else if (e.key === 'Enter' && autocompleteIndex >= 0) {
+      e.preventDefault();
+      selectAutocomplete(autocompleteIndex);
+    }
+    else if (e.key === 'Escape') {
+      document.getElementById('autocompleteList').classList.remove('show');
+    }
+  });
+
+  searchInput.addEventListener('focus', function() {
+    renderSearchHistory();
+    document.getElementById('searchHistory').classList.add('show');
+  });
+  searchInput.addEventListener('blur', function() {
+    setTimeout(() => {
+      if (searchText) saveSearchHistory(searchText);
+      document.getElementById('searchHistory').classList.remove('show');
+    }, 200);
+  });
+
+  // Tag drag init
+  initTagDrag();
+  loadTagOrder();
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    // '/' to focus search
+    if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+      e.preventDefault();
+      document.getElementById('searchInput').focus();
+    }
+    // ArrowLeft/ArrowRight to navigate cards
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      const visibleCards = document.querySelectorAll('.tea-card[data-id]');
+      if (visibleCards.length === 0) return;
+      if (typeof currentCardIndex === 'undefined') currentCardIndex = -1;
+      if (e.key === 'ArrowLeft') {
+        currentCardIndex = currentCardIndex <= 0 ? visibleCards.length - 1 : currentCardIndex - 1;
+      } else {
+        currentCardIndex = currentCardIndex >= visibleCards.length - 1 ? 0 : currentCardIndex + 1;
+      }
+      // Close any open detail
+      document.querySelectorAll('.tea-detail.open').forEach(d => d.classList.remove('open'));
+      // Scroll into view
+      visibleCards[currentCardIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    // Escape to close details/modals/search history
+    if (e.key === 'Escape') {
+      // Close card detail
+      document.querySelectorAll('.tea-detail.open').forEach(d => d.classList.remove('open'));
+      // Close modal
+      closeModal();
+      // Close video modal
+      closeVideoModal();
+      // Close encyclopedia modal
+      closeEncyclopediaModal();
+      // Close search history
+      document.getElementById('searchHistory').classList.remove('show');
+      document.getElementById('autocompleteList').classList.remove('show');
+      // Close context menu
+      hideContextMenu();
+    }
+    // Enter to select first search suggestion
+    if (e.key === 'Enter' && document.activeElement === document.getElementById('searchInput')) {
+      const acList = document.getElementById('autocompleteList');
+      if (acList.classList.contains('show') && autocompleteIndex >= 0) {
+        selectAutocomplete(autocompleteIndex);
+        return;
+      }
+      const history = document.getElementById('searchHistory');
+      if (history.classList.contains('show')) {
+        const firstItem = history.querySelector('.search-history-item');
+        if (firstItem) { firstItem.click(); return; }
+      }
+    }
+  });
+}
+
+// Bind touch and contextmenu events to tea cards
+let touchStartTime = 0;
+let touchStartX = 0;
+let contextMenuTarget = null;
+
+function bindCardEvents() {
+  document.querySelectorAll('.tea-card').forEach(card => {
+    // Context menu (right click)
+    card.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      const id = parseInt(this.getAttribute('data-id'));
+      showContextMenu(e.clientX, e.clientY, id);
+    });
+
+    // Mobile long press
+    card.addEventListener('touchstart', function(e) {
+      touchStartTime = Date.now();
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    card.addEventListener('touchend', function(e) {
+      const duration = Date.now() - touchStartTime;
+      const deltaX = Math.abs(e.changedTouches[0].clientX - touchStartX);
+      if (duration > 500 && deltaX < 30) {
+        // Long press triggered
+        const id = parseInt(this.getAttribute('data-id'));
+        toggleFav(id);
+        showToast(duration > 500 ? '已触发收藏（长按）' : '');
+      }
+    }, { passive: true });
+  });
+
+  // Swipe gesture on tea-grid
+  const grid = document.getElementById('teaGrid');
+  if (grid) {
+    let gridTouchStartX = 0;
+    let gridTouchStartY = 0;
+    let gridTouchStartTime = 0;
+
+    grid.addEventListener('touchstart', function(e) {
+      gridTouchStartX = e.touches[0].clientX;
+      gridTouchStartY = e.touches[0].clientY;
+      gridTouchStartTime = Date.now();
+    }, { passive: true });
+
+    grid.addEventListener('touchend', function(e) {
+      const deltaX = e.changedTouches[0].clientX - gridTouchStartX;
+      const deltaY = e.changedTouches[0].clientY - gridTouchStartY;
+      const duration = Date.now() - gridTouchStartTime;
+      // Only trigger if horizontal swipe > 50px and duration < 500ms
+      if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY) && duration < 500) {
+        const teas = getFilteredTeas();
+        if (teas.length === 0) return;
+        if (typeof currentCardIndex === 'undefined') currentCardIndex = -1;
+        if (deltaX < 0) {
+          // Swipe left -> next
+          currentCardIndex = currentCardIndex >= teas.length - 1 ? 0 : currentCardIndex + 1;
+        } else {
+          // Swipe right -> prev
+          currentCardIndex = currentCardIndex <= 0 ? teas.length - 1 : currentCardIndex - 1;
+        }
+        // Animate swipe on visible cards
+        const visibleCards = document.querySelectorAll('.tea-card[data-id]');
+        if (visibleCards.length > 0) {
+          const targetCard = visibleCards[Math.min(currentCardIndex, visibleCards.length - 1)];
+          if (targetCard) {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Apply swipe transform animation
+            visibleCards.forEach(c => {
+              c.style.transition = 'transform .3s ease';
+              c.style.transform = `translateX(${deltaX < 0 ? '-100%' : '100%'})`;
+              setTimeout(() => { c.style.transform = ''; c.style.transition = ''; }, 300);
+            });
+          }
+        }
+      }
+    }, { passive: true });
+  }
 }
 
 // ---------- RENDER SIDEBAR ----------
@@ -385,7 +1183,10 @@ function renderSidebarTags() {
         if (field === 'period') return t.period === item;
       }).length;
       const active = currentFilters.type === item ? 'active' : '';
-      return `<span class="sb-tag ${active}" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
+      const len = item.length;
+      const fontSize = 0.8 + (len % 5) * 0.1;
+      const rotate = (len % 3 - 1) * 3;
+      return `<span class="sb-tag ${active}" style="font-size:${fontSize}rem;transform:rotate(${rotate}deg)" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
     }).join('');
   }
 
@@ -396,16 +1197,27 @@ function renderSidebarTags() {
 
   // Efficacy tags
   const effTags = ['提神醒脑','清热解毒','消食去腻','减肥降脂','抗氧化','延缓衰老','护齿明目','暖胃养胃'];
-  document.getElementById('efficacyTags').innerHTML = effTags.map(e =>
-    `<span class="sb-tag" onclick="toggleFilter('efficacy','${e}',this)">${e}</span>`
-  ).join('');
+  document.getElementById('efficacyTags').innerHTML = effTags.map(e => {
+    const len = e.length;
+    const fontSize = 0.8 + (len % 5) * 0.1;
+    const rotate = (len % 3 - 1) * 3;
+    return `<span class="sb-tag" style="font-size:${fontSize}rem;transform:rotate(${rotate}deg)" onclick="toggleFilter('efficacy','${e}',this)">${e}</span>`;
+  }).join('');
+
+  // Season tags
+  const seasonTags = ['春季','夏季','秋季','冬季'];
+  document.getElementById('seasonTags').innerHTML = seasonTags.map(s => {
+    const active = currentFilters.season === s ? 'active' : '';
+    const icons = { '春季': '🌸', '夏季': '☀️', '秋季': '🍂', '冬季': '❄️' };
+    return `<span class="sb-tag ${active}" onclick="toggleFilter('season','${s}',this)">${icons[s]}${s}</span>`;
+  }).join('');
 
   renderMobFilters();
 }
 
 function renderMobFilters() {
-  const containers = ['typeTags','originTags','gradeTags','periodTags','efficacyTags'];
-  const labels = { typeTags:'🍵 茶类', originTags:'📍 产地', gradeTags:'⭐ 等级', periodTags:'📅 时期', efficacyTags:'🌿 功效' };
+  const containers = ['typeTags','originTags','gradeTags','periodTags','efficacyTags','seasonTags'];
+  const labels = { typeTags:'🍵 茶类', originTags:'📍 产地', gradeTags:'⭐ 等级', periodTags:'📅 时期', efficacyTags:'🌿 功效', seasonTags:'🍃 季节' };
   let html = '';
   containers.forEach(id => {
     const el = document.getElementById(id);
@@ -425,12 +1237,14 @@ function toggleFilter(field, value, el) {
     currentFilters[field] = value;
     el.classList.add('active');
   }
+  saveFilterHistory();
   renderGrid();
 }
 
 function clearAllFilters() {
-  currentFilters = { type: null, origin: null, grade: null, period: null, efficacy: null };
+  currentFilters = { type: null, origin: null, grade: null, period: null, efficacy: null, season: null };
   document.querySelectorAll('.sb-tag').forEach(t => t.classList.remove('active'));
+  saveFilterHistory();
   renderGrid();
 }
 
@@ -441,6 +1255,7 @@ function getFilteredTeas() {
     if (currentFilters.grade && tea.grade !== currentFilters.grade) return false;
     if (currentFilters.period && tea.period !== currentFilters.period) return false;
     if (currentFilters.efficacy && !tea.efficacy.includes(currentFilters.efficacy)) return false;
+    if (currentFilters.season && tea.suitableSeason && !tea.suitableSeason.includes(currentFilters.season)) return false;
     if (searchText) {
       const s = searchText.toLowerCase();
       if (!tea.name.includes(searchText) && !tea.desc.includes(searchText) && !tea.origin.includes(searchText) && !tea.type.includes(searchText)) return false;
@@ -471,17 +1286,18 @@ function renderGrid() {
   info.innerHTML = `共找到 <strong>${teas.length}</strong> 种茶叶`;
 
   grid.innerHTML = teas.map(tea => {
-    const imgUrl = getTeaImage(tea);
+    const imgUrls = getTeaImageUrl(tea);
     const isFav = favorites.includes(tea.id);
     const placeholder = getTeaEmoji(tea.type);
+    const isChecked = compareList.includes(tea.id);
+    const delay = Math.random() * 2;
+    const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'card_' + tea.id);
     return `
-    <div class="tea-card" onclick="openModal(${tea.id})">
-      <div class="tea-img-wrap">
-        <img class="tea-img" src="${imgUrl}" alt="${tea.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="tea-img-placeholder" style="display:none">${placeholder}</div>
-        <span class="tea-type-badge">${tea.type}</span>
-        <span class="tea-grade-badge">${tea.grade}</span>
-      </div>
+    <div class="tea-card" style="animation-delay:${delay}s" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
+      <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
+      ${carouselHTML}
+      <span class="tea-type-badge">${tea.type}</span>
+      <span class="tea-grade-badge">${tea.grade}</span>
       <div class="tea-body">
         <div class="tea-name">${tea.name}</div>
         <div class="tea-origin">📍 ${tea.origin}</div>
@@ -491,8 +1307,11 @@ function renderGrid() {
           <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
         </div>
       </div>
+      <div class="tea-detail" id="detail_${tea.id}"></div>
     </div>`;
   }).join('');
+  // Bind touch and contextmenu events to cards
+  bindCardEvents();
 }
 
 // ---------- FAVORITES ----------
@@ -506,6 +1325,157 @@ function toggleFav(id) {
   renderFavGrid();
 }
 
+// ---------- CARD DETAIL EXPANSION ----------
+function toggleTeaDetail(id) {
+  const detailEl = document.getElementById('detail_' + id);
+  if (!detailEl) {
+    // Fallback: open modal instead
+    openModal(id);
+    return;
+  }
+  const isOpen = detailEl.classList.contains('open');
+
+  // Close all other open details first
+  document.querySelectorAll('.tea-detail.open').forEach(d => {
+    if (d !== detailEl) d.classList.remove('open');
+  });
+
+  if (isOpen) {
+    detailEl.classList.remove('open');
+    detailEl.innerHTML = '';
+  } else {
+    const tea = TEA_DATA.find(t => t.id === id);
+    if (!tea) return;
+    const isFav = favorites.includes(tea.id);
+    detailEl.innerHTML = `
+      <div class="tea-detail-grid">
+        <div class="tea-detail-item"><div class="tea-detail-label">名称</div><div class="tea-detail-value">${tea.name}</div></div>
+        <div class="tea-detail-item"><div class="tea-detail-label">类型</div><div class="tea-detail-value">${tea.type}</div></div>
+        <div class="tea-detail-item"><div class="tea-detail-label">产地</div><div class="tea-detail-value">${tea.origin}</div></div>
+        <div class="tea-detail-item"><div class="tea-detail-label">等级</div><div class="tea-detail-value">${tea.grade}</div></div>
+        <div class="tea-detail-item"><div class="tea-detail-label">茶汤颜色</div><div class="tea-detail-value">${tea.color||'淡黄/绿'}</div></div>
+        <div class="tea-detail-item"><div class="tea-detail-label">主要功效</div><div class="tea-detail-value">${tea.efficacy||'清热解毒'}</div></div>
+      </div>
+      <div class="tea-detail-section">
+        <div class="tea-detail-section-title">详细介绍</div>
+        <div class="tea-detail-text">${tea.detail||tea.desc}</div>
+      </div>
+      <div class="tea-detail-section">
+        <div class="tea-detail-section-title">冲泡方法</div>
+        <div class="tea-detail-text">${tea.brewing||'85-90℃热水，冲泡2-3分钟'}</div>
+      </div>
+      ${tea.story ? `<div class="tea-detail-section"><div class="tea-detail-section-title">趣事传说</div><div class="tea-detail-story">${tea.story}</div></div>` : ''}
+      <div class="tea-detail-actions">
+        <button class="tea-detail-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id});toggleTeaDetail(${tea.id})">${isFav?'❤️ 已收藏':'🤍 收藏'}</button>
+        <button class="tea-detail-btn" onclick="event.stopPropagation();openModal(${tea.id})">🔗 完整信息</button>
+        <button class="tea-detail-btn" onclick="event.stopPropagation();openVideoModal(${tea.id})">📺 冲泡视频</button>
+      </div>
+    `;
+    detailEl.classList.add('open');
+  }
+}
+
+// ---------- CONTEXT MENU ----------
+function showContextMenu(x, y, teaId) {
+  contextMenuTarget = teaId;
+  const menu = document.getElementById('contextMenu');
+  const isFav = favorites.includes(teaId);
+  document.getElementById('ctxFavText').textContent = isFav ? '已收藏' : '收藏';
+  menu.style.left = x + 'px';
+  menu.style.top = y + 'px';
+  menu.classList.add('show');
+  // Adjust if off-screen
+  const rect = menu.getBoundingClientRect();
+  if (rect.right > window.innerWidth) menu.style.left = (x - rect.width) + 'px';
+  if (rect.bottom > window.innerHeight) menu.style.top = (y - rect.height) + 'px';
+}
+
+function hideContextMenu() {
+  document.getElementById('contextMenu').classList.remove('show');
+  contextMenuTarget = null;
+}
+
+function ctxOpenDetail() {
+  if (contextMenuTarget !== null) {
+    toggleTeaDetail(contextMenuTarget);
+  }
+  hideContextMenu();
+}
+
+function ctxToggleFav() {
+  if (contextMenuTarget !== null) {
+    toggleFav(contextMenuTarget);
+  }
+  hideContextMenu();
+}
+
+function ctxOpenModal() {
+  if (contextMenuTarget !== null) {
+    openModal(contextMenuTarget);
+  }
+  hideContextMenu();
+}
+
+// Close context menu on outside click
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('contextMenu');
+  if (menu && menu.classList.contains('show') && !menu.contains(e.target)) {
+    hideContextMenu();
+  }
+});
+
+// ---------- COMPARE ----------
+function toggleCompare(id, btn) {
+  const idx = compareList.indexOf(id);
+  if (idx >= 0) {
+    compareList.splice(idx, 1);
+    btn.classList.remove('checked');
+    btn.textContent = '';
+  } else {
+    if (compareList.length >= 3) { showToast('最多对比3种茶叶'); return; }
+    compareList.push(id);
+    btn.classList.add('checked');
+    btn.textContent = '✓';
+  }
+  renderCompareBar();
+}
+
+function renderCompareBar() {
+  const bar = document.getElementById('compareBar');
+  const countEl = document.getElementById('compareCount');
+  const itemsEl = document.getElementById('compareItems');
+  countEl.textContent = compareList.length;
+  if (compareList.length === 0) {
+    bar.classList.remove('active');
+    return;
+  }
+  bar.classList.add('active');
+  itemsEl.innerHTML = compareList.map(id => {
+    const tea = TEA_DATA.find(t => t.id === id);
+    if (!tea) return '';
+    return `<div class="compare-item">
+      <div class="compare-item-name">${tea.name}</div>
+      <div class="compare-item-meta">${tea.type}</div>
+      <div class="compare-item-meta">${tea.origin}</div>
+      <div class="compare-item-meta">${tea.grade}</div>
+    </div>`;
+  }).join('');
+}
+
+function clearCompare() {
+  compareList = [];
+  renderCompareBar();
+  document.querySelectorAll('.card-check').forEach(c => { c.classList.remove('checked'); c.textContent = ''; });
+}
+
+// ---------- SIDEBAR TOGGLE ----------
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  sb.classList.toggle('collapsed');
+  const btn = document.getElementById('sidebarToggle');
+  btn.textContent = sb.classList.contains('collapsed') ? '☰' : '✕';
+}
+
 function renderFavGrid() {
   const favTeas = TEA_DATA.filter(t => favorites.includes(t.id));
   const grid = document.getElementById('favGrid');
@@ -513,16 +1483,13 @@ function renderFavGrid() {
   if (favTeas.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
   empty.style.display = 'none';
   grid.innerHTML = favTeas.map(tea => {
-    const imgUrl = getTeaImage(tea);
-    const placeholder = getTeaEmoji(tea.type);
+    const imgUrls = getTeaImageUrl(tea);
+    const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'fav_' + tea.id);
     return `
     <div class="tea-card" onclick="openModal(${tea.id})">
-      <div class="tea-img-wrap">
-        <img class="tea-img" src="${imgUrl}" alt="${tea.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="tea-img-placeholder" style="display:none">${placeholder}</div>
-        <span class="tea-type-badge">${tea.type}</span>
-        <span class="tea-grade-badge">${tea.grade}</span>
-      </div>
+      ${carouselHTML}
+      <span class="tea-type-badge">${tea.type}</span>
+      <span class="tea-grade-badge">${tea.grade}</span>
       <div class="tea-body">
         <div class="tea-name">${tea.name}</div>
         <div class="tea-origin">📍 ${tea.origin}</div>
@@ -553,13 +1520,13 @@ function toggleFavPage() {
 function openModal(id) {
   const tea = TEA_DATA.find(t => t.id === id);
   if (!tea) return;
-  const imgUrl = getTeaImage(tea);
+  const imgUrls = getTeaImageUrl(tea);
   const placeholder = getTeaEmoji(tea.type);
   const isFav = favorites.includes(tea.id);
+  modalCarouselImages = Array.isArray(imgUrls) ? imgUrls : [imgUrls];
 
-  document.getElementById('modalImgWrap').innerHTML =
-    `<img class="modal-img" src="${imgUrl}" alt="${tea.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-     <div class="modal-img-placeholder" style="display:none">${placeholder}</div>`;
+  // 用大图轮播替代单图
+  document.getElementById('modalImgWrap').innerHTML = buildModalCarouselHTML(modalCarouselImages, tea.name, tea.type);
 
   document.getElementById('modalBody').innerHTML = `
     <div class="modal-header">
@@ -596,11 +1563,12 @@ function openModal(id) {
       <div class="modal-section-title">趣事传说</div>
       <div class="modal-story">${tea.story}</div>
     </div>` : ''}
-    <div style="margin-top:1rem">
+    <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
       <button class="modal-fav-btn ${isFav?'faved':''}" onclick="toggleFav(${tea.id});openModal(${tea.id})">
         ${isFav?'❤️ 已收藏':'🤍 加入收藏'}
       </button>
       <button class="modal-fav-btn" onclick="copyShare(${tea.id})">🔗 分享</button>
+      <button class="modal-fav-btn" onclick="openVideoModal(${tea.id})">📺 冲泡视频</button>
     </div>
   `;
 
@@ -675,12 +1643,20 @@ function switchTab(tab, btn) {
 
   if (tab === 'timeline') { renderTimeline(); }
   if (tab === 'origin') { renderOriginMap(); }
+  if (tab === 'recent') { loadRecentView(); renderRecentGrid(); }
 
   document.getElementById('gridPage').classList.toggle('hidden', tab !== 'grid');
   document.getElementById('timelinePage').classList.toggle('active', tab === 'timeline');
   document.getElementById('originPage').classList.toggle('active', tab === 'origin');
   document.getElementById('favPage').classList.remove('active');
+  document.getElementById('recentPage').classList.toggle('active', tab === 'recent');
   currentView = tab;
+
+  // Pjax: 更新 URL
+  if (history.pushState) {
+    const newUrl = tab === 'grid' ? './' : './?tab=' + tab;
+    if (window.location.href !== newUrl) history.pushState({ tab: tab }, '', newUrl);
+  }
 }
 
 // ---------- RANDOM ----------
@@ -733,38 +1709,76 @@ function debounce(fn, delay) {
 }
 
 function getTeaImageUrl(tea) {
-  // Wikimedia Commons 可靠茶类图片（CC BY-SA）
-  const wikiImages = {
+  // WIKI_IMAGES — 多图URL数组，每种茶可有多个图片
+  const WIKI_IMAGES = {
     // 龙井/绿茶
-    '西湖龙井': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Longjing_Tea_201.JPG/440px-Longjing_Tea_201.JPG',
-    '碧螺春': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Bi_Luo_Chun_tea.jpg/440px-Bi_Luo_Chun_tea.jpg',
-    '黄山毛峰': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg',
-    '信阳毛尖': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Xinyang_Maojian_Tea.jpg/440px-Xinyang_Maojian_Tea.jpg',
-    '正山小种': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lapsang_Souchong_tea.jpg/440px-Lapsang_Souchong_tea.jpg',
-    '滇红': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Yunnan_Dianhong_Black_Tea.jpg/440px-Yunnan_Dianhong_Black_Tea.jpg',
-    '祁门红茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Qimen_Black_Tea.jpg/440px-Qimen_Black_Tea.jpg',
-    '安溪铁观音': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tieguanyin_Oolong_Tea.jpg/440px-Tieguanyin_Oolong_Tea.jpg',
-    '大红袍': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Da_Hong_Pao_Oolong_Tea.jpg/440px-Da_Hong_Pao_Oolong_Tea.jpg',
-    '凤凰单丛': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fenghuang_Dancong_Tea.jpg/440px-Fenghuang_Dancong_Tea.jpg',
-    '白毫银针': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/White_Peony_Tea.jpg/440px-White_Peony_Tea.jpg',
-    '云南普洱': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Pu-erh_Tea_Cake.jpg/440px-Pu-erh_Tea_Cake.jpg',
-    '君山银针': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Junshan_Yinzhen_Tea.jpg/440px-Junshan_Yinzhen_Tea.jpg',
-    '茉莉花茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Jasmine_Tea.jpg/440px-Jasmine_Tea.jpg',
+    '西湖龙井': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Longjing_Tea_201.JPG/440px-Longjing_Tea_201.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Longjing_tea_leaves.JPG/440px-Longjing_tea_leaves.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Longjing_tea_dry.JPG/440px-Longjing_tea_dry.JPG',
+    ],
+    '碧螺春': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Bi_Luo_Chun_tea.jpg/440px-Bi_Luo_Chun_tea.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Bi_Luo_Chun_dry.jpg/440px-Bi_Luo_Chun_dry.jpg',
+    ],
+    '黄山毛峰': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg',
+    ],
+    '信阳毛尖': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Xinyang_Maojian_Tea.jpg/440px-Xinyang_Maojian_Tea.jpg',
+    ],
+    '正山小种': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lapsang_Souchong_tea.jpg/440px-Lapsang_Souchong_tea.jpg',
+    ],
+    '滇红': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Yunnan_Dianhong_Black_Tea.jpg/440px-Yunnan_Dianhong_Black_Tea.jpg',
+    ],
+    '祁门红茶': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Qimen_Black_Tea.jpg/440px-Qimen_Black_Tea.jpg',
+    ],
+    '安溪铁观音': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tieguanyin_Oolong_Tea.jpg/440px-Tieguanyin_Oolong_Tea.jpg',
+    ],
+    '大红袍': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Da_Hong_Pao_Oolong_Tea.jpg/440px-Da_Hong_Pao_Oolong_Tea.jpg',
+    ],
+    '凤凰单丛': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fenghuang_Dancong_Tea.jpg/440px-Fenghuang_Dancong_Tea.jpg',
+    ],
+    '白毫银针': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/White_Peony_Tea.jpg/440px-White_Peony_Tea.jpg',
+    ],
+    '云南普洱': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Pu-erh_Tea_Cake.jpg/440px-Pu-erh_Tea_Cake.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pu-erh_Tea_leaves.jpg/440px-Pu-erh_Tea_leaves.jpg',
+    ],
+    '君山银针': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Junshan_Yinzhen_Tea.jpg/440px-Junshan_Yinzhen_Tea.jpg',
+    ],
+    '茉莉花茶': [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Jasmine_Tea.jpg/440px-Jasmine_Tea.jpg',
+    ],
   };
-  if (wikiImages[tea.name]) return wikiImages[tea.name];
+  if (WIKI_IMAGES[tea.name]) return WIKI_IMAGES[tea.name];
   // 按茶类默认图
   const typeDefault = {
-    '绿茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg',
-    '红茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lapsang_Souchong_tea.jpg/440px-Lapsang_Souchong_tea.jpg',
-    '乌龙茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tieguanyin_Oolong_Tea.jpg/440px-Tieguanyin_Oolong_Tea.jpg',
-    '白茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/White_Peony_Tea.jpg/440px-White_Peony_Tea.jpg',
-    '黄茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Junshan_Yinzhen_Tea.jpg/440px-Junshan_Yinzhen_Tea.jpg',
-    '黑茶': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Pu-erh_Tea_Cake.jpg/440px-Pu-erh_Tea_Cake.jpg',
+    '绿茶': ['https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg'],
+    '红茶': ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lapsang_Souchong_tea.jpg/440px-Lapsang_Souchong_tea.jpg'],
+    '乌龙茶': ['https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tieguanyin_Oolong_Tea.jpg/440px-Tieguanyin_Oolong_Tea.jpg'],
+    '白茶': ['https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/White_Peony_Tea.jpg/440px-White_Peony_Tea.jpg'],
+    '黄茶': ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Junshan_Yinzhen_Tea.jpg/440px-Junshan_Yinzhen_Tea.jpg'],
+    '黑茶': ['https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Pu-erh_Tea_Cake.jpg/440px-Pu-erh_Tea_Cake.jpg'],
   };
-  return typeDefault[tea.type] || 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg';
+  return typeDefault[tea.type] || ['https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg'];
 }
 
-function getTeaImage(tea) { return getTeaImageUrl(tea); }
+// 获取单张图片URL（兼容旧调用）
+function getTeaSingleImage(tea) {
+  const imgs = getTeaImageUrl(tea);
+  return Array.isArray(imgs) ? imgs[0] : imgs;
+}
+
+function getTeaImage(tea) { return getTeaSingleImage(tea); }
 
 function getTeaEmoji(type) {
   const map = {
@@ -773,6 +1787,597 @@ function getTeaEmoji(type) {
   };
   return map[type] || '🍵';
 }
+
+// ---------- CAROUSEL STATE (per card) ----------
+function buildCarouselHTML(images, teaName, teaType, prefix) {
+  if (!images || images.length === 0) return '';
+  const total = images.length;
+  const dots = images.map((_, i) =>
+    `<button class="carousel-dot ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="event.stopPropagation();switchCarousel('${prefix}',${i})"></button>`
+  ).join('');
+  const placeholder = getTeaEmoji(teaType);
+  const firstImg = images[0];
+  const counter = total > 1 ? `<div class="carousel-counter" id="${prefix}_counter">1/${total}</div>` : '';
+  const arrows = total > 1 ? `
+    <button class="carousel-arrow prev" onclick="event.stopPropagation();switchCarousel('${prefix}',-1)">‹</button>
+    <button class="carousel-arrow next" onclick="event.stopPropagation();switchCarousel('${prefix}',1)">›</button>
+  ` : '';
+  return `
+    <div class="carousel-wrap" id="${prefix}_wrap">
+      <img class="tea-img" src="${firstImg}" alt="${teaName}" data-idx="0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="tea-img-placeholder" style="display:none">${placeholder}</div>
+      ${arrows}
+      <div class="carousel-dots">${dots}</div>
+      ${counter}
+    </div>
+  `;
+}
+
+// 切换轮播图片 idx=-1表示上一个
+function switchCarousel(prefix, idx) {
+  const wrap = document.getElementById(prefix + '_wrap');
+  if (!wrap) return;
+  const imgs = wrap.querySelectorAll('.tea-img');
+  const dots = wrap.querySelectorAll('.carousel-dot');
+  const counter = document.getElementById(prefix + '_counter');
+  const total = imgs.length;
+  // 当前索引
+  let cur = 0;
+  for (let i = 0; i < imgs.length; i++) { if (imgs[i].style.display !== 'none') { cur = i; break; } }
+  let next;
+  if (idx === -1) { next = (cur - 1 + total) % total; }
+  else if (idx === 1) { next = (cur + 1) % total; }
+  else { next = idx; }
+  if (next === cur) return;
+  imgs[cur].style.display = 'none';
+  imgs[next].style.display = 'block';
+  dots[cur].classList.remove('active');
+  dots[next].classList.add('active');
+  if (counter) { const m = idx === -1 ? (cur - 1 + total) % total + 1 : (idx === 1 ? (cur + 1) % total + 1 : idx + 1); counter.textContent = `${next + 1}/${total}`; }
+}
+
+// 构建modal大图轮播HTML
+function buildModalCarouselHTML(images, teaName, teaType) {
+  if (!images || images.length === 0) return '';
+  const total = images.length;
+  const dots = images.map((_, i) =>
+    `<button class="carousel-dot ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="event.stopPropagation();switchModalCarousel(${i})"></button>`
+  ).join('');
+  const placeholder = getTeaEmoji(teaType);
+  const firstImg = images[0];
+  const counter = total > 1 ? `<div class="carousel-counter" id="modal_carousel_counter">1/${total}</div>` : '';
+  const arrows = total > 1 ? `
+    <button class="carousel-arrow prev" onclick="event.stopPropagation();switchModalCarousel(-1)">‹</button>
+    <button class="carousel-arrow next" onclick="event.stopPropagation();switchModalCarousel(1)">›</button>
+  ` : '';
+  return `
+    <div class="modal-carousel-wrap" id="modal_carousel_wrap">
+      <img class="modal-carousel-img" src="${firstImg}" alt="${teaName}" data-idx="0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="modal-carousel-placeholder" style="display:none">${placeholder}</div>
+      ${arrows}
+      <div class="carousel-dots">${dots}</div>
+      ${counter}
+    </div>
+  `;
+}
+
+let modalCarouselImages = [];
+function switchModalCarousel(idx) {
+  const wrap = document.getElementById('modal_carousel_wrap');
+  if (!wrap || modalCarouselImages.length === 0) return;
+  const imgs = wrap.querySelectorAll('.modal-carousel-img');
+  const dots = wrap.querySelectorAll('.carousel-dot');
+  const counter = document.getElementById('modal_carousel_counter');
+  const total = modalCarouselImages.length;
+  let cur = 0;
+  for (let i = 0; i < imgs.length; i++) { if (imgs[i].style.display !== 'none') { cur = i; break; } }
+  let next;
+  if (idx === -1) next = (cur - 1 + total) % total;
+  else if (idx === 1) next = (cur + 1) % total;
+  else next = idx;
+  if (next === cur) return;
+  imgs[cur].style.display = 'none';
+  imgs[next].style.display = 'block';
+  dots[cur].classList.remove('active');
+  dots[next].classList.add('active');
+  if (counter) counter.textContent = `${next + 1}/${total}`;
+}
+
+// ---------- VIDEO MODAL ----------
+// BILI_VIDEO_MAP: teaId -> Bilibili av号
+const BILI_VIDEO_MAP = {
+  1: 'av59803606',   // 西湖龙井
+  2: 'av59803606',   // 碧螺春
+  3: 'av25027722',   // 黄山毛峰
+  6: 'av89646267',   // 正山小种
+  9: 'av89646267',   // 滇红
+  10: 'av89646267',  // 祁门红茶
+  11: 'av70304018',  // 安溪铁观音
+  12: 'av70304018',  // 大红袍
+};
+
+function openVideoModal(teaId) {
+  const av = BILI_VIDEO_MAP[teaId] || 'av70304018';
+  const iframe = document.getElementById('videoIframe');
+  iframe.src = `https://biliplayer.com/embed/${av}`;
+  document.getElementById('videoModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+  document.getElementById('videoIframe').src = '';
+  document.getElementById('videoModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ---------- ENCYCLOPEDIA MODAL ----------
+function openEncyclopediaModal() {
+  document.getElementById('encModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderSolarTermsEnc();
+  renderWuXingEnc();
+  renderTeaRecipesEnc();
+}
+
+function closeEncyclopediaModal() {
+  document.getElementById('encModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// 二十四节气百科内容
+function renderSolarTermsEnc() {
+  const el = document.getElementById('solarTermsEnc');
+  if (!el) return;
+  const current = getCurrentSolarTerm();
+  el.innerHTML = SOLAR_TERMS.map((st, i) => {
+    const isCurrent = current && current.name === st.name;
+    return `<div style="display:flex;gap:.5rem;padding:.4rem;border-radius:8px;margin-bottom:.4rem;${isCurrent?'background:var(--c4);border:1.5px solid var(--c1)':''}">
+      <span style="font-weight:700;min-width:50px;color:${isCurrent?'var(--c1)':'var(--text)'}">${st.name}</span>
+      <span style="color:var(--c2);min-width:70px">${st.date}</span>
+      <span style="flex:1">${st.desc}</span>
+      <span style="color:var(--c5)">推荐：${st.tea.join('、')}</span>
+    </div>`;
+  }).join('');
+}
+
+// 五行茶类百科内容
+function renderWuXingEnc() {
+  const el = document.getElementById('wuXingEnc');
+  if (!el) return;
+  el.innerHTML = Object.entries(WU_XING_TEA).map(([wx, data]) => {
+    return `<div style="background:${data.color}20;border-radius:8px;padding:.6rem;border:1.5px solid ${data.color}">
+      <div style="font-size:1.4rem;text-align:center">${data.icon} <span style="font-weight:700">${wx}</span></div>
+      <div style="font-size:.72rem;color:var(--text);margin:.3rem 0">${data.desc}</div>
+      <div style="font-size:.7rem;color:var(--c2)">代表茶：${data.teas.slice(0,4).join('、')}${data.teas.length>4?'...':''}</div>
+    </div>`;
+  }).join('');
+}
+
+// 中医茶疗百科内容
+function renderTeaRecipesEnc() {
+  const el = document.getElementById('teaRecipesEnc');
+  if (!el) return;
+  el.innerHTML = TEA_RECIPES.map(r => {
+    return `<div class="health-item" style="flex-direction:column;gap:.3rem">
+      <div style="font-size:.9rem;font-weight:700;color:var(--c5)">${r.name}</div>
+      <div style="font-size:.75rem;color:var(--text)">配方：${r.ingredients.join(' + ')}</div>
+      <div style="font-size:.75rem;color:var(--c1)">功效：${r.effect}</div>
+      <div style="font-size:.72rem;color:var(--c2)">适用：${r.适用}</div>
+    </div>`;
+  }).join('');
+}
+
+// ---------- 获取当前节气 ----------
+function getCurrentSolarTerm() {
+  const now = new Date();
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
+  const current = SOLAR_TERMS.find(st => {
+    const [start, end] = st.date.split('~');
+    const [sm, sd] = start.split('-').map(Number);
+    const [em, ed] = end.split('-').map(Number);
+    if (sm === month && em === month) return day >= sd && day <= ed;
+    if (em > sm) {
+      if (month === sm && day >= sd) return true;
+      if (month === em && day <= ed) return true;
+    } else {
+      if (month === sm && day >= sd) return true;
+      if (month === em && day <= ed) return true;
+    }
+    return false;
+  });
+  return current || null;
+}
+
+// ---------- 渲染节气Banner ----------
+function renderSolarTermBanner() {
+  const el = document.getElementById('solarTermBanner');
+  if (!el) return;
+  const current = getCurrentSolarTerm();
+  if (current) {
+    const teas = current.tea.map(t => {
+      const tea = TEA_DATA.find(d => d.name === t);
+      if (!tea) return '';
+      return `<span style="background:rgba(255,255,255,.2);border-radius:20px;padding:.1rem .5rem;margin:0 .2rem;cursor:pointer" onclick="openModal(${tea.id})">${t}</span>`;
+    }).join('');
+    el.innerHTML = `🌾 当前节气【${current.name}】${current.desc} ${teas}`;
+  } else {
+    el.innerHTML = '';
+  }
+}
+
+// ---------- DAILY TEA ----------
+function checkDailyTea() {
+  try {
+    const today = new Date().toDateString();
+    const lastDate = localStorage.getItem('lastDailyDate');
+    if (lastDate !== today) {
+      const randomTea = TEA_DATA[Math.floor(Math.random() * TEA_DATA.length)];
+      showToast('今日推荐：' + randomTea.name + ' 🌟');
+      localStorage.setItem('lastDailyDate', today);
+    }
+  } catch(e) {}
+}
+
+// 在init末尾调用
+
+// ============================================================
+// 11 项新增功能
+// ============================================================
+
+// ---------- 1. 打印样式：显示详情面板含页眉 ----------
+function preparePrintView(teaId) {
+  const tea = TEA_DATA.find(t => t.id === teaId);
+  if (!tea) return;
+  // 创建打印专用的详情面板（隐藏状态）
+  let panel = document.getElementById('print_detail_' + teaId);
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.id = 'print_detail_' + teaId;
+    panel.className = 'tea-detail-panel';
+    panel.setAttribute('data-tea-name', tea.name);
+    panel.style.display = 'none';
+    panel.innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.8rem">
+        <div style="background:#f5f5f5;padding:.5rem;border-radius:8px"><div style="font-size:.7rem;color:#888">名称</div><div style="font-size:.9rem;font-weight:700;color:#333">${tea.name}</div></div>
+        <div style="background:#f5f5f5;padding:.5rem;border-radius:8px"><div style="font-size:.7rem;color:#888">类型</div><div style="font-size:.9rem;font-weight:700;color:#333">${tea.type}</div></div>
+        <div style="background:#f5f5f5;padding:.5rem;border-radius:8px"><div style="font-size:.7rem;color:#888">产地</div><div style="font-size:.9rem;font-weight:700;color:#333">${tea.origin}</div></div>
+        <div style="background:#f5f5f5;padding:.5rem;border-radius:8px"><div style="font-size:.7rem;color:#888">等级</div><div style="font-size:.9rem;font-weight:700;color:#333">${tea.grade}</div></div>
+      </div>
+      <div style="margin-bottom:.6rem"><div style="font-size:.8rem;font-weight:700;color:#2D6A4F;margin-bottom:.3rem">详细介绍</div><div style="font-size:.85rem;line-height:1.7">${tea.detail||tea.desc}</div></div>
+      ${tea.story ? `<div style="margin-top:.6rem;padding:.7rem;background:#f0f7f2;border-left:3px solid #2D6A4F;border-radius:4px;font-size:.82rem;line-height:1.7">${tea.story}</div>` : ''}
+    `;
+    document.body.appendChild(panel);
+  }
+  return panel;
+}
+
+// ---------- 2. 搜索自动补全 ----------
+let autocompleteIndex = -1;
+let currentAutocomplete = [];
+
+function renderAutocomplete(matches) {
+  const el = document.getElementById('autocompleteList');
+  if (!matches || matches.length === 0) {
+    el.classList.remove('show');
+    return;
+  }
+  currentAutocomplete = matches;
+  autocompleteIndex = -1;
+  el.innerHTML = matches.slice(0, 8).map((t, i) => `
+    <div class="autocomplete-item" data-idx="${i}" onclick="selectAutocomplete(${i})">
+      <span>${getTeaEmoji(t.type)}</span>
+      <span class="ac-name">${highlightMatch(t.name)}</span>
+      <span class="ac-meta">${t.type} · ${t.origin}</span>
+    </div>
+  `).join('');
+  el.classList.add('show');
+}
+
+function highlightMatch(name) {
+  const input = document.getElementById('searchInput').value.trim();
+  if (!input) return name;
+  const re = new RegExp('(' + input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  return name.replace(re, '<strong style="color:var(--c1)">$1</strong>');
+}
+
+function selectAutocomplete(idx) {
+  const tea = currentAutocomplete[idx];
+  if (!tea) return;
+  document.getElementById('searchInput').value = tea.name;
+  searchText = tea.name;
+  document.getElementById('autocompleteList').classList.remove('show');
+  // 记录到 IndexedDB
+  addToRecentView(tea.id);
+  renderGrid();
+}
+
+function navigateAutocomplete(dir) {
+  const items = document.querySelectorAll('.autocomplete-item');
+  if (items.length === 0) return;
+  items.forEach(it => it.classList.remove('active'));
+  if (dir === 1) {
+    autocompleteIndex = autocompleteIndex >= items.length - 1 ? 0 : autocompleteIndex + 1;
+  } else {
+    autocompleteIndex = autocompleteIndex <= 0 ? items.length - 1 : autocompleteIndex - 1;
+  }
+  items[autocompleteIndex].classList.add('active');
+  items[autocompleteIndex].scrollIntoView({ block: 'nearest' });
+}
+
+// ---------- 3. 标签拖拽 ----------
+let draggedTag = null;
+
+function initTagDrag() {
+  document.querySelectorAll('.sb-tag').forEach(tag => {
+    tag.setAttribute('draggable', 'true');
+    tag.addEventListener('dragstart', function(e) {
+      draggedTag = this;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', this.textContent);
+      this.style.opacity = '0.5';
+    });
+    tag.addEventListener('dragend', function() {
+      this.style.opacity = '1';
+      draggedTag = null;
+    });
+    tag.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+    });
+    tag.addEventListener('drop', function(e) {
+      e.preventDefault();
+      if (!draggedTag || this === draggedTag) return;
+      const parent = this.parentNode;
+      const allTags = Array.from(parent.querySelectorAll('.sb-tag'));
+      const fromIdx = allTags.indexOf(draggedTag);
+      const toIdx = allTags.indexOf(this);
+      if (fromIdx < toIdx) {
+        parent.insertBefore(draggedTag, this.nextSibling);
+      } else {
+        parent.insertBefore(draggedTag, this);
+      }
+      saveTagOrder();
+    });
+  });
+}
+
+function saveTagOrder() {
+  const sections = ['typeTags', 'originTags', 'gradeTags', 'periodTags', 'efficacyTags', 'seasonTags'];
+  const order = {};
+  sections.forEach(sid => {
+    const tags = document.querySelectorAll('#' + sid + ' .sb-tag');
+    order[sid] = Array.from(tags).map(t => t.textContent.replace(/[0-9]/g, '').trim());
+  });
+  try { localStorage.setItem('tea_tag_order', JSON.stringify(order)); } catch(e) {}
+}
+
+function loadTagOrder() {
+  try {
+    const order = JSON.parse(localStorage.getItem('tea_tag_order') || '{}');
+    Object.entries(order).forEach(([sid, tags]) => {
+      const container = document.getElementById(sid);
+      if (!container) return;
+      const tagEls = container.querySelectorAll('.sb-tag');
+      // Reorder based on saved order
+      tags.forEach((tname, idx) => {
+        for (let i = idx; i < tagEls.length; i++) {
+          if (tagEls[i].textContent.replace(/[0-9]/g, '').trim() === tname) {
+            container.insertBefore(tagEls[i], container.children[idx]);
+            break;
+          }
+        }
+      });
+    });
+  } catch(e) {}
+}
+
+// ---------- 4. 系统主题跟随 ----------
+function listenSystemTheme() {
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  mq.addEventListener('change', function(e) {
+    // Only auto-toggle if user hasn't manually set a preference
+    const savedTheme = localStorage.getItem('tea_theme_mode');
+    if (!savedTheme) {
+      toggleTheme();
+    }
+  });
+}
+
+// ---------- 5. Service Worker ----------
+function registerSW() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      console.log('SW registered:', reg.scope);
+    }).catch(err => {
+      console.warn('SW registration failed:', err);
+    });
+  }
+}
+
+// ---------- 6. PWA 安装提示 ----------
+let deferredPrompt = null;
+
+function setupPWAInstallPrompt() {
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    // 检查是否已经拒绝过
+    const dismissed = localStorage.getItem('pwa_install_dismissed');
+    if (!dismissed) {
+      setTimeout(() => {
+        const bar = document.getElementById('pwaInstallBar');
+        if (bar) bar.classList.add('show');
+      }, 3000);
+    }
+  });
+
+  document.getElementById('pwaAcceptBtn').addEventListener('click', async function() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    document.getElementById('pwaInstallBar').classList.remove('show');
+    if (outcome === 'accepted') {
+      showToast('安装成功！🍃');
+    }
+  });
+
+  document.getElementById('pwaDismissBtn').addEventListener('click', function() {
+    document.getElementById('pwaInstallBar').classList.remove('show');
+    localStorage.setItem('pwa_install_dismissed', Date.now().toString());
+  });
+}
+
+// ---------- 7. IndexedDB 浏览历史 ----------
+let db = null;
+let recentViewList = [];
+
+function initIndexedDB() {
+  try {
+    const request = indexedDB.open('teaDB', 1);
+    request.onerror = () => console.warn('IndexedDB open failed');
+    request.onsuccess = (e) => { db = e.target.result; loadRecentView(); };
+    request.onupgradeneeded = (e) => {
+      const database = e.target.result;
+      if (!database.objectStoreNames.contains('history')) {
+        const store = database.createObjectStore('history', { keyPath: 'id', autoIncrement: true });
+        store.createIndex('teaId', 'teaId', { unique: false });
+        store.createIndex('timestamp', 'timestamp', { unique: false });
+      }
+    };
+  } catch(e) { console.warn('IndexedDB not available:', e); }
+}
+
+function addToRecentView(teaId) {
+  if (!db) return;
+  try {
+    const tx = db.transaction(['history'], 'readwrite');
+    const store = tx.objectStore('history');
+    // 删除同一 teaId 的旧记录
+    const index = store.index('teaId');
+    const req = index.openCursor(IDBKeyRange.only(teaId));
+    req.onsuccess = (e) => {
+      const cursor = e.target.result;
+      if (cursor) { cursor.delete(); }
+    };
+    // 添加新记录
+    store.add({ teaId: teaId, timestamp: Date.now() });
+  } catch(e) {}
+}
+
+function loadRecentView() {
+  if (!db) return;
+  try {
+    const tx = db.transaction(['history'], 'readonly');
+    const store = tx.objectStore('history');
+    const req = store.getAll();
+    req.onsuccess = () => {
+      const records = req.result || [];
+      records.sort((a, b) => b.timestamp - a.timestamp);
+      recentViewList = records.slice(0, 20);
+      updateRecentCount();
+    };
+  } catch(e) {}
+}
+
+function updateRecentCount() {
+  const el = document.getElementById('recentPageCount');
+  if (el) el.textContent = recentViewList.length;
+}
+
+function renderRecentGrid() {
+  const grid = document.getElementById('recentGrid');
+  const empty = document.getElementById('recentEmpty');
+  const teas = recentViewList.map(r => TEA_DATA.find(t => t.id === r.teaId)).filter(Boolean);
+  if (teas.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  grid.innerHTML = teas.map(tea => {
+    const imgUrls = getTeaImageUrl(tea);
+    const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'recent_' + tea.id);
+    return `
+    <div class="tea-card" onclick="openModal(${tea.id})">
+      ${carouselHTML}
+      <span class="tea-type-badge">${tea.type}</span>
+      <span class="tea-grade-badge">${tea.grade}</span>
+      <div class="tea-body">
+        <div class="tea-name">${tea.name}</div>
+        <div class="tea-origin">📍 ${tea.origin}</div>
+        <div class="tea-desc">${tea.desc}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function clearRecentHistory() {
+  if (!db) return;
+  try {
+    const tx = db.transaction(['history'], 'readwrite');
+    tx.objectStore('history').clear();
+    recentViewList = [];
+    updateRecentCount();
+    renderRecentGrid();
+  } catch(e) {}
+}
+
+// ---------- 8. 首屏优化 (骨架屏已通过 CSS 实现) ----------
+
+// ---------- 9. WebP 检测 ----------
+let webpSupported = true;
+
+function detectWebP() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1; canvas.height = 1;
+  const dataUrl = canvas.toDataURL('image/webp');
+  webpSupported = dataUrl.indexOf('data:image/webp') === 0;
+  if (!webpSupported) {
+    console.log('WebP not supported, using JPG fallback');
+    // 降级：在图片加载失败时尝试 JPG
+    document.querySelectorAll('.tea-img').forEach(img => {
+      const src = img.src;
+      if (src.includes('wikimedia.org') && !src.includes('.jpg')) {
+        // Wikimedia 图片可以改为 jpg 格式
+        const jpgSrc = src.replace(/\.png|\.jpeg|\.webp/, '.jpg');
+        img.setAttribute('data-jpg-fallback', jpgSrc);
+        img.addEventListener('error', function() {
+          const fallback = this.getAttribute('data-jpg-fallback');
+          if (fallback && fallback !== this.src) this.src = fallback;
+        });
+      }
+    });
+  }
+}
+
+// ---------- 10. Pjax (Tab 切换) ----------
+
+// 处理浏览器前进后退
+window.addEventListener('popstate', function(e) {
+  if (e.state && e.state.tab) {
+    const btn = document.querySelector(`.tab-btn[onclick="switchTab('${e.state.tab}', this)"]`);
+    if (btn) btn.click();
+  }
+});
+
+// ---------- 11. Bookmarklet ----------
+function getBookmarkletCode() {
+  return `javascript:(function(){var s=prompt('%E8%BE%93%E5%85%A5%E6%90%9C%E7%B4%A2%E5%85%B3%E9%94%AE%E8%AF%8D%EF%BC%9A');if(s){var u=location.href.split('?')[0]+(location.href.includes('?')?'&':'?')+'q='+encodeURIComponent(s);location.href=u;}})();`;
+}
+
+function showBookmarkletHint() {
+  const code = getBookmarkletCode();
+  prompt('复制以下代码到书签栏（拖拽到书签栏或在链接上右键添加到书签）：', code);
+}
+
+// 修改 openModal：记录浏览历史
+const _openModal = openModal;
+openModal = function(id) {
+  addToRecentView(id);
+  _openModal(id);
+};
 </script>
 </body>
 </html>

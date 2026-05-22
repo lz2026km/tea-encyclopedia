@@ -1,0 +1,18 @@
+{
+  "name": "茶叶大全",
+  "short_name": "茶叶百科",
+  "description": "中国茶叶百科全书 - 50种名茶的历史、品种、产地、功效详解",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FEFCF3",
+  "theme_color": "#2D6A4F",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍃</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "lifestyle"]
+}
