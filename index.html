@@ -371,7 +371,7 @@ function bindEvents() {
 // ---------- RENDER SIDEBAR ----------
 function renderSidebarTags() {
   const types = [...new Set(TEA_DATA.map(t => t.type))];
-  const origins = [...new Set(TEA_DATA.map(t => t.origin.replace(/[^\u4e00-\u9fa5]/g,'').slice(0,2))].filter(Boolean);
+  const origins = [...new Set(TEA_DATA.map(t => t.origin.replace(/[^\u4e00-\u9fa5]/g,'').slice(0,2)))].filter(Boolean);
   const grades = ['特级','一级','二级','三级','四级','五级'];
   const periods = [...new Set(TEA_DATA.map(t => t.period))].filter(Boolean);
 
