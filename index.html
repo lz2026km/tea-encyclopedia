@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="茶叶百科 v4.0 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，收录50种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>茶叶大全 v4.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
@@ -286,6 +287,12 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   .modal-img { height: 180px; }
   .banner h1 { font-size: 1.2rem; }
   .tab-btn { padding: .3rem .5rem; font-size: .8rem; }
+}
+
+/* ===== 骨架屏动画 ===== */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 /* ===== EMPTY STATE ===== */
@@ -740,7 +747,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v3.3</span>🍃</div>
+  <div class="hdr-logo"><span>v4.0</span>🍃</div>
   <div class="hdr-title">茶叶大全</div>
   <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="🔍 搜索茶叶名称、产地…" autocomplete="off">
@@ -1891,7 +1898,7 @@ function toggleTeaDetail(id) {
         <button class="tea-detail-btn" onclick="event.stopPropagation();openModal(${tea.id})">🔗 完整信息</button>
         <button class="tea-detail-btn" onclick="event.stopPropagation();openVideoModal(${tea.id})">📺 冲泡视频</button>
         <div class="rate-stars" style="display:flex;gap:2px;cursor:pointer" onclick="event.stopPropagation()">
-          ${[1,2,3,4,5].map(n => `<span data-n="${n}" onclick="rateTea(${tea.id},${n})" style="font-size:1.2rem;color:${(ratings[${tea.id}] && n<=ratings[${tea.id}])?'#FFD700':'#ddd'}">★</span>`).join('')}
+          ${[1,2,3,4,5].map(n => `<span data-n="${n}" onclick="rateTea(${tea.id},${n})" style="font-size:1.2rem;color:${ratings[tea.id]&&n<=ratings[tea.id]?'#FFD700':'#ddd'}">★</span>`).join('')}
         </div>
         <button class="tea-detail-btn" onclick="event.stopPropagation();addTastingNote(${tea.id})">📝 品鉴日记</button>
       </div>
@@ -2397,12 +2404,15 @@ function renderDiary() {
 }
 
 function openDiaryModal() {
-  renderDiary();
-  document.getElementById('diaryModal').classList.add('open');
+  var modal = document.getElementById('diary-modal');
+  var list = document.getElementById('diary-list');
+  var diary = JSON.parse(localStorage.getItem('tea_diary') || '[]');
+  list.innerHTML = diary.length ? diary.map(function(d){return '<div style="padding:.8rem 0;border-bottom:1px solid var(--border)"><strong>'+d.name+'</strong> <span style="font-size:.8rem;color:var(--c2)">'+d.date+'</span><p style="margin:.3rem 0 0;font-size:.9rem">'+d.note+'</p></div>'}).join('') : '<p style="text-align:center;color:var(--c2);padding:2rem">暂无品鉴记录</p>';
+  modal.style.display = 'flex';
 }
 
 function closeDiaryModal() {
-  document.getElementById('diaryModal').classList.remove('open');
+  document.getElementById('diary-modal').style.display = 'none';
 }
 
 // ---------- RENDER RANKING ----------
@@ -3537,5 +3547,13 @@ window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; t
 })();
 </script>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:2rem;right:2rem;width:2.8rem;height:2.8rem;background:var(--c1);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:999">↑</button>
+<!-- 品鉴日记弹窗 -->
+<div id="diary-modal" style="display:none;position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:1rem">
+  <div style="background:var(--bg);border-radius:16px;max-width:500px;width:100%;max-height:80vh;overflow:auto;padding:1.5rem;position:relative">
+    <button onclick="closeDiaryModal()" style="position:absolute;top:.8rem;right:.8rem;background:var(--c4);border:none;border-radius:50%;width:2rem;height:2rem;cursor:pointer;font-size:1.2rem">×</button>
+    <h2 style="margin-bottom:1rem">📝 我的品鉴日记</h2>
+    <div id="diary-list"></div>
+  </div>
+</div>
 </body>
 </html>
