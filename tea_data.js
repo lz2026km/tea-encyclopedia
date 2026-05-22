@@ -37,8 +37,9 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 3,
     organic: false,
-    award: '',
-    rating: 5
+    award: '1915年 巴拿马万国博览会金奖',
+    rating: 5,
+    flavorProfile: '清香爽口'
   },
   {
     id: 2,
@@ -72,10 +73,11 @@ const TEA_DATA = [
     harvestSeason: '春',
     age: 0,
     caffeine: 2,
-    processLevel: 3,
+    processLevel: 2,
     organic: false,
-    award: '',
-    rating: 5
+    award: '1915年 巴拿马万国博览会金奖',
+    rating: 5,
+    flavorProfile: '清香爽口'
   },
   {
     id: 3,
@@ -111,8 +113,9 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1915年 巴拿马万国博览会金奖',
+    rating: 4.5,
+    flavorProfile: '清香爽口'
   },
   {
     id: 4,
@@ -148,8 +151,8 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1915年 巴拿马万国博览会金奖',
+    rating: 4
   },
   {
     id: 5,
@@ -183,10 +186,11 @@ const TEA_DATA = [
     harvestSeason: '春',
     age: 0,
     caffeine: 2,
-    processLevel: 1,
+    processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '1915年 巴拿马万国博览会金奖',
+    rating: 4.5,
+    flavorProfile: '清香爽口'
   },
   {
     id: 6,
@@ -222,8 +226,9 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1915年 巴拿马万国博览会金奖',
+    rating: 4.5,
+    flavorProfile: '清香爽口'
   },
   {
     id: 7,
@@ -259,7 +264,7 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
+    award: '四川名茶',
     rating: 4.5
   },
   {
@@ -296,8 +301,9 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 3,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1915年 巴拿马万国博览会金奖',
+    rating: 4.5,
+    flavorProfile: '蜜糖香'
   },
   {
     id: 9,
@@ -333,7 +339,7 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 3,
     organic: false,
-    award: '',
+    award: '世界红茶之源',
     rating: 5
   },
   {
@@ -370,8 +376,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 3,
     organic: false,
-    award: '2006年研发成功',
-    rating: 5
+    award: '2005年 创制',
+    rating: 5,
+    flavorProfile: '花果香'
   },
   {
     id: 11,
@@ -407,8 +414,8 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 3,
     organic: false,
-    award: '1915年巴拿马万国博览会金奖',
-    rating: 5
+    award: '1940年 创制',
+    rating: 4.5
   },
   {
     id: 12,
@@ -443,9 +450,10 @@ const TEA_DATA = [
     age: 0,
     caffeine: 3,
     processLevel: 3,
-    organic: false,
-    award: '',
-    rating: 4.5
+    organic: true,
+    award: '1940年 创制',
+    rating: 4.5,
+    flavorProfile: '醇厚甘甜'
   },
   {
     id: 13,
@@ -481,7 +489,7 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
+    award: '1950年 广东名茶',
     rating: 4
   },
   {
@@ -518,8 +526,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '1985年 四川红茶',
+    rating: 4,
+    flavorProfile: '薯香甜润'
   },
   {
     id: 15,
@@ -555,8 +564,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '湖北红茶',
+    rating: 4,
+    flavorProfile: '花果香'
   },
   {
     id: 16,
@@ -592,8 +602,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '1982年 全国名茶',
+    rating: 5,
+    flavorProfile: '兰花香'
   },
   {
     id: 17,
@@ -629,8 +640,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 3,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1965年 台湾名茶',
+    rating: 4.5,
+    flavorProfile: '兰花香'
   },
   {
     id: 18,
@@ -664,10 +676,11 @@ const TEA_DATA = [
     harvestSeason: '秋',
     age: 0,
     caffeine: 3,
-    processLevel: 3,
+    processLevel: 2,
     organic: false,
-    award: '中国十大名茶',
-    rating: 5
+    award: '1982年 全国名茶',
+    rating: 4.5,
+    flavorProfile: '清香爽口'
   },
   {
     id: 19,
@@ -703,8 +716,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 3,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1965年 台湾名茶',
+    rating: 4.5,
+    flavorProfile: '果香馥郁'
   },
   {
     id: 20,
@@ -741,7 +755,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '台湾名茶',
-    rating: 5
+    rating: 5,
+    flavorProfile: '蜜香兰香'
   },
   {
     id: 21,
@@ -777,8 +792,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 3,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1965年 台湾名茶',
+    rating: 4.5,
+    flavorProfile: '兰花香'
   },
   {
     id: 22,
@@ -812,10 +828,11 @@ const TEA_DATA = [
     harvestSeason: '秋',
     age: 0,
     caffeine: 3,
-    processLevel: 3,
+    processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '福建名茶',
+    rating: 4,
+    flavorProfile: '清香爽口'
   },
   {
     id: 23,
@@ -851,8 +868,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '福建名茶',
+    rating: 4,
+    flavorProfile: '清香爽口'
   },
   {
     id: 24,
@@ -888,8 +906,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '福建名茶',
+    rating: 4.5,
+    flavorProfile: '果香馥郁'
   },
   {
     id: 25,
@@ -926,7 +945,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '白茶之王',
-    rating: 5
+    rating: 5,
+    flavorProfile: '毫香馥郁'
   },
   {
     id: 26,
@@ -962,8 +982,9 @@ const TEA_DATA = [
     caffeine: 1,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '福建白茶',
+    rating: 4.5,
+    flavorProfile: '花香清雅'
   },
   {
     id: 27,
@@ -1000,7 +1021,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4.5,
+    flavorProfile: '清甜醇爽'
   },
   {
     id: 28,
@@ -1037,7 +1059,8 @@ const TEA_DATA = [
     processLevel: 1,
     organic: false,
     award: '',
-    rating: 3.5
+    rating: 4.5,
+    flavorProfile: '清甜醇爽'
   },
   {
     id: 29,
@@ -1074,7 +1097,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    flavorProfile: '花香清雅'
   },
   {
     id: 30,
@@ -1111,7 +1135,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    flavorProfile: '清甜醇爽'
   },
   {
     id: 31,
@@ -1147,8 +1172,9 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 3,
     organic: false,
-    award: '黄茶之冠',
-    rating: 4.5
+    award: '1959年 全国名茶',
+    rating: 4.5,
+    flavorProfile: '甜润柔和'
   },
   {
     id: 32,
@@ -1184,8 +1210,9 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 3,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '霍山黄茶',
+    rating: 4,
+    flavorProfile: '嫩玉米香'
   },
   {
     id: 33,
@@ -1221,7 +1248,7 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
+    award: '温州特产',
     rating: 4
   },
   {
@@ -1258,8 +1285,9 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '湖南名茶',
+    rating: 4,
+    flavorProfile: '豆香清雅'
   },
   {
     id: 35,
@@ -1295,8 +1323,8 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '1990年 云南省名茶',
+    rating: 4.5
   },
   {
     id: 36,
@@ -1332,8 +1360,9 @@ const TEA_DATA = [
     caffeine: 3,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4.5
+    award: '1990年 云南省名茶',
+    rating: 4.5,
+    flavorProfile: '苦涩回甘'
   },
   {
     id: 37,
@@ -1370,7 +1399,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    flavorProfile: '菌花香'
   },
   {
     id: 38,
@@ -1407,7 +1437,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    flavorProfile: '槟榔香'
   },
   {
     id: 39,
@@ -1443,8 +1474,8 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
-    rating: 4
+    award: '边销茶',
+    rating: 3.5
   },
   {
     id: 40,
@@ -1481,7 +1512,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 3.5
+    rating: 3.5,
+    flavorProfile: '醇厚陈香'
   },
   {
     id: 41,
@@ -1555,7 +1587,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 3.5,
+    flavorProfile: '菌花香'
   },
   {
     id: 43,
@@ -1592,7 +1625,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4.5,
+    flavorProfile: '醇厚顺滑'
   },
   {
     id: 44,
@@ -1629,7 +1663,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    flavorProfile: '茉莉花香'
   },
   {
     id: 45,
@@ -1666,7 +1701,8 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    flavorProfile: '桂花香'
   },
   {
     id: 46,
@@ -1777,7 +1813,8 @@ const TEA_DATA = [
     processLevel: 1,
     organic: false,
     award: '',
-    rating: 3
+    rating: 3,
+    flavorProfile: '清淡回甘'
   },
   {
     id: 49,
@@ -1887,7 +1924,7 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: true,
-    award: '浙江特产',
+    award: '1915年 巴拿马万国博览会金奖',
     rating: 4
   },
   {
@@ -1924,7 +1961,7 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: true,
-    award: '',
+    award: '1915年 巴拿马万国博览会金奖',
     rating: 4
   },
   {
@@ -1961,7 +1998,7 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
+    award: '1916年 巴拿马万国博览会金奖',
     rating: 4
   },
   {
@@ -1998,7 +2035,7 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
+    award: '1916年 巴拿马万国博览会金奖',
     rating: 4
   },
   {
@@ -2035,7 +2072,7 @@ const TEA_DATA = [
     caffeine: 2,
     processLevel: 2,
     organic: false,
-    award: '',
+    award: '1915年 巴拿马万国博览会金奖',
     rating: 4
   },
   {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>茶叶大全 v3.3 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶大全 v4.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
-   茶叶大全 v3.3 — 清新雅致中国风
+   茶叶大全 v4.0 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -219,6 +219,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   .compare-bar { flex-wrap: wrap; gap: .5rem; padding: .6rem; }
   .compare-items { max-width: 100%; overflow-x: auto; }
   .compare-item { min-width: 100px; font-size: .75rem; flex-shrink: 0; }
+  #compare-panel { padding: .5rem; }
+  .compare-table { font-size: .75rem; }
+  .compare-table th, .compare-table td { padding: .4rem .5rem; }
+  .compare-table .tea-img-cell { width: 60px; height: 50px; }
   .filter-tag { padding: .2rem .5rem; font-size: .75rem; }
   .tab-bar { gap: .2rem; padding-bottom: .3rem; overflow-x: auto; }
   .tab-btn { padding: .3rem .5rem; font-size: .8rem; white-space: nowrap; }
@@ -312,6 +316,12 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 #loadingBar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #52B788, #2D6A4F); z-index: 9999; width: 0%; transition: width .3s ease; }
 #loadingBar.done { width: 100%; opacity: 0; transition: width .3s ease, opacity .5s ease .3s; }
 
+/* ===== SKELETON PULSE ANIMATION ===== */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 /* ===== PAGE FADE IN ===== */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .layout { animation: fadeIn .4s ease; }
@@ -329,6 +339,20 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .compare-item-name { font-weight: 700; color: var(--c5); font-size: .85rem; margin-bottom: .2rem; }
 .compare-item-meta { color: var(--c2); font-size: .72rem; }
 .compare-close { background: var(--c1); color: #fff; border: none; border-radius: 50%; width: 1.8rem; height: 1.8rem; cursor: pointer; font-size: .9rem; display: flex; align-items: center; justify-content: center; }
+.compare-open-btn { background: linear-gradient(135deg, var(--c1), var(--c2)); color: #fff; border: none; border-radius: 20px; padding: .4rem 1rem; cursor: pointer; font-size: .85rem; font-family: inherit; font-weight: 700; white-space: nowrap; }
+.compare-open-btn:hover { opacity: .9; }
+.compare-remove { background: none; border: none; color: var(--c2); cursor: pointer; font-size: .7rem; margin-top: .2rem; }
+
+/* ===== COMPARE TABLE ===== */
+.compare-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.compare-table th { background: var(--c1); color: #fff; padding: .6rem .8rem; text-align: left; position: sticky; top: 0; z-index: 2; }
+.compare-table td { padding: .6rem .8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.compare-table tr:nth-child(even) td { background: var(--c4); }
+.compare-table .tea-name-cell { font-weight: 700; color: var(--c1); }
+.compare-table .tea-img-cell { width: 100px; height: 80px; object-fit: cover; border-radius: 8px; }
+.compare-table .label-cell { background: var(--c4); font-weight: 600; color: var(--c5); white-space: nowrap; }
+.compare-table .rating-cell { color: #FFD700; }
+.compare-table .price-cell { color: var(--c1); font-weight: 600; }
 
 /* ===== SEARCH HISTORY ===== */
 .search-wrap { position: relative; flex: 2; max-width: 360px; }
@@ -497,7 +521,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     margin: .5rem 0;
   }
   .tea-detail-panel::before {
-    content: '茶叶大全 v3.3 — ' attr(data-tea-name);
+    content: '茶叶大全 v4.0 — ' attr(data-tea-name);
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
@@ -699,7 +723,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v3.3 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v4.0 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -786,15 +810,14 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   </div>
 
   <!-- SKELETON SCREEN -->
-  <div id="skeleton" style="display:flex;flex-direction:column;gap:1rem;padding:1.5rem">
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem">
-      <div style="background:linear-gradient(90deg,#e8e8e8 25%,#f5f5f5 50%,#e8e8e8 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:12px;height:280px"></div>
-      <div style="background:linear-gradient(90deg,#e8e8e8 25%,#f5f5f5 50%,#e8e8e8 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:12px;height:280px"></div>
-      <div style="background:linear-gradient(90deg,#e8e8e8 25%,#f5f5f5 50%,#e8e8e8 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:12px;height:280px"></div>
-      <div style="background:linear-gradient(90deg,#e8e8e8 25%,#f5f5f5 50%,#e8e8e8 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:12px;height:280px"></div>
+  <div id="skeleton" style="padding:1rem">
+    <div style="background:var(--c4);height:30px;width:60%;border-radius:8px;margin-bottom:1rem;animation:skeleton-pulse 1.5s infinite"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+      <div style="background:var(--c4);height:200px;border-radius:8px;animation:skeleton-pulse 1.5s infinite"></div>
+      <div style="background:var(--c4);height:200px;border-radius:8px;animation:skeleton-pulse 1.5s infinite 0.2s"></div>
+      <div style="background:var(--c4);height:200px;border-radius:8px;animation:skeleton-pulse 1.5s infinite 0.4s"></div>
     </div>
   </div>
-  <style>@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }</style>
 
   <!-- TAB BAR -->
   <div class="tab-bar">
@@ -852,7 +875,11 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   <!-- RANKING PAGE -->
   <div class="fav-page" id="rankingPage">
     <div class="results-info">🏆 中国名茶排行榜 · 共 <strong>100</strong> 种茶叶</div>
-    <div class="filter-bar" style="margin:.5rem 0">
+    <div class="tab-bar" style="margin:.5rem 0">
+      <button class="ranking-tab-btn tab-btn active" data-tab="tea" onclick="switchRankingTab('tea')">茶叶评分榜</button>
+      <button class="ranking-tab-btn tab-btn" data-tab="mine" onclick="switchRankingTab('mine')">我的品鉴榜</button>
+    </div>
+    <div class="filter-bar" style="margin:.5rem 0" id="rankingSortBar">
       <span style="font-size:.82rem;color:var(--c2)">排序方式：</span>
       <select id="rankingSort" onchange="renderRanking()" style="padding:.3rem .5rem;border-radius:16px;border:1.5px solid var(--border);font-size:.8rem">
         <option value="rating">⭐ 综合评分</option>
@@ -947,6 +974,17 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
       <div class="modal-title">🍽️ 配茶美食指南</div>
     </div>
     <div class="modal-body" id="foodBody" style="padding:1rem;max-height:70vh;overflow-y:auto"></div>
+  </div>
+</div>
+
+<!-- DIARY MODAL -->
+<div class="modal-overlay" id="diaryModal" onclick="if(event.target===this)closeDiaryModal()">
+  <div class="modal" id="diaryModalInner" style="max-width:600px">
+    <button class="modal-close" onclick="closeDiaryModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-title">📝 品鉴日记</div>
+    </div>
+    <div class="modal-body" id="diaryList" style="padding:1rem;max-height:70vh;overflow-y:auto"></div>
   </div>
 </div>
 
@@ -1058,9 +1096,21 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <!-- COMPARISON BAR -->
 <div class="compare-bar" id="compareBar">
   <span class="compare-bar-title">⚖️ 对比 (<span id="compareCount">0</span>)</span>
-  <button onclick="showToast('⚖️ 对比栏：点击卡片右下角⚖️按钮添加茶叶，最多4种，点击比较')" style="background:none;border:none;cursor:pointer;font-size:.85rem;margin-left:.3rem;color:var(--c2)">ℹ️</button>
+  <button onclick="showToast('⚖️ 对比栏：点击卡片左上角⚖️按钮添加茶叶，最多4种，点击比较')" style="background:none;border:none;cursor:pointer;font-size:.85rem;margin-left:.3rem;color:var(--c2)">ℹ️</button>
   <div class="compare-items" id="compareItems"></div>
+  <button class="compare-open-btn" id="compareOpenBtn" onclick="openComparePanel()" style="display:none">🔍 展开对比</button>
   <button class="compare-close" onclick="clearCompare()">✕</button>
+</div>
+
+<!-- COMPARE PANEL -->
+<div id="compare-panel" style="display:none;position:fixed;inset:0;z-index:250;background:var(--bg);overflow:auto;padding:1rem">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;position:sticky;top:0;background:var(--bg);z-index:5;padding:.5rem 0">
+    <h2>🍵 茶叶对比</h2>
+    <button onclick="document.getElementById('compare-panel').style.display='none'" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text)">×</button>
+  </div>
+  <div style="display:grid;gap:1rem" id="compare-grid">
+    <!-- 动态生成对比表格 -->
+  </div>
 </div>
 
 <script src="lazy-modal.js"></script>
@@ -1305,16 +1355,35 @@ function loadFavorites() {
 }
 
 function loadTheme() {
-  try {
-    const t = localStorage.getItem('tea_theme');
-    if (t === 'dark') { darkMode = true; document.documentElement.setAttribute('data-theme','dark'); }
-  } catch(e) {}
+  const saved = localStorage.getItem('tea_theme');
+  if (saved) {
+    darkMode = saved === 'dark';
+  } else {
+    // 跟随系统
+    darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  updateThemeIcon();
+}
+
+function updateThemeIcon() {
+  const btn = document.querySelector('button[onclick="toggleTheme()"]');
+  if (btn) btn.textContent = darkMode ? '☀️' : '🌙';
 }
 
 function updateFavCount() {
   document.getElementById('favCount').textContent = favorites.length;
   document.getElementById('favPageCount').textContent = favorites.length;
 }
+
+// 系统主题变化监听
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (!localStorage.getItem('tea_theme')) {
+    darkMode = e.matches;
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    updateThemeIcon();
+  }
+});
 
 // ---------- EVENTS ----------
 function bindEvents() {
@@ -1674,8 +1743,7 @@ function handleSort(value) {
 
 // ---------- RENDER GRID ----------
 function renderGrid() {
-  const skeleton = document.getElementById('skeleton');
-  if (skeleton) skeleton.style.display = 'none';
+  document.getElementById('skeleton')?.remove();
 
   const view = currentView || 'grid';
   const teas = getFilteredTeas();
@@ -1799,6 +1867,7 @@ function toggleTeaDetail(id) {
     const tea = TEA_DATA.find(t => t.id === id);
     if (!tea) return;
     const isFav = favorites.includes(tea.id);
+    const ratings = JSON.parse(localStorage.getItem('tea_ratings') || '{}');
     detailEl.innerHTML = `
       <div class="tea-detail-grid">
         <div class="tea-detail-item"><div class="tea-detail-label">名称</div><div class="tea-detail-value">${tea.name}</div></div>
@@ -1821,6 +1890,10 @@ function toggleTeaDetail(id) {
         <button class="tea-detail-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id});toggleTeaDetail(${tea.id})">${isFav?'❤️ 已收藏':'🤍 收藏'}</button>
         <button class="tea-detail-btn" onclick="event.stopPropagation();openModal(${tea.id})">🔗 完整信息</button>
         <button class="tea-detail-btn" onclick="event.stopPropagation();openVideoModal(${tea.id})">📺 冲泡视频</button>
+        <div class="rate-stars" style="display:flex;gap:2px;cursor:pointer" onclick="event.stopPropagation()">
+          ${[1,2,3,4,5].map(n => `<span data-n="${n}" onclick="rateTea(${tea.id},${n})" style="font-size:1.2rem;color:${(ratings[${tea.id}] && n<=ratings[${tea.id}])?'#FFD700':'#ddd'}">★</span>`).join('')}
+        </div>
+        <button class="tea-detail-btn" onclick="event.stopPropagation();addTastingNote(${tea.id})">📝 品鉴日记</button>
       </div>
     `;
     detailEl.classList.add('open');
@@ -1884,7 +1957,7 @@ function toggleCompare(id, btn) {
     btn.classList.remove('checked');
     btn.textContent = '';
   } else {
-    if (compareList.length >= 3) { showToast('最多对比3种茶叶'); return; }
+    if (compareList.length >= 4) { showToast('最多对比4种茶叶'); return; }
     compareList.push(id);
     btn.classList.add('checked');
     btn.textContent = '✓';
@@ -1896,12 +1969,15 @@ function renderCompareBar() {
   const bar = document.getElementById('compareBar');
   const countEl = document.getElementById('compareCount');
   const itemsEl = document.getElementById('compareItems');
+  const openBtn = document.getElementById('compareOpenBtn');
   countEl.textContent = compareList.length;
   if (compareList.length === 0) {
     bar.classList.remove('active');
+    openBtn.style.display = 'none';
     return;
   }
   bar.classList.add('active');
+  openBtn.style.display = compareList.length >= 2 ? 'inline-flex' : 'none';
   itemsEl.innerHTML = compareList.map(id => {
     const tea = TEA_DATA.find(t => t.id === id);
     if (!tea) return '';
@@ -1909,7 +1985,7 @@ function renderCompareBar() {
       <div class="compare-item-name">${tea.name}</div>
       <div class="compare-item-meta">${tea.type}</div>
       <div class="compare-item-meta">${tea.origin}</div>
-      <div class="compare-item-meta">${tea.grade}</div>
+      <button class="compare-remove" onclick="event.stopPropagation();removeFromCompare(${tea.id})">移除</button>
     </div>`;
   }).join('');
 }
@@ -1918,6 +1994,125 @@ function clearCompare() {
   compareList = [];
   renderCompareBar();
   document.querySelectorAll('.card-check').forEach(c => { c.classList.remove('checked'); c.textContent = ''; });
+}
+
+function removeFromCompare(id) {
+  const idx = compareList.indexOf(id);
+  if (idx >= 0) {
+    compareList.splice(idx, 1);
+    const cardCheck = document.querySelector(`.card-check[onclick*="toggleCompare(${id},"]`);
+    if (cardCheck) { cardCheck.classList.remove('checked'); cardCheck.textContent = ''; }
+    renderCompareBar();
+  }
+}
+
+function openComparePanel() {
+  if (compareList.length < 2) { showToast('请至少选择2种茶叶进行对比'); return; }
+  const panel = document.getElementById('compare-panel');
+  const grid = document.getElementById('compare-grid');
+  const teas = compareList.map(id => TEA_DATA.find(t => t.id === id)).filter(Boolean);
+
+  // 构建对比表格HTML - 横向对比：每列是一种茶
+  const cols = teas.length;
+  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  grid.innerHTML = `<table class="compare-table">
+    <thead>
+      <tr>
+        <th class="label-cell">对比维度</th>
+        ${teas.map(t => `<th class="tea-name-cell">${t.name}</th>`).join('')}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label-cell">图片</td>
+        ${teas.map(t => {
+          const img = getTeaImageUrl(t);
+          const imgHtml = Array.isArray(img) && img[0] ? `<img src="${img[0]}" class="tea-img-cell" alt="${t.name}">` : `<div style="font-size:2rem;text-align:center">${t.teaEmoji||'🍵'}</div>`;
+          return `<td style="text-align:center">${imgHtml}</td>`;
+        }).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">类型</td>
+        ${teas.map(t => `<td>${t.type||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">产地</td>
+        ${teas.map(t => `<td>${t.origin||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">等级</td>
+        ${teas.map(t => `<td>${t.grade||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">茶汤颜色</td>
+        ${teas.map(t => `<td>${t.color||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">口感特点</td>
+        ${teas.map(t => {
+          if (!t.flavorProfile) return '<td>-</td>';
+          const fp = t.flavorProfile;
+          return `<td>
+            ${fp.fragrant ? `🍃 香气: ${fp.fragrant}/10<br>` : ''}
+            ${fp.sweet ? `🍬 甜度: ${fp.sweet}/10<br>` : ''}
+            ${fp.bitter ? `☕ 苦味: ${fp.bitter}/10<br>` : ''}
+            ${fp.astringent ? `😖 涩味: ${fp.astringent}/10<br>` : ''}
+            ${fp.returning ? `✨ 回甘: ${fp.returning}/10` : ''}
+          </td>`;
+        }).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">主要功效</td>
+        ${teas.map(t => `<td>${t.efficacy||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">冲泡参数</td>
+        ${teas.map(t => {
+          if (!t.brewing) return '<td>-</td>';
+          return `<td>
+            🌡️ ${t.brewing.temperature||'-'}<br>
+            🫖 ${t.brewing.teaware||'-'}<br>
+            ⏱️ ${t.brewing.steps||'-'}
+          </td>`;
+        }).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">采摘季节</td>
+        ${teas.map(t => `<td>${t.harvestSeason||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">适宜人群</td>
+        ${teas.map(t => `<td>${t.suitableCrowd||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">适宜时间</td>
+        ${teas.map(t => `<td>${t.suitableTime||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">海拔</td>
+        ${teas.map(t => `<td>${t.altitude||'-'}</td>`).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">价格区间</td>
+        ${teas.map(t => {
+          const p = t.priceRange;
+          const stars = '💰'.repeat(p||1);
+          return `<td class="price-cell">${stars} ${p?'('+p+')':''}</td>`;
+        }).join('')}
+      </tr>
+      <tr>
+        <td class="label-cell">评分</td>
+        ${teas.map(t => {
+          const r = t.rating || 0;
+          const stars = '⭐'.repeat(r);
+          return `<td class="rating-cell">${stars} (${r})</td>`;
+        }).join('')}
+      </tr>
+    </tbody>
+  </table>`;
+
+  panel.style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
 
 // ---------- SIDEBAR TOGGLE ----------
@@ -2161,23 +2356,89 @@ function copyShare(id) {
   }
 }
 
+// ---------- RATE TEA ----------
+function rateTea(id, score) {
+  let ratings = JSON.parse(localStorage.getItem('tea_ratings') || '{}');
+  ratings[id] = score;
+  localStorage.setItem('tea_ratings', JSON.stringify(ratings));
+  showToast('给 ' + TEA_DATA.find(t=>t.id===id).name + ' 打了 ' + score + ' 分 ★');
+  renderRanking();
+}
+
+// ---------- ADD TASTING NOTE ----------
+function addTastingNote(id) {
+  const note = prompt('记录你的品鉴感受（可选）：');
+  if (note === null) return;
+  const tea = TEA_DATA.find(t=>t.id===id);
+  let diary = JSON.parse(localStorage.getItem('tea_diary') || '[]');
+  diary.unshift({id, name: tea.name, note: note || '', date: new Date().toLocaleDateString('zh-CN')});
+  localStorage.setItem('tea_diary', JSON.stringify(diary.slice(0, 50))); // 最多50条
+  showToast('已添加到品鉴日记');
+}
+
+// ---------- RENDER DIARY ----------
+function renderDiary() {
+  const diary = JSON.parse(localStorage.getItem('tea_diary') || '[]');
+  const container = document.getElementById('diaryList');
+  if (!container) return;
+  if (diary.length === 0) {
+    container.innerHTML = '<div class="empty"><div class="empty-icon">📝</div><p>还没有品鉴记录</p><p style="font-size:.85rem;color:var(--c2);margin-top:.5rem">点击茶叶详情中的"📝 品鉴日记"按钮添加</p></div>';
+    return;
+  }
+  container.innerHTML = diary.map((entry, idx) => `
+    <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:.8rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+        <span style="font-weight:700;color:var(--c5)">${entry.name}</span>
+        <span style="font-size:.75rem;color:var(--c2)">${entry.date}</span>
+      </div>
+      ${entry.note ? `<div style="font-size:.88rem;line-height:1.7;color:var(--text)">${entry.note}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function openDiaryModal() {
+  renderDiary();
+  document.getElementById('diaryModal').classList.add('open');
+}
+
+function closeDiaryModal() {
+  document.getElementById('diaryModal').classList.remove('open');
+}
+
 // ---------- RENDER RANKING ----------
+let rankingTab = 'tea'; // 'tea' for 茶叶评分榜, 'mine' for 我的品鉴榜
+
 function renderRanking() {
   const sortBy = document.getElementById('rankingSort')?.value || 'rating';
   const container = document.getElementById('rankingList');
   if (!container) return;
-  const sorted = [...TEA_DATA].map((t, i) => ({...t, _rating: t.rating || 4})).sort((a, b) => {
-    if (sortBy === 'rating') return b._rating - a._rating;
-    if (sortBy === 'name') return a.name.localeCompare(b.name, 'zh');
-    if (sortBy === 'type') return a.type.localeCompare(b.type, 'zh') || a.name.localeCompare(b.name, 'zh');
-    if (sortBy === 'origin') return a.origin.localeCompare(b.origin, 'zh') || a.name.localeCompare(b.name, 'zh');
-    if (sortBy === 'fav') return (favorites.includes(b.id)?1:0) - (favorites.includes(a.id)?1:0);
-    return 0;
-  });
+
+  const ratings = JSON.parse(localStorage.getItem('tea_ratings') || '{}');
+  const userRated = Object.keys(ratings).map(id => {
+    const tea = TEA_DATA.find(t => t.id === parseInt(id));
+    if (!tea) return null;
+    return {...tea, _userRating: ratings[id]};
+  }).filter(t => t && t._userRating);
+
+  let sorted = [];
+  if (rankingTab === 'mine') {
+    sorted = [...userRated].sort((a, b) => b._userRating - a._userRating);
+  } else {
+    sorted = [...TEA_DATA].map((t, i) => ({...t, _rating: t.rating || 4})).sort((a, b) => {
+      if (sortBy === 'rating') return b._rating - a._rating;
+      if (sortBy === 'name') return a.name.localeCompare(b.name, 'zh');
+      if (sortBy === 'type') return a.type.localeCompare(b.type, 'zh') || a.name.localeCompare(b.name, 'zh');
+      if (sortBy === 'origin') return a.origin.localeCompare(b.origin, 'zh') || a.name.localeCompare(b.name, 'zh');
+      if (sortBy === 'fav') return (favorites.includes(b.id)?1:0) - (favorites.includes(a.id)?1:0);
+      return 0;
+    });
+  }
+
   container.innerHTML = sorted.map((t, idx) => {
     const rank = idx + 1;
     const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`;
-    const stars = '★'.repeat(Math.round(t._rating)) + '☆'.repeat(5 - Math.round(t._rating));
+    const displayRating = rankingTab === 'mine' ? t._userRating : t._rating;
+    const stars = '★'.repeat(Math.round(displayRating)) + '☆'.repeat(5 - Math.round(displayRating));
     const isFav = favorites.includes(t.id);
     return `<div class="tea-card ranking-card" style="display:flex;align-items:center;gap:.8rem;padding:.7rem 1rem;border-bottom:1px solid var(--border)" onclick="openModal(${t.id})">
       <div style="font-size:1.5rem;min-width:2.5rem;text-align:center">${medal}</div>
@@ -2191,6 +2452,15 @@ function renderRanking() {
       </div>
     </div>`;
   }).join('');
+}
+
+function switchRankingTab(tab) {
+  rankingTab = tab;
+  document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.ranking-tab-btn[data-tab="${tab}"]`).classList.add('active');
+  const sortBar = document.getElementById('rankingSortBar');
+  if (sortBar) sortBar.style.display = tab === 'mine' ? 'none' : 'flex';
+  renderRanking();
 }
 
 // ---------- RENDER ENCYCLOPEDIA TAB ----------
@@ -2605,41 +2875,106 @@ function closeVideoModal() {
   document.body.style.overflow = '';
 }
 
-// ---------- BREW MODAL ----------
+// ---------- BREW MODAL v4.0 ----------
+const BREW_PARAMS = {
+  '绿茶': { temp: '80-85℃', teaware: '玻璃杯/盖碗', amount: '3g', time: '2-3分钟', steeps: '1-2次', flavorBase: '清爽鲜嫩' },
+  '红茶': { temp: '90-95℃', teaware: '盖碗/紫砂', amount: '3-5g', time: '3-5分钟', steeps: '3-5次', flavorBase: '醇厚甘甜' },
+  '乌龙茶': { temp: '95-100℃', teaware: '紫砂壶/盖碗', amount: '5-8g', time: '1-3分钟', steeps: '6-8次', flavorBase: '花香馥郁' },
+  '白茶': { temp: '75-85℃', teaware: '玻璃杯/盖碗', amount: '3-5g', time: '4-5分钟', steeps: '5-7次', flavorBase: '清甜毫香' },
+  '黄茶': { temp: '75-80℃', teaware: '玻璃杯', amount: '3g', time: '1-2分钟', steeps: '1-2次', flavorBase: '鲜醇回甘' },
+  '普洱': { temp: '95-100℃', teaware: '紫砂壶/盖碗', amount: '5-10g', time: '3-5分钟', steeps: '10次以上', flavorBase: '陈香醇滑' },
+  '花茶': { temp: '85-90℃', teaware: '盖碗/玻璃杯', amount: '3g', time: '3-4分钟', steeps: '3-4次', flavorBase: '花香怡人' }
+};
+
 function openBrewModal(teaId) {
   const tea = TEA_DATA.find(t => t.id === teaId);
-  if (!tea || !tea.brewing) return;
-  const b = tea.brewing;
-  const temps = {冷泡:'0-5℃',低温:'70-80℃',中温:'85-90℃',高温:'95-100℃',沸水:'100℃'};
-  const tempKey = Object.keys(temps).find(k => b.temperature && b.temperature.includes(temps[k])) || (b.temperature.includes('100')?'高温':b.temperature.includes('90')?'中温':'低温');
-  const tempColor = {冷泡:'#3498db',低温:'#1abc9c',中温:'#f39c12',高温:'#e74c3c'}[tempKey] || '#666';
-  const steps = b.steps ? b.steps.split(/[；;；]/) : [b.steps || '按常规冲泡'];
+  if (!tea) return;
+  
+  // 根据茶类获取泡茶参数
+  const typeKey = Object.keys(BREW_PARAMS).find(k => tea.type && tea.type.includes(k)) || '绿茶';
+  const params = BREW_PARAMS[typeKey];
+  
+  // 如果茶叶数据有覆盖值则使用，否则用默认值
+  const temp = tea.brewing?.temperature || params.temp;
+  const teaware = tea.brewing?.teaware || params.teaware;
+  const amount = params.amount;
+  const time = params.time;
+  const steeps = params.steeps;
+  
+  // 生成风味提示
+  let flavorTips = '';
+  if (tea.flavorProfile || tea.flavor) {
+    const flavorText = tea.flavorProfile || tea.flavor || '';
+    const flavorDesc = params.flavorBase;
+    flavorTips = `这款${tea.name}属于${typeKey}，具有${flavorDesc}的特点。${flavorText ? '风味上' + flavorText : ''}。建议细品其香气与滋味的层次变化。`;
+  } else {
+    flavorTips = `这款${tea.name}属于${typeKey}，具有${flavorDesc}的特点。适合慢慢品味，感受茶汤在口中的转化。`;
+  }
+  
+  // 生成耐泡次数HTML
+  const steepsHtml = `<b>${steeps}</b>，每次冲泡可适当延长浸泡时间，体验不同泡次的口感变化。`;
+  
+  // 泡茶助手弹窗HTML
   const html = `
-    <div style="text-align:center;margin-bottom:1rem">
-      <div style="font-size:2rem">${tea.teaEmoji||'🍵'}</div>
-      <div style="font-weight:700;font-size:1.1rem;margin-top:.3rem">${tea.name}</div>
-      <div style="font-size:.8rem;color:var(--c2);margin-top:.2rem">${tea.type} · ${tea.origin}</div>
+<div class="brew-modal" style="display:none;position:fixed;inset:0;z-index:300;align-items:center;justify-content:center;background:rgba(0,0,0,.5)">
+  <div class="brew-modal-inner" style="background:var(--bg);border-radius:16px;max-width:500px;width:90%;max-height:85vh;overflow:auto;padding:1.5rem;position:relative">
+    <button onclick="this.closest('.brew-modal').style.display='none'" style="position:absolute;top:.8rem;right:.8rem;background:var(--c4);border:none;border-radius:50%;width:2rem;height:2rem;cursor:pointer;font-size:1.2rem">×</button>
+    <h2 style="margin-bottom:1rem;font-size:1.3rem">☕ ${tea.name} 冲泡指南</h2>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem">
+      <div style="background:var(--c4);padding:.8rem;border-radius:10px;text-align:center">
+        <div style="font-size:.7rem;color:var(--c2)">水温</div>
+        <div style="font-size:1.1rem;font-weight:700;color:var(--c1)">${temp}</div>
+      </div>
+      <div style="background:var(--c4);padding:.8rem;border-radius:10px;text-align:center">
+        <div style="font-size:.7rem;color:var(--c2)">茶具</div>
+        <div style="font-size:1.1rem;font-weight:700;color:var(--c1)">${teaware}</div>
+      </div>
+      <div style="background:var(--c4);padding:.8rem;border-radius:10px;text-align:center">
+        <div style="font-size:.7rem;color:var(--c2)">投茶量</div>
+        <div style="font-size:1.1rem;font-weight:700;color:var(--c1)">${amount}</div>
+      </div>
+      <div style="background:var(--c4);padding:.8rem;border-radius:10px;text-align:center">
+        <div style="font-size:.7rem;color:var(--c2)">浸泡时间</div>
+        <div style="font-size:1.1rem;font-weight:700;color:var(--c1)">${time}</div>
+      </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-bottom:1rem;text-align:center">
-      <div style="background:var(--c4);padding:.6rem;border-radius:10px">
-        <div style="font-size:.7rem;color:var(--c2)">最佳水温</div>
-        <div style="font-size:1rem;font-weight:700;color:${tempColor}">${b.temperature||'85-90℃'}</div>
-      </div>
-      <div style="background:var(--c4);padding:.6rem;border-radius:10px">
-        <div style="font-size:.7rem;color:var(--c2)">推荐茶具</div>
-        <div style="font-size:.9rem;font-weight:700">${b.teaware||'盖碗'}</div>
-      </div>
-      <div style="background:var(--c4);padding:.6rem;border-radius:10px">
-        <div style="font-size:.7rem;color:var(--c2)">茶水比例</div>
-        <div style="font-size:.9rem;font-weight:700">${tea.type.includes('普洱')?'1:20':'1:50'}</div>
-      </div>
-    </div>
-    <h4 style="margin-bottom:.5rem;font-size:.9rem">📋 冲泡步骤</h4>
-    <div style="display:flex;flex-direction:column;gap:.5rem">${steps.map((s,i)=>`<div style="display:flex;align-items:flex-start;gap:.6rem"><div style="background:var(--c1);color:#fff;min-width:1.4rem;height:1.4rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0">${i+1}</div><div style="font-size:.82rem;line-height:1.5;padding-top:.1rem">${s}</div></div>`).join('')}</div>
-    ${tea.storage ? `<div style="margin-top:1rem;padding:.6rem;background:rgba(0,0,0,.04);border-radius:8px;font-size:.78rem;color:var(--c2)"><b>📦 存储：</b>${tea.storage}</div>` : ''}
+    
+    <h3 style="font-size:1rem;margin-bottom:.5rem">📝 冲泡步骤</h3>
+    <ol style="padding-left:1.2rem;line-height:1.8;font-size:.9rem">
+      <li>温杯：用热水将茶具冲洗一遍，提升杯温</li>
+      <li>置茶：根据茶类取适量茶叶投入壶/杯中</li>
+      <li>注水：将适温热水注入茶具，注水至七分满</li>
+      <li>浸泡：盖上盖子，静置相应时间</li>
+      <li>出汤：待时间到后，将茶汤倒入品杯</li>
+      <li>品饮：先闻香，后品饮，感受茶汤层次</li>
+    </ol>
+    
+    <h3 style="font-size:1rem;margin:.8rem 0 .5rem">🌟 风味提示</h3>
+    <p style="font-size:.85rem;line-height:1.6">${flavorTips}</p>
+    
+    <h3 style="font-size:1rem;margin:.8rem 0 .5rem">🍵 耐泡次数</h3>
+    <p style="font-size:.85rem">${steepsHtml}</p>
+  </div>
+</div>
   `;
-  document.getElementById('brewBody').innerHTML = html;
-  document.getElementById('brewModalOverlay').style.display = 'flex';
+  
+  // 移除旧弹窗（如果存在）
+  const oldModal = document.querySelector('.brew-modal');
+  if (oldModal) oldModal.remove();
+  
+  // 插入新弹窗
+  document.body.insertAdjacentHTML('beforeend', html);
+  
+  // 显示弹窗
+  const modal = document.querySelector('.brew-modal');
+  if (modal) {
+    modal.style.display = 'flex';
+    // 点击背景关闭
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  }
 }
 function closeBrewModal() {
   document.getElementById('brewModalOverlay').style.display = 'none';

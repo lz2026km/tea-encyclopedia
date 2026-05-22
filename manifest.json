@@ -1,18 +1,24 @@
 {
   "name": "茶叶大全",
   "short_name": "茶叶百科",
-  "description": "中国茶叶百科全书 - 50种名茶的历史、品种、产地、功效详解",
-  "start_url": "./index.html",
+  "description": "从神农时代到现代，200种茶叶的品种、产地、等级、趣事百科",
+  "start_url": "/tea-encyclopedia/",
   "display": "standalone",
-  "background_color": "#FEFCF3",
+  "background_color": "#f5f0e8",
   "theme_color": "#2D6A4F",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍃</text></svg>",
-      "sizes": "any",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%232D6A4F' width='192' height='192' rx='32'/><text y='140' x='96' text-anchor='middle' font-size='120'>🍵</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%232D6A4F' width='512' height='512' rx='64'/><text y='380' x='256' text-anchor='middle' font-size='320'>🍵</text></svg>",
+      "sizes": "512x512",
       "type": "image/svg+xml"
     }
   ],
-  "categories": ["education", "lifestyle"]
+  "categories": ["education", "lifestyle"],
+  "lang": "zh-CN"
 }
