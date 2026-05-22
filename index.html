@@ -1890,7 +1890,7 @@ function toggleTeaDetail(id) {
       </div>
       <div class="tea-detail-section">
         <div class="tea-detail-section-title">冲泡方法</div>
-        <div class="tea-detail-text">${tea.brewing||'85-90℃热水，冲泡2-3分钟'}</div>
+        <div class="tea-detail-text">${tea.brewing ? `水温${tea.brewing.temperature||'-'}｜茶具${tea.brewing.teaware||'-'}｜${tea.brewing.steps||'常规冲泡'}` : '85-90℃热水，冲泡2-3分钟'}</div>
       </div>
       ${tea.story ? `<div class="tea-detail-section"><div class="tea-detail-section-title">趣事传说</div><div class="tea-detail-story">${tea.story}</div></div>` : ''}
       <div class="tea-detail-actions">
@@ -2662,7 +2662,7 @@ function preparePrintView() {
         </div>
         <div style="margin-bottom:.8rem"><strong>简介：</strong>${tea.desc}</div>
         <div style="margin-bottom:.8rem"><strong>功效：</strong>${tea.efficacy||'清热解毒'}</div>
-        <div style="margin-bottom:.8rem"><strong>冲泡：</strong>${tea.brewing||'85-90℃热水，冲泡2-3分钟'}</div>
+        <div style="margin-bottom:.8rem"><strong>冲泡：</strong>${tea.brewing ? `水温${tea.brewing.temperature||'-'}｜茶具${tea.brewing.teaware||'-'}｜${tea.brewing.steps||'常规冲泡'}` : '85-90℃热水，冲泡2-3分钟'}</div>
         ${tea.detail ? `<div style="margin-bottom:.8rem"><strong>详情：</strong>${tea.detail}</div>` : ''}
         ${tea.story ? `<div style="background:var(--c4);padding:.7rem;border-radius:8px;border-left:3px solid var(--c1);margin-top:.5rem"><strong>趣事传说：</strong>${tea.story}</div>` : ''}
       `;
