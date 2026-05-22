@@ -69,6 +69,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .sb-tag { background: var(--c4); color: var(--c5); border: 1.5px solid var(--border); border-radius: 20px; padding: .2rem .7rem; font-size: .82rem; cursor: pointer; transition: all .2s; user-select: none; }
 .sb-tag:hover { background: var(--c3); border-color: var(--c2); }
 .sb-tag.active { background: var(--c1); color: #fff; border-color: var(--c1); }
+.sb-tag[draggable]:active { cursor: grabbing; }
+.sb-tag.dragging { opacity: 0.5; }
 .sb-tag-count { background: var(--c2); color: #fff; border-radius: 10px; padding: 0 .35rem; font-size: .7rem; margin-left: .2rem; }
 
 /* ===== MAIN CONTENT ===== */
@@ -90,9 +92,19 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .results-info strong { color: var(--c1); font-size: 1.1rem; }
 
 /* ===== TEA GRID ===== */
-.tea-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
-.tea-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .2s, box-shadow .2s; border: 1.5px solid var(--border); display: flex; flex-direction: column; }
-.tea-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.tea-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; perspective: 1000px; }
+.tea-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .2s, box-shadow .2s; border: 1.5px solid var(--border); display: flex; flex-direction: column; transform-style: preserve-3d; animation: cardFadeIn .4s ease-out forwards; opacity: 0; }
+.tea-card:hover { transform: translateY(-4px) rotateX(2deg) rotateY(2deg); box-shadow: var(--shadow-md); }
+.tea-card:nth-child(1) { animation-delay: 0ms; }
+.tea-card:nth-child(2) { animation-delay: 60ms; }
+.tea-card:nth-child(3) { animation-delay: 120ms; }
+.tea-card:nth-child(4) { animation-delay: 180ms; }
+.tea-card:nth-child(5) { animation-delay: 240ms; }
+.tea-card:nth-child(6) { animation-delay: 300ms; }
+.tea-card:nth-child(7) { animation-delay: 360ms; }
+.tea-card:nth-child(8) { animation-delay: 420ms; }
+.tea-card:nth-child(n+9) { animation-delay: 480ms; }
+@keyframes cardFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 .tea-img-wrap { width: 100%; height: 160px; overflow: hidden; background: var(--c4); position: relative; }
 .tea-img { width: 100%; height: 100%; object-fit: cover; }
 .tea-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, var(--c4) 0%, var(--c3) 100%); color: var(--c1); }
@@ -106,6 +118,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .tea-period { font-size: .72rem; color: var(--c2); background: var(--c4); border-radius: 10px; padding: .1rem .4rem; }
 .tea-fav-btn { background: none; border: none; cursor: pointer; font-size: 1.1rem; color: var(--border); transition: color .2s; }
 .tea-fav-btn.faved { color: #e53e3e; }
+.tea-share-btn { background: none; border: none; cursor: pointer; font-size: 1rem; color: var(--border); transition: color .2s, opacity .2s; opacity: 0; }
+.tea-card:hover .tea-share-btn { opacity: 1; }
+.tea-share-btn:hover { color: var(--c1); }
 
 /* ===== MODAL ===== */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
@@ -365,6 +380,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 /* ===== PRINT STYLES ===== */
 @media print {
+  .sidebar, .tab-bar, .hdr-actions, .mobile-filter-btn, .compare-bar, .toast, .modal-overlay, #backToTop, .pwa-install-bar { display: none !important; }
+  .main { margin: 0 !important; width: 100% !important; }
+  .tea-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 1rem; padding: 1rem; }
+  .print-header { display: block !important; }
   .hdr, .sidebar, .tab-btn, .tea-fav-btn, .compare-bar, .mobile-filter-btn,
   .toast, .context-menu, .modal-overlay, .compare-bar, .filter-bar,
   .banner, .fav-page, .tab-bar { display: none !important; }
@@ -439,14 +458,14 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   padding: .7rem 1.2rem;
   box-shadow: var(--shadow-lg);
   z-index: 400;
-  display: flex;
+  display: none;
   align-items: center;
   gap: .8rem;
   font-size: .88rem;
   transition: transform .35s ease;
   max-width: 90vw;
 }
-.pwa-install-bar.show { transform: translateX(-50%) translateY(0); }
+.pwa-install-bar.show { transform: translateX(-50%) translateY(0); display: flex; }
 .pwa-install-bar .pwa-icon { font-size: 1.8rem; flex-shrink: 0; }
 .pwa-install-bar .pwa-text { flex: 1; }
 .pwa-install-bar .pwa-title { font-weight: 700; color: var(--c5); margin-bottom: .1rem; }
@@ -480,7 +499,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
-@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 .skeleton-wrap.hidden { display: none; }
 </style>
 </head>
@@ -528,6 +547,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <button class="hdr-btn" onclick="openEncyclopediaModal()" title="茶百科">📖 百科</button>
     <button class="hdr-btn-outline" onclick="toggleTheme()" title="切换深色模式">🌙</button>
     <button class="bookmarklet-btn" onclick="showBookmarkletHint()" title="搜索书签">🔖</button>
+    <button class="hdr-btn-outline" onclick="showToast('🔑 快捷键: / 搜索 | ? 帮助 | G 宫格 | L 列表 | T 主题 | R 随机茶叶')" title="快捷键帮助">❓</button>
+    <button class="hdr-btn" onclick="openStatsModal()" title="茶叶统计">📊</button>
   </div>
 </header>
 
@@ -538,7 +559,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <aside class="sidebar" id="sidebar">
   <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="折叠侧边栏">☰</button>
   <div class="sb-section">
-    <div class="sb-title">🍵 茶类</div>
+    <div class="sb-title">🍵 茶类 <button onclick="resetTagOrder()" style="float:right;font-size:.7rem;padding:.1rem .4rem;border-radius:10px;border:1px solid var(--border);background:none;cursor:pointer;color:var(--c2)" title="重置标签顺序">↺</button></div>
     <div class="sb-tags" id="typeTags"></div>
   </div>
   <div class="sb-section">
@@ -572,6 +593,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <p>从神农时代到现代 · 六大茶类 · 50种名茶 · 趣事传说 · 产地等级</p>
     <div id="solarTermBanner" style="margin-top:.8rem;font-size:.9rem;opacity:.9"></div>
   </div>
+  <div id="dailyTeaCard" style="margin-top:.8rem;padding:.6rem 1rem;background:rgba(255,255,255,.15);border-radius:12px;font-size:.88rem;display:flex;align-items:center;gap:.5rem;cursor:pointer" onclick="showRandom()">
+    <span id="dailyTeaIcon">☀️</span>
+    <span id="dailyTeaText">每日推荐加载中…</span>
+  </div>
 
   <!-- TAB BAR -->
   <div class="tab-bar">
@@ -586,6 +611,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <div class="filter-bar" id="filterBar">
       <div id="activeFilters"></div>
       <span class="filter-clear" onclick="clearAllFilters()" style="display:none" id="clearAllBtn">✕ 清除筛选</span>
+      <select id="sortSelect" onchange="handleSort(this.value)" style="margin-left:auto;padding:.35rem .6rem;border-radius:20px;border:1.5px solid var(--border);font-size:.82rem"><option value="default">默认排序</option><option value="name">按名称</option><option value="grade">按等级</option><option value="origin">按产地</option></select>
+      <div class="view-toggle" style="display:flex;gap:.3rem;margin-left:.5rem"><button class="view-btn active" id="gridViewBtn" onclick="setView('grid')" style="padding:.35rem .5rem;border-radius:16px;border:1.5px solid var(--border);background:var(--c1);color:#fff;font-size:.8rem">▦</button><button class="view-btn" id="listViewBtn" onclick="setView('list')" style="padding:.35rem .5rem;border-radius:16px;border:1.5px solid var(--border);background:var(--bg);font-size:.8rem">☰</button></div>
     </div>
     <div class="results-info" id="resultsInfo"></div>
     <div class="tea-grid" id="teaGrid"></div>
@@ -787,6 +814,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <!-- COMPARISON BAR -->
 <div class="compare-bar" id="compareBar">
   <span class="compare-bar-title">⚖️ 对比 (<span id="compareCount">0</span>)</span>
+  <button onclick="showToast('⚖️ 对比栏：点击卡片右下角⚖️按钮添加茶叶，最多4种，点击比较')" style="background:none;border:none;cursor:pointer;font-size:.85rem;margin-left:.3rem;color:var(--c2)">ℹ️</button>
   <div class="compare-items" id="compareItems"></div>
   <button class="compare-close" onclick="clearCompare()">✕</button>
 </div>
@@ -858,6 +886,7 @@ let darkMode = false;
 let currentView = 'grid';
 let compareList = [];
 let searchHistory = [];
+let dailyTeaShown = false;
 
 // ---------- INIT ----------
 (function init() {
@@ -875,6 +904,11 @@ let searchHistory = [];
   initIndexedDB();
   bar.style.width = '80%';
   renderSidebarTags();
+  loadTagOrder();
+  initTagDrag();
+  bar.style.width = '85%';
+  // 每日一茶（早于renderGrid）
+  checkDailyTea();
   bar.style.width = '90%';
   renderGrid();
   bindEvents();
@@ -884,6 +918,17 @@ let searchHistory = [];
   setupPWAInstallPrompt();
   // 监听系统主题变化
   listenSystemTheme();
+  // 热门搜索
+  const hotSearches = ['龙井','普洱','铁观音','碧螺春','红茶','茉莉花茶'];
+  document.getElementById('searchInput').setAttribute('list', 'hotSearchList');
+  const datalist = document.createElement('datalist');
+  datalist.id = 'hotSearchList';
+  hotSearches.forEach(h => {
+    const opt = document.createElement('option');
+    opt.value = h;
+    datalist.appendChild(opt);
+  });
+  document.getElementById('searchInput').parentNode.appendChild(datalist);
   // WebP 检测
   detectWebP();
   bar.style.width = '100%';
@@ -893,14 +938,38 @@ let searchHistory = [];
     const sk = document.getElementById('skeletonScreen');
     if (sk) sk.classList.add('hidden');
   }, 100);
-  // 每日一茶
-  checkDailyTea();
   // 二十四节气Banner
   renderSolarTermBanner();
   // 打印日期
   const pd = document.getElementById('printDate');
   if (pd) pd.textContent = new Date().toLocaleString('zh-CN');
 })();
+
+function checkDailyTea() {
+  const today = new Date().toDateString();
+  const last = localStorage.getItem('dailyTeaDate');
+  if (last !== today) {
+    const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(),0,0))/86400000);
+    const idx = dayOfYear % TEA_DATA.length;
+    const tea = TEA_DATA[idx];
+    localStorage.setItem('dailyTeaDate', today);
+    localStorage.setItem('dailyTea', JSON.stringify(tea));
+    setTimeout(() => {
+      showToast(`☀️ 今日推荐：${tea.name}（${tea.type}）— 点击卡片了解更多`, 6000);
+    }, 2000);
+  }
+  // Update daily tea card text
+  const saved = localStorage.getItem('dailyTea');
+  if (saved) {
+    try {
+      const tea = JSON.parse(saved);
+      const textEl = document.getElementById('dailyTeaText');
+      const iconEl = document.getElementById('dailyTeaIcon');
+      if (textEl) textEl.textContent = `今日推荐：${tea.name}（${tea.type}）`;
+      if (iconEl) iconEl.textContent = '☀️';
+    } catch(e) {}
+  }
+}
 
 function loadSearchHistory() {
   try { searchHistory = JSON.parse(localStorage.getItem('tea_search_history') || '[]'); } catch(e) { searchHistory = []; }
@@ -1031,61 +1100,38 @@ function bindEvents() {
     }, 200);
   });
 
-  // Tag drag init
-  initTagDrag();
-  loadTagOrder();
-
   // Keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
-    // '/' to focus search
-    if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+  document.addEventListener('keydown', (e) => {
+    // / 键：聚焦搜索框
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
       e.preventDefault();
       document.getElementById('searchInput').focus();
     }
-    // ArrowLeft/ArrowRight to navigate cards
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-      const visibleCards = document.querySelectorAll('.tea-card[data-id]');
-      if (visibleCards.length === 0) return;
-      if (typeof currentCardIndex === 'undefined') currentCardIndex = -1;
-      if (e.key === 'ArrowLeft') {
-        currentCardIndex = currentCardIndex <= 0 ? visibleCards.length - 1 : currentCardIndex - 1;
-      } else {
-        currentCardIndex = currentCardIndex >= visibleCards.length - 1 ? 0 : currentCardIndex + 1;
-      }
-      // Close any open detail
-      document.querySelectorAll('.tea-detail.open').forEach(d => d.classList.remove('open'));
-      // Scroll into view
-      visibleCards[currentCardIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // ? 键：显示快捷键说明
+    if (e.key === '?' && document.activeElement.tagName !== 'INPUT') {
+      showToast('🔑 快捷键: / 搜索 | ? 帮助 | G 宫格 | L 列表 | T 主题 | R 随机茶叶');
     }
-    // Escape to close details/modals/search history
+    // G 键：切换到宫格视图
+    if (e.key === 'g' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') setView('grid');
+    // L 键：切换到列表视图
+    if (e.key === 'l' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') setView('list');
+    // T 键：切换主题
+    if (e.key === 't' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') toggleTheme();
+    // R 键：随机茶叶
+    if (e.key === 'r' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') showRandom();
+    // Escape：关闭弹窗
     if (e.key === 'Escape') {
-      // Close card detail
-      document.querySelectorAll('.tea-detail.open').forEach(d => d.classList.remove('open'));
-      // Close modal
       closeModal();
-      // Close video modal
       closeVideoModal();
-      // Close encyclopedia modal
       closeEncyclopediaModal();
-      // Close search history
-      document.getElementById('searchHistory').classList.remove('show');
-      document.getElementById('autocompleteList').classList.remove('show');
-      // Close context menu
       hideContextMenu();
     }
-    // Enter to select first search suggestion
-    if (e.key === 'Enter' && document.activeElement === document.getElementById('searchInput')) {
-      const acList = document.getElementById('autocompleteList');
-      if (acList.classList.contains('show') && autocompleteIndex >= 0) {
-        selectAutocomplete(autocompleteIndex);
-        return;
-      }
-      const history = document.getElementById('searchHistory');
-      if (history.classList.contains('show')) {
-        const firstItem = history.querySelector('.search-history-item');
-        if (firstItem) { firstItem.click(); return; }
-      }
-    }
+  });
+
+  // Scroll listener for backToTop button
+  window.addEventListener('scroll', function() {
+    const btn = document.getElementById('backToTop');
+    if (btn) btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
   });
 }
 
@@ -1187,8 +1233,8 @@ function renderSidebarTags() {
       }).length;
       const active = currentFilters.type === item ? 'active' : '';
       const len = item.length;
-      const fontSize = '0.85rem';
-      return `<span class="sb-tag ${active}" style="font-size:${fontSize}" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
+      const fontSize = 0.82 + (len % 5) * 0.05;
+      return `<span class="sb-tag ${active}" style="font-size:${fontSize}rem" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
     }).join('');
   }
 
@@ -1201,8 +1247,8 @@ function renderSidebarTags() {
   const effTags = ['提神醒脑','清热解毒','消食去腻','减肥降脂','抗氧化','延缓衰老','护齿明目','暖胃养胃'];
   document.getElementById('efficacyTags').innerHTML = effTags.map(e => {
     const len = e.length;
-    const fontSize = '0.85rem';
-    return `<span class="sb-tag" style="font-size:${fontSize}" onclick="toggleFilter('efficacy','${e}',this)">${e}</span>`;
+    const fontSize = 0.82 + (len % 5) * 0.05;
+    return `<span class="sb-tag" style="font-size:${fontSize}rem" onclick="toggleFilter('efficacy','${e}',this)">${e}</span>`;
   }).join('');
 
   // Season tags
@@ -1265,8 +1311,88 @@ function getFilteredTeas() {
   });
 }
 
+// ---------- VIEW TOGGLE ----------
+function setView(v) {
+  currentView = v;
+  const gB = document.getElementById('gridViewBtn'), lB = document.getElementById('listViewBtn');
+  if (gB && lB) {
+    gB.classList.toggle('active', v === 'grid');
+    lB.classList.toggle('active', v === 'list');
+    gB.style.background = v === 'grid' ? 'var(--c1)' : 'var(--bg)';
+    lB.style.background = v === 'list' ? 'var(--c1)' : 'var(--bg)';
+  }
+  renderGrid();
+}
+
+// ---------- SORT ----------
+function handleSort(value) {
+  if (value === 'default') {
+    renderGrid();
+    return;
+  }
+  const teas = getFilteredTeas();
+  if (value === 'name') {
+    teas.sort((a, b) => a.name.localeCompare(b.name, 'zh'));
+  } else if (value === 'grade') {
+    const gradeOrder = { '特级': 0, '一级': 1, '二级': 2, '三级': 3 };
+    teas.sort((a, b) => (gradeOrder[a.grade] || 99) - (gradeOrder[b.grade] || 99));
+  } else if (value === 'origin') {
+    teas.sort((a, b) => a.origin.localeCompare(b.origin, 'zh'));
+  }
+  const grid = document.getElementById('teaGrid');
+  grid.innerHTML = teas.map(tea => {
+    const imgUrls = getTeaImageUrl(tea);
+    const isFav = favorites.includes(tea.id);
+    const isChecked = compareList.includes(tea.id);
+    const delay = Math.random() * 2;
+    const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'card_' + tea.id);
+    if (currentView === 'list') {
+      return `
+      <div class="tea-card" style="animation-delay:${delay}s;flex-direction:row;height:120px" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
+        <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
+        <div style="width:120px;min-width:120px;overflow:hidden;background:var(--c4)">${carouselHTML}</div>
+        <div class="tea-body" style="flex-direction:row;flex:1;align-items:center;gap:.5rem">
+          <div style="flex:1">
+            <div class="tea-name">${tea.name}</div>
+            <div class="tea-origin">📍 ${tea.origin}</div>
+            <div class="tea-desc" style="-webkit-line-clamp:1">${tea.desc}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;padding-right:.5rem">
+            <span class="tea-type-badge" style="position:static;display:inline-block">${tea.type}</span>
+            <span class="tea-grade-badge" style="position:static;display:inline-block">${tea.grade}</span>
+            <span class="tea-period">${tea.period||''}</span>
+            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
+            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+          </div>
+        </div>
+        <div class="tea-detail" id="detail_${tea.id}"></div>
+      </div>`;
+    }
+    return `
+    <div class="tea-card" style="animation-delay:${delay}s" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
+      <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
+      ${carouselHTML}
+      <span class="tea-type-badge">${tea.type}</span>
+      <span class="tea-grade-badge">${tea.grade}</span>
+      <div class="tea-body">
+        <div class="tea-name">${tea.name}</div>
+        <div class="tea-origin">📍 ${tea.origin}</div>
+        <div class="tea-desc">${tea.desc}</div>
+        <div class="tea-footer">
+          <span class="tea-period">${tea.period||''}</span>
+          <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
+          <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+        </div>
+      </div>
+      <div class="tea-detail" id="detail_${tea.id}"></div>
+    </div>`;
+  }).join('');
+  bindCardEvents();
+}
+
 // ---------- RENDER GRID ----------
 function renderGrid() {
+  const view = currentView || 'grid';
   const teas = getFilteredTeas();
   const info = document.getElementById('resultsInfo');
   const grid = document.getElementById('teaGrid');
@@ -1293,6 +1419,28 @@ function renderGrid() {
     const isChecked = compareList.includes(tea.id);
     const delay = Math.random() * 2;
     const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'card_' + tea.id);
+    if (view === 'list') {
+      return `
+      <div class="tea-card" style="animation-delay:${delay}s;flex-direction:row;height:120px" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
+        <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
+        <div style="width:120px;min-width:120px;overflow:hidden;background:var(--c4)">${carouselHTML}</div>
+        <div class="tea-body" style="flex-direction:row;flex:1;align-items:center;gap:.5rem">
+          <div style="flex:1">
+            <div class="tea-name">${tea.name}</div>
+            <div class="tea-origin">📍 ${tea.origin}</div>
+            <div class="tea-desc" style="-webkit-line-clamp:1">${tea.desc}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;padding-right:.5rem">
+            <span class="tea-type-badge" style="position:static;display:inline-block">${tea.type}</span>
+            <span class="tea-grade-badge" style="position:static;display:inline-block">${tea.grade}</span>
+            <span class="tea-period">${tea.period||''}</span>
+            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
+            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+          </div>
+        </div>
+        <div class="tea-detail" id="detail_${tea.id}"></div>
+      </div>`;
+    }
     return `
     <div class="tea-card" style="animation-delay:${delay}s" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
       <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
@@ -1306,6 +1454,7 @@ function renderGrid() {
         <div class="tea-footer">
           <span class="tea-period">${tea.period||''}</span>
           <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
+          <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
         </div>
       </div>
       <div class="tea-detail" id="detail_${tea.id}"></div>
@@ -1579,15 +1728,49 @@ function openModal(id) {
 
 function closeModal() {
   document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('modalOverlay').style.display = 'none';
   document.body.style.overflow = '';
+}
+
+function openStatsModal() {
+  const types = {}, origins = {}, grades = {}, periods = {};
+  TEA_DATA.forEach(t => {
+    types[t.type] = (types[t.type]||0) + 1;
+    origins[t.origin] = (origins[t.origin]||0) + 1;
+    if(t.grade) grades[t.grade] = (grades[t.grade]||0) + 1;
+    if(t.period) periods[t.period] = (periods[t.period]||0) + 1;
+  });
+  const topType = Object.entries(types).sort((a,b)=>b[1]-a[1])[0];
+  const topOrigin = Object.entries(origins).sort((a,b)=>b[1]-a[1])[0];
+  const html = `
+    <div style="padding:1rem">
+      <h3 style="margin-bottom:1rem">📊 茶叶统计</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+        <div class="modal-grid-item"><div class="modal-grid-label">茶叶总数</div><div class="modal-grid-value" style="font-size:1.4rem;font-weight:700">${TEA_DATA.length}</div></div>
+        <div class="modal-grid-item"><div class="modal-grid-label">最多茶类</div><div class="modal-grid-value">${topType[0]} (${topType[1]}种)</div></div>
+        <div class="modal-grid-item"><div class="modal-grid-label">产地数量</div><div class="modal-grid-value">${Object.keys(origins).length}个</div></div>
+        <div class="modal-grid-item"><div class="modal-grid-label">热门产地</div><div class="modal-grid-value">${topOrigin[0]} (${topOrigin[1]}种)</div></div>
+        <div class="modal-grid-item"><div class="modal-grid-label">等级种类</div><div class="modal-grid-value">${Object.keys(grades).length}级</div></div>
+        <div class="modal-grid-item"><div class="modal-grid-label">历史时期</div><div class="modal-grid-value">${Object.keys(periods).length}个</div></div>
+      </div>
+      <h4 style="margin-top:1.2rem">🍵 茶类分布</h4>
+      <div style="margin-top:.5rem">${Object.entries(types).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div style="display:flex;align-items:center;gap:.5rem;margin:.3rem 0"><span>${k}</span><div style="flex:1;height:8px;background:var(--c4);border-radius:4px"><div style="width:${v/TEA_DATA.length*100}%;height:100%;background:var(--c1);border-radius:4px"></div></div><span>${v}</span></div>`).join('')}</div>
+      <h4 style="margin-top:1rem">📍 产地分布</h4>
+      <div style="margin-top:.5rem;font-size:.82rem;line-height:1.6">${Object.entries(origins).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span class="sb-tag" style="margin:.2rem">${k} ${v}</span>`).join('')}</div>
+    </div>
+  `;
+  document.getElementById('modalBody').innerHTML = html;
+  document.getElementById('modalOverlay').style.display = 'flex';
 }
 
 function copyShare(id) {
   const tea = TEA_DATA.find(t => t.id === id);
-  if (!tea) return;
-  const text = `🍃 ${tea.name}（${tea.type}·${tea.origin}）\n${tea.desc}\n来自「茶叶大全」`;
-  if (navigator.clipboard) { navigator.clipboard.writeText(text); showToast('链接已复制'); }
-  else showToast('复制失败');
+  const url = window.location.href.split('?')[0] + '?tea=' + id;
+  if (navigator.share) {
+    navigator.share({ title: tea.name + ' - 茶叶百科', text: `${tea.name}（${tea.type}），产地：${tea.origin}，等级：${tea.grade}`, url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => showToast('🔗 链接已复制到剪贴板'));
+  }
 }
 
 // ---------- TIMELINE ----------
@@ -1653,6 +1836,19 @@ function switchTab(tab, btn) {
   document.getElementById('recentPage').classList.toggle('active', tab === 'recent');
   currentView = tab;
 
+  // Page fade-in animation
+  const pageId = tab === 'grid' ? 'gridPage' : tab === 'timeline' ? 'timelinePage' : tab === 'origin' ? 'originPage' : tab === 'fav' ? 'favPage' : tab === 'recent' ? 'recentPage' : 'gridPage';
+  const page = document.getElementById(pageId);
+  if (page) {
+    page.style.opacity = '0';
+    page.style.transform = 'translateY(10px)';
+    requestAnimationFrame(() => {
+      page.style.transition = 'opacity .3s, transform .3s';
+      page.style.opacity = '1';
+      page.style.transform = 'translateY(0)';
+    });
+  }
+
   // Pjax: 更新 URL
   if (history.pushState) {
     const newUrl = tab === 'grid' ? './' : './?tab=' + tab;
@@ -1699,6 +1895,41 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2000);
 }
+
+// ---------- PRINT PREPARE ----------
+function preparePrintView() {
+  const printDate = document.getElementById('printDate');
+  if (printDate) printDate.textContent = new Date().toLocaleString('zh-CN');
+  // Show tea cards in print-friendly detail format
+  const grid = document.getElementById('teaGrid');
+  if (!grid) return;
+  TEA_DATA.forEach(tea => {
+    let panel = document.getElementById('print_panel_' + tea.id);
+    if (!panel) {
+      panel = document.createElement('div');
+      panel.id = 'print_panel_' + tea.id;
+      panel.className = 'tea-detail-panel';
+      panel.setAttribute('data-tea-name', tea.name);
+      panel.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.8rem">
+          <div><strong>类型：</strong>${tea.type}</div>
+          <div><strong>产地：</strong>${tea.origin}</div>
+          <div><strong>等级：</strong>${tea.grade}</div>
+          <div><strong>茶汤：</strong>${tea.color||'淡黄/绿'}</div>
+        </div>
+        <div style="margin-bottom:.8rem"><strong>简介：</strong>${tea.desc}</div>
+        <div style="margin-bottom:.8rem"><strong>功效：</strong>${tea.efficacy||'清热解毒'}</div>
+        <div style="margin-bottom:.8rem"><strong>冲泡：</strong>${tea.brewing||'85-90℃热水，冲泡2-3分钟'}</div>
+        ${tea.detail ? `<div style="margin-bottom:.8rem"><strong>详情：</strong>${tea.detail}</div>` : ''}
+        ${tea.story ? `<div style="background:var(--c4);padding:.7rem;border-radius:8px;border-left:3px solid var(--c1);margin-top:.5rem"><strong>趣事传说：</strong>${tea.story}</div>` : ''}
+      `;
+      grid.appendChild(panel);
+    }
+  });
+}
+
+// Register print preparation
+window.addEventListener('beforeprint', preparePrintView);
 
 // ---------- UTILS ----------
 function debounce(fn, delay) {
@@ -2007,21 +2238,6 @@ function renderSolarTermBanner() {
   }
 }
 
-// ---------- DAILY TEA ----------
-function checkDailyTea() {
-  try {
-    const today = new Date().toDateString();
-    const lastDate = localStorage.getItem('lastDailyDate');
-    if (lastDate !== today) {
-      const randomTea = TEA_DATA[Math.floor(Math.random() * TEA_DATA.length)];
-      showToast('今日推荐：' + randomTea.name + ' 🌟');
-      localStorage.setItem('lastDailyDate', today);
-    }
-  } catch(e) {}
-}
-
-// 在init末尾调用
-
 // ============================================================
 // 11 项新增功能
 // ============================================================
@@ -2171,6 +2387,12 @@ function loadTagOrder() {
       });
     });
   } catch(e) {}
+}
+
+function resetTagOrder() {
+  localStorage.removeItem('tea_tag_order');
+  showToast('标签顺序已重置');
+  location.reload();
 }
 
 // ---------- 4. 系统主题跟随 ----------
@@ -2378,5 +2600,6 @@ openModal = function(id) {
   _openModal(id);
 };
 </script>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:2rem;right:2rem;width:2.8rem;height:2.8rem;background:var(--c1);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:999">↑</button>
 </body>
 </html>
