@@ -1892,7 +1892,17 @@ const TEA_DATA = [
     teaEmoji: '🍃',
     category: '尖形绿茶',
     wuXing: '木',
-    efficacyDetail: '富含氨基酸和茶多酚，具有清热解毒、提神醒脑、减肥美容的功效。'
+    efficacyDetail: '富含氨基酸和茶多酚，具有清热解毒、提神醒脑、减肥美容的功效。',
+    altitude: '海拔500-800米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 52,
@@ -1919,7 +1929,17 @@ const TEA_DATA = [
     teaEmoji: '🍃',
     category: '白叶绿茶',
     wuXing: '木',
-    efficacyDetail: '氨基酸含量高达6%以上（一般绿茶仅2-3%），具有提高免疫力、保护肝脏、降血压抗辐射的功效。'
+    efficacyDetail: '氨基酸含量高达6%以上（一般绿茶仅2-3%），具有提高免疫力、保护肝脏、降血压抗辐射的功效。',
+    altitude: '海拔300-500米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '浙江特产',
+    rating: 4
   },
   {
     id: 53,
@@ -1946,7 +1966,17 @@ const TEA_DATA = [
     teaEmoji: '🍵',
     category: '毛峰绿茶',
     wuXing: '木',
-    efficacyDetail: '具有清热解毒、生津止渴、消除疲劳、降低胆固醇的功效。'
+    efficacyDetail: '具有清热解毒、生津止渴、消除疲劳、降低胆固醇的功效。',
+    altitude: '海拔800-1200米',
+    priceRange: 3,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '十大名茶',
+    rating: 4
   },
   {
     id: 54,
@@ -1973,7 +2003,17 @@ const TEA_DATA = [
     teaEmoji: '🍵',
     category: '毛尖绿茶',
     wuXing: '木',
-    efficacyDetail: '含氟量高，常饮可预防龋齿，同时具有清热解毒、提神醒脑的功效。'
+    efficacyDetail: '含氟量高，常饮可预防龋齿，同时具有清热解毒、提神醒脑的功效。',
+    altitude: '海拔300-600米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '河南名茶',
+    rating: 4
   },
   {
     id: 55,
@@ -2000,7 +2040,17 @@ const TEA_DATA = [
     teaEmoji: '🍃',
     category: '片形绿茶',
     wuXing: '金',
-    efficacyDetail: '具有清热解毒、消暑降温、提神醒脑的功效。'
+    efficacyDetail: '具有清热解毒、消暑降温、提神醒脑的功效。',
+    altitude: '海拔100-400米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 56,
@@ -2027,7 +2077,17 @@ const TEA_DATA = [
     teaEmoji: '🎋',
     category: '扁形绿茶',
     wuXing: '木',
-    efficacyDetail: '具有清热解毒、减肥美容、防辐射的功效。'
+    efficacyDetail: '具有清热解毒、减肥美容、防辐射的功效。',
+    altitude: '海拔500-900米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 57,
@@ -2054,7 +2114,17 @@ const TEA_DATA = [
     teaEmoji: '🍃',
     category: '毛峰绿茶',
     wuXing: '木',
-    efficacyDetail: '相传有延年益寿之效，常饮可清热解毒、生津止渴。'
+    efficacyDetail: '相传有延年益寿之效，常饮可清热解毒、生津止渴。',
+    altitude: '海拔600-1000米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '蒙顶茶',
+    rating: 4
   },
   {
     id: 58,
@@ -2081,7 +2151,17 @@ const TEA_DATA = [
     teaEmoji: '🍃',
     category: '毛尖绿茶',
     wuXing: '木',
-    efficacyDetail: '具有清热解毒、降压降脂、预防心血管疾病的功效。'
+    efficacyDetail: '具有清热解毒、降压降脂、预防心血管疾病的功效。',
+    altitude: '海拔800-1200米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4
   },
   {
     id: 59,
@@ -2108,7 +2188,17 @@ const TEA_DATA = [
     teaEmoji: '☁️',
     category: '毛峰绿茶',
     wuXing: '木',
-    efficacyDetail: '具有清热解毒、提神醒脑、保护视力的功效。'
+    efficacyDetail: '具有清热解毒、提神醒脑、保护视力的功效。',
+    altitude: '海拔800-1400米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 60,
@@ -2135,7 +2225,17 @@ const TEA_DATA = [
     teaEmoji: '🍃',
     category: '蒸青绿茶',
     wuXing: '木',
-    efficacyDetail: '蒸青工艺使茶叶多酚类物质保留较多，具有较强的抗氧化、防辐射功效。'
+    efficacyDetail: '蒸青工艺使茶叶多酚类物质保留较多，具有较强的抗氧化、防辐射功效。',
+    altitude: '海拔400-800米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '恩施硒茶',
+    rating: 4
   },
   // ==================== 新增红茶类 (id 61-70) ====================
   {
@@ -2163,7 +2263,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '工夫红茶',
     wuXing: '火',
-    efficacyDetail: '发酵完全，茶多酚含量降低，对胃刺激小，具有养胃护胃、提神醒脑的功效。'
+    efficacyDetail: '发酵完全，茶多酚含量降低，对胃刺激小，具有养胃护胃、提神醒脑的功效。',
+    altitude: '海拔200-500米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 62,
@@ -2190,7 +2300,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '工夫红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、暖胃驱寒、促进消化的功效。'
+    efficacyDetail: '具有提神醒脑、暖胃驱寒、促进消化的功效。',
+    altitude: '海拔300-700米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 63,
@@ -2217,7 +2337,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '工夫红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、利尿消肿、消除疲劳的功效。'
+    efficacyDetail: '具有提神醒脑、利尿消肿、消除疲劳的功效。',
+    altitude: '海拔200-500米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 64,
@@ -2244,7 +2374,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '工夫红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、养胃护胃的功效。'
+    efficacyDetail: '具有提神醒脑、养胃护胃的功效。',
+    altitude: '海拔200-600米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 65,
@@ -2271,7 +2411,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '工夫红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、消食去腻、暖胃驱寒的功效。'
+    efficacyDetail: '具有提神醒脑、消食去腻、暖胃驱寒的功效。',
+    altitude: '海拔300-800米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 66,
@@ -2298,7 +2448,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '工夫红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、补血养气、暖胃驱寒的功效。'
+    efficacyDetail: '具有提神醒脑、补血养气、暖胃驱寒的功效。',
+    altitude: '海拔100-400米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 67,
@@ -2325,7 +2485,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '工夫红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、清热解毒、预防感冒的功效。'
+    efficacyDetail: '具有提神醒脑、清热解毒、预防感冒的功效。',
+    altitude: '海拔100-500米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 68,
@@ -2352,7 +2522,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、帮助消化的功效。'
+    efficacyDetail: '具有提神醒脑、帮助消化的功效。',
+    altitude: '海拔100-300米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 69,
@@ -2379,7 +2559,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '滇红',
     wuXing: '火',
-    efficacyDetail: '茶多酚含量高但经发酵转化，对胃刺激小，具有养胃护胃、抗氧化、延缓衰老的功效。'
+    efficacyDetail: '茶多酚含量高但经发酵转化，对胃刺激小，具有养胃护胃、抗氧化、延缓衰老的功效。',
+    altitude: '海拔800-1800米',
+    priceRange: 3,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '云南名茶',
+    rating: 4
   },
   {
     id: 70,
@@ -2406,7 +2596,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '红茶',
     wuXing: '火',
-    efficacyDetail: '具有提神醒脑、补血养颜的功效。'
+    efficacyDetail: '具有提神醒脑、补血养颜的功效。',
+    altitude: '海拔600-1200米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   // ==================== 新增普洱类 (id 71-78) ====================
   {
@@ -2434,7 +2634,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '土',
-    efficacyDetail: '茶多酚和儿茶素含量高，具有显著的降脂减肥、消食去腻、抗衰老功效。新茶刺激性较强，适合胃好者。'
+    efficacyDetail: '茶多酚和儿茶素含量高，具有显著的降脂减肥、消食去腻、抗衰老功效。新茶刺激性较强，适合胃好者。',
+    altitude: '海拔1600-1800米',
+    priceRange: 4,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '班章为王',
+    rating: 4
   },
   {
     id: 72,
@@ -2461,7 +2671,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '水',
-    efficacyDetail: '冰岛茶以甜润著称，具有降脂减肥、清热解毒、生津止渴的功效。'
+    efficacyDetail: '冰岛茶以甜润著称，具有降脂减肥、清热解毒、生津止渴的功效。',
+    altitude: '海拔1400-1800米',
+    priceRange: 4,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '冰岛为后',
+    rating: 4
   },
   {
     id: 73,
@@ -2488,7 +2708,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '水',
-    efficacyDetail: '昔归茶刺激性适中，对胃刺激较小，具有降脂减肥、清热解毒、护胃的功效。'
+    efficacyDetail: '昔归茶刺激性适中，对胃刺激较小，具有降脂减肥、清热解毒、护胃的功效。',
+    altitude: '海拔800-1200米',
+    priceRange: 3,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 74,
@@ -2515,7 +2745,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '土',
-    efficacyDetail: '易武茶以柔甜著称，具有降脂减肥、消食去腻的功效。'
+    efficacyDetail: '易武茶以柔甜著称，具有降脂减肥、消食去腻的功效。',
+    altitude: '海拔1200-1600米',
+    priceRange: 3,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 75,
@@ -2542,7 +2782,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '土',
-    efficacyDetail: '曼松茶以极致的甜润著称，对胃刺激极小，具有降脂减肥、养胃护胃的功效。'
+    efficacyDetail: '曼松茶以极致的甜润著称，对胃刺激极小，具有降脂减肥、养胃护胃的功效。',
+    altitude: '海拔1400-1800米',
+    priceRange: 4,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 76,
@@ -2569,7 +2819,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '土',
-    efficacyDetail: '具有消食去腻、提神醒脑的功效。'
+    efficacyDetail: '具有消食去腻、提神醒脑的功效。',
+    altitude: '海拔1200-1800米',
+    priceRange: 3,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 77,
@@ -2596,7 +2856,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '木',
-    efficacyDetail: '景迈茶以高扬的花香著称，具有降脂减肥、抗氧化、清热解毒的功效。'
+    efficacyDetail: '景迈茶以高扬的花香著称，具有降脂减肥、抗氧化、清热解毒的功效。',
+    altitude: '海拔1000-1600米',
+    priceRange: 3,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 78,
@@ -2623,7 +2893,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '生普',
     wuXing: '木',
-    efficacyDetail: '具有降脂减肥、消食化积、提神醒脑的功效。'
+    efficacyDetail: '具有降脂减肥、消食化积、提神醒脑的功效。',
+    altitude: '海拔800-1500米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   // ==================== 新增乌龙类 (id 79-88) ====================
   {
@@ -2651,7 +2931,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '凤凰单丛',
     wuXing: '木',
-    efficacyDetail: '具有消食去腻、提神醒脑、减肥降脂的功效。'
+    efficacyDetail: '具有消食去腻、提神醒脑、减肥降脂的功效。',
+    altitude: '海拔500-1000米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 80,
@@ -2678,7 +2968,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '闽南乌龙',
     wuXing: '木',
-    efficacyDetail: '具有消食去腻、清热解毒、提神醒脑的功效。'
+    efficacyDetail: '具有消食去腻、清热解毒、提神醒脑的功效。',
+    altitude: '海拔300-800米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 81,
@@ -2705,7 +3005,17 @@ const TEA_DATA = [
     teaEmoji: '🍐',
     category: '闽南乌龙',
     wuXing: '土',
-    efficacyDetail: '永春佛手对胃刺激小，具有消食去腻、理气和中的功效。'
+    efficacyDetail: '永春佛手对胃刺激小，具有消食去腻、理气和中的功效。',
+    altitude: '海拔300-700米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 82,
@@ -2732,7 +3042,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '闽南乌龙',
     wuXing: '木',
-    efficacyDetail: '具有消食去腻、提神醒脑的功效。'
+    efficacyDetail: '具有消食去腻、提神醒脑的功效。',
+    altitude: '海拔200-600米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 83,
@@ -2759,7 +3079,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '凤凰单丛',
     wuXing: '火',
-    efficacyDetail: '具有消食去腻、减肥美容的功效。'
+    efficacyDetail: '具有消食去腻、减肥美容的功效。',
+    altitude: '海拔400-800米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 84,
@@ -2786,7 +3116,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '台湾乌龙',
     wuXing: '木',
-    efficacyDetail: '高山乌龙茶多酚含量低，咖啡因含量也低，具有消食去腻、清热解毒、养颜的功效。'
+    efficacyDetail: '高山乌龙茶多酚含量低，咖啡因含量也低，具有消食去腻、清热解毒、养颜的功效。',
+    altitude: '海拔1000-1600米',
+    priceRange: 3,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4
   },
   {
     id: 85,
@@ -2813,7 +3153,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '台湾乌龙',
     wuXing: '水',
-    efficacyDetail: '高海拔环境使茶叶氨基酸含量高，具有清热解毒、减肥美容的功效。'
+    efficacyDetail: '高海拔环境使茶叶氨基酸含量高，具有清热解毒、减肥美容的功效。',
+    altitude: '海拔1600-2000米',
+    priceRange: 4,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4
   },
   {
     id: 86,
@@ -2840,7 +3190,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '台湾乌龙',
     wuXing: '金',
-    efficacyDetail: '极高海拔环境使茶叶极为细腻甘甜，具有清热解毒、抗衰老的功效。'
+    efficacyDetail: '极高海拔环境使茶叶极为细腻甘甜，具有清热解毒、抗衰老的功效。',
+    altitude: '海拔2000-2600米',
+    priceRange: 4,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4
   },
   {
     id: 87,
@@ -2867,7 +3227,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '台湾乌龙',
     wuXing: '木',
-    efficacyDetail: '具有消食去腻、提神醒脑的功效。'
+    efficacyDetail: '具有消食去腻、提神醒脑的功效。',
+    altitude: '海拔800-1500米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 88,
@@ -2894,7 +3264,17 @@ const TEA_DATA = [
     teaEmoji: '🫖',
     category: '凤凰单丛',
     wuXing: '木',
-    efficacyDetail: '具有消食去腻、提神醒脑、高香愉悦的功效。'
+    efficacyDetail: '具有消食去腻、提神醒脑、高香愉悦的功效。',
+    altitude: '海拔600-1200米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   // ==================== 新增白茶类 (id 89-93) ====================
   {
@@ -2922,7 +3302,17 @@ const TEA_DATA = [
     teaEmoji: '🍵',
     category: '白茶',
     wuXing: '金',
-    efficacyDetail: '白茶性凉，含有黄酮类物质，具有清热解毒、消炎解毒、护肝明目的功效。新茶偏凉，存放后转温。'
+    efficacyDetail: '白茶性凉，含有黄酮类物质，具有清热解毒、消炎解毒、护肝明目的功效。新茶偏凉，存放后转温。',
+    altitude: '海拔200-500米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '白茶代表',
+    rating: 4
   },
   {
     id: 90,
@@ -2949,7 +3339,17 @@ const TEA_DATA = [
     teaEmoji: '🍵',
     category: '白茶',
     wuXing: '金',
-    efficacyDetail: '寿眉适合煮饮，具有清热解毒、消炎解毒的功效。存放三年以上的老寿眉功效更佳。'
+    efficacyDetail: '寿眉适合煮饮，具有清热解毒、消炎解毒的功效。存放三年以上的老寿眉功效更佳。',
+    altitude: '海拔200-500米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 91,
@@ -2976,7 +3376,17 @@ const TEA_DATA = [
     teaEmoji: '🌙',
     category: '云南白茶',
     wuXing: '金',
-    efficacyDetail: '云南大叶种白茶，花香浓郁，具有清热解毒、美容养颜、抗氧化的功效。'
+    efficacyDetail: '云南大叶种白茶，花香浓郁，具有清热解毒、美容养颜、抗氧化的功效。',
+    altitude: '海拔800-1400米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4
   },
   {
     id: 92,
@@ -3003,7 +3413,17 @@ const TEA_DATA = [
     teaEmoji: '🍃',
     category: '白化白茶',
     wuXing: '金',
-    efficacyDetail: '氨基酸含量极高，具有提高免疫力、保护眼睛、清热解毒的功效。'
+    efficacyDetail: '氨基酸含量极高，具有提高免疫力、保护眼睛、清热解毒的功效。',
+    altitude: '海拔300-600米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4
   },
   {
     id: 93,
@@ -3030,7 +3450,17 @@ const TEA_DATA = [
     teaEmoji: '🍵',
     category: '白茶',
     wuXing: '金',
-    efficacyDetail: '具有清热解毒、护眼明目的功效。'
+    efficacyDetail: '具有清热解毒、护眼明目的功效。',
+    altitude: '海拔200-500米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   // ==================== 新增黄茶类 (id 94-95) ====================
   {
@@ -3058,7 +3488,17 @@ const TEA_DATA = [
     teaEmoji: '🍵',
     category: '黄茶',
     wuXing: '土',
-    efficacyDetail: '闷黄工艺使茶叶性质温和，不寒不燥，具有健脾和胃、消暑降温的功效，适合胃寒者饮用。'
+    efficacyDetail: '闷黄工艺使茶叶性质温和，不寒不燥，具有健脾和胃、消暑降温的功效，适合胃寒者饮用。',
+    altitude: '海拔600-1200米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 95,
@@ -3085,7 +3525,17 @@ const TEA_DATA = [
     teaEmoji: '🍵',
     category: '黄茶',
     wuXing: '土',
-    efficacyDetail: '霍山黄芽性温，具有健脾和胃、清热解毒的功效，适合脾胃虚寒者饮用。'
+    efficacyDetail: '霍山黄芽性温，具有健脾和胃、清热解毒的功效，适合脾胃虚寒者饮用。',
+    altitude: '海拔400-1000米',
+    priceRange: 2,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   // ==================== 新增黑茶类 (id 96-98) ====================
   {
@@ -3113,7 +3563,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '老青茶',
     wuXing: '水',
-    efficacyDetail: '黑茶性温，具有降脂减肥、消食去腻、暖胃的功效。适合以肉食为主的人群饮用。'
+    efficacyDetail: '黑茶性温，具有降脂减肥、消食去腻、暖胃的功效。适合以肉食为主的人群饮用。',
+    altitude: '海拔200-600米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 97,
@@ -3140,7 +3600,17 @@ const TEA_DATA = [
     teaEmoji: '🧱',
     category: '黑茶',
     wuXing: '水',
-    efficacyDetail: '青砖茶含有丰富的维生素和矿物质，具有降脂减肥、消食去腻、补充维生素的功效。'
+    efficacyDetail: '青砖茶含有丰富的维生素和矿物质，具有降脂减肥、消食去腻、补充维生素的功效。',
+    altitude: '海拔100-400米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 98,
@@ -3167,7 +3637,17 @@ const TEA_DATA = [
     teaEmoji: '🍂',
     category: '茯茶',
     wuXing: '土',
-    efficacyDetail: '金花茯茶含有冠突散囊菌，具有降脂减肥、消食去腻、调节肠道菌群的功效。'
+    efficacyDetail: '金花茯茶含有冠突散囊菌，具有降脂减肥、消食去腻、调节肠道菌群的功效。',
+    altitude: '海拔300-600米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   // ==================== 新增花茶类 (id 99-100) ====================
   {
@@ -3195,7 +3675,17 @@ const TEA_DATA = [
     teaEmoji: '🌸',
     category: '花茶',
     wuXing: '木',
-    efficacyDetail: '珠兰花茶花香清雅，具有疏肝解郁、养颜美容、清新口气的功效。'
+    efficacyDetail: '珠兰花茶花香清雅，具有疏肝解郁、养颜美容、清新口气的功效。',
+    altitude: '海拔200-500米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   },
   {
     id: 100,
@@ -3222,6 +3712,16 @@ const TEA_DATA = [
     teaEmoji: '🌹',
     category: '花茶',
     wuXing: '火',
-    efficacyDetail: '玫瑰花具有疏肝解郁、养血活血的功效，与红茶搭配具有美容养颜的功效。'
+    efficacyDetail: '玫瑰花具有疏肝解郁、养血活血的功效，与红茶搭配具有美容养颜的功效。',
+    altitude: '海拔200-800米',
+    priceRange: 1,
+    suitableTime: '早',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4
   }
 ];
