@@ -791,12 +791,15 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   <button class="compare-close" onclick="clearCompare()">✕</button>
 </div>
 
-<script defer src="tea_data.js"></script>
-<script defer src="tea_history.js"></script>
+<script src="tea_data.js"></script>
+<script src="tea_history.js"></script>
 <script>
 // ============================================================
-// 茶叶大全 v1.0 — Main Application
+// 茶叶大全 v2.0 — Main Application
 // ============================================================
+
+// ---------- DB ----------
+let db = null;
 
 // ---------- 二十四节气数据 ----------
 const SOLAR_TERMS = [
@@ -2230,7 +2233,6 @@ function setupPWAInstallPrompt() {
 }
 
 // ---------- 7. IndexedDB 浏览历史 ----------
-let db = null;
 let recentViewList = [];
 
 function initIndexedDB() {
