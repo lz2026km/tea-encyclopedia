@@ -2004,6 +2004,7 @@ function openModal(id) {
   document.getElementById('modalBody').innerHTML = `
     <div class="modal-header">
       <div class="modal-title">${tea.name}</div>
+      <button class="hdr-btn" onclick="shareTea(${id})" style="padding:.3rem .6rem;font-size:.8rem;flex-shrink:0" title="分享茶叶">📤 分享</button>
       <div class="modal-badges">
         <span class="modal-badge type">${tea.type}</span>
         <span class="modal-badge">${tea.grade}</span>
@@ -3168,8 +3169,57 @@ function showBookmarkletHint() {
 const _openModal = openModal;
 openModal = function(id) {
   addToRecentView(id);
+  const tea = TEA_DATA[id];
+  if (tea) history.replaceState(null, '', `#tea/${encodeURIComponent(tea.name)}`);
   _openModal(id);
 };
+
+// ---------- SHARE ----------
+window.currentTeaId = null;
+const _origOpenModal = openModal;
+function shareTea(teaId) {
+  const id = teaId !== undefined ? teaId : window.currentTeaId;
+  if (id === null) return;
+  const tea = TEA_DATA[id];
+  const shareData = {
+    title: `🍵 ${tea.name} - 茶叶大全`,
+    text: `${tea.name}（${tea.origin}）：${tea.description || tea.feature || ''}`,
+    url: location.href.split('#')[0] + '#tea/' + encodeURIComponent(tea.name)
+  };
+  if (navigator.share) {
+    navigator.share(shareData).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(shareData.url).then(() => showToast('🔗 链接已复制到剪贴板')).catch(() => showToast('复制失败'));
+  }
+}
+window.shareTea = shareTea;
+
+// ---------- HASH ROUTER ----------
+const Router = {
+  routes: {},
+  register(path, handler) { this.routes[path] = handler; },
+  navigate(hash) {
+    const path = hash.replace(/^#\/?/, '');
+    if (!path) return;
+    const [route, ...params] = path.split('/');
+    const handler = this.routes[decodeURIComponent(route)];
+    if (handler) handler(...params.map(decodeURIComponent));
+  },
+  init() {
+    window.addEventListener('hashchange', () => this.navigate(location.hash));
+    if (location.hash) this.navigate(location.hash);
+  }
+};
+Router.register('tea', (name) => {
+  const tea = TEA_DATA.find(t => t.name.includes(name) || t.name === name);
+  if (tea) { window.currentTeaId = TEA_DATA.indexOf(tea); openModal(window.currentTeaId); }
+});
+Router.register('stats', () => openStatsModal());
+Router.register('ranking', () => openRankingModal());
+Router.register('quiz', () => openQuizModal());
+
+// ---------- LAZY MODAL ----------
+window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; this.loaded[name] = true; } };
 </script>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:2rem;right:2rem;width:2.8rem;height:2.8rem;background:var(--c1);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:999">↑</button>
 </body>
