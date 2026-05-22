@@ -2171,7 +2171,6 @@ function openQuizModal() {
   document.getElementById('modalBody').innerHTML = `<div style="padding:.5rem"><h3 style="text-align:center">🎯 茶叶知识问答</h3></div>`;
   document.getElementById('modalOverlay').style.display = 'flex';
 }
-}
 
 function copyShare(id) {
   const tea = TEA_DATA.find(t => t.id === id);
@@ -3165,61 +3164,63 @@ function showBookmarkletHint() {
   prompt('复制以下代码到书签栏（拖拽到书签栏或在链接上右键添加到书签）：', code);
 }
 
-// 修改 openModal：记录浏览历史
-const _openModal = openModal;
-openModal = function(id) {
-  addToRecentView(id);
-  const tea = TEA_DATA[id];
-  if (tea) history.replaceState(null, '', `#tea/${encodeURIComponent(tea.name)}`);
-  _openModal(id);
-};
-
-// ---------- SHARE ----------
-window.currentTeaId = null;
-const _origOpenModal = openModal;
-function shareTea(teaId) {
-  const id = teaId !== undefined ? teaId : window.currentTeaId;
-  if (id === null) return;
-  const tea = TEA_DATA[id];
-  const shareData = {
-    title: `🍵 ${tea.name} - 茶叶大全`,
-    text: `${tea.name}（${tea.origin}）：${tea.description || tea.feature || ''}`,
-    url: location.href.split('#')[0] + '#tea/' + encodeURIComponent(tea.name)
-  };
-  if (navigator.share) {
-    navigator.share(shareData).catch(() => {});
-  } else {
-    navigator.clipboard.writeText(shareData.url).then(() => showToast('🔗 链接已复制到剪贴板')).catch(() => showToast('复制失败'));
-  }
-}
-window.shareTea = shareTea;
-
-// ---------- HASH ROUTER ----------
-const Router = {
-  routes: {},
-  register(path, handler) { this.routes[path] = handler; },
-  navigate(hash) {
-    const path = hash.replace(/^#\/?/, '');
-    if (!path) return;
-    const [route, ...params] = path.split('/');
-    const handler = this.routes[decodeURIComponent(route)];
-    if (handler) handler(...params.map(decodeURIComponent));
-  },
-  init() {
-    window.addEventListener('hashchange', () => this.navigate(location.hash));
-    if (location.hash) this.navigate(location.hash);
-  }
-};
-Router.register('tea', (name) => {
-  const tea = TEA_DATA.find(t => t.name.includes(name) || t.name === name);
-  if (tea) { window.currentTeaId = TEA_DATA.indexOf(tea); openModal(window.currentTeaId); }
-});
-Router.register('stats', () => openStatsModal());
-Router.register('ranking', () => openRankingModal());
-Router.register('quiz', () => openQuizModal());
-
 // ---------- LAZY MODAL ----------
 window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; this.loaded[name] = true; } };
+
+// ---------- ROUTER + SHARE ----------
+(function() {
+  var _origOpenModal = window.openModal;
+  window.openModal = function(id) {
+    var tea = window.TEA_DATA[id];
+    window.currentTeaId = id;
+    if (tea) history.replaceState(null, '', '#tea/' + encodeURIComponent(tea.name));
+    _origOpenModal(id);
+  };
+
+  window.shareTea = function(teaId) {
+    var id = teaId !== undefined ? teaId : window.currentTeaId;
+    if (id === null) return;
+    var tea = window.TEA_DATA[id];
+    var shareData = {
+      title: '🍵 ' + tea.name + ' - 茶叶大全',
+      text: tea.name + '（' + tea.origin + '）：' + (tea.description || tea.feature || ''),
+      url: location.href.split('#')[0] + '#tea/' + encodeURIComponent(tea.name)
+    };
+    if (navigator.share) {
+      navigator.share(shareData).catch(function() {});
+    } else {
+      navigator.clipboard.writeText(shareData.url).then(function() { showToast('🔗 链接已复制'); }).catch(function() {});
+    }
+  };
+
+  window.Router = {
+    routes: {},
+    register: function(path, handler) { this.routes[path] = handler; },
+    navigate: function(hash) {
+      var path = hash.replace(/^#\/?/, '');
+      if (!path) return;
+      var parts = path.split('/');
+      var route = decodeURIComponent(parts[0]);
+      var params = parts.slice(1).map(decodeURIComponent);
+      var handler = this.routes[route];
+      if (handler) handler.apply(null, params);
+    },
+    init: function() {
+      var self = this;
+      window.addEventListener('hashchange', function() { self.navigate(location.hash); });
+      if (location.hash) this.navigate(location.hash);
+    }
+  };
+
+  window.Router.register('tea', function(name) {
+    var tea = window.TEA_DATA.find(function(t) { return t.name.includes(name) || t.name === name; });
+    if (tea) { window.currentTeaId = window.TEA_DATA.indexOf(tea); window.openModal(window.currentTeaId); }
+  });
+  window.Router.register('stats', function() { if (window.openStatsModal) window.openStatsModal(); });
+  window.Router.register('ranking', function() { if (window.openRankingModal) window.openRankingModal(); });
+  window.Router.register('quiz', function() { if (window.openQuizModal) window.openQuizModal(); });
+  window.Router.init();
+})();
 </script>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:2rem;right:2rem;width:2.8rem;height:2.8rem;background:var(--c1);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:999">↑</button>
 </body>
