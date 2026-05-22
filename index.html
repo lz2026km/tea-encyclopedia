@@ -130,7 +130,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 /* ===== 卡片徽章系统 ===== */
 .tea-card-wrap { position: relative; perspective: 800px; }
-.tea-badge { position: absolute; top: 6px; left: 6px; font-size: .65rem; padding: .1rem .35rem; border-radius: 10px; z-index: 3; font-weight: 600; }
+.tea-badge { position: relative; display: inline-flex; font-size: .65rem; padding: .1rem .35rem; border-radius: 10px; z-index: 3; font-weight: 600; margin-right: 3px; }
 .badge-award { background: linear-gradient(135deg, #FFD700, #FFA500); color: #5a3000; }
 .badge-organic { background: linear-gradient(135deg, #27ae60, #2ecc71); color: #fff; }
 .badge-altitude { background: rgba(0,0,0,.45); color: #fff; font-size: .6rem; padding: .08rem .3rem; }
@@ -155,7 +155,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .star { font-size: .7rem; color: #ddd; }
 .star.filled { color: #FFD700; }
 
-/* 卡片flip开关 */
+.tea-badges-row { display: flex; flex-wrap: wrap; gap: 3px; padding: 0 .5rem; margin-top: 3px; }
+
 
 /* ===== MODAL ===== */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
@@ -1738,9 +1739,9 @@ function renderGrid() {
     return `
     <div class="tea-card-wrap" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
       <div class="wu-xing-border ${wuXingClass}"></div>
-      ${badgeHTML}
       <div class="card-front">
         ${carouselHTML}
+        <div class="tea-badges-row">${badgeHTML}</div>
         <span class="tea-type-badge">${tea.type}</span>
         <span class="tea-grade-badge">${tea.grade}</span>
         <div class="tea-body">
