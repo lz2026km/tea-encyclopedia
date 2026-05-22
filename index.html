@@ -150,22 +150,12 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .wx-huo { background: linear-gradient(to bottom, #e74c3c, #c0392b); }
 .wx-tu { background: linear-gradient(to bottom, #d4a017, #b8860b); }
 
-/* 卡片翻转 */
-.card-flip-wrap { perspective: 1000px; }
-.card-flip-inner { will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: transform .6s; transform-style: preserve-3d; position: relative; }
-.card-flip-inner:hover { transform: rotateY(180deg); }
-.card-front, .card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.card-back { position: absolute; top: 0; left: 0; right: 0; bottom: 0; transform: rotateY(180deg); background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: .8rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
-.card-back-title { font-weight: 700; color: var(--c1); margin-bottom: .4rem; font-size: .9rem; }
-.card-back-text { font-size: .75rem; color: var(--text); line-height: 1.5; }
-
 /* 星星评分 */
 .tea-rating { display: flex; gap: 1px; margin: .3rem 0; }
 .star { font-size: .7rem; color: #ddd; }
 .star.filled { color: #FFD700; }
 
 /* 卡片flip开关 */
-.card-hover-flip .card-front { pointer-events: none; }
 
 /* ===== MODAL ===== */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
@@ -223,9 +213,6 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   .card-flip { transform: none !important; }
   .card-flip-inner { transform: none !important; }
   .card-back { transform: none !important; position: static; display: none; }
-  .tea-card.flipped .card-back { display: none; }
-  .tea-card.flipped .card-front { display: block; }
-  /* 隐藏分享和泡茶按钮 */
   .tea-share-btn { display: none; }
   .brew-quick-btn { display: none; }
   .compare-bar { flex-wrap: wrap; gap: .5rem; padding: .6rem; }
@@ -1752,34 +1739,25 @@ function renderGrid() {
     <div class="tea-card-wrap">
       <div class="wu-xing-border ${wuXingClass}"></div>
       ${badgeHTML}
-      <div class="card-flip-wrap" style="width:100%">
-        <div class="card-flip-inner">
-          <div class="card-front">
-            ${carouselHTML}
-            <span class="tea-type-badge">${tea.type}</span>
-            <span class="tea-grade-badge">${tea.grade}</span>
-            <div class="tea-body">
-              <div class="tea-name">${tea.name}</div>
-              <div class="tea-origin">📍 ${tea.origin}</div>
-              <div class="tea-desc">${tea.desc}</div>
-              <div class="tea-rating">
-                ${[1,2,3,4,5].map(n => `<span class="star ${(tea.rating&&n<=Math.round(tea.rating))?'filled':''}">★</span>`).join('')}
-              </div>
-              <div class="tea-footer">
-                <span class="tea-period">${tea.period||''}</span>
-                <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
-                <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
-                <button class="brew-quick-btn" onclick="event.stopPropagation();openBrewModal(${tea.id})">☕</button>
-              </div>
-            </div>
-            <div class="tea-detail" id="detail_${tea.id}"></div>
+      <div class="card-front">
+        ${carouselHTML}
+        <span class="tea-type-badge">${tea.type}</span>
+        <span class="tea-grade-badge">${tea.grade}</span>
+        <div class="tea-body">
+          <div class="tea-name">${tea.name}</div>
+          <div class="tea-origin">📍 ${tea.origin}</div>
+          <div class="tea-desc">${tea.desc}</div>
+          <div class="tea-rating">
+            ${[1,2,3,4,5].map(n => `<span class="star ${(tea.rating&&n<=Math.round(tea.rating))?'filled':''}">★</span>`).join('')}
           </div>
-          <div class="card-back">
-            <div class="card-back-title">${tea.name}</div>
-            <div class="card-back-text">${tea.story ? tea.story.substring(0,60)+'...' : tea.detail ? tea.detail.substring(0,60)+'...' : tea.desc}</div>
-            <div style="margin-top:.5rem;font-size:.7rem;color:var(--c2)">${tea.type} · ${tea.origin}</div>
+          <div class="tea-footer">
+            <span class="tea-period">${tea.period||''}</span>
+            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
+            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+            <button class="brew-quick-btn" onclick="event.stopPropagation();openBrewModal(${tea.id})">☕</button>
           </div>
         </div>
+        <div class="tea-detail" id="detail_${tea.id}"></div>
       </div>
     </div>`;
   }).join('');
