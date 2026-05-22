@@ -1736,7 +1736,7 @@ function renderGrid() {
       (tea.caffeine ? '<span class="tea-badge badge-caffeine">'+'<span class="caffeine-bean">☕</span>'.repeat(Math.min(tea.caffeine,5))+'</span>' : '') +
       (tea.processLevel ? '<span class="tea-badge badge-process">'+(['简','中','繁'][tea.processLevel-1]||'')+'工艺</span>' : '');
     return `
-    <div class="tea-card-wrap">
+    <div class="tea-card-wrap" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
       <div class="wu-xing-border ${wuXingClass}"></div>
       ${badgeHTML}
       <div class="card-front">
