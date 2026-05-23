@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="茶叶百科 v4.0 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，收录50种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>茶叶大全 v4.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶大全 v5.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
-   茶叶大全 v4.0 — 清新雅致中国风
+   茶叶大全 v5.0 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -528,7 +528,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     margin: .5rem 0;
   }
   .tea-detail-panel::before {
-    content: '茶叶大全 v4.0 — ' attr(data-tea-name);
+    content: '茶叶大全 v5.0 — ' attr(data-tea-name);
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
@@ -730,7 +730,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v4.0 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v5.0 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -747,7 +747,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v4.0</span>🍃</div>
+  <div class="hdr-logo"><span>v5.0</span>🍃</div>
   <div class="hdr-title">茶叶大全</div>
   <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="🔍 搜索茶叶名称、产地…" autocomplete="off">
@@ -799,6 +799,24 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <div class="sb-title">🍃 季节</div>
     <div class="sb-tags" id="seasonTags"></div>
   </div>
+  <div class="sb-section" id="achievementSection">
+    <div class="sb-title" onclick="toggleAchievementPanel()" style="cursor:pointer">🏆 成就 <span id="achUnlockedCount" style="font-size:.75rem;background:var(--c1);color:#fff;border-radius:10px;padding:0 .35rem">0</span></div>
+    <div id="achievementPanel" style="display:none;margin-top:.5rem">
+      <div id="achievementList" style="display:flex;flex-direction:column;gap:.4rem"></div>
+    </div>
+  </div>
+  <div class="sb-section" id="rankSection">
+    <div class="sb-title" style="display:flex;align-items:center;gap:.3rem">🎖️ 茶艺师段位 <span id="rankTitle" style="font-size:.75rem;background:var(--c1);color:#fff;border-radius:10px;padding:0 .35rem">茶童</span></div>
+    <div style="margin-top:.3rem">
+      <div style="display:flex;justify-content:space-between;font-size:.7rem;margin-bottom:.15rem">
+        <span id="rankScore">0分</span>
+        <span id="rankNext">→茶夫(50分)</span>
+      </div>
+      <div style="background:var(--c4);border-radius:10px;height:8px;overflow:hidden">
+        <div id="rankProgress" style="background:linear-gradient(90deg, var(--c2), var(--c1));height:100%;width:0%;border-radius:10px;transition:width .5s"></div>
+      </div>
+    </div>
+  </div>
 </aside>
 
 <!-- MAIN -->
@@ -834,6 +852,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <button class="tab-btn" onclick="switchTab('recent', this)">🕒 最近浏览</button>
     <button class="tab-btn" onclick="switchTab('ranking', this)">🏆 名茶排行</button>
     <button class="tab-btn" onclick="switchTab('encyclopedia', this)">📚 茶百科</button>
+    <button class="tab-btn" onclick="switchTab('pricemap', this)">💰 价格地图</button>
+    <button class="tab-btn" onclick="switchTab('typepie', this)">🍵 茶类分布</button>
+    <button class="tab-btn" onclick="switchTab('origin3d', this)">🗺️ 产区地图</button>
   </div>
 
   <!-- GRID PAGE -->
@@ -903,6 +924,41 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   <div class="fav-page" id="encyclopediaPage">
     <div class="results-info">📚 中国茶文化知识百科</div>
     <div style="padding:.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.8rem" id="encContent"></div>
+  </div>
+
+  <!-- PRICE MAP PAGE -->
+  <div class="fav-page" id="priceMapPage">
+    <div class="results-info">💰 全国茶叶价格热力图 · 6×6 省份格</div>
+    <div class="price-map-grid" id="priceMapGrid"></div>
+    <div class="price-legend" style="display:flex;align-items:center;gap:.8rem;justify-content:center;margin-top:1rem;flex-wrap:wrap">
+      <span>颜色越深价格越高：</span>
+      <span style="display:flex;align-items:center;gap:.3rem"><span style="width:20px;height:20px;border-radius:4px;background:#D8F3DC"></span> 低</span>
+      <span style="display:flex;align-items:center;gap:.3rem"><span style="width:20px;height:20px;border-radius:4px;background:#95D5B2"></span> 中</span>
+      <span style="display:flex;align-items:center;gap:.3rem"><span style="width:20px;height:20px;border-radius:4px;background:#52B788"></span> 高</span>
+      <span style="display:flex;align-items:center;gap:.3rem"><span style="width:20px;height:20px;border-radius:4px;background:#1B4332"></span> 特级</span>
+    </div>
+  </div>
+
+  <!-- TYPE PIE PAGE -->
+  <div class="fav-page" id="typePiePage">
+    <div class="results-info">🍵 六大茶类占比分布（共<span id="typePieTotal"></span>种茶叶）</div>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-start;justify-content:center;padding:1rem">
+      <div id="typePieChart" style="flex-shrink:0"></div>
+      <div id="typePieSide" style="flex:1;min-width:260px;max-width:500px">
+        <div class="results-info" id="typePieFilteredInfo" style="font-size:.9rem">👆 点击扇形查看该类茶叶</div>
+        <div class="tea-grid" id="typePieTeaGrid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIGIN 3D MAP PAGE -->
+  <div class="fav-page" id="origin3dPage">
+    <div class="results-info">🗺️ 中国茶叶产区3D浮雕地图</div>
+    <div class="origin3d-container" id="origin3dContainer">
+      <div class="origin3d-scene" id="origin3dScene"></div>
+      <div id="origin3dTooltip" class="origin3d-tooltip"></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:.5rem" id="origin3dLegend"></div>
   </div>
 
 </main>
@@ -2229,10 +2285,17 @@ function openModal(id) {
       <button class="modal-fav-btn" onclick="openBrewModal(${tea.id})">☕ 冲泡助手</button>
       <button class="modal-fav-btn" onclick="openFoodModal(${tea.id})">🍽️ 配茶美食</button>
     </div>
+    <div id="similarTeaSection" class="modal-section" style="margin-top:1.2rem;padding-top:1rem;border-top:2px solid var(--border)">
+      <div class="modal-section-title">🔍 相似茶推荐</div>
+      <div id="similarTeaList" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem"></div>
+    </div>
   `;
 
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // 渲染相似茶推荐
+  renderSimilarTeas(id);
 }
 
 function closeModal() {
@@ -2552,6 +2615,9 @@ function switchTab(tab, btn) {
   if (tab === 'recent') { loadRecentView(); renderRecentGrid(); }
   if (tab === 'ranking') { renderRanking(); }
   if (tab === 'encyclopedia') { renderEncyclopediaTab(); }
+  if (tab === 'pricemap') { renderPriceMap(); }
+  if (tab === 'typepie') { renderTypePieChart(); }
+  if (tab === 'origin3d') { renderOrigin3D(); }
 
   document.getElementById('gridPage').classList.toggle('hidden', tab !== 'grid');
   document.getElementById('timelinePage').classList.toggle('active', tab === 'timeline');
@@ -2560,10 +2626,13 @@ function switchTab(tab, btn) {
   document.getElementById('recentPage').classList.toggle('active', tab === 'recent');
   document.getElementById('rankingPage').classList.toggle('active', tab === 'ranking');
   document.getElementById('encyclopediaPage').classList.toggle('active', tab === 'encyclopedia');
+  document.getElementById('priceMapPage').classList.toggle('active', tab === 'pricemap');
+  document.getElementById('typePiePage').classList.toggle('active', tab === 'typepie');
+  document.getElementById('origin3dPage').classList.toggle('active', tab === 'origin3d');
   currentView = tab;
 
   // Page fade-in animation
-  const pageId = tab === 'grid' ? 'gridPage' : tab === 'timeline' ? 'timelinePage' : tab === 'origin' ? 'originPage' : tab === 'fav' ? 'favPage' : tab === 'recent' ? 'recentPage' : tab === 'ranking' ? 'rankingPage' : tab === 'encyclopedia' ? 'encyclopediaPage' : 'gridPage';
+  const pageId = tab === 'grid' ? 'gridPage' : tab === 'timeline' ? 'timelinePage' : tab === 'origin' ? 'originPage' : tab === 'fav' ? 'favPage' : tab === 'recent' ? 'recentPage' : tab === 'ranking' ? 'rankingPage' : tab === 'encyclopedia' ? 'encyclopediaPage' : tab === 'pricemap' ? 'priceMapPage' : tab === 'typepie' ? 'typePiePage' : tab === 'origin3d' ? 'origin3dPage' : 'gridPage';
   const page = document.getElementById(pageId);
   if (page) {
     page.style.opacity = '0';
@@ -2685,200 +2754,200 @@ function debounce(fn, delay) {
 
 function getTeaImageUrl(tea) {
   // WIKI_IMAGES — 多图URL数组，每种茶可有多个图片
-  const WIKI_IMAGES = {
-  '西湖龙井': ['/images/西湖龙井.jpg'],
-  '碧螺春': ['/images/碧螺春.jpg'],
-  '黄山毛峰': ['/images/黄山毛峰.jpg'],
-  '信阳毛尖': ['/images/信阳毛尖.jpg'],
-  '六安瓜片': ['/images/六安瓜片.jpg'],
-  '太平猴魁': ['/images/太平猴魁.jpg'],
-  '竹叶青': ['/images/竹叶青.jpg'],
-  '恩施玉露': ['/images/恩施玉露.jpg'],
-  '正山小种': ['/images/正山小种.jpg'],
-  '金骏眉': ['/images/金骏眉.jpg'],
-  '祁门红茶': ['/images/祁门红茶.jpg'],
-  '滇红': ['/images/滇红.jpg'],
-  '英德红茶': ['/images/英德红茶.jpg'],
-  '川红': ['/images/川红.jpg'],
-  '宁红': ['/images/宁红.jpg'],
-  '宜红': ['/images/宜红.jpg'],
-  '安溪铁观音': ['/images/安溪铁观音.jpg'],
-  '大红袍': ['/images/大红袍.jpg'],
-  '凤凰单丛': ['/images/凤凰单丛.jpg'],
-  '冻顶乌龙': ['/images/冻顶乌龙.jpg'],
-  '武夷岩茶': ['/images/武夷岩茶.jpg'],
-  '永春佛手': ['/images/永春佛手.jpg'],
-  '白芽奇兰': ['/images/白芽奇兰.jpg'],
-  '白毫银针': ['/images/白毫银针.jpg'],
-  '白牡丹': ['/images/白牡丹.jpg'],
-  '贡眉': ['/images/贡眉.jpg'],
-  '寿眉': ['/images/寿眉.jpg'],
-  '月光白': ['/images/月光白.jpg'],
-  '资溪白茶': ['/images/资溪白茶.jpg'],
-  '君山银针': ['/images/君山银针.jpg'],
-  '蒙顶甘露': ['/images/蒙顶甘露.jpg'],
-  '霍山黄芽': ['/images/霍山黄芽.jpg'],
-  '平阳黄汤': ['/images/平阳黄汤.jpg'],
-  '沩山毛尖': ['/images/沩山毛尖.jpg'],
-  '云南普洱': ['/images/云南普洱.jpg'],
-  '安化黑茶': ['/images/安化黑茶.jpg'],
-  '六堡茶': ['/images/六堡茶.jpg'],
-  '藏茶': ['/images/藏茶.jpg'],
-  '青砖茶': ['/images/青砖茶.jpg'],
-  '湖北老青茶': ['/images/湖北老青茶.jpg'],
-  '泾阳茯茶': ['/images/泾阳茯茶.jpg'],
-  '云南熟普洱': ['/images/云南熟普洱.jpg'],
-  '茉莉花茶': ['/images/茉莉花茶.jpg'],
-  '桂花乌龙': ['/images/桂花乌龙.jpg'],
-  '苦丁茶': ['/images/苦丁茶.jpg'],
-  '杜仲茶': ['/images/杜仲茶.jpg'],
-  '柿叶茶': ['/images/柿叶茶.jpg'],
-  '罗布麻茶': ['/images/罗布麻茶.jpg'],
-  '绞股蓝茶': ['/images/绞股蓝茶.jpg'],
-  '安吉白茶': ['/images/安吉白茶.jpg'],
-  '都匀毛尖': ['/images/都匀毛尖.jpg'],
-  '庐山云雾': ['/images/庐山云雾.jpg'],
-  '政和工夫': ['/images/政和工夫.jpg'],
-  '坦洋工夫': ['/images/坦洋工夫.jpg'],
-  '白琳工夫': ['/images/白琳工夫.jpg'],
-  '海堤红': ['/images/海堤红.jpg'],
-  '金丝滇红': ['/images/金丝滇红.jpg'],
-  '英德红茶-金毫': ['/images/英德红茶-金毫.jpg'],
-  '老班章': ['/images/老班章.jpg'],
-  '冰岛': ['/images/冰岛.jpg'],
-  '昔归': ['/images/昔归.jpg'],
-  '刮风寨': ['/images/刮风寨.jpg'],
-  '曼松': ['/images/曼松.jpg'],
-  '倚邦': ['/images/倚邦.jpg'],
-  '景迈山': ['/images/景迈山.jpg'],
-  '南糯山': ['/images/南糯山.jpg'],
-  '凤凰水仙': ['/images/凤凰水仙.jpg'],
-  '诏安八仙': ['/images/诏安八仙.jpg'],
-  '岭头单丛': ['/images/岭头单丛.jpg'],
-  '阿里山乌龙': ['/images/阿里山乌龙.jpg'],
-  '梨山茶': ['/images/梨山茶.jpg'],
-  '大禹岭茶': ['/images/大禹岭茶.jpg'],
-  '松柏长青': ['/images/松柏长青.jpg'],
-  '凤凰单丛-鸭屎香': ['/images/凤凰单丛-鸭屎香.jpg'],
-  '建阳白茶': ['/images/建阳白茶.jpg'],
-  '蒙顶黄芽': ['/images/蒙顶黄芽.jpg'],
-  '珠兰花茶': ['/images/珠兰花茶.jpg'],
-  '玫瑰红茶': ['/images/玫瑰红茶.jpg'],
-  '顾渚紫笋': ['/images/顾渚紫笋.jpg'],
-  '临海蟠毫': ['/images/临海蟠毫.jpg'],
-  '望海茶': ['/images/望海茶.jpg'],
-  '雪水云绿': ['/images/雪水云绿.jpg'],
-  '千岛银针': ['/images/千岛银针.jpg'],
-  '乌牛早': ['/images/乌牛早.jpg'],
-  '平水珠茶': ['/images/平水珠茶.jpg'],
-  '兰溪毛峰': ['/images/兰溪毛峰.jpg'],
-  '东白春芽': ['/images/东白春芽.jpg'],
-  '婺州举岩': ['/images/婺州举岩.jpg'],
-  '休宁松萝': ['/images/休宁松萝.jpg'],
-  '敬亭绿雪': ['/images/敬亭绿雪.jpg'],
-  '黄山绿牡丹': ['/images/黄山绿牡丹.jpg'],
-  '天方富硒茶': ['/images/天方富硒茶.jpg'],
-  '瑞草魁': ['/images/瑞草魁.jpg'],
-  '雨花茶': ['/images/雨花茶.jpg'],
-  '金坛雀舌': ['/images/金坛雀舌.jpg'],
-  '太湖翠竹': ['/images/太湖翠竹.jpg'],
-  '婺源毛尖': ['/images/婺源毛尖.jpg'],
-  '庐山云雾茶': ['/images/庐山云雾茶.jpg'],
+    const WIKI_IMAGES = {
+  '三峡绿茶': ['/images/三峡绿茶.jpg', '/images/三峡绿茶_yedi.jpg', '/images/三峡绿茶_tang.jpg', '/images/三峡绿茶_gancha.jpg'],
+  '东白春芽': ['/images/东白春芽.jpg', '/images/东白春芽_yedi.jpg', '/images/东白春芽_tang.jpg', '/images/东白春芽_gancha.jpg'],
+  '临海蟠毫': ['/images/临海蟠毫.jpg', '/images/临海蟠毫_yedi.jpg', '/images/临海蟠毫_tang.jpg', '/images/临海蟠毫_gancha.jpg'],
+  '乌牛早': ['/images/乌牛早.jpg', '/images/乌牛早_yedi.jpg', '/images/乌牛早_tang.jpg', '/images/乌牛早_gancha.jpg'],
+  '云南古树白茶': ['/images/云南古树白茶.jpg', '/images/云南古树白茶_yedi.jpg', '/images/云南古树白茶_tang.jpg', '/images/云南古树白茶_gancha.jpg'],
+  '云南普洱': ['/images/云南普洱.jpg', '/images/云南普洱_yedi.jpg', '/images/云南普洱_tang.jpg'],
+  '云南熟普洱': ['/images/云南熟普洱.jpg', '/images/云南熟普洱_yedi.jpg', '/images/云南熟普洱_tang.jpg', '/images/云南熟普洱_gancha.jpg'],
+  '云南熟砖·宫廷': ['/images/云南熟砖·宫廷.jpg', '/images/云南熟砖·宫廷_yedi.jpg', '/images/云南熟砖·宫廷_tang.jpg', '/images/云南熟砖·宫廷_gancha.jpg'],
+  '五指山红茶': ['/images/五指山红茶.jpg', '/images/五指山红茶_yedi.jpg', '/images/五指山红茶_tang.jpg', '/images/五指山红茶_gancha.jpg'],
   '井冈山翠绿茶': ['/images/井冈山翠绿茶.jpg'],
-  '采花毛尖': ['/images/采花毛尖.jpg'],
-  '英山云雾茶': ['/images/英山云雾茶.jpg'],
-  '三峡绿茶': ['/images/三峡绿茶.jpg'],
-  '安化松针': ['/images/安化松针.jpg'],
-  '古丈毛尖': ['/images/古丈毛尖.jpg'],
-  '岳麓毛尖': ['/images/岳麓毛尖.jpg'],
-  '永川秀芽': ['/images/永川秀芽.jpg'],
-  '南泉毛峰': ['/images/南泉毛峰.jpg'],
+  '休宁松萝': ['/images/休宁松萝.jpg', '/images/休宁松萝_yedi.jpg', '/images/休宁松萝_tang.jpg', '/images/休宁松萝_gancha.jpg'],
+  '信阳毛尖': ['/images/信阳毛尖.jpg', '/images/信阳毛尖_yedi.jpg', '/images/信阳毛尖_tang.jpg', '/images/信阳毛尖_gancha.jpg'],
+  '信阳红': ['/images/信阳红.jpg', '/images/信阳红_yedi.jpg', '/images/信阳红_tang.jpg', '/images/信阳红_gancha.jpg'],
+  '倚邦': ['/images/倚邦.jpg', '/images/倚邦_yedi.jpg', '/images/倚邦_tang.jpg', '/images/倚邦_gancha.jpg'],
+  '六堡茶': ['/images/六堡茶.jpg', '/images/六堡茶_yedi.jpg', '/images/六堡茶_tang.jpg', '/images/六堡茶_gancha.jpg'],
+  '六堡茶·特级': ['/images/六堡茶·特级.jpg', '/images/六堡茶·特级_yedi.jpg', '/images/六堡茶·特级_tang.jpg', '/images/六堡茶·特级_gancha.jpg'],
+  '六安瓜片': ['/images/六安瓜片.jpg', '/images/六安瓜片_yedi.jpg', '/images/六安瓜片_tang.jpg'],
+  '兰溪毛峰': ['/images/兰溪毛峰.jpg', '/images/兰溪毛峰_yedi.jpg', '/images/兰溪毛峰_tang.jpg', '/images/兰溪毛峰_gancha.jpg'],
+  '冰岛': ['/images/冰岛.jpg', '/images/冰岛_yedi.jpg', '/images/冰岛_tang.jpg', '/images/冰岛_gancha.jpg'],
+  '冻顶乌龙': ['/images/冻顶乌龙.jpg', '/images/冻顶乌龙_yedi.jpg', '/images/冻顶乌龙_tang.jpg', '/images/冻顶乌龙_gancha.jpg'],
+  '凤凰单丛': ['/images/凤凰单丛.jpg', '/images/凤凰单丛_yedi.jpg', '/images/凤凰单丛_tang.jpg', '/images/凤凰单丛_gancha.jpg'],
+  '凤凰单丛-鸭屎香': ['/images/凤凰单丛-鸭屎香.jpg', '/images/凤凰单丛-鸭屎香_yedi.jpg', '/images/凤凰单丛-鸭屎香_tang.jpg', '/images/凤凰单丛-鸭屎香_gancha.jpg'],
+  '凤凰水仙': ['/images/凤凰水仙.jpg', '/images/凤凰水仙_yedi.jpg', '/images/凤凰水仙_tang.jpg'],
+  '刮风寨': ['/images/刮风寨.jpg', '/images/刮风寨_yedi.jpg', '/images/刮风寨_tang.jpg', '/images/刮风寨_gancha.jpg'],
+  '千家寨': ['/images/千家寨.jpg', '/images/千家寨_yedi.jpg', '/images/千家寨_tang.jpg', '/images/千家寨_gancha.jpg'],
+  '千岛银针': ['/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg', '/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg'],
+  '南泉毛峰': ['/images/南泉毛峰.jpg', '/images/南泉毛峰_yedi.jpg', '/images/南泉毛峰_tang.jpg', '/images/南泉毛峰_gancha.jpg'],
+  '南糯山': ['/images/南糯山.jpg', '/images/南糯山_yedi.jpg', '/images/南糯山_tang.jpg', '/images/南糯山_gancha.jpg'],
+  '古丈毛尖': ['/images/古丈毛尖.jpg', '/images/古丈毛尖_yedi.jpg', '/images/古丈毛尖_tang.jpg', '/images/古丈毛尖_gancha.jpg'],
+  '君山银针': ['/images/君山银针.jpg', '/images/君山银针_yedi.jpg', '/images/君山银针_tang.jpg', '/images/君山银针_gancha.jpg'],
   '四面山茶': ['/images/四面山茶.jpg'],
-  '紫阳毛尖': ['/images/紫阳毛尖.jpg'],
-  '秦岭云雾茶': ['/images/秦岭云雾茶.jpg'],
-  '汉中仙毫': ['/images/汉中仙毫.jpg'],
-  '宁强雀舌': ['/images/宁强雀舌.jpg'],
-  '武夷岩茶（绿茶类）': ['/images/武夷岩茶（绿茶类）.jpg'],
-  '霞浦元宵茶': ['/images/霞浦元宵茶.jpg'],
-  '湖红工夫': ['/images/湖红工夫.jpg'],
-  '黔红金针': ['/images/黔红金针.jpg'],
-  '桂红袍': ['/images/桂红袍.jpg'],
-  '越红工夫': ['/images/越红工夫.jpg'],
-  '陕红工夫': ['/images/陕红工夫.jpg'],
-  '日照红茶': ['/images/日照红茶.jpg'],
-  '信阳红': ['/images/信阳红.jpg'],
-  '遵义红': ['/images/遵义红.jpg'],
-  '昭平红': ['/images/昭平红.jpg'],
-  '宜兴红茶': ['/images/宜兴红茶.jpg'],
-  '恩施红': ['/images/恩施红.jpg'],
-  '政和红茶': ['/images/政和红茶.jpg'],
-  '永州红茶': ['/images/永州红茶.jpg'],
-  '大悟红茶': ['/images/大悟红茶.jpg'],
-  '五指山红茶': ['/images/五指山红茶.jpg'],
-  '英山红茶': ['/images/英山红茶.jpg'],
-  '雪青红茶': ['/images/雪青红茶.jpg'],
-  '川红工夫': ['/images/川红工夫.jpg'],
+  '坦洋工夫': ['/images/坦洋工夫.jpg', '/images/坦洋工夫_yedi.jpg', '/images/坦洋工夫_tang.jpg', '/images/坦洋工夫_gancha.jpg'],
+  '大叶青': ['/images/大叶青.jpg', '/images/大叶青_yedi.jpg', '/images/大叶青_tang.jpg', '/images/大叶青_gancha.jpg'],
+  '大吉岭红茶': ['/images/大吉岭红茶.jpg', '/images/大吉岭红茶_yedi.jpg', '/images/大吉岭红茶_tang.jpg'],
+  '大悟红茶': ['/images/大悟红茶.jpg', '/images/大悟红茶_yedi.jpg', '/images/大悟红茶_tang.jpg', '/images/大悟红茶_gancha.jpg'],
+  '大禹岭茶': ['/images/大禹岭茶.jpg', '/images/大禹岭茶_yedi.jpg', '/images/大禹岭茶_tang.jpg', '/images/大禹岭茶_gancha.jpg'],
+  '大红袍': ['/images/大红袍.jpg', '/images/大红袍_yedi.jpg', '/images/大红袍_tang.jpg', '/images/大红袍_gancha.jpg'],
+  '天方富硒茶': ['/images/天方富硒茶.jpg'],
+  '太平猴魁': ['/images/太平猴魁.jpg', '/images/太平猴魁_yedi.jpg', '/images/太平猴魁_tang.jpg', '/images/太平猴魁_gancha.jpg'],
+  '太湖翠竹': ['/images/太湖翠竹.jpg', '/images/太湖翠竹_yedi.jpg', '/images/太湖翠竹_tang.jpg', '/images/太湖翠竹_gancha.jpg'],
+  '婺州举岩': ['/images/婺州举岩.jpg'],
+  '婺源毛尖': ['/images/婺源毛尖.jpg', '/images/婺源毛尖_yedi.jpg', '/images/婺源毛尖_tang.jpg', '/images/婺源毛尖_gancha.jpg'],
+  '宁强雀舌': ['/images/宁强雀舌.jpg', '/images/宁强雀舌_yedi.jpg', '/images/宁强雀舌_tang.jpg', '/images/宁强雀舌_gancha.jpg'],
+  '宁红': ['/images/宁红.jpg', '/images/宁红_yedi.jpg', '/images/宁红_tang.jpg', '/images/宁红_gancha.jpg'],
   '宁红工夫': ['/images/宁红工夫.jpg'],
-  '滇红金芽': ['/images/滇红金芽.jpg'],
-  '日月潭红茶': ['/images/日月潭红茶.jpg'],
-  '竹叶青红茶': ['/images/竹叶青红茶.jpg'],
-  '大吉岭红茶': ['/images/大吉岭红茶.jpg'],
-  '阿萨姆红茶': ['/images/阿萨姆红茶.jpg'],
+  '安化松针': ['/images/安化松针.jpg', '/images/安化松针_yedi.jpg', '/images/安化松针_tang.jpg'],
+  '安化红茶': ['/images/安化红茶.jpg', '/images/安化红茶_yedi.jpg', '/images/安化红茶_tang.jpg', '/images/安化红茶_gancha.jpg'],
+  '安化茯砖·金花': ['/images/安化茯砖·金花.jpg', '/images/安化茯砖·金花_yedi.jpg', '/images/安化茯砖·金花_tang.jpg'],
+  '安化黑茶': ['/images/安化黑茶.jpg', '/images/安化黑茶_yedi.jpg', '/images/安化黑茶_tang.jpg'],
+  '安吉白茶': ['/images/安吉白茶.jpg', '/images/安吉白茶_yedi.jpg', '/images/安吉白茶_tang.jpg', '/images/安吉白茶_gancha.jpg'],
+  '安溪铁观音': ['/images/安溪铁观音.jpg', '/images/安溪铁观音_yedi.jpg', '/images/安溪铁观音_tang.jpg', '/images/安溪铁观音_gancha.jpg'],
+  '宜兴红茶': ['/images/宜兴红茶.jpg', '/images/宜兴红茶_yedi.jpg', '/images/宜兴红茶_tang.jpg', '/images/宜兴红茶_gancha.jpg'],
+  '宜红': ['/images/宜红.jpg', '/images/宜红_yedi.jpg', '/images/宜红_tang.jpg', '/images/宜红_gancha.jpg'],
+  '寒露茶': ['/images/寒露茶.jpg', '/images/寒露茶_yedi.jpg', '/images/寒露茶_tang.jpg', '/images/寒露茶_gancha.jpg'],
+  '寿眉': ['/images/寿眉.jpg', '/images/寿眉_yedi.jpg', '/images/寿眉_tang.jpg', '/images/寿眉_gancha.jpg'],
+  '岭头单丛': ['/images/岭头单丛.jpg', '/images/岭头单丛_yedi.jpg', '/images/岭头单丛_tang.jpg', '/images/岭头单丛_gancha.jpg'],
+  '岳麓毛尖': ['/images/岳麓毛尖.jpg', '/images/岳麓毛尖_yedi.jpg', '/images/岳麓毛尖_tang.jpg', '/images/岳麓毛尖_gancha.jpg'],
+  '峨眉山白茶': ['/images/峨眉山白茶.jpg', '/images/峨眉山白茶_yedi.jpg', '/images/峨眉山白茶_tang.jpg', '/images/峨眉山白茶_gancha.jpg'],
+  '川红': ['/images/川红.jpg', '/images/川红_yedi.jpg', '/images/川红_tang.jpg', '/images/川红_gancha.jpg'],
+  '川红工夫': ['/images/川红工夫.jpg', '/images/川红工夫_yedi.jpg', '/images/川红工夫_tang.jpg'],
+  '平水珠茶': ['/images/平水珠茶.jpg', '/images/平水珠茶_yedi.jpg', '/images/平水珠茶_tang.jpg', '/images/平水珠茶_gancha.jpg'],
+  '平阳黄汤': ['/images/平阳黄汤.jpg'],
+  '广别': ['/images/广别.jpg', '/images/广别_yedi.jpg', '/images/广别_tang.jpg', '/images/广别_gancha.jpg'],
+  '庐山云雾': ['/images/庐山云雾.jpg', '/images/庐山云雾_yedi.jpg', '/images/庐山云雾_tang.jpg', '/images/庐山云雾_gancha.jpg'],
+  '庐山云雾茶': ['/images/庐山云雾茶.jpg', '/images/庐山云雾茶_yedi.jpg', '/images/庐山云雾茶_tang.jpg', '/images/庐山云雾茶_gancha.jpg'],
+  '建阳白茶': ['/images/建阳白茶.jpg', '/images/建阳白茶_yedi.jpg', '/images/建阳白茶_tang.jpg', '/images/建阳白茶_gancha.jpg'],
+  '恩施玉露': ['/images/恩施玉露.jpg', '/images/恩施玉露_yedi.jpg', '/images/恩施玉露_tang.jpg'],
+  '恩施红': ['/images/恩施红.jpg', '/images/恩施红_yedi.jpg', '/images/恩施红_tang.jpg', '/images/恩施红_gancha.jpg'],
+  '政和工夫': ['/images/政和工夫.jpg', '/images/政和工夫_yedi.jpg', '/images/政和工夫_tang.jpg', '/images/政和工夫_gancha.jpg'],
+  '政和白茶': ['/images/政和白茶.jpg', '/images/政和白茶_yedi.jpg', '/images/政和白茶_tang.jpg', '/images/政和白茶_gancha.jpg'],
+  '政和红茶': ['/images/政和红茶.jpg', '/images/政和红茶_yedi.jpg', '/images/政和红茶_tang.jpg', '/images/政和红茶_gancha.jpg'],
+  '敬亭绿雪': ['/images/敬亭绿雪.jpg', '/images/敬亭绿雪_yedi.jpg', '/images/敬亭绿雪_tang.jpg', '/images/敬亭绿雪_gancha.jpg'],
+  '文君绿茶': ['/images/文君绿茶.jpg', '/images/文君绿茶_yedi.jpg', '/images/文君绿茶_tang.jpg', '/images/文君绿茶_gancha.jpg'],
+  '日月潭红茶': ['/images/日月潭红茶.jpg', '/images/日月潭红茶_yedi.jpg', '/images/日月潭红茶_tang.jpg', '/images/日月潭红茶_gancha.jpg'],
+  '日照红茶': ['/images/日照红茶.jpg', '/images/日照红茶_yedi.jpg', '/images/日照红茶_tang.jpg', '/images/日照红茶_gancha.jpg'],
+  '昔归': ['/images/昔归.jpg', '/images/昔归_yedi.jpg', '/images/昔归_tang.jpg', '/images/昔归_gancha.jpg'],
+  '昭君白茶': ['/images/昭君白茶.jpg', '/images/昭君白茶_yedi.jpg', '/images/昭君白茶_tang.jpg', '/images/昭君白茶_gancha.jpg'],
+  '昭平红': ['/images/昭平红.jpg'],
+  '普洱古树·生茶': ['/images/普洱古树·生茶.jpg', '/images/普洱古树·生茶_yedi.jpg', '/images/普洱古树·生茶_tang.jpg'],
+  '普洱紫芽': ['/images/普洱紫芽.jpg', '/images/普洱紫芽_yedi.jpg', '/images/普洱紫芽_tang.jpg', '/images/普洱紫芽_gancha.jpg'],
+  '景迈山': ['/images/景迈山.jpg', '/images/景迈山_yedi.jpg', '/images/景迈山_tang.jpg', '/images/景迈山_gancha.jpg'],
+  '景迈山古树': ['/images/景迈山古树.jpg', '/images/景迈山古树_yedi.jpg', '/images/景迈山古树_tang.jpg', '/images/景迈山古树_gancha.jpg'],
+  '曼松': ['/images/曼松.jpg', '/images/曼松_yedi.jpg', '/images/曼松_tang.jpg', '/images/曼松_gancha.jpg'],
+  '月光白': ['/images/月光白.jpg', '/images/月光白_yedi.jpg', '/images/月光白_tang.jpg', '/images/月光白_gancha.jpg'],
+  '望海茶': ['/images/望海茶.jpg', '/images/望海茶_yedi.jpg', '/images/望海茶_tang.jpg', '/images/望海茶_gancha.jpg'],
+  '杜仲茶': ['/images/杜仲茶.jpg', '/images/杜仲茶_yedi.jpg', '/images/杜仲茶_tang.jpg'],
+  '松柏长青': ['/images/松柏长青.jpg', '/images/松柏长青_yedi.jpg', '/images/松柏长青_tang.jpg', '/images/松柏长青_gancha.jpg'],
+  '柿叶茶': ['/images/柿叶茶.jpg', '/images/柿叶茶_yedi.jpg', '/images/柿叶茶_tang.jpg'],
+  '桂红袍': ['/images/桂红袍.jpg', '/images/桂红袍_yedi.jpg', '/images/桂红袍_tang.jpg', '/images/桂红袍_gancha.jpg'],
+  '桂花乌龙': ['/images/桂花乌龙.jpg', '/images/桂花乌龙_yedi.jpg', '/images/桂花乌龙_tang.jpg'],
+  '桂花龙井': ['/images/桂花龙井.jpg', '/images/桂花龙井_yedi.jpg', '/images/桂花龙井_tang.jpg', '/images/桂花龙井_gancha.jpg'],
+  '梧州六堡·老茶': ['/images/梧州六堡·老茶.jpg', '/images/梧州六堡·老茶_yedi.jpg', '/images/梧州六堡·老茶_tang.jpg', '/images/梧州六堡·老茶_gancha.jpg'],
+  '梧州六堡茶红茶': ['/images/梧州六堡茶红茶.jpg', '/images/梧州六堡茶红茶_yedi.jpg', '/images/梧州六堡茶红茶_tang.jpg', '/images/梧州六堡茶红茶_gancha.jpg'],
+  '梨山茶': ['/images/梨山茶.jpg', '/images/梨山茶_yedi.jpg', '/images/梨山茶_tang.jpg'],
+  '正安白茶': ['/images/正安白茶.jpg', '/images/正安白茶_yedi.jpg', '/images/正安白茶_tang.jpg', '/images/正安白茶_gancha.jpg'],
+  '正山小种': ['/images/正山小种.jpg', '/images/正山小种_yedi.jpg', '/images/正山小种_tang.jpg'],
+  '武夷山野茶': ['/images/武夷山野茶.jpg', '/images/武夷山野茶_yedi.jpg', '/images/武夷山野茶_tang.jpg', '/images/武夷山野茶_gancha.jpg'],
+  '武夷岩茶': ['/images/武夷岩茶.jpg', '/images/武夷岩茶_yedi.jpg', '/images/武夷岩茶_tang.jpg'],
+  '武夷岩茶（绿茶类）': ['/images/武夷岩茶（绿茶类）.jpg', '/images/武夷岩茶（绿茶类）_yedi.jpg', '/images/武夷岩茶（绿茶类）_tang.jpg'],
+  '永川秀芽': ['/images/永川秀芽.jpg', '/images/永川秀芽_yedi.jpg', '/images/永川秀芽_tang.jpg', '/images/永川秀芽_gancha.jpg'],
+  '永州红茶': ['/images/永州红茶.jpg', '/images/永州红茶_yedi.jpg', '/images/永州红茶_tang.jpg', '/images/永州红茶_gancha.jpg'],
+  '永春佛手': ['/images/永春佛手.jpg', '/images/永春佛手_yedi.jpg', '/images/永春佛手_tang.jpg', '/images/永春佛手_gancha.jpg'],
+  '汉中仙毫': ['/images/汉中仙毫.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_gancha.jpg'],
+  '沩山毛尖': ['/images/沩山毛尖.jpg', '/images/沩山毛尖_yedi.jpg', '/images/沩山毛尖_tang.jpg'],
+  '泾阳茯茶': ['/images/泾阳茯茶.jpg', '/images/泾阳茯茶_yedi.jpg', '/images/泾阳茯茶_tang.jpg', '/images/泾阳茯茶_gancha.jpg'],
+  '泾阳茯茶·手筑': ['/images/泾阳茯茶·手筑.jpg', '/images/泾阳茯茶·手筑_yedi.jpg', '/images/泾阳茯茶·手筑_tang.jpg', '/images/泾阳茯茶·手筑_gancha.jpg'],
+  '洛神花茶': ['/images/洛神花茶.jpg', '/images/洛神花茶_yedi.jpg', '/images/洛神花茶_tang.jpg'],
+  '海堤红': ['/images/海堤红.jpg', '/images/海堤红_yedi.jpg', '/images/海堤红_tang.jpg', '/images/海堤红_gancha.jpg'],
+  '温州黄汤': ['/images/温州黄汤.jpg', '/images/温州黄汤_yedi.jpg', '/images/温州黄汤_tang.jpg', '/images/温州黄汤_gancha.jpg'],
+  '湖北老青茶': ['/images/湖北老青茶.jpg', '/images/湖北老青茶_yedi.jpg', '/images/湖北老青茶_tang.jpg', '/images/湖北老青茶_gancha.jpg'],
+  '湖红工夫': ['/images/湖红工夫.jpg'],
+  '滇红': ['/images/滇红.jpg', '/images/滇红_yedi.jpg', '/images/滇红_tang.jpg', '/images/滇红_gancha.jpg'],
+  '滇红金芽': ['/images/滇红金芽.jpg', '/images/滇红金芽_yedi.jpg', '/images/滇红金芽_tang.jpg'],
+  '潮州凤凰红茶': ['/images/潮州凤凰红茶.jpg', '/images/潮州凤凰红茶_yedi.jpg', '/images/潮州凤凰红茶_tang.jpg'],
+  '特级白牡丹': ['/images/特级白牡丹.jpg', '/images/特级白牡丹_yedi.jpg', '/images/特级白牡丹_tang.jpg'],
+  '玫瑰普洱': ['/images/玫瑰普洱.jpg', '/images/玫瑰普洱_yedi.jpg', '/images/玫瑰普洱_tang.jpg'],
+  '玫瑰红茶': ['/images/玫瑰红茶.jpg', '/images/玫瑰红茶_yedi.jpg', '/images/玫瑰红茶_tang.jpg', '/images/玫瑰红茶_gancha.jpg'],
+  '珠兰大方': ['/images/珠兰大方.jpg', '/images/珠兰大方_yedi.jpg', '/images/珠兰大方_tang.jpg', '/images/珠兰大方_gancha.jpg'],
+  '珠兰花茶': ['/images/珠兰花茶.jpg', '/images/珠兰花茶_yedi.jpg', '/images/珠兰花茶_tang.jpg', '/images/珠兰花茶_gancha.jpg'],
+  '珠兰芽珠': ['/images/珠兰芽珠.jpg', '/images/珠兰芽珠_yedi.jpg', '/images/珠兰芽珠_tang.jpg', '/images/珠兰芽珠_gancha.jpg'],
+  '瑞草魁': ['/images/瑞草魁.jpg', '/images/瑞草魁_yedi.jpg', '/images/瑞草魁_tang.jpg', '/images/瑞草魁_gancha.jpg'],
+  '白毫银针': ['/images/白毫银针.jpg', '/images/白毫银针_yedi.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg'],
+  '白牡丹': ['/images/白牡丹.jpg', '/images/白牡丹_yedi.jpg', '/images/白牡丹_tang.jpg', '/images/白牡丹_gancha.jpg'],
+  '白琳工夫': ['/images/白琳工夫.jpg', '/images/白琳工夫_yedi.jpg', '/images/白琳工夫_tang.jpg', '/images/白琳工夫_gancha.jpg'],
+  '白芽奇兰': ['/images/白芽奇兰.jpg', '/images/白芽奇兰_yedi.jpg', '/images/白芽奇兰_tang.jpg', '/images/白芽奇兰_gancha.jpg'],
+  '白露茶': ['/images/白露茶.jpg', '/images/白露茶_yedi.jpg', '/images/白露茶_tang.jpg', '/images/白露茶_gancha.jpg'],
+  '碧螺春': ['/images/碧螺春.jpg', '/images/碧螺春_yedi.jpg', '/images/碧螺春_tang.jpg'],
+  '祁门红茶': ['/images/祁门红茶.jpg', '/images/祁门红茶_yedi.jpg', '/images/祁门红茶_tang.jpg', '/images/祁门红茶_gancha.jpg'],
+  '福安白茶': ['/images/福安白茶.jpg', '/images/福安白茶_yedi.jpg', '/images/福安白茶_tang.jpg', '/images/福安白茶_gancha.jpg'],
+  '秦岭云雾茶': ['/images/秦岭云雾茶.jpg', '/images/秦岭云雾茶_yedi.jpg', '/images/秦岭云雾茶_tang.jpg', '/images/秦岭云雾茶_gancha.jpg'],
+  '竹叶青': ['/images/竹叶青.jpg'],
+  '竹叶青红茶': ['/images/竹叶青红茶.jpg', '/images/竹叶青红茶_yedi.jpg', '/images/竹叶青红茶_tang.jpg', '/images/竹叶青红茶_gancha.jpg'],
+  '紫阳毛尖': ['/images/紫阳毛尖.jpg', '/images/紫阳毛尖_yedi.jpg', '/images/紫阳毛尖_tang.jpg', '/images/紫阳毛尖_gancha.jpg'],
+  '绞股蓝茶': ['/images/绞股蓝茶.jpg', '/images/绞股蓝茶_yedi.jpg', '/images/绞股蓝茶_tang.jpg', '/images/绞股蓝茶_gancha.jpg'],
+  '罗布麻茶': ['/images/罗布麻茶.jpg', '/images/罗布麻茶_yedi.jpg', '/images/罗布麻茶_tang.jpg'],
+  '老寿眉': ['/images/老寿眉.jpg', '/images/老寿眉_yedi.jpg', '/images/老寿眉_tang.jpg', '/images/老寿眉_gancha.jpg'],
+  '老班章': ['/images/老班章.jpg', '/images/老班章_yedi.jpg', '/images/老班章_tang.jpg', '/images/老班章_gancha.jpg'],
+  '老青茶·陈香': ['/images/老青茶·陈香.jpg', '/images/老青茶·陈香_yedi.jpg', '/images/老青茶·陈香_tang.jpg', '/images/老青茶·陈香_gancha.jpg'],
+  '肯尼亚红茶': ['/images/肯尼亚红茶.jpg', '/images/肯尼亚红茶_yedi.jpg', '/images/肯尼亚红茶_tang.jpg', '/images/肯尼亚红茶_gancha.jpg'],
+  '苦丁茶': ['/images/苦丁茶.jpg', '/images/苦丁茶_yedi.jpg', '/images/苦丁茶_tang.jpg', '/images/苦丁茶_gancha.jpg'],
+  '英山云雾茶': ['/images/英山云雾茶.jpg', '/images/英山云雾茶_yedi.jpg', '/images/英山云雾茶_tang.jpg', '/images/英山云雾茶_gancha.jpg'],
+  '英山红茶': ['/images/英山红茶.jpg', '/images/英山红茶_yedi.jpg', '/images/英山红茶_tang.jpg', '/images/英山红茶_gancha.jpg'],
+  '英德红茶': ['/images/英德红茶.jpg', '/images/英德红茶_yedi.jpg', '/images/英德红茶_tang.jpg', '/images/英德红茶_gancha.jpg'],
+  '英德红茶-金毫': ['/images/英德红茶-金毫.jpg', '/images/英德红茶-金毫_yedi.jpg', '/images/英德红茶-金毫_tang.jpg', '/images/英德红茶-金毫_gancha.jpg'],
+  '茉莉大白毫': ['/images/茉莉大白毫.jpg', '/images/茉莉大白毫_yedi.jpg', '/images/茉莉大白毫_tang.jpg', '/images/茉莉大白毫_gancha.jpg'],
+  '茉莉花茶': ['/images/茉莉花茶.jpg', '/images/茉莉花茶_yedi.jpg', '/images/茉莉花茶_tang.jpg', '/images/茉莉花茶_gancha.jpg'],
+  '茉莉银针': ['/images/茉莉银针.jpg', '/images/茉莉银针_yedi.jpg', '/images/茉莉银针_tang.jpg'],
+  '茉莉龙珠': ['/images/茉莉龙珠.jpg', '/images/茉莉龙珠_yedi.jpg', '/images/茉莉龙珠_tang.jpg'],
+  '荒野银针': ['/images/荒野银针.jpg', '/images/荒野银针_yedi.jpg', '/images/荒野银针_tang.jpg', '/images/荒野银针_gancha.jpg'],
+  '荔枝红茶': ['/images/荔枝红茶.jpg', '/images/荔枝红茶_yedi.jpg', '/images/荔枝红茶_tang.jpg', '/images/荔枝红茶_gancha.jpg'],
+  '莫干黄芽': ['/images/莫干黄芽.jpg', '/images/莫干黄芽_yedi.jpg', '/images/莫干黄芽_tang.jpg', '/images/莫干黄芽_gancha.jpg'],
+  '莽枝': ['/images/莽枝.jpg', '/images/莽枝_yedi.jpg', '/images/莽枝_tang.jpg', '/images/莽枝_gancha.jpg'],
+  '菊花茶': ['/images/菊花茶.jpg', '/images/菊花茶_yedi.jpg', '/images/菊花茶_tang.jpg'],
+  '蒙顶甘露': ['/images/蒙顶甘露.jpg', '/images/蒙顶甘露_yedi.jpg', '/images/蒙顶甘露_tang.jpg', '/images/蒙顶甘露_gancha.jpg'],
+  '蒙顶黄芽': ['/images/蒙顶黄芽.jpg', '/images/蒙顶黄芽_yedi.jpg', '/images/蒙顶黄芽_tang.jpg', '/images/蒙顶黄芽_gancha.jpg'],
+  '藏茶': ['/images/藏茶.jpg', '/images/藏茶_yedi.jpg', '/images/藏茶_tang.jpg', '/images/藏茶_gancha.jpg'],
+  '西湖龙井': ['/images/西湖龙井.jpg', '/images/西湖龙井_yedi.jpg', '/images/西湖龙井_tang.jpg', '/images/西湖龙井_gancha.jpg'],
+  '诏安八仙': ['/images/诏安八仙.jpg', '/images/诏安八仙_yedi.jpg', '/images/诏安八仙_tang.jpg', '/images/诏安八仙_gancha.jpg'],
+  '贡眉': ['/images/贡眉.jpg', '/images/贡眉_yedi.jpg', '/images/贡眉_tang.jpg', '/images/贡眉_gancha.jpg'],
+  '贵定云雾黄芽': ['/images/贵定云雾黄芽.jpg', '/images/贵定云雾黄芽_yedi.jpg', '/images/贵定云雾黄芽_tang.jpg', '/images/贵定云雾黄芽_gancha.jpg'],
+  '资溪白茶': ['/images/资溪白茶.jpg', '/images/资溪白茶_yedi.jpg', '/images/资溪白茶_tang.jpg', '/images/资溪白茶_gancha.jpg'],
+  '越红工夫': ['/images/越红工夫.jpg', '/images/越红工夫_yedi.jpg'],
+  '远安黄茶': ['/images/远安黄茶.jpg', '/images/远安黄茶_yedi.jpg', '/images/远安黄茶_tang.jpg', '/images/远安黄茶_gancha.jpg'],
+  '遵义红': ['/images/遵义红.jpg', '/images/遵义红_yedi.jpg', '/images/遵义红_tang.jpg', '/images/遵义红_gancha.jpg'],
+  '那卡': ['/images/那卡.jpg', '/images/那卡_yedi.jpg', '/images/那卡_tang.jpg'],
+  '邦崴': ['/images/邦崴.jpg', '/images/邦崴_yedi.jpg', '/images/邦崴_tang.jpg', '/images/邦崴_gancha.jpg'],
+  '邦苯': ['/images/邦苯.jpg', '/images/邦苯_yedi.jpg', '/images/邦苯_tang.jpg', '/images/邦苯_gancha.jpg'],
+  '都匀毛尖': ['/images/都匀毛尖.jpg', '/images/都匀毛尖_yedi.jpg', '/images/都匀毛尖_tang.jpg', '/images/都匀毛尖_gancha.jpg'],
+  '采花毛尖': ['/images/采花毛尖.jpg', '/images/采花毛尖_yedi.jpg', '/images/采花毛尖_tang.jpg', '/images/采花毛尖_gancha.jpg'],
+  '金丝滇红': ['/images/金丝滇红.jpg', '/images/金丝滇红_yedi.jpg', '/images/金丝滇红_tang.jpg', '/images/金丝滇红_gancha.jpg'],
+  '金坛雀舌': ['/images/金坛雀舌.jpg', '/images/金坛雀舌_yedi.jpg', '/images/金坛雀舌_tang.jpg', '/images/金坛雀舌_gancha.jpg'],
+  '金银花茶': ['/images/金银花茶.jpg', '/images/金银花茶_yedi.jpg', '/images/金银花茶_tang.jpg', '/images/金银花茶_gancha.jpg'],
+  '金骏眉': ['/images/金骏眉.jpg', '/images/金骏眉_yedi.jpg', '/images/金骏眉_tang.jpg', '/images/金骏眉_gancha.jpg'],
   '锡兰红茶': ['/images/锡兰红茶.jpg'],
-  '肯尼亚红茶': ['/images/肯尼亚红茶.jpg'],
-  '潮州凤凰红茶': ['/images/潮州凤凰红茶.jpg'],
-  '安化红茶': ['/images/安化红茶.jpg'],
-  '梧州六堡茶红茶': ['/images/梧州六堡茶红茶.jpg'],
-  '黔红贵茶': ['/images/黔红贵茶.jpg'],
-  '武夷山野茶': ['/images/武夷山野茶.jpg'],
-  '荔枝红茶': ['/images/荔枝红茶.jpg'],
-  '荒野银针': ['/images/荒野银针.jpg'],
-  '特级白牡丹': ['/images/特级白牡丹.jpg'],
-  '老寿眉': ['/images/老寿眉.jpg'],
-  '白露茶': ['/images/白露茶.jpg'],
-  '寒露茶': ['/images/寒露茶.jpg'],
-  '政和白茶': ['/images/政和白茶.jpg'],
-  '云南古树白茶': ['/images/云南古树白茶.jpg'],
-  '峨眉山白茶': ['/images/峨眉山白茶.jpg'],
-  '正安白茶': ['/images/正安白茶.jpg'],
-  '福安白茶': ['/images/福安白茶.jpg'],
-  '六堡茶·特级': ['/images/六堡茶·特级.jpg'],
-  '雅安藏茶·金尖': ['/images/雅安藏茶·金尖.jpg'],
-  '老青茶·陈香': ['/images/老青茶·陈香.jpg'],
-  '安化茯砖·金花': ['/images/安化茯砖·金花.jpg'],
-  '普洱古树·生茶': ['/images/普洱古树·生茶.jpg'],
-  '青砖茶·米砖': ['/images/青砖茶·米砖.jpg'],
-  '云南熟砖·宫廷': ['/images/云南熟砖·宫廷.jpg'],
-  '泾阳茯茶·手筑': ['/images/泾阳茯茶·手筑.jpg'],
-  '梧州六堡·老茶': ['/images/梧州六堡·老茶.jpg'],
-  '雅安康砖': ['/images/雅安康砖.jpg'],
-  '普洱紫芽': ['/images/普洱紫芽.jpg'],
-  '千家寨': ['/images/千家寨.jpg'],
-  '景迈山古树': ['/images/景迈山古树.jpg'],
-  '邦崴': ['/images/邦崴.jpg'],
-  '邦苯': ['/images/邦苯.jpg'],
-  '那卡': ['/images/那卡.jpg'],
-  '广别': ['/images/广别.jpg'],
-  '莽枝': ['/images/莽枝.jpg'],
-  '革登': ['/images/革登.jpg'],
-  '远安黄茶': ['/images/远安黄茶.jpg'],
-  '莫干黄芽': ['/images/莫干黄芽.jpg'],
-  '大叶青': ['/images/大叶青.jpg'],
-  '温州黄汤': ['/images/温州黄汤.jpg'],
-  '贵定云雾黄芽': ['/images/贵定云雾黄芽.jpg'],
-  '昭君白茶': ['/images/昭君白茶.jpg'],
-  '文君绿茶': ['/images/文君绿茶.jpg'],
-  '茉莉银针': ['/images/茉莉银针.jpg'],
-  '茉莉龙珠': ['/images/茉莉龙珠.jpg'],
-  '茉莉大白毫': ['/images/茉莉大白毫.jpg'],
-  '珠兰大方': ['/images/珠兰大方.jpg'],
-  '珠兰芽珠': ['/images/珠兰芽珠.jpg'],
-  '桂花龙井': ['/images/桂花龙井.jpg'],
-  '玫瑰普洱': ['/images/玫瑰普洱.jpg'],
-  '洛神花茶': ['/images/洛神花茶.jpg'],
-  '菊花茶': ['/images/菊花茶.jpg'],
-  '金银花茶': ['/images/金银花茶.jpg'],
-};;
+  '阿萨姆红茶': ['/images/阿萨姆红茶.jpg', '/images/阿萨姆红茶_yedi.jpg', '/images/阿萨姆红茶_tang.jpg', '/images/阿萨姆红茶_gancha.jpg'],
+  '阿里山乌龙': ['/images/阿里山乌龙.jpg', '/images/阿里山乌龙_yedi.jpg', '/images/阿里山乌龙_tang.jpg', '/images/阿里山乌龙_gancha.jpg'],
+  '陕红工夫': ['/images/陕红工夫.jpg', '/images/陕红工夫_yedi.jpg', '/images/陕红工夫_tang.jpg', '/images/陕红工夫_gancha.jpg'],
+  '雅安康砖': ['/images/雅安康砖.jpg', '/images/雅安康砖_yedi.jpg', '/images/雅安康砖_tang.jpg', '/images/雅安康砖_gancha.jpg'],
+  '雅安藏茶·金尖': ['/images/雅安藏茶·金尖.jpg', '/images/雅安藏茶·金尖_yedi.jpg', '/images/雅安藏茶·金尖_tang.jpg', '/images/雅安藏茶·金尖_gancha.jpg'],
+  '雨花茶': ['/images/雨花茶.jpg', '/images/雨花茶_yedi.jpg', '/images/雨花茶_tang.jpg'],
+  '雪水云绿': ['/images/雪水云绿.jpg'],
+  '雪青红茶': ['/images/雪青红茶.jpg', '/images/雪青红茶_yedi.jpg', '/images/雪青红茶_tang.jpg', '/images/雪青红茶_gancha.jpg'],
+  '霍山黄芽': ['/images/霍山黄芽.jpg', '/images/霍山黄芽_yedi.jpg', '/images/霍山黄芽_tang.jpg', '/images/霍山黄芽_gancha.jpg'],
+  '霞浦元宵茶': ['/images/霞浦元宵茶.jpg'],
+  '青砖茶': ['/images/青砖茶.jpg', '/images/青砖茶_yedi.jpg', '/images/青砖茶_tang.jpg', '/images/青砖茶_gancha.jpg'],
+  '青砖茶·米砖': ['/images/青砖茶·米砖.jpg', '/images/青砖茶·米砖_yedi.jpg', '/images/青砖茶·米砖_tang.jpg'],
+  '革登': ['/images/革登.jpg', '/images/革登_yedi.jpg', '/images/革登_tang.jpg', '/images/革登_gancha.jpg'],
+  '顾渚紫笋': ['/images/顾渚紫笋.jpg'],
+  '黄山毛峰': ['/images/黄山毛峰.jpg', '/images/黄山毛峰_yedi.jpg', '/images/黄山毛峰_tang.jpg', '/images/黄山毛峰_gancha.jpg'],
+  '黄山绿牡丹': ['/images/黄山绿牡丹.jpg', '/images/黄山绿牡丹_yedi.jpg', '/images/黄山绿牡丹_tang.jpg', '/images/黄山绿牡丹_gancha.jpg'],
+  '黔红贵茶': ['/images/黔红贵茶.jpg', '/images/黔红贵茶_yedi.jpg', '/images/黔红贵茶_tang.jpg'],
+  '黔红金针': ['/images/黔红金针.jpg', '/images/黔红金针_yedi.jpg', '/images/黔红金针_tang.jpg', '/images/黔红金针_gancha.jpg'],
+};
   if (WIKI_IMAGES[tea.name]) return WIKI_IMAGES[tea.name];
   // 按茶类默认图
   const typeDefault = {
@@ -3692,6 +3761,744 @@ window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; t
 })();
 </script>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:2rem;right:2rem;width:2.8rem;height:2.8rem;background:var(--c1);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:999">↑</button>
+
+<!-- ========== v5.0 新增功能 CSS ========== -->
+<style>
+/* --- 1. 茶汤色卡 --- */
+#liquor-modal { display:none; position:fixed; inset:0; z-index:260; background:rgba(0,0,0,.55); align-items:center; justify-content:center; padding:1rem; }
+#liquor-modal.open { display:flex; }
+.liquor-panel { background:var(--bg); border-radius:16px; max-width:520px; width:100%; max-height:85vh; overflow-y:auto; padding:1.5rem; position:relative; box-shadow:var(--shadow-lg); }
+.liquor-panel h2 { color:var(--c5); margin-bottom:.8rem; display:flex; align-items:center; gap:.5rem; font-size:1.3rem; }
+.liquor-swatch { width:80px; height:80px; border-radius:50%; margin:.8rem auto; box-shadow:0 4px 20px rgba(0,0,0,.25); border:4px solid #fff; }
+.liquor-info { text-align:center; color:var(--text); margin-bottom:.5rem; font-size:.95rem; }
+.liquor-similar-title { font-size:.9rem; font-weight:700; color:var(--c1); margin:.8rem 0 .5rem; }
+.liquor-similar-list { display:flex; flex-wrap:wrap; gap:.5rem; }
+.liquor-similar-item { display:flex; align-items:center; gap:.4rem; background:var(--white); border:1.5px solid var(--border); border-radius:20px; padding:.3rem .7rem; cursor:pointer; transition:all .2s; font-size:.82rem; }
+.liquor-similar-item:hover { background:var(--c4); border-color:var(--c1); }
+.liquor-mini-swatch { width:22px; height:22px; border-radius:50%; border:2px solid var(--border); flex-shrink:0; }
+/* 茶汤颜色映射 */
+.lq-green-bright { background:#c8e6c9; }
+.lq-green-yellow { background:#d4e157; }
+.lq-yellow-green { background:#c5e1a5; }
+.lq-golden { background:linear-gradient(135deg,#ffd54f,#ffb300); }
+.lq-amber { background:#ffb74d; }
+.lq-red-amber { background:#f48c42; }
+.lq-red-bright { background:#e57373; }
+.lq-dark-red { background:#8d3b3b; }
+.lq-pale-yellow { background:#fff9c4; }
+.lq-jade { background:#b2dfdb; }
+.lq-silver-green { background:#c8e6c9; }
+.lq-orange-red { background:#ff8a65; }
+
+/* --- 2. 五行可视化 --- */
+.wuxing-section { margin:1rem 0; padding:.8rem; background:var(--c4); border-radius:12px; }
+.wuxing-section-title { font-size:.85rem; font-weight:700; color:var(--c5); margin-bottom:.6rem; display:flex; align-items:center; gap:.3rem; }
+.wuxing-diagram { display:flex; align-items:center; justify-content:center; gap:.5rem; flex-wrap:wrap; padding:.5rem 0; }
+.wuxing-node { display:flex; flex-direction:column; align-items:center; font-size:.75rem; gap:2px; }
+.wuxing-icon { font-size:1.8rem; animation:wuxingPulse 2s ease-in-out infinite; }
+.wuxing-arrow { font-size:1.2rem; color:var(--c2); animation:wuxingSlide 1.5s ease-in-out infinite; }
+.wuxing-label { font-size:.7rem; color:var(--text); background:var(--white); border-radius:10px; padding:0 .4rem; }
+@keyframes wuxingPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+@keyframes wuxingSlide { 0%,100%{opacity:.4;transform:translateX(-3px)} 50%{opacity:1;transform:translateX(3px)} }
+.wuxing-cycle { display:flex; gap:.3rem; align-items:center; margin-top:.5rem; flex-wrap:wrap; justify-content:center; font-size:.78rem; }
+.wuxing-rel { background:var(--white); border-radius:12px; padding:.2rem .5rem; border:1.5px solid var(--border); }
+.wuxing-rel.sheng { border-color:#52B788; color:#2D6A4F; }
+.wuxing-rel.ke { border-color:#e57373; color:#c0392b; }
+
+/* --- 3. 茶山地图 --- */
+#map-modal { display:none; position:fixed; inset:0; z-index:270; background:var(--bg); flex-direction:column; }
+#map-modal.open { display:flex; }
+.map-header { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.5rem; background:var(--c1); color:#fff; }
+.map-header h2 { font-size:1.3rem; margin:0; }
+.map-close-btn { background:rgba(255,255,255,.2); color:#fff; border:none; border-radius:8px; padding:.4rem 1rem; cursor:pointer; font-size:1rem; }
+.map-close-btn:hover { background:rgba(255,255,255,.3); }
+.map-body { flex:1; position:relative; overflow:auto; padding:1.5rem; display:flex; justify-content:center; align-items:flex-start; }
+.map-legend { position:absolute; top:1rem; right:1.5rem; background:var(--white); border-radius:12px; padding:.8rem; box-shadow:var(--shadow); font-size:.78rem; z-index:5; max-height:60vh; overflow-y:auto; }
+.map-legend-title { font-weight:700; color:var(--c1); margin-bottom:.4rem; }
+.map-legend-item { display:flex; align-items:center; gap:.4rem; padding:.2rem 0; cursor:pointer; }
+.map-legend-item:hover { color:var(--c2); }
+.map-legend-dot { width:10px; height:10px; border-radius:50%; background:var(--c1); flex-shrink:0; }
+.map-china { position:relative; width:700px; height:560px; margin:0 auto; }
+.map-province { position:absolute; border:2px solid var(--border); border-radius:4px; cursor:pointer; transition:all .3s; background:var(--c4); padding:2px; display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--text); text-align:center; }
+.map-province:hover { background:var(--c3); border-color:var(--c2); z-index:2; transform:scale(1.05); }
+.map-province.highlight { background:var(--c2); color:#fff; border-color:var(--c1); z-index:3; box-shadow:0 0 15px rgba(45,106,79,.5); animation:mapPulse .6s ease; }
+@keyframes mapPulse { 50%{transform:scale(1.08)} }
+.map-tea-list { margin-top:1rem; display:none; padding:1rem; background:var(--white); border-radius:12px; box-shadow:var(--shadow); }
+.map-tea-list.show { display:block; }
+.map-tea-list h3 { color:var(--c1); margin-bottom:.5rem; }
+.map-tea-chip { display:inline-block; background:var(--c4); border-radius:15px; padding:.2rem .6rem; margin:3px; font-size:.78rem; cursor:pointer; transition:.2s; }
+.map-tea-chip:hover { background:var(--c1); color:#fff; }
+
+/* --- 4. 今日茶史 --- */
+.today-tea-history { background:rgba(255,255,255,.15); border-radius:10px; padding:.8rem 1rem; margin-top:.6rem; font-size:.85rem; display:flex; align-items:center; gap:.6rem; backdrop-filter:blur(4px); }
+.today-tea-history .hist-icon { font-size:1.5rem; flex-shrink:0; animation:histBounce 2s infinite; }
+@keyframes histBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+.today-tea-history .hist-text { flex:1; }
+
+/* --- 5. 收藏夹标签 --- */
+.fav-tag-bar { display:flex; flex-wrap:wrap; gap:.3rem; margin-bottom:.6rem; }
+.fav-label-tag { font-size:.72rem; padding:.15rem .5rem; border-radius:12px; cursor:pointer; border:1.5px solid var(--border); background:var(--c4); color:var(--text); transition:.2s; }
+.fav-label-tag:hover { border-color:var(--c2); }
+.fav-label-tag.active { background:var(--c1); color:#fff; border-color:var(--c1); }
+.fav-label-select { margin-bottom:.6rem; }
+.fav-label-select select { padding:.3rem .5rem; border-radius:8px; border:1.5px solid var(--border); font-size:.82rem; background:var(--white); color:var(--text); font-family:inherit; }
+.fav-item { display:flex; align-items:center; gap:.5rem; padding:.5rem; border-bottom:1px solid var(--border); }
+.fav-item-name { flex:1; font-size:.9rem; cursor:pointer; }
+.fav-item-name:hover { color:var(--c1); }
+.fav-item-label { font-size:.7rem; background:var(--c3); color:var(--c5); border-radius:10px; padding:.1rem .4rem; }
+.fav-item-remove { cursor:pointer; color:#ccc; font-size:1.1rem; }
+.fav-item-remove:hover { color:#e53e3e; }
+.fav-panel-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:.6rem; }
+
+/* --- 6. 饮茶记录 --- */
+.tea-record-panel { background:var(--white); border-radius:12px; margin-bottom:1rem; padding:.7rem; border:1.5px solid var(--border); }
+.tea-record-title { font-size:.75rem; color:var(--c1); font-weight:700; margin-bottom:.4rem; }
+.tea-record-achievement { font-size:.78rem; color:var(--text); line-height:1.5; }
+.tea-record-stats { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.4rem; }
+.tea-record-stat { background:var(--c4); border-radius:8px; padding:.2rem .5rem; font-size:.7rem; display:flex; align-items:center; gap:.2rem; }
+.achievement-badge { display:inline-block; background:linear-gradient(135deg,#FFD700,#FFA500); color:#5a3000; border-radius:10px; padding:.1rem .4rem; font-size:.68rem; font-weight:700; margin:2px; }
+
+/* --- 7. 价格地图热力图 --- */
+.price-map-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; padding:1rem; max-width:900px; margin:0 auto; }
+.price-cell { background:var(--white); border:1.5px solid var(--border); border-radius:10px; padding:.6rem .4rem; text-align:center; cursor:pointer; transition:transform .2s,box-shadow .2s; font-size:.78rem; min-height:80px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.2rem; }
+.price-cell:hover { transform:scale(1.05); box-shadow:var(--shadow-md); z-index:2; }
+.price-cell-pr1 { background:#D8F3DC; }
+.price-cell-pr2 { background:#95D5B2; }
+.price-cell-pr3 { background:#52B788; color:#fff; }
+.price-cell-pr4 { background:#1B4332; color:#fff; }
+.price-cell-name { font-weight:700; font-size:.85rem; }
+.price-cell-province { font-size:.7rem; opacity:.8; }
+.price-cell-tea { font-size:.72rem; opacity:.75; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
+.price-cell-count { font-size:.65rem; opacity:.65; }
+
+/* --- 8. SVG饼图 --- */
+#typePieChart svg { max-width:380px; }
+.pie-sector { cursor:pointer; transition:opacity .2s,transform .2s; transform-origin:center; }
+.pie-sector:hover { opacity:.85; transform:scale(1.03); }
+
+/* --- 9. 3D产区浮雕地图 --- */
+.origin3d-container { position:relative; perspective:1200px; perspective-origin:50% 40%; padding:1rem; max-width:800px; margin:0 auto; }
+.origin3d-scene { transform-style:preserve-3d; transform:rotateX(55deg) rotateZ(-8deg); display:grid; grid-template-columns:repeat(8,1fr); grid-template-rows:repeat(6,80px); gap:3px; position:relative; }
+.origin3d-cell { position:relative; border-radius:4px; cursor:pointer; transition:transform .2s,box-shadow .2s; transform-style:preserve-3d; min-height:40px; display:flex; align-items:center; justify-content:center; font-size:.65rem; font-weight:700; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.5); overflow:hidden; }
+.origin3d-cell:hover { transform:translateZ(18px) scale(1.1); box-shadow:0 8px 25px rgba(0,0,0,.3); z-index:10; }
+.origin3d-cell::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.35) 0%,transparent 60%); border-radius:4px; pointer-events:none; }
+.origin3d-tooltip { display:none; position:fixed; background:var(--c5); color:#fff; border-radius:10px; padding:.7rem 1rem; font-size:.8rem; z-index:999; pointer-events:none; white-space:normal; box-shadow:var(--shadow-md); max-width:280px; line-height:1.5; }
+.origin3d-tooltip.show { display:block; }
+
+/* --- 10. 相似茶推荐 --- */
+.similar-tea-card { background:var(--white); border:1.5px solid var(--border); border-radius:10px; padding:.5rem .7rem; cursor:pointer; transition:transform .2s,box-shadow .2s; font-size:.78rem; display:flex; flex-direction:column; gap:.15rem; min-width:120px; flex:1; }
+.similar-tea-card:hover { transform:translateY(-2px); box-shadow:var(--shadow); }
+.similar-tea-name { font-weight:700; color:var(--c5); font-size:.82rem; }
+.similar-tea-type { font-size:.68rem; color:var(--c2); }
+.similar-tea-score { font-size:.65rem; color:var(--c1); display:flex; align-items:center; gap:.2rem; }
+.similar-tea-score-bar { flex:1; height:4px; background:var(--c4); border-radius:2px; overflow:hidden; }
+.similar-tea-score-fill { height:100%; background:var(--c1); border-radius:2px; }
+
+@media (max-width:768px) {
+  .price-map-grid { grid-template-columns:repeat(3,1fr); }
+  .origin3d-scene { grid-template-columns:repeat(6,1fr); grid-template-rows:repeat(8,60px); transform:rotateX(50deg) rotateZ(-5deg); }
+}
+</style>
+
+<!-- ========== v5.0 新增功能 HTML ========== -->
+
+<!-- 1. 茶汤色卡对比面板 -->
+<div id="liquor-modal">
+  <div class="liquor-panel">
+    <button onclick="closeLiquorModal()" style="position:absolute;top:.8rem;right:.8rem;background:var(--c4);border:none;border-radius:50%;width:2rem;height:2rem;cursor:pointer;font-size:1.2rem;z-index:5;">×</button>
+    <h2>🍵 <span id="liquor-title">茶汤色卡</span></h2>
+    <div id="liquor-swatch" class="liquor-swatch"></div>
+    <div class="liquor-info" id="liquor-desc"></div>
+    <div class="liquor-similar-title">🔍 相近茶汤颜色的茶叶</div>
+    <div class="liquor-similar-list" id="liquor-similar"></div>
+  </div>
+</div>
+
+<!-- 3. 中国茶山交互地图 -->
+<div id="map-modal">
+  <div class="map-header">
+    <h2>🗺️ 中国茶山交互地图</h2>
+    <button class="map-close-btn" onclick="closeMapModal()">✕ 关闭</button>
+  </div>
+  <div class="map-body">
+    <div class="map-legend"><div class="map-legend-title">📍 点击省份查看茶叶</div><div id="map-legend-list"></div></div>
+    <div id="map-china" class="map-china"></div>
+    <div class="map-tea-list" id="map-tea-list"><h3 id="map-tea-list-title"></h3><div id="map-tea-list-chips"></div></div>
+  </div>
+</div>
+
+<!-- 4. "茶山地图"按钮放在banner内 -->
+<div id="map-launcher" style="display:none;text-align:center;margin-top:.5rem;">
+  <button onclick="openMapModal()" style="background:rgba(255,255,255,.25);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:25px;padding:.4rem 1.2rem;cursor:pointer;font-size:.9rem;font-family:inherit;transition:.2s;">🗺️ 探索茶山地图</button>
+</div>
+
+<!-- 5. 收藏夹标签选择面板 -->
+<div id="fav-label-modal" style="display:none;position:fixed;inset:0;z-index:280;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:var(--bg);border-radius:16px;max-width:400px;width:100%;max-height:80vh;overflow-y:auto;padding:1.5rem;position:relative;">
+    <button onclick="closeFavLabelModal()" style="position:absolute;top:.8rem;right:.8rem;background:var(--c4);border:none;border-radius:50%;width:2rem;height:2rem;cursor:pointer;font-size:1.2rem;">×</button>
+    <h3 style="margin-bottom:.8rem;">🏷️ 选择标签</h3>
+    <div class="fav-tag-bar" id="fav-label-choices"></div>
+    <input id="fav-custom-label" placeholder="输入自定义标签..." style="width:100%;padding:.4rem .7rem;border:1.5px solid var(--border);border-radius:20px;margin-bottom:.6rem;font-size:.85rem;background:var(--white);color:var(--text);font-family:inherit;">
+    <button onclick="confirmFavLabel()" style="width:100%;background:var(--c1);color:#fff;border:none;border-radius:25px;padding:.5rem;cursor:pointer;font-size:.9rem;font-family:inherit;">✅ 确认添加</button>
+  </div>
+</div>
+
+<!-- ========== v5.0 新增功能 JavaScript ========== -->
+<script>
+(function(){
+  var TD = window.TEA_DATA;
+
+  // ========== 1. 茶汤色卡对比面板 ==========
+  function classifyLiquorColor(colorText) {
+    if (!colorText) return {cls:'lq-pale-yellow', group:'浅黄'};
+    var c = colorText.toLowerCase();
+    if (/红|red|琥珀/.test(c)) return {cls:'lq-red-amber', group:'红琥珀'};
+    if (/橙|orange/.test(c)) return {cls:'lq-orange-red', group:'橙红'};
+    if (/金黄|金|gold/.test(c)) return {cls:'lq-golden', group:'金黄'};
+    if (/嫩绿|绿|green|碧|翠|jade/.test(c)) return {cls:'lq-green-bright', group:'嫩绿'};
+    if (/黄绿|绿黄/.test(c)) return {cls:'lq-green-yellow', group:'黄绿'};
+    if (/黄|yellow/.test(c)) return {cls:'lq-pale-yellow', group:'浅黄'};
+    if (/银|白|white|silver/.test(c)) return {cls:'lq-silver-green', group:'银白'};
+    if (/暗红|深红|褐/.test(c)) return {cls:'lq-dark-red', group:'深红'};
+    if (/琥珀/.test(c)) return {cls:'lq-amber', group:'琥珀'};
+    return {cls:'lq-jade', group:'清透'};
+  }
+
+  window.openLiquorModal = function(teaId) {
+    var tea = TD[teaId];
+    if (!tea) return;
+    var lq = classifyLiquorColor(tea.color||'');
+    document.getElementById('liquor-title').textContent = tea.name + ' · 茶汤色卡';
+    var swatch = document.getElementById('liquor-swatch');
+    swatch.className = 'liquor-swatch ' + lq.cls;
+    document.getElementById('liquor-desc').textContent = (tea.color||'清澈明亮') + ' (' + lq.group + '系)';
+    // 找相近颜色茶叶
+    var similar = [];
+    for (var i = 0; i < TD.length; i++) {
+      if (i === teaId) continue;
+      var slq = classifyLiquorColor(TD[i].color||'');
+      if (slq.group === lq.group) similar.push({idx:i, t:TD[i], cls:slq.cls});
+    }
+    if (similar.length === 0) {
+      for (var j = 0; j < TD.length && similar.length < 6; j++) {
+        if (j === teaId) continue;
+        similar.push({idx:j, t:TD[j], cls:classifyLiquorColor(TD[j].color||'').cls});
+      }
+    }
+    var html = '';
+    for (var k = 0; k < Math.min(similar.length, 12); k++) {
+      var s = similar[k];
+      html += '<div class="liquor-similar-item" onclick="openModal('+s.idx+');closeLiquorModal();">';
+      html += '<div class="liquor-mini-swatch '+s.cls+'"></div>';
+      html += '<span>'+s.t.name+'</span><span style="font-size:.7rem;color:var(--c2);">'+s.t.type+'</span>';
+      html += '</div>';
+    }
+    document.getElementById('liquor-similar').innerHTML = html || '<span style="font-size:.82rem;color:var(--text);">暂无相近茶汤的茶叶</span>';
+    document.getElementById('liquor-modal').classList.add('open');
+  };
+  window.closeLiquorModal = function() { document.getElementById('liquor-modal').classList.remove('open'); };
+  document.getElementById('liquor-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeLiquorModal();
+  });
+
+  // ========== 2. 五行可视化 ==========
+  var WX_MAP = { '木':{icon:'🌿',color:'#27ae60',label:'木'}, '火':{icon:'🔥',color:'#e74c3c',label:'火'}, '土':{icon:'⛰️',color:'#d4a017',label:'土'}, '金':{icon:'⚜️',color:'#C0C0C0',label:'金'}, '水':{icon:'💧',color:'#2c3e50',label:'水'} };
+  var WX_SHENG = { '木':'火', '火':'土', '土':'金', '金':'水', '水':'木' };
+  var WX_KE = { '木':'土', '土':'水', '水':'火', '火':'金', '金':'木' };
+
+  function renderWuXingForTea(tea) {
+    var wx = tea.wuXing;
+    if (!wx || !WX_MAP[wx]) return '<div style="font-size:.8rem;color:var(--text);">暂无五行数据</div>';
+    var selfEl = WX_MAP[wx];
+    var shengTo = WX_SHENG[wx];
+    var shengFrom = Object.keys(WX_SHENG).find(function(k){return WX_SHENG[k]===wx;});
+    var keTo = WX_KE[wx];
+    var keFrom = Object.keys(WX_KE).find(function(k){return WX_KE[k]===wx;});
+
+    var html = '<div class="wuxing-section">';
+    html += '<div class="wuxing-section-title">☯️ 五行属性：'+selfEl.label+'</div>';
+
+    // 五角星排列：生→本→被生
+    html += '<div class="wuxing-diagram">';
+    if (shengFrom) {
+      html += '<div class="wuxing-node"><div class="wuxing-icon">'+WX_MAP[shengFrom].icon+'</div><div class="wuxing-label">'+WX_MAP[shengFrom].label+'</div></div>';
+      html += '<div class="wuxing-arrow" title="'+shengFrom+'生'+wx+'">→✨</div>';
+    }
+    html += '<div class="wuxing-node" style="transform:scale(1.3);"><div class="wuxing-icon">'+selfEl.icon+'</div><div class="wuxing-label" style="font-weight:700;background:var(--c1);color:#fff;">'+selfEl.label+'</div></div>';
+    if (shengTo) {
+      html += '<div class="wuxing-arrow" title="'+wx+'生'+shengTo+'">→✨</div>';
+      html += '<div class="wuxing-node"><div class="wuxing-icon">'+WX_MAP[shengTo].icon+'</div><div class="wuxing-label">'+WX_MAP[shengTo].label+'</div></div>';
+    }
+    html += '</div>';
+
+    // 生克关系
+    html += '<div class="wuxing-cycle">';
+    html += '<span class="wuxing-rel sheng" title="相生">🟢 '+wx+'生'+shengTo+'</span>';
+    if (shengFrom) html += '<span class="wuxing-rel sheng" title="相生">🟢 '+shengFrom+'生'+wx+'</span>';
+    html += '<span class="wuxing-rel ke" title="相克">🔴 '+wx+'克'+keTo+'</span>';
+    if (keFrom) html += '<span class="wuxing-rel ke" title="相克">🔴 '+keFrom+'克'+wx+'</span>';
+    html += '</div>';
+    html += '</div>';
+    return html;
+  }
+
+  // 注入到详情弹窗
+  var _origOpenModal = window.openModal;
+  window.openModal = function(teaId) {
+    _origOpenModal(teaId);
+    setTimeout(function() {
+      var tea = TD[teaId];
+      if (!tea) return;
+      var modalBody = document.querySelector('.modal-body');
+      if (!modalBody) return;
+      // 移除旧五行
+      var old = document.getElementById('wuxing-dynamic');
+      if (old) old.remove();
+      var div = document.createElement('div');
+      div.id = 'wuxing-dynamic';
+      div.innerHTML = renderWuXingForTea(tea);
+      // 插入到冲泡方法之后
+      var sections = modalBody.querySelectorAll('.modal-section');
+      if (sections.length >= 3) {
+        sections[2].after(div);
+      } else {
+        modalBody.appendChild(div);
+      }
+    }, 50);
+  };
+
+  // ========== 3. 中国茶山交互地图 ==========
+  // 简化省份坐标（基于700x560画布比例）
+  var provinces = {
+    '黑龙江':{x:580,y:40,w:60,h:55,label:'黑'}, '吉林':{x:580,y:95,w:50,h:40,label:'吉'},
+    '辽宁':{x:570,y:130,w:50,h:35,label:'辽'}, '内蒙古':{x:380,y:30,w:140,h:110,label:'蒙'},
+    '新疆':{x:80,y:30,w:120,h:130,label:'新'}, '西藏':{x:20,y:140,w:110,h:130,label:'藏'},
+    '青海':{x:130,y:100,w:90,h:70,label:'青'}, '四川':{x:180,y:170,w:90,h:90,label:'川'},
+    '云南':{x:140,y:250,w:80,h:100,label:'滇'}, '贵州':{x:220,y:240,w:60,h:60,label:'黔'},
+    '广西':{x:210,y:300,w:70,h:55,label:'桂'}, '广东':{x:290,y:310,w:60,h:45,label:'粤'},
+    '湖南':{x:280,y:220,w:55,h:55,label:'湘'}, '湖北':{x:310,y:180,w:55,h:50,label:'鄂'},
+    '江西':{x:350,y:240,w:50,h:50,label:'赣'}, '福建':{x:380,y:280,w:45,h:55,label:'闽'},
+    '浙江':{x:400,y:220,w:45,h:45,label:'浙'}, '江苏':{x:420,y:175,w:55,h:35,label:'苏'},
+    '安徽':{x:380,y:175,w:50,h:45,label:'徽'}, '河南':{x:360,y:140,w:55,h:40,label:'豫'},
+    '山东':{x:410,y:115,w:50,h:45,label:'鲁'}, '河北':{x:410,y:65,w:55,h:45,label:'冀'},
+    '陕西':{x:280,y:110,w:55,h:55,label:'陕'}, '甘肃':{x:200,y:70,w:80,h:65,label:'甘'},
+    '宁夏':{x:290,y:80,w:30,h:35,label:'宁'}, '山西':{x:360,y:80,w:40,h:45,label:'晋'},
+    '台湾':{x:440,y:320,w:30,h:35,label:'台'}, '海南':{x:260,y:350,w:30,h:30,label:'琼'},
+    '重庆':{x:240,y:190,w:40,h:35,label:'渝'}, '北京':{x:430,y:50,w:25,h:20,label:'京'},
+    '天津':{x:435,y:70,w:25,h:20,label:'津'}, '上海':{x:450,y:215,w:20,h:18,label:'沪'},
+  };
+
+  // 构建 province -> teas 映射
+  var provinceTeas = {};
+  for (var i = 0; i < TD.length; i++) {
+    var origin = TD[i].origin || '';
+    for (var prov in provinces) {
+      if (origin.indexOf(prov) !== -1) {
+        if (!provinceTeas[prov]) provinceTeas[prov] = [];
+        provinceTeas[prov].push(i);
+        break;
+      }
+    }
+  }
+
+  function buildMap() {
+    var container = document.getElementById('map-china');
+    if (!container) return;
+    container.innerHTML = '';
+    for (var prov in provinces) {
+      var p = provinces[prov];
+      var div = document.createElement('div');
+      div.className = 'map-province';
+      div.style.cssText = 'left:'+p.x+'px;top:'+p.y+'px;width:'+p.w+'px;height:'+p.h+'px;';
+      div.textContent = p.label;
+      div.title = prov;
+      div.setAttribute('data-prov', prov);
+      div.onclick = function() {
+        var pn = this.getAttribute('data-prov');
+        document.querySelectorAll('.map-province').forEach(function(el){el.classList.remove('highlight');});
+        this.classList.add('highlight');
+        showProvinceTeas(pn);
+      };
+      if (provinceTeas[prov]) {
+        div.style.background = 'var(--c3)';
+        div.style.borderColor = 'var(--c2)';
+        div.style.fontWeight = '700';
+      }
+      container.appendChild(div);
+    }
+    // Legend
+    var legHtml = '';
+    var cnt = 0;
+    for (var p2 in provinceTeas) {
+      if (cnt < 15) {
+        legHtml += '<div class="map-legend-item" onclick="highlightProvince(\''+p2+'\')"><div class="map-legend-dot"></div>'+p2+' ('+provinceTeas[p2].length+'款)</div>';
+      }
+      cnt++;
+    }
+    if (cnt > 15) legHtml += '<div style="font-size:.7rem;color:var(--c2);">...等共'+cnt+'个省份</div>';
+    document.getElementById('map-legend-list').innerHTML = legHtml;
+  }
+
+  window.highlightProvince = function(prov) {
+    document.querySelectorAll('.map-province').forEach(function(el){el.classList.remove('highlight');});
+    var el = document.querySelector('.map-province[data-prov="'+prov+'"]');
+    if (el) { el.classList.add('highlight'); el.scrollIntoView({behavior:'smooth',block:'center'}); }
+    showProvinceTeas(prov);
+  };
+
+  function showProvinceTeas(prov) {
+    var list = document.getElementById('map-tea-list');
+    var title = document.getElementById('map-tea-list-title');
+    var chips = document.getElementById('map-tea-list-chips');
+    var teas = provinceTeas[prov] || [];
+    title.textContent = '📍 ' + prov + ' 核心产区茶叶 (' + teas.length + '款)';
+    var html = '';
+    for (var t = 0; t < teas.length; t++) {
+      var tea = TD[teas[t]];
+      html += '<span class="map-tea-chip" onclick="openModal('+teas[t]+');closeMapModal();">🍵 '+tea.name+' <small>('+tea.type+')</small></span>';
+    }
+    if (html === '') html = '<span style="color:var(--text);font-size:.82rem;">该省份暂无收录茶叶</span>';
+    chips.innerHTML = html;
+    list.classList.add('show');
+  }
+
+  window.openMapModal = function() {
+    document.getElementById('map-modal').classList.add('open');
+    if (!document.getElementById('map-china').children.length) buildMap();
+  };
+  window.closeMapModal = function() { document.getElementById('map-modal').classList.remove('open'); };
+
+  // ========== 4. 历史今日茶 ==========
+  function getTodayTeaHistory() {
+    var today = new Date();
+    var month = today.getMonth() + 1;
+    var day = today.getDate();
+    var dateStr = month + '月' + day + '日';
+
+    // 基于茶叶数据中的 award 字段生成历史
+    var events = [];
+    for (var i = 0; i < TD.length; i++) {
+      if (TD[i].award && TD[i].award.indexOf('年') !== -1) {
+        events.push({tea:TD[i].name, award:TD[i].award, idx:i});
+      }
+    }
+    if (events.length === 0) {
+      return {text:'🌿 今日暂无茶史记录，但每一天都值得一杯好茶。', teaId:null};
+    }
+    // 根据日期选
+    var idx = (month * 31 + day) % events.length;
+    var ev = events[idx];
+    return {text:'📜 ' + ev.award + ' —— ' + ev.tea + ' 荣获殊荣', teaId:ev.idx};
+  }
+
+  function injectTodayHistory() {
+    var banner = document.querySelector('.banner');
+    if (!banner) return;
+    var existing = document.getElementById('today-tea-history');
+    if (existing) existing.remove();
+    var hist = getTodayTeaHistory();
+    var div = document.createElement('div');
+    div.id = 'today-tea-history';
+    div.className = 'today-tea-history';
+    div.innerHTML = '<span class="hist-icon">📅</span><span class="hist-text">'+hist.text+'</span>';
+    if (hist.teaId !== null) {
+      div.style.cursor = 'pointer';
+      div.title = '点击查看详情';
+      div.onclick = function() { openModal(hist.teaId); };
+    }
+    banner.appendChild(div);
+    // 添加地图按钮
+    var mapBtn = document.getElementById('map-launcher');
+    if (mapBtn) { mapBtn.style.display = 'block'; banner.appendChild(mapBtn); }
+  }
+
+  // ========== 5. 收藏夹标签分组 ==========
+  var FAV_LABELS = ['最爱','送人','日常','办公','养生','待尝'];
+  window.currentFavLabelTeaId = null;
+
+  // 扩展收藏功能
+  var _origToggleFav = window.toggleFav;
+  if (typeof _origToggleFav === 'function') {
+    window.toggleFav = function(teaId, label) {
+      if (label === undefined) {
+        // 打开标签选择
+        window.currentFavLabelTeaId = teaId;
+        openFavLabelModal();
+        return;
+      }
+      _origToggleFav(teaId);
+      // 存储标签
+      var favs = JSON.parse(localStorage.getItem('tea_fav_labels') || '{}');
+      favs[teaId] = label;
+      localStorage.setItem('tea_fav_labels', JSON.stringify(favs));
+      renderFavPanel();
+    };
+  } else {
+    // 如果原始 toggleFav 不存在，创建新的
+    window.toggleFav = function(teaId, label) {
+      if (label === undefined) {
+        window.currentFavLabelTeaId = teaId;
+        openFavLabelModal();
+        return;
+      }
+      var favs = JSON.parse(localStorage.getItem('tea_favs') || '[]');
+      var idx = favs.indexOf(teaId);
+      if (idx === -1) { favs.push(teaId); } else { favs.splice(idx, 1); }
+      localStorage.setItem('tea_favs', JSON.stringify(favs));
+      var labels = JSON.parse(localStorage.getItem('tea_fav_labels') || '{}');
+      labels[teaId] = label;
+      localStorage.setItem('tea_fav_labels', JSON.stringify(labels));
+      renderFavPanel();
+    };
+  }
+
+  window.openFavLabelModal = function() {
+    var html = '';
+    for (var i = 0; i < FAV_LABELS.length; i++) {
+      html += '<span class="fav-label-tag" onclick="confirmFavLabelDirect(\''+FAV_LABELS[i]+'\')">'+FAV_LABELS[i]+'</span>';
+    }
+    document.getElementById('fav-label-choices').innerHTML = html;
+    document.getElementById('fav-custom-label').value = '';
+    document.getElementById('fav-label-modal').style.display = 'flex';
+  };
+  window.closeFavLabelModal = function() { document.getElementById('fav-label-modal').style.display = 'none'; };
+  window.confirmFavLabelDirect = function(label) {
+    var teaId = window.currentFavLabelTeaId;
+    if (teaId === null) return;
+    window.toggleFav(teaId, label);
+    closeFavLabelModal();
+  };
+  window.confirmFavLabel = function() {
+    var custom = document.getElementById('fav-custom-label').value.trim();
+    var label = custom || '最爱';
+    confirmFavLabelDirect(label);
+  };
+
+  // 渲染收藏面板
+  function renderFavPanel(filterLabel) {
+    var container = document.getElementById('fav-list-container');
+    if (!container) return;
+    var favs = JSON.parse(localStorage.getItem('tea_favs') || '[]');
+    var labels = JSON.parse(localStorage.getItem('tea_fav_labels') || '{}');
+    // 标签筛选栏
+    var allLabels = {};
+    for (var i = 0; i < favs.length; i++) {
+      var lb = labels[favs[i]] || '未分类';
+      allLabels[lb] = (allLabels[lb] || 0) + 1;
+    }
+    var tagHtml = '<div class="fav-tag-bar">';
+    tagHtml += '<span class="fav-label-tag '+(filterLabel?'':'active')+'" onclick="renderFavPanel()">全部('+favs.length+')</span>';
+    for (var l in allLabels) {
+      tagHtml += '<span class="fav-label-tag '+(filterLabel===l?'active':'')+'" onclick="renderFavPanel(\''+l+'\')">'+l+'('+allLabels[l]+')</span>';
+    }
+    tagHtml += '</div>';
+
+    var html = tagHtml;
+    for (var j = 0; j < favs.length; j++) {
+      var tid = favs[j];
+      var t = TD[tid];
+      if (!t) continue;
+      var lb2 = labels[tid] || '未分类';
+      if (filterLabel && lb2 !== filterLabel) continue;
+      html += '<div class="fav-item">';
+      html += '<span class="fav-item-name" onclick="openModal('+tid+');closeFavPanel?closeFavPanel():void(0);">🍵 '+t.name+'</span>';
+      html += '<span class="fav-item-label">'+lb2+'</span>';
+      html += '<span class="fav-item-remove" onclick="removeFavItem('+tid+')" title="移除">×</span>';
+      html += '</div>';
+    }
+    if (favs.length === 0) html += '<div style="text-align:center;color:var(--text);padding:1rem;font-size:.85rem;">暂无收藏，快去探索吧！</div>';
+    container.innerHTML = html;
+  }
+
+  window.removeFavItem = function(teaId) {
+    var favs = JSON.parse(localStorage.getItem('tea_favs') || '[]');
+    var idx = favs.indexOf(teaId);
+    if (idx !== -1) favs.splice(idx, 1);
+    localStorage.setItem('tea_favs', JSON.stringify(favs));
+    renderFavPanel();
+    showToast('已移除收藏');
+  };
+
+  // 在侧边栏注入收藏面板
+  function injectFavPanel() {
+    var sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+    var existing = document.getElementById('fav-panel-v5');
+    if (existing) return;
+    var div = document.createElement('div');
+    div.id = 'fav-panel-v5';
+    div.className = 'sb-section';
+    div.innerHTML = '<div class="fav-panel-header"><div class="sb-title">❤️ 我的收藏</div></div><div id="fav-list-container"></div>';
+    sidebar.appendChild(div);
+    renderFavPanel();
+    // 暴露 renderFavPanel
+    window.renderFavPanel = renderFavPanel;
+  }
+
+  // ========== 6. 饮茶记录 ==========
+  var TEA_LOG_KEY = 'tea_drink_log_v5';
+
+  function logTeaView(teaId) {
+    if (teaId === undefined || teaId === null) return;
+    var today = new Date();
+    var dateKey = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+    var log = JSON.parse(localStorage.getItem(TEA_LOG_KEY) || '{}');
+    if (!log[dateKey]) log[dateKey] = [];
+    if (log[dateKey].indexOf(teaId) === -1) {
+      log[dateKey].push(teaId);
+    }
+    // 保留最近90天
+    var keys = Object.keys(log).sort().reverse();
+    if (keys.length > 90) {
+      var toRemove = keys.slice(90);
+      for (var r = 0; r < toRemove.length; r++) delete log[toRemove[r]];
+    }
+    localStorage.setItem(TEA_LOG_KEY, JSON.stringify(log));
+    updateDrinkStats();
+  }
+
+  function getMonthStats() {
+    var today = new Date();
+    var monthPrefix = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0');
+    var log = JSON.parse(localStorage.getItem(TEA_LOG_KEY) || '{}');
+    var monthTeas = {};
+    var monthDays = 0;
+    for (var key in log) {
+      if (key.indexOf(monthPrefix) === 0) {
+        monthDays++;
+        for (var t = 0; t < log[key].length; t++) {
+          var tid = log[key][t];
+          monthTeas[tid] = (monthTeas[tid] || 0) + 1;
+        }
+      }
+    }
+    // 找最爱
+    var maxCount = 0, favId = null;
+    var uniqueCount = Object.keys(monthTeas).length;
+    for (var id in monthTeas) {
+      if (monthTeas[id] > maxCount) { maxCount = monthTeas[id]; favId = parseInt(id); }
+    }
+    return {monthDays:monthDays, uniqueCount:uniqueCount, favId:favId, favCount:maxCount, totalViews:Object.values(monthTeas).reduce(function(a,b){return a+b;},0)};
+  }
+
+  function updateDrinkStats() {
+    var panel = document.getElementById('drink-stats-panel');
+    if (!panel) return;
+    var stats = getMonthStats();
+    var month = new Date().getMonth() + 1;
+    var html = '<div class="tea-record-title">📊 本月饮茶记录 ('+month+'月)</div>';
+    html += '<div class="tea-record-achievement">';
+    html += '本月你探索了 <strong>'+stats.uniqueCount+'</strong> 种茶，共浏览 <strong>'+stats.totalViews+'</strong> 次';
+    if (stats.favId !== null && TD[stats.favId]) {
+      html += '<br>🏆 最爱喝 <strong>'+TD[stats.favId].name+'</strong>（'+stats.favCount+'次）';
+    }
+    html += '</div>';
+    // 成就
+    html += '<div class="tea-record-stats">';
+    if (stats.uniqueCount >= 10) html += '<span class="achievement-badge">🏅 茶道探索者</span>';
+    if (stats.uniqueCount >= 20) html += '<span class="achievement-badge">🥇 茶痴达人</span>';
+    if (stats.uniqueCount >= 5) html += '<span class="achievement-badge">⭐ 嗜茶初级</span>';
+    if (stats.monthDays >= 15) html += '<span class="achievement-badge">📅 勤奋茶人</span>';
+    if (stats.monthDays >= 25) html += '<span class="achievement-badge">🔥 茶不离手</span>';
+    html += '<span class="tea-record-stat">📋 '+stats.uniqueCount+'种</span>';
+    html += '<span class="tea-record-stat">👀 '+stats.totalViews+'次</span>';
+    html += '<span class="tea-record-stat">📆 '+stats.monthDays+'天</span>';
+    html += '</div>';
+    panel.innerHTML = html;
+  }
+
+  function injectDrinkPanel() {
+    var sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+    var existing = document.getElementById('drink-stats-panel');
+    if (existing) return;
+    var div = document.createElement('div');
+    div.id = 'drink-stats-panel';
+    div.className = 'tea-record-panel';
+    sidebar.insertBefore(div, sidebar.firstChild);
+    updateDrinkStats();
+  }
+
+  // Hook into card click for logging
+  var _origOpenModal2 = window.openModal;
+  window.openModal = function(teaId) {
+    _origOpenModal2(teaId);
+    logTeaView(teaId);
+  };
+
+  // ========== 初始化 ==========
+  function initV5() {
+    injectTodayHistory();
+    injectFavPanel();
+    injectDrinkPanel();
+
+    // 监听茶汤标签点击（通过事件委托）
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      // 检查是否点击了茶汤相关标签或徽章
+      while (target && target !== document.body) {
+        var text = (target.textContent || '').trim();
+        if (text === '茶汤' || text.indexOf('茶汤') === 0) {
+          // 找到最近的茶卡片的 teaId
+          var card = target.closest('.tea-card, .tea-card-wrap');
+          if (card) {
+            var idx = card.getAttribute('data-tea-id');
+            if (idx !== null && idx !== undefined) {
+              e.stopPropagation();
+              openLiquorModal(parseInt(idx));
+              return;
+            }
+          }
+        }
+        target = target.parentElement;
+      }
+    });
+
+    // 茶汤按钮：在详情弹窗中注入色卡入口
+    var observer = new MutationObserver(function(mutations) {
+      for (var m = 0; m < mutations.length; m++) {
+        if (mutations[m].target.classList && mutations[m].target.classList.contains('modal-overlay') && mutations[m].target.classList.contains('open')) {
+          // 在详情弹窗中添加茶汤色卡按钮
+          setTimeout(function() {
+            var modalBody = document.querySelector('.modal-body');
+            if (!modalBody) return;
+            var existing = modalBody.querySelector('#liquor-btn-dynamic');
+            if (existing) return;
+            var currentId = window.currentTeaId;
+            if (currentId === undefined || currentId === null) return;
+            var btn = document.createElement('button');
+            btn.id = 'liquor-btn-dynamic';
+            btn.textContent = '🎨 查看茶汤色卡';
+            btn.style.cssText = 'background:var(--c4);color:var(--c5);border:1.5px solid var(--border);border-radius:20px;padding:.3rem .8rem;cursor:pointer;font-size:.82rem;font-family:inherit;margin:.5rem 0;transition:.2s;';
+            btn.onmouseenter = function() { this.style.background = 'var(--c1)'; this.style.color = '#fff'; };
+            btn.onmouseleave = function() { this.style.background = 'var(--c4)'; this.style.color = 'var(--c5)'; };
+            btn.onclick = function() { openLiquorModal(currentId); };
+            // 找到合适位置插入
+            var sections = modalBody.querySelectorAll('.modal-section');
+            if (sections.length >= 2) {
+              sections[1].after(btn);
+            } else {
+              modalBody.appendChild(btn);
+            }
+          }, 100);
+        }
+      }
+    });
+    var modalOverlay = document.querySelector('.modal-overlay');
+    if (modalOverlay) observer.observe(modalOverlay, {attributes:true, attributeFilter:['class']});
+
+    console.log('🍵 茶叶百科 v5.0 功能已加载：茶汤色卡 | 五行可视化 | 茶山地图 | 今日茶史 | 收藏标签 | 饮茶记录');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initV5);
+  } else {
+    initV5();
+  }
+
+})();
+</script>
+
 <!-- 品鉴日记弹窗 -->
 <div id="diary-modal" style="display:none;position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:1rem">
   <div style="background:var(--bg);border-radius:16px;max-width:500px;width:100%;max-height:80vh;overflow:auto;padding:1.5rem;position:relative">
@@ -3700,5 +4507,888 @@ window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; t
     <div id="diary-list"></div>
   </div>
 </div>
+
+<!-- ============================================
+     v5.0 社交游戏化功能 CSS + HTML + JS
+   ============================================ -->
+<style>
+/* === 分享卡片弹窗 === */
+.share-card-overlay { display:none; position:fixed; inset:0; z-index:260; background:rgba(0,0,0,.6); align-items:center; justify-content:center; padding:1rem; }
+.share-card-overlay.open { display:flex; }
+.share-card-dialog { background:var(--bg); border-radius:16px; max-width:480px; width:100%; max-height:90vh; overflow:auto; padding:1.5rem; position:relative; box-shadow:var(--shadow-lg); }
+.share-card-canvas-wrap { text-align:center; margin-bottom:1rem; }
+.share-card-canvas-wrap canvas { max-width:100%; border-radius:12px; box-shadow:var(--shadow-md); }
+.share-card-actions { display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; }
+.share-card-btn { padding:.6rem 1.2rem; border:none; border-radius:25px; cursor:pointer; font-size:.9rem; font-family:inherit; display:flex; align-items:center; gap:.3rem; transition:all .2s; }
+.share-card-btn.copy { background:var(--c1); color:#fff; }
+.share-card-btn.copy:hover { background:var(--c2); }
+.share-card-btn.close { background:var(--c4); color:var(--c5); border:1.5px solid var(--border); }
+.share-card-btn.close:hover { background:var(--c3); }
+
+/* === 问答弹窗增强 === */
+.quiz-overlay { display:none; position:fixed; inset:0; z-index:270; background:rgba(0,0,0,.55); align-items:center; justify-content:center; padding:1rem; }
+.quiz-overlay.open { display:flex; }
+.quiz-dialog { background:var(--bg); border-radius:16px; max-width:600px; width:100%; max-height:88vh; overflow:auto; padding:1.5rem; position:relative; box-shadow:var(--shadow-lg); }
+.quiz-progress { display:flex; gap:.3rem; margin-bottom:1rem; justify-content:center; }
+.quiz-progress-dot { width:12px; height:12px; border-radius:50%; background:var(--border); transition:all .3s; }
+.quiz-progress-dot.done { background:var(--c2); }
+.quiz-progress-dot.current { background:var(--c1); transform:scale(1.3); }
+.quiz-progress-dot.wrong { background:#e74c3c; }
+.quiz-question { font-size:1.1rem; font-weight:700; color:var(--c5); margin-bottom:1rem; line-height:1.6; }
+.quiz-options { display:flex; flex-direction:column; gap:.6rem; }
+.quiz-option { padding:.7rem 1rem; text-align:left; background:var(--white); border:2px solid var(--border); border-radius:12px; cursor:pointer; font-size:.95rem; transition:all .2s; font-family:inherit; }
+.quiz-option:hover { border-color:var(--c2); background:var(--c4); }
+.quiz-option.correct { background:rgba(46,204,113,.15); border-color:#2ecc71; color:#27ae60; }
+.quiz-option.wrong { background:rgba(231,76,60,.1); border-color:#e74c3c; color:#c0392b; }
+.quiz-feedback { margin-top:.8rem; padding:.6rem 1rem; border-radius:10px; font-size:.9rem; text-align:center; min-height:2rem; display:none; }
+.quiz-feedback.show { display:block; }
+.quiz-feedback.correct { background:rgba(46,204,113,.12); color:#27ae60; }
+.quiz-feedback.wrong { background:rgba(231,76,60,.1); color:#c0392b; }
+.quiz-result { text-align:center; padding:2rem 1rem; }
+.quiz-result-icon { font-size:4rem; margin-bottom:.5rem; }
+.quiz-result-title { font-size:1.3rem; font-weight:700; color:var(--c5); margin-bottom:.5rem; }
+.quiz-result-score { font-size:2rem; color:var(--c1); margin:.5rem 0; }
+.quiz-result-msg { color:var(--c2); margin-bottom:1rem; }
+
+/* === 成就面板 === */
+.ach-item { display:flex; align-items:center; gap:.5rem; padding:.4rem .5rem; border-radius:10px; transition:all .2s; }
+.ach-item.unlocked { background:rgba(82,183,136,.1); }
+.ach-item.locked { opacity:.55; }
+.ach-icon { font-size:1.4rem; flex-shrink:0; width:2rem; text-align:center; }
+.ach-icon.locked { filter:grayscale(100%); opacity:.5; }
+.ach-info { flex:1; min-width:0; }
+.ach-name { font-size:.8rem; font-weight:600; color:var(--c5); }
+.ach-desc { font-size:.68rem; color:var(--c2); }
+.ach-check { color:var(--c1); font-weight:700; font-size:.9rem; }
+</style>
+
+<!-- 分享卡片弹窗 -->
+<div class="share-card-overlay" id="shareCardOverlay">
+  <div class="share-card-dialog">
+    <button onclick="closeShareCard()" style="position:absolute;top:.8rem;right:.8rem;background:var(--c4);border:none;border-radius:50%;width:2rem;height:2rem;cursor:pointer;font-size:1.2rem;z-index:5">×</button>
+    <h3 style="text-align:center;margin-bottom:1rem">📤 分享茶叶卡片</h3>
+    <div class="share-card-canvas-wrap">
+      <canvas id="shareCanvas" width="400" height="600" style="max-width:100%;height:auto"></canvas>
+    </div>
+    <div class="share-card-actions">
+      <button class="share-card-btn copy" onclick="copyShareCard()">📋 复制图片</button>
+      <button class="share-card-btn close" onclick="closeShareCard()">关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 茶道问答弹窗 v5.0 -->
+<div class="quiz-overlay" id="quizOverlay">
+  <div class="quiz-dialog">
+    <button onclick="closeQuizV5()" style="position:absolute;top:.8rem;right:.8rem;background:var(--c4);border:none;border-radius:50%;width:2rem;height:2rem;cursor:pointer;font-size:1.2rem;z-index:5">×</button>
+    <h3 style="text-align:center;margin-bottom:.8rem">🎯 茶道问答</h3>
+    <div class="quiz-progress" id="quizProgress"></div>
+    <div id="quizContent"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+//  茶叶百科 v5.0 — 社交游戏化功能
+// ============================================================
+
+// -------------------- 工具函数 --------------------
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+// -------------------- 1. 段位系统 --------------------
+var RANK_CONFIG = [
+  { name: '茶童', min: 0, emoji: '🍃' },
+  { name: '茶夫', min: 50, emoji: '🌱' },
+  { name: '茶师', min: 150, emoji: '🍵' },
+  { name: '茶专家', min: 300, emoji: '🫖' },
+  { name: '茶大师', min: 600, emoji: '🏅' },
+  { name: '茶圣', min: 1000, emoji: '👑' }
+];
+
+function getRank(score) {
+  var r = RANK_CONFIG[0];
+  for (var i = RANK_CONFIG.length - 1; i >= 0; i--) {
+    if (score >= RANK_CONFIG[i].min) { r = RANK_CONFIG[i]; break; }
+  }
+  return r;
+}
+
+function getNextRank(score) {
+  for (var i = 0; i < RANK_CONFIG.length; i++) {
+    if (RANK_CONFIG[i].min > score) return RANK_CONFIG[i];
+  }
+  return null;
+}
+
+function addPoints(pts, reason) {
+  var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+  if (!data.score) data.score = 0;
+  data.score += pts;
+  localStorage.setItem('tea_game_data', JSON.stringify(data));
+  updateRankDisplay();
+  checkAchievements();
+}
+
+function updateRankDisplay() {
+  var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+  var score = data.score || 0;
+  var rank = getRank(score);
+  var next = getNextRank(score);
+  var elRank = document.getElementById('rankTitle');
+  var elScore = document.getElementById('rankScore');
+  var elNext = document.getElementById('rankNext');
+  var elProgress = document.getElementById('rankProgress');
+  if (!elRank) return;
+  elRank.textContent = rank.emoji + ' ' + rank.name;
+  elScore.textContent = score + '分';
+  if (next) {
+    var progress = Math.min(100, ((score - rank.min) / (next.min - rank.min)) * 100);
+    elProgress.style.width = progress + '%';
+    elNext.textContent = '→' + next.name + '(' + next.min + '分)';
+  } else {
+    elProgress.style.width = '100%';
+    elNext.textContent = '已达最高段位！';
+  }
+}
+
+// 连续访问检测
+function checkConsecutiveVisits() {
+  var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+  if (!data.logins) data.logins = [];
+  var today = new Date().toDateString();
+  if (data.logins[data.logins.length - 1] !== today) {
+    data.logins.push(today);
+    var cutoff = new Date(Date.now() - 8 * 86400000).toDateString();
+    data.logins = data.logins.filter(function(d) { return new Date(d) > new Date(cutoff); });
+    var consecutive = 1;
+    for (var i = data.logins.length - 2; i >= 0; i--) {
+      var prev = new Date(data.logins[i]);
+      var curr = new Date(data.logins[i + 1]);
+      if ((curr - prev) / 86400000 <= 1.5) consecutive++;
+      else break;
+    }
+    if (consecutive >= 7 && !data.achievements['每日一茶']) {
+      data.achievements['每日一茶'] = true;
+      showToast('🏆 解锁成就：每日一茶！连续7天访问茶叶百科！');
+    }
+    if (consecutive >= 2) {
+      var alreadyAwarded = data._lastConsecutiveAward === today;
+      if (!alreadyAwarded) {
+        data.score = (data.score || 0) + 2;
+        data._lastConsecutiveAward = today;
+        showToast('🔥 连续访问奖励 +2分！已连续' + consecutive + '天');
+      }
+    }
+    localStorage.setItem('tea_game_data', JSON.stringify(data));
+    updateRankDisplay();
+    renderAchievements();
+  }
+}
+
+// -------------------- 2. 成就系统 --------------------
+var ACHIEVEMENTS = [
+  { id: '初识茶道', name: '初识茶道', icon: '🍵', desc: '查看10种茶叶', check: function(d) { return (d.views || 0) >= 10; } },
+  { id: '六大皆通', name: '六大皆通', icon: '🧩', desc: '收藏齐6大茶类', check: function(d) {
+    var types = {}; var favs = d.favs || {};
+    for (var k in favs) { if (favs[k]) types[favs[k].type] = true; }
+    return Object.keys(types).length >= 6;
+  }},
+  { id: '茶香满屋', name: '茶香满屋', icon: '🏠', desc: '收藏50种茶叶', check: function(d) {
+    var favs = d.favs || {}; var cnt = 0;
+    for (var k in favs) { if (favs[k]) cnt++; }
+    return cnt >= 50;
+  }},
+  { id: '每日一茶', name: '每日一茶', icon: '📅', desc: '连续7天访问', check: function(d) { return d.achievements && d.achievements['每日一茶']; } },
+  { id: '资深茶客', name: '资深茶客', icon: '🎓', desc: '查看100种茶叶', check: function(d) { return (d.views || 0) >= 100; } },
+  { id: '寻茶之旅', name: '寻茶之旅', icon: '🗺️', desc: '查看全部省份茶叶', check: function(d) {
+    if (!window.TEA_DATA) return false;
+    var allProvinces = {};
+    var viewed = d._viewedTeas || {};
+    window.TEA_DATA.forEach(function(t) {
+      var prov = (t.origin || '').replace(/省|市|自治区|特别行政区/g, '').trim();
+      if (prov) allProvinces[prov] = true;
+    });
+    var viewedProvinces = {};
+    for (var k in viewed) {
+      var tea = window.TEA_DATA.find(function(t) { return t.id === k || t.name === k; });
+      if (tea) {
+        var prov = (tea.origin || '').replace(/省|市|自治区|特别行政区/g, '').trim();
+        if (prov) viewedProvinces[prov] = true;
+      }
+    }
+    return Object.keys(viewedProvinces).length >= Object.keys(allProvinces).length;
+  }}
+];
+
+function renderAchievements() {
+  var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+  var list = document.getElementById('achievementList');
+  var count = document.getElementById('achUnlockedCount');
+  if (!list) return;
+  var unlocked = 0;
+  var html = '';
+  ACHIEVEMENTS.forEach(function(ach) {
+    var isUnlocked = ach.check(data);
+    if (isUnlocked) unlocked++;
+    html += '<div class="ach-item ' + (isUnlocked ? 'unlocked' : 'locked') + '">';
+    html += '<span class="ach-icon' + (isUnlocked ? '' : ' locked') + '">' + ach.icon + '</span>';
+    html += '<div class="ach-info"><div class="ach-name">' + ach.name + '</div>';
+    html += '<div class="ach-desc">' + (isUnlocked ? '✅ 已解锁' : ach.desc) + '</div></div>';
+    if (isUnlocked) html += '<span class="ach-check">✓</span>';
+    html += '</div>';
+  });
+  list.innerHTML = html;
+  if (count) count.textContent = unlocked;
+}
+
+function checkAchievements() {
+  var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+  var changed = false;
+  ACHIEVEMENTS.forEach(function(ach) {
+    if (!data.achievements[ach.id] && ach.check(data)) {
+      data.achievements[ach.id] = true;
+      changed = true;
+      showToast('🏆 解锁成就：' + ach.name + '！');
+    }
+  });
+  if (changed) localStorage.setItem('tea_game_data', JSON.stringify(data));
+  renderAchievements();
+}
+
+function toggleAchievementPanel() {
+  var panel = document.getElementById('achievementPanel');
+  if (!panel) return;
+  var isVisible = panel.style.display !== 'none';
+  panel.style.display = isVisible ? 'none' : 'block';
+  if (!isVisible) renderAchievements();
+}
+
+// 拦截 view 计数
+(function() {
+  var origOpenModal = window.openModal;
+  if (origOpenModal) {
+    window.openModal = function(id) {
+      var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+      data.views = (data.views || 0) + 1;
+      if (!data._viewedTeas) data._viewedTeas = {};
+      var tea = window.TEA_DATA ? window.TEA_DATA[id] : null;
+      var teaKey = tea ? (tea.id || tea.name) : id;
+      if (!data._viewedTeas[teaKey]) {
+        data._viewedTeas[teaKey] = true;
+      }
+      data.score = (data.score || 0) + 1;
+      localStorage.setItem('tea_game_data', JSON.stringify(data));
+      updateRankDisplay();
+      checkAchievements();
+      return origOpenModal.apply(this, arguments);
+    };
+  }
+
+  // 拦截收藏
+  var origToggleFav = window.toggleFav;
+  if (origToggleFav) {
+    window.toggleFav = function(id) {
+      var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+      if (!data.favs) data.favs = {};
+      var tea = window.TEA_DATA ? window.TEA_DATA.find(function(t) { return t.id === id; }) : null;
+      var tKey = tea ? (tea.id || tea.name) : id;
+      if (!data.favs[tKey]) {
+        data.favs[tKey] = tea ? { type: tea.type, name: tea.name } : { type: '', name: tKey };
+        data.score = (data.score || 0) + 3;
+        showToast('❤️ 收藏成功！+3分');
+      } else {
+        delete data.favs[tKey];
+      }
+      localStorage.setItem('tea_game_data', JSON.stringify(data));
+      updateRankDisplay();
+      checkAchievements();
+      return origToggleFav.apply(this, arguments);
+    };
+  }
+})();
+
+// -------------------- 3. 茶叶知识问答 v5.0（50题） --------------------
+var QUIZ_BANK = [
+  {q:'哪种茶是半发酵茶？',a:'乌龙茶',opts:['绿茶','乌龙茶','红茶','白茶'],fact:'乌龙茶发酵度在15%-70%之间，介于绿茶和红茶之间，因此被称为"半发酵茶"。'},
+  {q:'龙井茶产于哪个省份？',a:'浙江',opts:['浙江','江苏','安徽','江西'],fact:'西湖龙井产于浙江省杭州市西湖区，是中国十大名茶之首，有"绿茶皇后"的美誉。'},
+  {q:'普洱茶属于哪类茶？',a:'黑茶',opts:['绿茶','红茶','黑茶','乌龙茶'],fact:'普洱茶属于黑茶类，以云南大叶种晒青毛茶为原料，经后发酵加工而成，越陈越香。'},
+  {q:'"吓煞人香"是哪种茶的曾用名？',a:'碧螺春',opts:['龙井','碧螺春','铁观音','毛尖'],fact:'碧螺春原名"吓煞人香"，清康熙皇帝南巡时觉得不雅，赐名"碧螺春"。产于苏州太湖洞庭山。'},
+  {q:'冲泡绿茶一般用什么水温？',a:'80-85℃',opts:['100℃','80-85℃','60-70℃','沸水冷凉'],fact:'绿茶娇嫩，水温过高会破坏维生素C和茶多酚，导致茶汤变黄发苦。80-85℃最佳。'},
+  {q:'"金花"是哪种茶特有的益生菌？',a:'茯茶',opts:['龙井','茯茶','铁观音','碧螺春'],fact:'茯砖茶在加工过程中会自然生长"冠突散囊菌"，俗称"金花"，是一种有益菌群。'},
+  {q:'台湾最高海拔的乌龙茶产自哪里？',a:'大禹岭',opts:['阿里山','梨山','大禹岭','杉林溪'],fact:'大禹岭茶园海拔约2200-2600米，是台湾最高的乌龙茶产区，茶汤清甜醇和。'},
+  {q:'哪种茶需用"上投法"冲泡？',a:'碧螺春',opts:['碧螺春','龙井','铁观音','普洱'],fact:'碧螺春芽叶细嫩，用"上投法"（先注水后投茶）可避免烫伤茶叶，保持茶汤清澈鲜爽。'},
+  {q:'中国最古老的名茶产自哪里？',a:'四川蒙顶山',opts:['浙江','福建','四川蒙顶山','安徽'],fact:'蒙顶甘露是中国最古老的名茶之一，始于西汉，距今已有2000多年历史，被称为"茶中故旧"。'},
+  {q:'安溪铁观音属于什么茶？',a:'乌龙茶',opts:['绿茶','红茶','乌龙茶','白茶'],fact:'铁观音是闽南乌龙茶的代表，因成茶沉重似铁、香气如观音而得名，有"七泡有余香"之说。'},
+  {q:'红茶的全发酵程度大约是多少？',a:'80%-90%',opts:['20%-30%','40%-50%','60%-70%','80%-90%'],fact:'红茶是全发酵茶，茶多酚氧化聚合生成茶黄素和茶红素，形成红叶红汤的品质特征。'},
+  {q:'白毫银针属于哪类茶？',a:'白茶',opts:['绿茶','白茶','黄茶','花茶'],fact:'白毫银针是白茶中的极品，全部由肥壮的茶芽制成，满披白毫，色白如银，故名"白毫银针"。'},
+  {q:'君山银针属于哪类茶？',a:'黄茶',opts:['绿茶','白茶','黄茶','黑茶'],fact:'君山银针是黄茶中的珍品，产于湖南岳阳洞庭湖中的君山岛，有"金镶玉"的美誉。'},
+  {q:'哪种茶叶需要"渥堆"工艺？',a:'普洱茶',opts:['龙井','碧螺春','普洱茶','铁观音'],fact:'渥堆是普洱茶后发酵的核心工艺，通过湿热作用促进微生物发酵，形成普洱茶独特的陈香。'},
+  {q:'茶圣陆羽著有哪部著作？',a:'《茶经》',opts:['《茶录》','《茶经》','《大观茶论》','《茶疏》'],fact:'陆羽（733-804年）是唐代茶学家，所著《茶经》是世界上第一部茶叶专著，被尊为"茶圣"。'},
+  {q:'宋代最常见的饮茶方式是什么？',a:'点茶法',opts:['煮茶法','点茶法','泡茶法','煎茶法'],fact:'宋代盛行点茶法，将茶碾成细末放入茶盏，注入少量沸水调成糊状，再边注水边用茶筅击拂。'},
+  {q:'大红袍属于哪种乌龙茶？',a:'武夷岩茶',opts:['闽南乌龙','武夷岩茶','广东乌龙','台湾乌龙'],fact:'大红袍产自福建武夷山，是武夷岩茶四大名枞之首，有"茶中之王"之称，母树仅存6株。'},
+  {q:'祁门红茶产自哪个省份？',a:'安徽',opts:['浙江','福建','安徽','云南'],fact:'祁门红茶简称"祁红"，产自安徽省祁门县，是世界三大高香红茶之一，有"祁门香"之称。'},
+  {q:'哪种茶以"绿叶红镶边"著称？',a:'乌龙茶',opts:['绿茶','白茶','乌龙茶','红茶'],fact:'乌龙茶做青后叶缘破损氧化变红，叶中保持绿色，形成"绿叶红镶边"的独特外观。'},
+  {q:'白茶的主要工艺是什么？',a:'萎凋干燥',opts:['杀青揉捻','萎凋干燥','渥堆发酵','闷黄'],fact:'白茶工艺最自然简单，仅经过萎凋和干燥两道工序，最大程度保留了茶叶的天然成分。'},
+  {q:'茶多酚具有什么主要功效？',a:'抗氧化',opts:['抗氧化','助眠','补钙','增肥'],fact:'茶多酚是茶叶中最重要的活性成分，具有强抗氧化作用，能清除自由基、延缓衰老。'},
+  {q:'紫砂壶最适合冲泡哪种茶？',a:'乌龙茶',opts:['绿茶','乌龙茶','花茶','白茶'],fact:'紫砂壶透气性好、保温性强，最适合冲泡乌龙茶和普洱茶，能充分激发茶叶的香气和滋味。'},
+  {q:'中国六大茶类中，发酵程度最高的是？',a:'黑茶',opts:['绿茶','红茶','黑茶','乌龙茶'],fact:'黑茶是后发酵茶，发酵度可达100%，经过渥堆等工序使茶叶进一步氧化，形成独特的陈香。'},
+  {q:'黄山毛峰产自哪个省？',a:'安徽',opts:['浙江','安徽','江西','福建'],fact:'黄山毛峰产自安徽省黄山风景区，因"白毫披身、芽尖似峰"而得名，是中国十大名茶之一。'},
+  {q:'茶叶中使人提神的成分是？',a:'咖啡碱',opts:['茶多酚','咖啡碱','氨基酸','维生素C'],fact:'茶叶中的咖啡碱能兴奋中枢神经，消除疲劳、提神醒脑。但茶氨酸又能起到安神作用，喝茶"提神不亢奋"。'},
+  {q:'哪种茶被称为"一年茶、三年药、七年宝"？',a:'白茶',opts:['绿茶','红茶','白茶','乌龙茶'],fact:'白茶随着存放时间延长，内含物质发生转化，药用价值逐渐提升，越陈越有价值。'},
+  {q:'中国茶叶产量最大的省份是？',a:'福建',opts:['浙江','云南','福建','四川'],fact:'福建省是中国茶叶产量最大的省份，拥有乌龙茶、白茶、红茶、绿茶等多种茶类。'},
+  {q:'"从来佳茗似佳人"出自谁的诗句？',a:'苏轼',opts:['李白','苏轼','陆游','白居易'],fact:'北宋大文豪苏轼在《次韵曹辅寄壑源试焙新茶》中写道"从来佳茗似佳人"，成为千古名句。'},
+  {q:'六安瓜片属于哪类茶？',a:'绿茶',opts:['绿茶','红茶','黄茶','黑茶'],fact:'六安瓜片是唯一无芽无梗的片茶，产自安徽省六安市，是中国十大名茶中唯一的单片茶。'},
+  {q:'日本茶道源于中国哪个朝代？',a:'宋代',opts:['唐代','宋代','明代','元代'],fact:'日本茶道源于中国宋代的点茶法，由荣西禅师传入日本，后发展出"和敬清寂"的茶道精神。'},
+  {q:'"以茶代酒"的典故出自哪个时期？',a:'三国',opts:['唐朝','宋朝','三国','汉朝'],fact:'三国时期吴国君主孙皓赐宴，大臣韦曜不胜酒力，孙皓便"密赐茶荈以当酒"，是"以茶代酒"的由来。'},
+  {q:'信阳毛尖产自哪个省？',a:'河南',opts:['河北','河南','山东','陕西'],fact:'信阳毛尖产自河南省信阳市，是中国十大名茶之一，有"绿茶之王"的美誉，条索细圆紧直。'},
+  {q:'凤凰单丛属于哪种茶？',a:'乌龙茶',opts:['绿茶','红茶','乌龙茶','白茶'],fact:'凤凰单丛是广东乌龙茶的代表，产于潮州市凤凰山，以"一树一香"著称，有十大香型。'},
+  {q:'盖碗茶起源于哪个朝代？',a:'唐代',opts:['汉代','唐代','宋代','明代'],fact:'盖碗又称"三才碗"，起源于唐代，盛行于清代。盖为天、托为地、碗为人，寓意天地人和。'},
+  {q:'哪种茶有"金镶玉"之称？',a:'君山银针',opts:['碧螺春','君山银针','白毫银针','蒙顶甘露'],fact:'君山银针冲泡后芽尖冲向水面，悬空竖立，三起三落，汤色杏黄明净，被誉为"金镶玉"。'},
+  {q:'中国茶最早传入欧洲是在哪个世纪？',a:'17世纪',opts:['15世纪','16世纪','17世纪','18世纪'],fact:'中国茶叶于17世纪初由荷兰商人首次带入欧洲，随后在英国风靡，引发了著名的"下午茶"文化。'},
+  {q:'都匀毛尖产于哪个省？',a:'贵州',opts:['四川','贵州','云南','湖南'],fact:'都匀毛尖产于贵州省都匀市，是中国十大名茶之一，外形卷曲似螺，白毫显露，香高味醇。'},
+  {q:'茶叶杀青的主要目的是什么？',a:'破坏酶活性',opts:['增加香气','破坏酶活性','去除水分','杀灭细菌'],fact:'杀青是绿茶制作的关键工序，通过高温破坏多酚氧化酶的活性，阻止茶多酚氧化，保持绿叶绿汤。'},
+  {q:'"茶禅一味"的思想源自哪个寺庙？',a:'赵州柏林禅寺',opts:['少林寺','赵州柏林禅寺','灵隐寺','白马寺'],fact:'唐代赵州从谂禅师以"吃茶去"三字接引学人，开创"茶禅一味"之风，影响深远。'},
+  {q:'哪种茶最适合冷泡？',a:'绿茶',opts:['绿茶','红茶','普洱','乌龙茶'],fact:'绿茶冷泡能减少苦涩，保留更多氨基酸，口感清甜。冷泡4-8小时即可，适合夏季饮用。'},
+  {q:'峨眉山竹叶青属于什么茶？',a:'绿茶',opts:['绿茶','白茶','黄茶','乌龙茶'],fact:'竹叶青产自四川峨眉山，外形扁平挺直似竹叶，色泽嫩绿油润，是峨眉山特色名茶。'},
+  {q:'"岭南茶王"指的是哪种茶？',a:'英德红茶',opts:['铁观音','英德红茶','单丛','凤凰茶'],fact:'英德红茶产自广东英德，与祁红、滇红并称中国三大红茶，有"岭南茶王"之称。'},
+  {q:'涂抹瓷器茶具的陶土来自哪个著名产地？',a:'宜兴',opts:['景德镇','宜兴','德化','龙泉'],fact:'宜兴紫砂陶土（紫砂泥）是世界独一无二的优质陶土，制成的紫砂壶泡茶不走味、贮茶不变色。'},
+  {q:'古时"茶马古道"主要交易哪种茶？',a:'普洱茶',opts:['龙井','普洱茶','铁观音','大红袍'],fact:'茶马古道以云南普洱茶为主要贸易商品，经西藏通往尼泊尔、印度等地，是古代重要的国际贸易通道。'},
+  {q:'茶氨酸主要存在于茶叶的哪个部位？',a:'嫩芽和嫩叶',opts:['茶根','老叶','嫩芽和嫩叶','茶梗'],fact:'茶氨酸是茶叶特有的游离氨基酸，主要存在于嫩芽和嫩叶中，具有令人放松、改善睡眠质量的作用。'},
+  {q:'英国下午茶传统始于哪位公爵夫人？',a:'贝德福德公爵夫人',opts:['维多利亚女王','贝德福德公爵夫人','戴安娜王妃','伊丽莎白一世'],fact:'1840年，贝德福德公爵夫人安娜在下午四点感到饥饿，让仆人准备茶点，逐渐形成了英式下午茶传统。'},
+  {q:'茉莉花茶属于什么茶？',a:'再加工茶',opts:['绿茶','花茶','再加工茶','红茶'],fact:'茉莉花茶以绿茶为茶坯，用茉莉鲜花窨制而成，属于再加工茶类。有"窨得茉莉无上味，列作人间第一香"之说。'},
+  {q:'"茶树王"位于云南哪个地区？',a:'西双版纳',opts:['普洱','临沧','西双版纳','大理'],fact:'云南西双版纳勐海县巴达山有一株1700多年的野生茶树王，是世界上现存最古老的茶树之一。'},
+  {q:'泡茶时"醒茶"的目的是什么？',a:'唤醒茶质',opts:['杀菌消毒','唤醒茶质','降低水温','增加香气'],fact:'醒茶（又称润茶）是用热水快速冲洗茶叶，使沉睡的茶叶苏醒，舒展叶片，利于后续冲泡时茶味的释放。'},
+  {q:'哪类茶被誉为"可以喝的古董"？',a:'普洱茶',opts:['白茶','普洱茶','大红袍','龙井'],fact:'普洱茶越陈越香，优质普洱随着岁月增长价值不断提升，被誉为"可以喝的古董"。'}
+];
+
+var quizState = { questions: [], current: 0, score: 0, answered: [], finished: false };
+
+function openQuizV5() {
+  var shuffled = shuffle(QUIZ_BANK).slice(0, 5);
+  quizState = { questions: shuffled, current: 0, score: 0, answered: [], finished: false };
+  document.getElementById('quizOverlay').classList.add('open');
+  renderQuizQuestion();
+}
+
+function closeQuizV5() {
+  document.getElementById('quizOverlay').classList.remove('open');
+}
+
+function renderQuizQuestion() {
+  var state = quizState;
+  var progressHtml = '';
+  for (var i = 0; i < state.questions.length; i++) {
+    var cls = 'quiz-progress-dot';
+    if (i < state.current) cls += state.answered[i] ? ' done' : ' wrong';
+    else if (i === state.current) cls += ' current';
+    progressHtml += '<div class="' + cls + '"></div>';
+  }
+  document.getElementById('quizProgress').innerHTML = progressHtml;
+
+  if (state.finished) {
+    var pct = Math.round((state.score / state.questions.length) * 100);
+    var emoji = pct >= 80 ? '🏆' : pct >= 60 ? '👍' : '📚';
+    var msg = pct >= 80 ? '太厉害了，茶道高手！' : pct >= 60 ? '不错哦，继续加油！' : '多喝好茶，下次更好！';
+    var content = '<div class="quiz-result">';
+    content += '<div class="quiz-result-icon">' + emoji + '</div>';
+    content += '<div class="quiz-result-title">答题完成！</div>';
+    content += '<div class="quiz-result-score">' + state.score + ' / ' + state.questions.length + '</div>';
+    content += '<div class="quiz-result-msg">' + msg + '</div>';
+    content += '<button onclick="openQuizV5()" style="padding:.6rem 1.5rem;background:var(--c1);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:.95rem;font-family:inherit">再来一局 🔄</button>';
+    content += '</div>';
+    document.getElementById('quizContent').innerHTML = content;
+
+    if (state.score >= 3) {
+      var pts = state.score;
+      addPoints(pts, '问答得分');
+      showToast('🎉 答对' + state.score + '题！获得' + pts + '分！');
+    }
+    return;
+  }
+
+  var q = state.questions[state.current];
+  var content = '<div class="quiz-question">📝 第' + (state.current + 1) + '/' + state.questions.length + '题：' + q.q + '</div>';
+  content += '<div class="quiz-options">';
+  q.opts.forEach(function(opt) {
+    content += '<button class="quiz-option" onclick="answerQuizV5(\'' + opt.replace(/'/g, "\\'") + '\', this)">' + opt + '</button>';
+  });
+  content += '</div>';
+  content += '<div class="quiz-feedback" id="quizFeedbackV5"></div>';
+  document.getElementById('quizContent').innerHTML = content;
+}
+
+function answerQuizV5(selected, btn) {
+  var state = quizState;
+  var q = state.questions[state.current];
+  var feedback = document.getElementById('quizFeedbackV5');
+  var isCorrect = (selected === q.a);
+
+  var btns = document.querySelectorAll('#quizContent .quiz-option');
+  btns.forEach(function(b) { b.disabled = true; });
+
+  btns.forEach(function(b) {
+    if (b.textContent === q.a) b.classList.add('correct');
+    if (b === btn && !isCorrect) b.classList.add('wrong');
+  });
+
+  if (isCorrect) {
+    state.score++;
+    feedback.className = 'quiz-feedback show correct';
+    feedback.innerHTML = '✅ <b>太棒了！</b>' + q.fact;
+  } else {
+    feedback.className = 'quiz-feedback show wrong';
+    feedback.innerHTML = '❌ 正确答案是 <b>' + q.a + '</b>。' + q.fact;
+  }
+  state.answered.push(isCorrect);
+
+  var dots = document.querySelectorAll('#quizProgress .quiz-progress-dot');
+  if (dots[state.current]) {
+    dots[state.current].className = 'quiz-progress-dot ' + (isCorrect ? 'done' : 'wrong');
+  }
+
+  setTimeout(function() {
+    state.current++;
+    if (state.current >= state.questions.length) {
+      state.finished = true;
+    }
+    renderQuizQuestion();
+  }, 2500);
+}
+
+// 覆盖原有的 openQuizModal（保留旧系统不删除，新系统优先）
+window.openQuizModal = openQuizV5;
+
+// -------------------- 4. 分享卡片系统 --------------------
+var CARD_COLORS = {
+  '绿茶': ['#e8f5e9', '#2e7d32', '#c8e6c9'],
+  '红茶': ['#fce4ec', '#c62828', '#f8bbd0'],
+  '乌龙茶': ['#e8eaf6', '#283593', '#c5cae9'],
+  '白茶': ['#fff8e1', '#f9a825', '#ffecb3'],
+  '黄茶': ['#fffde7', '#fbc02d', '#fff9c4'],
+  '黑茶': ['#efebe9', '#4e342e', '#d7ccc8'],
+  '花茶': ['#fce4ec', '#ad1457', '#f8bbd0']
+};
+
+function openShareCard(teaId) {
+  if (!window.TEA_DATA) return;
+  var tea = window.TEA_DATA.find(function(t) { return t.id === teaId; });
+  if (!tea) return;
+  var overlay = document.getElementById('shareCardOverlay');
+  var canvas = document.getElementById('shareCanvas');
+  overlay.classList.add('open');
+
+  var colors = CARD_COLORS[tea.type] || CARD_COLORS['绿茶'];
+  var bg = colors[0];
+  var primary = colors[1];
+  var accent = colors[2];
+
+  var ctx = canvas.getContext('2d');
+  var w = canvas.width;
+  var h = canvas.height;
+
+  // 背景
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, w, h);
+
+  // 装饰顶部条
+  ctx.fillStyle = primary;
+  ctx.fillRect(0, 0, w, 8);
+
+  // 茶叶emoji图标区域
+  ctx.fillStyle = accent;
+  ctx.beginPath();
+  ctx.arc(w / 2, 100, 55, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = primary;
+  ctx.font = '50px serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('🍃', w / 2, 118);
+
+  // 茶叶名称
+  ctx.fillStyle = primary;
+  ctx.font = 'bold 32px "Noto Serif SC", "SimSun", serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(tea.name, w / 2, 190);
+
+  // 茶类标签
+  var tagW = ctx.measureText(tea.type).width + 40;
+  ctx.fillStyle = primary;
+  roundRect(ctx, w / 2 - tagW / 2, 202, tagW, 28, 14);
+  ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.font = '14px "Noto Serif SC", "SimSun", serif';
+  ctx.fillText(tea.type, w / 2, 222);
+
+  // 产地
+  ctx.fillStyle = '#555';
+  ctx.font = '18px "Noto Serif SC", "SimSun", serif';
+  ctx.fillText('📍 产地：' + (tea.origin || '未知'), w / 2, 270);
+
+  // 特色描述
+  ctx.fillStyle = '#333';
+  ctx.font = '16px "Noto Serif SC", "SimSun", serif';
+  var desc = tea.desc || '';
+  if (desc.length > 20) desc = desc.substring(0, 20) + '...';
+  ctx.fillText('📝 ' + desc, w / 2, 300);
+
+  // 分割线
+  ctx.strokeStyle = accent;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(60, 330);
+  ctx.lineTo(w - 60, 330);
+  ctx.stroke();
+
+  // 等级
+  ctx.fillStyle = '#666';
+  ctx.font = '15px "Noto Serif SC", "SimSun", serif';
+  ctx.fillText('⭐ 等级：' + (tea.grade || '未知'), w / 2, 360);
+
+  // 冲泡水温
+  ctx.fillText('🌡️ 冲泡水温：' + (tea.temp || '85°C'), w / 2, 390);
+
+  // 时期
+  if (tea.period) {
+    ctx.fillText('📅 历史时期：' + tea.period, w / 2, 420);
+  }
+
+  // QR码占位区域
+  ctx.fillStyle = accent;
+  roundRect(ctx, w / 2 - 55, 445, 110, 110, 10);
+  ctx.fill();
+  ctx.fillStyle = primary;
+  ctx.font = 'bold 14px "Noto Serif SC", "SimSun", serif';
+  ctx.fillText('扫码了解更多', w / 2, 490);
+  ctx.fillText('📱', w / 2, 515);
+  ctx.fillStyle = '#fff';
+  ctx.font = '10px sans-serif';
+  ctx.fillText('茶叶百科 v5.0', w / 2, 540);
+
+  // 底部装饰条
+  ctx.fillStyle = primary;
+  ctx.fillRect(0, h - 8, w, 8);
+
+  // 底部版权
+  ctx.fillStyle = '#999';
+  ctx.font = '11px "Noto Serif SC", "SimSun", serif';
+  ctx.fillText('茶叶百科 v5.0 · 分享自茶道爱好者', w / 2, h - 20);
+
+  canvas._shareTea = tea;
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function closeShareCard() {
+  document.getElementById('shareCardOverlay').classList.remove('open');
+}
+
+function copyShareCard() {
+  var canvas = document.getElementById('shareCanvas');
+  canvas.toBlob(function(blob) {
+    var item = new ClipboardItem({ 'image/png': blob });
+    navigator.clipboard.write([item]).then(function() {
+      showToast('📋 分享卡片已复制到剪贴板！');
+      closeShareCard();
+    }).catch(function(err) {
+      var dataUrl = canvas.toDataURL('image/png');
+      var w = window.open('');
+      w.document.write('<img src="' + dataUrl + '" style="max-width:100%"><p>右键保存图片</p>');
+      showToast('📋 请在新窗口中右键保存图片');
+    });
+  });
+}
+
+// -------------------- 初始化 --------------------
+(function initGameSystem() {
+  var data = JSON.parse(localStorage.getItem('tea_game_data') || '{"score":0,"views":0,"favs":{},"logins":[],"achievements":{}}');
+  if (!data._viewedTeas) data._viewedTeas = {};
+  if (!data.achievements) data.achievements = {};
+  if (!data.logins) data.logins = [];
+  if (!data.favs) data.favs = {};
+  if (data.score === undefined) data.score = 0;
+  localStorage.setItem('tea_game_data', JSON.stringify(data));
+
+  updateRankDisplay();
+  renderAchievements();
+  checkConsecutiveVisits();
+
+  // 在茶叶详情弹窗中动态添加分享卡片按钮
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        var favBtns = document.querySelectorAll('.modal-fav-btn');
+        favBtns.forEach(function(btn) {
+          if (!btn._shareCardAdded) {
+            btn._shareCardAdded = true;
+            var shareBtn = document.createElement('button');
+            shareBtn.className = 'modal-fav-btn';
+            shareBtn.style.cssText = 'background:#6c5ce7;margin-left:.3rem';
+            shareBtn.textContent = '📤 分享';
+            shareBtn.onclick = function() {
+              if (window.currentTeaId !== undefined && window.currentTeaId !== null) {
+                var tea = window.TEA_DATA ? window.TEA_DATA[window.currentTeaId] : null;
+                if (tea) openShareCard(tea.id);
+              }
+            };
+            btn.parentNode.appendChild(shareBtn);
+          }
+        });
+      }
+    });
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  console.log('🍵 茶叶百科 v5.0 社交游戏化：成就系统 | 茶道问答(50题) | 段位系统 | 分享卡片 已加载');
+})();
+</script>
+
+<!-- ===== V5.0 数据可视化功能 JS ===== -->
+<script>
+(function() {
+  'use strict';
+  var TD = window.TEA_DATA;
+
+  function getProvince(origin) {
+    if (!origin) return '未知';
+    var p = origin.replace(/[^\u4e00-\u9fa5]/g, '');
+    var provMap = {
+      '北京':'北京','天津':'天津','上海':'上海','重庆':'重庆',
+      '河北':'河北','山西':'山西','辽宁':'辽宁','吉林':'吉林',
+      '黑龙江':'黑龙江','江苏':'江苏','浙江':'浙江','安徽':'安徽',
+      '福建':'福建','江西':'江西','山东':'山东','河南':'河南',
+      '湖北':'湖北','湖南':'湖南','广东':'广东','海南':'海南',
+      '四川':'四川','贵州':'贵州','云南':'云南','陕西':'陕西',
+      '甘肃':'甘肃','青海':'青海','台湾':'台湾',
+      '广西':'广西','内蒙古':'内蒙古','西藏':'西藏','宁夏':'宁夏','新疆':'新疆',
+      '香港':'香港','澳门':'澳门'
+    };
+    for (var k in provMap) { if (p.indexOf(k) === 0) return provMap[k]; }
+    return p.slice(0, 2);
+  }
+
+  // ===== 1. 茶叶价格热力图 =====
+  window.renderPriceMap = function() {
+    var grid = document.getElementById('priceMapGrid');
+    if (!grid) return;
+    var provData = {};
+    TD.forEach(function(t) {
+      var prov = getProvince(t.origin);
+      if (!provData[prov]) provData[prov] = { teas: [], prices: [] };
+      provData[prov].teas.push(t);
+      provData[prov].prices.push(t.priceRange || 2);
+    });
+    var provinces = Object.keys(provData);
+    provinces.forEach(function(p) {
+      var prices = provData[p].prices;
+      var avg = Math.round(prices.reduce(function(a,b){return a+b;},0) / prices.length);
+      provData[p].avgPrice = avg;
+      var sorted = provData[p].teas.slice().sort(function(a,b){ return (b.priceRange||0) - (a.priceRange||0); });
+      provData[p].repTea = sorted[0];
+    });
+    var order = ['浙江','福建','安徽','云南','四川','湖南','湖北','广东','江西','江苏','河南','台湾','广西','贵州','陕西','山东','河北','山西','辽宁','吉林','黑龙江','甘肃','青海','宁夏','新疆','西藏','内蒙古','北京','天津','上海','重庆','海南','香港','澳门'];
+    provinces.sort(function(a,b) { var ai = order.indexOf(a); var bi = order.indexOf(b); return (ai<0?99:ai) - (bi<0?99:bi); });
+    var cells = [];
+    for (var i = 0; i < 36; i++) {
+      if (i < provinces.length) {
+        var p = provinces[i];
+        var d = provData[p];
+        var label = d.avgPrice === 1 ? '低' : d.avgPrice === 2 ? '中' : d.avgPrice === 3 ? '高' : '特级';
+        cells.push(
+          '<div class="price-cell price-cell-pr'+d.avgPrice+'" onclick="openModal('+d.repTea.id+')" title="'+p+': '+d.teas.length+'种,均价'+label+'">'+
+          '<div class="price-cell-province">📍 '+p+'</div>'+
+          '<div class="price-cell-name">'+(d.repTea?d.repTea.name:'—')+'</div>'+
+          '<div class="price-cell-tea">'+label+'价位 · '+d.teas.length+'种</div></div>'
+        );
+      } else {
+        cells.push('<div class="price-cell" style="background:var(--c4);opacity:.25;cursor:default;min-height:80px"></div>');
+      }
+    }
+    grid.innerHTML = cells.join('');
+  };
+
+  // ===== 2. 六大茶类占比饼图 =====
+  window.renderTypePieChart = function() {
+    var typeCount = {};
+    TD.forEach(function(t) { typeCount[t.type] = (typeCount[t.type]||0) + 1; });
+    var types = Object.keys(typeCount);
+    var total = TD.length;
+    var colors = { '绿茶':'#27ae60','红茶':'#e74c3c','乌龙茶':'#f39c12','黑茶':'#8e44ad','白茶':'#bdc3c7','黄茶':'#f1c40f','花茶':'#e91e63' };
+    var emoji = { '绿茶':'🍃','红茶':'🫖','乌龙茶':'🍵','黑茶':'🟤','白茶':'🤍','黄茶':'💛','花茶':'🌸' };
+    var totalEl = document.getElementById('typePieTotal');
+    if (totalEl) totalEl.textContent = total;
+    var cx = 190, cy = 190, r = 155;
+    var angle = -Math.PI / 2;
+    var paths = '';
+    types.forEach(function(type) {
+      var count = typeCount[type];
+      var sa = (count / total) * Math.PI * 2;
+      var ea = angle + sa;
+      var x1 = cx + r * Math.cos(angle), y1 = cy + r * Math.sin(angle);
+      var x2 = cx + r * Math.cos(ea), y2 = cy + r * Math.sin(ea);
+      var la = sa > Math.PI ? 1 : 0;
+      paths += '<path class="pie-sector" d="M '+cx+' '+cy+' L '+x1+' '+y1+' A '+r+' '+r+' 0 '+la+' 1 '+x2+' '+y2+' Z" fill="'+colors[type]+'" onclick="filterTypePie(\''+type+'\')"><title>'+type+': '+count+'种 ('+(count/total*100).toFixed(1)+'%)</title></path>';
+      angle = ea;
+    });
+    var svg = '<svg viewBox="0 0 380 380" style="width:100%;max-width:380px"><circle cx="190" cy="190" r="170" fill="var(--c4)" opacity="0.3"/>'+paths+'<circle cx="190" cy="190" r="52" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/><text x="190" y="187" text-anchor="middle" font-size="15" font-weight="700" fill="var(--c1)">'+total+'</text><text x="190" y="205" text-anchor="middle" font-size="10" fill="var(--c2)">种茶叶</text></svg>';
+    var chartEl = document.getElementById('typePieChart');
+    if (chartEl) chartEl.innerHTML = svg;
+
+    var pieSide = document.getElementById('typePieSide');
+    var legendHtml = '<span style="cursor:pointer;margin:.2rem .5rem;color:var(--c1);font-size:.78rem" onclick="filterTypePie(\'all\')">📊 全部</span>';
+    types.forEach(function(type) {
+      var count = typeCount[type];
+      legendHtml += '<span style="display:inline-flex;align-items:center;gap:.3rem;margin:.2rem .5rem;cursor:pointer;font-size:.75rem" onclick="filterTypePie(\''+type+'\')"><span style="width:12px;height:12px;border-radius:3px;background:'+colors[type]+';display:inline-block"></span>'+(emoji[type]||'')+type+' '+count+'种</span>';
+    });
+    var legendEl = document.getElementById('typePieLegend');
+    if (legendEl) {
+      legendEl.innerHTML = legendHtml;
+    } else if (pieSide) {
+      var ld = document.createElement('div'); ld.id = 'typePieLegend';
+      ld.style.cssText = 'display:flex;flex-wrap:wrap;justify-content:center;margin-bottom:.5rem;padding:.3rem';
+      ld.innerHTML = legendHtml;
+      pieSide.insertBefore(ld, pieSide.firstChild);
+    }
+    var infoEl = document.getElementById('typePieFilteredInfo');
+    if (infoEl) infoEl.innerHTML = '👆 点击扇形查看该类茶叶';
+    var gridEl = document.getElementById('typePieTeaGrid');
+    if (gridEl) gridEl.innerHTML = '';
+  };
+
+  window.filterTypePie = function(type) {
+    var infoEl = document.getElementById('typePieFilteredInfo');
+    var gridEl = document.getElementById('typePieTeaGrid');
+    if (!gridEl) return;
+    if (type === 'all') { if (infoEl) infoEl.innerHTML = '👆 点击扇形查看该类茶叶'; gridEl.innerHTML = ''; return; }
+    var filtered = TD.filter(function(t) { return t.type === type; });
+    if (infoEl) infoEl.innerHTML = '🔍 '+type+' · <strong>'+filtered.length+'</strong> 种茶叶';
+    gridEl.innerHTML = filtered.map(function(tea) {
+      var imgUrls = typeof getTeaImageUrl === 'function' ? getTeaImageUrl(tea) : [];
+      var carousel = typeof buildCarouselHTML === 'function' ? buildCarouselHTML(imgUrls, tea.name, tea.type, 'pie_'+tea.id) : '';
+      return '<div class="tea-card" onclick="openModal('+tea.id+')">'+carousel+'<span class="tea-type-badge">'+tea.type+'</span><span class="tea-grade-badge">'+tea.grade+'</span><div class="tea-body"><div class="tea-name">'+tea.name+'</div><div class="tea-origin">📍 '+tea.origin+'</div><div class="tea-desc">'+(tea.desc||'')+'</div></div></div>';
+    }).join('');
+  };
+
+  // ===== 3. 产区3D浮雕地图 =====
+  window.renderOrigin3D = function() {
+    var scene = document.getElementById('origin3dScene');
+    var legend = document.getElementById('origin3dLegend');
+    if (!scene) return;
+    var provData = {};
+    TD.forEach(function(t) {
+      var prov = getProvince(t.origin);
+      if (!provData[prov]) provData[prov] = { teas: [], types: {} };
+      provData[prov].teas.push(t);
+      provData[prov].types[t.type] = (provData[prov].types[t.type]||0) + 1;
+    });
+    Object.keys(provData).forEach(function(p) {
+      var types = provData[p].types;
+      var maxT = '', maxC = 0;
+      for (var tp in types) { if (types[tp] > maxC) { maxC = types[tp]; maxT = tp; } }
+      provData[p].mainType = maxT;
+    });
+    var tc = { '绿茶':'#27ae60','红茶':'#c0392b','乌龙茶':'#d4a017','黑茶':'#8e44ad','白茶':'#95a5a6','黄茶':'#f39c12','花茶':'#e91e63' };
+    var layout = [
+      {p:'新疆',r0:0,c0:0,r1:0,c1:2},{p:'青海',r0:0,c0:2,r1:0,c1:3},{p:'内蒙古',r0:0,c0:3,r1:1,c1:5},
+      {p:'黑龙江',r0:0,c0:5,r1:1,c1:6},{p:'吉林',r0:0,c0:6,r1:1,c1:7},{p:'辽宁',r0:1,c0:5,r1:1,c1:6},
+      {p:'西藏',r0:1,c0:0,r1:2,c1:1},{p:'甘肃',r0:1,c0:1,r1:1,c1:3},{p:'宁夏',r0:1,c0:3,r1:1,c1:3},
+      {p:'山西',r0:1,c0:3,r1:2,c1:4},{p:'河北',r0:1,c0:4,r1:2,c1:5},{p:'北京',r0:1,c0:5,r1:1,c1:5},
+      {p:'天津',r0:1,c0:6,r1:1,c1:6},{p:'山东',r0:1,c0:5,r1:2,c1:6},{p:'陕西',r0:2,c0:2,r1:2,c1:3},
+      {p:'河南',r0:2,c0:3,r1:3,c1:4},{p:'江苏',r0:2,c0:5,r1:3,c1:6},{p:'安徽',r0:2,c0:4,r1:3,c1:5},
+      {p:'上海',r0:2,c0:7,r1:2,c1:7},{p:'四川',r0:2,c0:1,r1:3,c1:2},{p:'重庆',r0:2,c0:2,r1:3,c1:2},
+      {p:'湖北',r0:3,c0:3,r1:3,c1:4},{p:'浙江',r0:3,c0:5,r1:4,c1:6},{p:'湖南',r0:3,c0:3,r1:4,c1:3},
+      {p:'江西',r0:3,c0:4,r1:4,c1:5},{p:'贵州',r0:3,c0:2,r1:4,c1:2},{p:'云南',r0:3,c0:0,r1:4,c1:1},
+      {p:'福建',r0:4,c0:5,r1:5,c1:6},{p:'广西',r0:4,c0:2,r1:5,c1:2},{p:'广东',r0:4,c0:3,r1:5,c1:5},
+      {p:'海南',r0:5,c0:3,r1:5,c1:3},{p:'台湾',r0:5,c0:7,r1:5,c1:7}
+    ];
+    var html = '';
+    layout.forEach(function(item) {
+      if (!provData[item.p]) return;
+      var d = provData[item.p];
+      var bg = d.mainType && tc[d.mainType] ? tc[d.mainType] : '#7f8c8d';
+      var tn = d.teas.slice(0,6).map(function(t){return t.name;}).join('、');
+      if (d.teas.length > 6) tn += ' 等'+d.teas.length+'种';
+      html += '<div class="origin3d-cell" style="grid-row:'+(item.r0+1)+'/'+(item.r1+2)+';grid-column:'+(item.c0+1)+'/'+(item.c1+2)+';background:'+bg+';" onmouseenter="showOrigin3dTooltip(event,\''+item.p+'\','+d.teas.length+',\''+(d.mainType||'')+'\',decodeURIComponent(\''+encodeURIComponent(tn)+'\'))" onmouseleave="hideOrigin3dTooltip()" onclick="openProvinceTeas(\''+item.p+'\')">'+
+        '<span style="pointer-events:none">'+item.p+'<br><span style="font-size:.55rem;opacity:.8">'+d.teas.length+'种</span></span></div>';
+    });
+    scene.innerHTML = html;
+    if (legend) {
+      legend.innerHTML = Object.keys(tc).map(function(tp) {
+        var cnt = 0;
+        Object.keys(provData).forEach(function(p) { if (provData[p].mainType === tp) cnt++; });
+        return '<span style="display:flex;align-items:center;gap:.3rem;font-size:.75rem"><span style="width:14px;height:14px;border-radius:3px;background:'+tc[tp]+';display:inline-block"></span>'+tp+'('+cnt+'省)</span>';
+      }).join('');
+    }
+  };
+
+  window.showOrigin3dTooltip = function(e, prov, count, mainType, teasName) {
+    var t = document.getElementById('origin3dTooltip');
+    if (!t) return;
+    t.innerHTML = '<strong>📍 '+prov+'</strong> ('+mainType+')<br>茶叶数量: '+count+'种<br><span style="font-size:.7rem;opacity:.85">'+teasName+'</span>';
+    t.style.left = Math.min(e.clientX + 15, window.innerWidth - 290) + 'px';
+    t.style.top = Math.max(e.clientY - 30, 10) + 'px';
+    t.className = 'origin3d-tooltip show';
+  };
+  window.hideOrigin3dTooltip = function() { var t = document.getElementById('origin3dTooltip'); if (t) t.className = 'origin3d-tooltip'; };
+  window.openProvinceTeas = function(prov) {
+    var teas = TD.filter(function(t) { return getProvince(t.origin) === prov; });
+    document.getElementById('modalBody').innerHTML = '<div style="padding:.5rem"><h3>📍 '+prov+' · '+teas.length+'种茶叶</h3><div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;max-height:60vh;overflow-y:auto">'+teas.map(function(t) { return '<span style="background:var(--c4);border:1.5px solid var(--border);border-radius:20px;padding:.15rem .6rem;font-size:.8rem;cursor:pointer" onclick="openModal('+t.id+')">'+t.name+'（'+t.type+'）</span>'; }).join('')+'</div></div>';
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // ===== 4. 相似茶推荐 =====
+  window.renderSimilarTeas = function(teaId) {
+    var container = document.getElementById('similarTeaList');
+    if (!container) return;
+    var tea = TD.find(function(t) { return t.id === teaId; });
+    if (!tea) { container.innerHTML = ''; return; }
+    function calcSim(a, b) {
+      var s = 0;
+      if (a.type === b.type) s += 3;
+      s += (3 - Math.abs((a.caffeine||2) - (b.caffeine||2)));
+      var sa = (a.suitableSeason||'').split('、'), sb = (b.suitableSeason||'').split('、');
+      var overlap = 0;
+      sa.forEach(function(ss) { if (ss && sb.indexOf(ss) >= 0) overlap++; });
+      s += Math.min(overlap, 4);
+      if (typeof a.flavorProfile === 'string' && typeof b.flavorProfile === 'string') {
+        if (a.flavorProfile === b.flavorProfile) s += 2;
+        else if (a.flavorProfile && b.flavorProfile && (a.flavorProfile.indexOf(b.flavorProfile) >= 0 || b.flavorProfile.indexOf(a.flavorProfile) >= 0)) s += 1;
+      }
+      return s;
+    }
+    var others = TD.filter(function(t) { return t.id !== teaId; });
+    var scored = others.map(function(t) { return { tea: t, score: calcSim(tea, t) }; });
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top5 = scored.slice(0, 5);
+    container.innerHTML = top5.map(function(item) {
+      var t = item.tea;
+      var pct = Math.round(item.score / 12 * 100);
+      return '<div class="similar-tea-card" onclick="openModal('+t.id+')" title="相似度: '+item.score+'/12"><div class="similar-tea-name">🍵 '+t.name+'</div><div class="similar-tea-type">'+t.type+' · 📍 '+t.origin+'</div><div class="similar-tea-score">匹配 '+pct+'%<div class="similar-tea-score-bar"><div class="similar-tea-score-fill" style="width:'+pct+'%"></div></div></div></div>';
+    }).join('') || '<span style="font-size:.8rem;color:var(--c2)">暂无相似茶叶</span>';
+  };
+
+  console.log('🍵 V5.0 数据可视化功能已加载：价格地图 | 茶类占比饼图 | 3D产区地图 | 相似茶推荐');
+})();
+</script>
+
 </body>
 </html>

@@ -39,7 +39,12 @@ const TEA_DATA = [
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
     rating: 5,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，透明玻璃杯冲泡最佳",
+    famousMountain: "狮峰山",
+    harvestYear: "2024春"
   },
   {
     id: 2,
@@ -77,7 +82,12 @@ const TEA_DATA = [
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
     rating: 5,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，透明玻璃杯冲泡最佳",
+    famousMountain: "洞庭山",
+    harvestYear: "2024春"
   },
   {
     id: 3,
@@ -115,7 +125,12 @@ const TEA_DATA = [
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
     rating: 4.5,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，白瓷杯或玻璃杯冲泡最佳",
+    famousMountain: "黄山",
+    harvestYear: "2024春"
   },
   {
     id: 4,
@@ -152,7 +167,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
-    rating: 4
+    rating: 4,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，玻璃杯冲泡最佳",
+    famousMountain: "大别山",
+    harvestYear: "2024春"
   },
   {
     id: 5,
@@ -190,7 +210,12 @@ const TEA_DATA = [
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
     rating: 4.5,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，玻璃杯或盖碗冲泡最佳",
+    famousMountain: "齐云山",
+    harvestYear: "2024春"
   },
   {
     id: 6,
@@ -228,7 +253,12 @@ const TEA_DATA = [
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
     rating: 4.5,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，透明玻璃杯冲泡最佳",
+    famousMountain: "黄山",
+    harvestYear: "2024春"
   },
   {
     id: 7,
@@ -265,7 +295,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '四川名茶',
-    rating: 4.5
+    rating: 4.5,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，玻璃杯冲泡最佳",
+    famousMountain: "峨眉山",
+    harvestYear: "2024春"
   },
   {
     id: 8,
@@ -303,7 +338,12 @@ const TEA_DATA = [
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
     rating: 4.5,
-    flavorProfile: '蜜糖香'
+    flavorProfile: '蜜糖香',
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，玻璃杯冲泡最佳",
+    famousMountain: "武陵山",
+    harvestYear: "2024春"
   },
   {
     id: 9,
@@ -340,7 +380,12 @@ const TEA_DATA = [
     processLevel: 3,
     organic: false,
     award: '世界红茶之源',
-    rating: 5
+    rating: 5,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 10,
@@ -378,7 +423,12 @@ const TEA_DATA = [
     organic: false,
     award: '2005年 创制',
     rating: 5,
-    flavorProfile: '花果香'
+    flavorProfile: '花果香',
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，白瓷杯或盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 11,
@@ -415,7 +465,12 @@ const TEA_DATA = [
     processLevel: 3,
     organic: false,
     award: '1940年 创制',
-    rating: 4.5
+    rating: 4.5,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，白瓷杯或紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 12,
@@ -453,7 +508,12 @@ const TEA_DATA = [
     organic: true,
     award: '1940年 创制',
     rating: 4.5,
-    flavorProfile: '醇厚甘甜'
+    flavorProfile: '醇厚甘甜',
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 13,
@@ -490,7 +550,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '1950年 广东名茶',
-    rating: 4
+    rating: 4,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，白瓷杯或紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 14,
@@ -528,7 +593,12 @@ const TEA_DATA = [
     organic: false,
     award: '1985年 四川红茶',
     rating: 4,
-    flavorProfile: '薯香甜润'
+    flavorProfile: '薯香甜润',
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，盖碗或紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 15,
@@ -566,7 +636,12 @@ const TEA_DATA = [
     organic: false,
     award: '湖北红茶',
     rating: 4,
-    flavorProfile: '花果香'
+    flavorProfile: '花果香',
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，白瓷杯或紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 16,
@@ -604,7 +679,12 @@ const TEA_DATA = [
     organic: false,
     award: '1982年 全国名茶',
     rating: 5,
-    flavorProfile: '兰花香'
+    flavorProfile: '兰花香',
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，白瓷杯或紫砂壶冲泡最佳",
+    famousMountain: "武陵山",
+    harvestYear: "2024春"
   },
   {
     id: 17,
@@ -642,7 +722,12 @@ const TEA_DATA = [
     organic: false,
     award: '1965年 台湾名茶',
     rating: 4.5,
-    flavorProfile: '兰花香'
+    flavorProfile: '兰花香',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，紫砂壶冲泡最佳",
+    famousMountain: "戴云山",
+    harvestYear: "2024秋"
   },
   {
     id: 18,
@@ -680,7 +765,12 @@ const TEA_DATA = [
     organic: false,
     award: '1982年 全国名茶',
     rating: 4.5,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024秋"
   },
   {
     id: 19,
@@ -718,7 +808,12 @@ const TEA_DATA = [
     organic: false,
     award: '1965年 台湾名茶',
     rating: 4.5,
-    flavorProfile: '果香馥郁'
+    flavorProfile: '果香馥郁',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，盖碗或紫砂壶冲泡最佳",
+    famousMountain: "凤凰山",
+    harvestYear: "2024秋"
   },
   {
     id: 20,
@@ -756,7 +851,12 @@ const TEA_DATA = [
     organic: false,
     award: '台湾名茶',
     rating: 5,
-    flavorProfile: '蜜香兰香'
+    flavorProfile: '蜜香兰香',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，白瓷杯或玻璃壶冲泡最佳",
+    famousMountain: "文山",
+    harvestYear: "2024夏"
   },
   {
     id: 21,
@@ -794,7 +894,12 @@ const TEA_DATA = [
     organic: false,
     award: '1965年 台湾名茶',
     rating: 4.5,
-    flavorProfile: '兰花香'
+    flavorProfile: '兰花香',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "阿里山",
+    harvestYear: "2024秋"
   },
   {
     id: 22,
@@ -832,7 +937,12 @@ const TEA_DATA = [
     organic: false,
     award: '福建名茶',
     rating: 4,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024秋"
   },
   {
     id: 23,
@@ -870,7 +980,12 @@ const TEA_DATA = [
     organic: false,
     award: '福建名茶',
     rating: 4,
-    flavorProfile: '清香爽口'
+    flavorProfile: '清香爽口',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024秋"
   },
   {
     id: 24,
@@ -908,7 +1023,12 @@ const TEA_DATA = [
     organic: false,
     award: '福建名茶',
     rating: 4.5,
-    flavorProfile: '果香馥郁'
+    flavorProfile: '果香馥郁',
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024秋"
   },
   {
     id: 25,
@@ -946,7 +1066,12 @@ const TEA_DATA = [
     organic: false,
     award: '白茶之王',
     rating: 5,
-    flavorProfile: '毫香馥郁'
+    flavorProfile: '毫香馥郁',
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，玻璃杯或白瓷杯冲泡最佳",
+    famousMountain: "鼓山",
+    harvestYear: "2024春"
   },
   {
     id: 26,
@@ -984,7 +1109,12 @@ const TEA_DATA = [
     organic: false,
     award: '福建白茶',
     rating: 4.5,
-    flavorProfile: '花香清雅'
+    flavorProfile: '花香清雅',
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，白瓷杯或盖碗冲泡最佳",
+    famousMountain: "鼓山",
+    harvestYear: "2024春"
   },
   {
     id: 27,
@@ -1022,7 +1152,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5,
-    flavorProfile: '清甜醇爽'
+    flavorProfile: '清甜醇爽',
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温95℃，白瓷杯或盖碗冲泡最佳",
+    famousMountain: "鼓山",
+    harvestYear: "2024春"
   },
   {
     id: 28,
@@ -1060,7 +1195,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5,
-    flavorProfile: '清甜醇爽'
+    flavorProfile: '清甜醇爽',
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，白瓷壶或紫砂壶冲泡最佳",
+    famousMountain: "鼓山",
+    harvestYear: "2024春"
   },
   {
     id: 29,
@@ -1098,7 +1238,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4,
-    flavorProfile: '花香清雅'
+    flavorProfile: '花香清雅',
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，白瓷杯或盖碗冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024春"
   },
   {
     id: 30,
@@ -1136,7 +1281,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4,
-    flavorProfile: '清甜醇爽'
+    flavorProfile: '清甜醇爽',
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温75-80℃，玻璃杯冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024春"
   },
   {
     id: 31,
@@ -1174,7 +1324,12 @@ const TEA_DATA = [
     organic: false,
     award: '1959年 全国名茶',
     rating: 4.5,
-    flavorProfile: '甜润柔和'
+    flavorProfile: '甜润柔和',
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，透明玻璃杯冲泡最佳",
+    famousMountain: "君山",
+    harvestYear: "2024春"
   },
   {
     id: 32,
@@ -1212,7 +1367,12 @@ const TEA_DATA = [
     organic: false,
     award: '霍山黄茶',
     rating: 4,
-    flavorProfile: '嫩玉米香'
+    flavorProfile: '嫩玉米香',
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温80-85℃，玻璃杯冲泡最佳",
+    famousMountain: "蒙顶山",
+    harvestYear: "2024春"
   },
   {
     id: 33,
@@ -1249,7 +1409,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '温州特产',
-    rating: 4
+    rating: 4,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，白瓷杯或玻璃杯冲泡最佳",
+    famousMountain: "君山",
+    harvestYear: "2024春"
   },
   {
     id: 34,
@@ -1287,7 +1452,12 @@ const TEA_DATA = [
     organic: false,
     award: '湖南名茶',
     rating: 4,
-    flavorProfile: '豆香清雅'
+    flavorProfile: '豆香清雅',
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，白瓷杯冲泡最佳",
+    famousMountain: "君山",
+    harvestYear: "2024春"
   },
   {
     id: 35,
@@ -1324,7 +1494,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '1990年 云南省名茶',
-    rating: 4.5
+    rating: 4.5,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，白瓷杯或紫砂壶冲泡最佳",
+    famousMountain: "君山",
+    harvestYear: "2024春"
   },
   {
     id: 36,
@@ -1362,7 +1537,12 @@ const TEA_DATA = [
     organic: false,
     award: '1990年 云南省名茶',
     rating: 4.5,
-    flavorProfile: '苦涩回甘'
+    flavorProfile: '苦涩回甘',
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 37,
@@ -1400,7 +1580,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4,
-    flavorProfile: '菌花香'
+    flavorProfile: '菌花香',
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "雪峰山",
+    harvestYear: "2024春"
   },
   {
     id: 38,
@@ -1438,7 +1623,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4,
-    flavorProfile: '槟榔香'
+    flavorProfile: '槟榔香',
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "大瑶山",
+    harvestYear: "2024春"
   },
   {
     id: 39,
@@ -1475,7 +1665,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '边销茶',
-    rating: 3.5
+    rating: 3.5,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，煮茶壶冲泡最佳",
+    famousMountain: "蒙顶山",
+    harvestYear: "2024春"
   },
   {
     id: 40,
@@ -1513,7 +1708,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3.5,
-    flavorProfile: '醇厚陈香'
+    flavorProfile: '醇厚陈香',
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶或煮茶壶冲泡最佳",
+    famousMountain: "幕阜山",
+    harvestYear: "2024春"
   },
   {
     id: 41,
@@ -1550,7 +1750,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 3.5
+    rating: 3.5,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，煮茶壶或紫砂壶冲泡最佳",
+    famousMountain: "幕阜山",
+    harvestYear: "2024春"
   },
   {
     id: 42,
@@ -1588,7 +1793,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3.5,
-    flavorProfile: '菌花香'
+    flavorProfile: '菌花香',
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "雪峰山",
+    harvestYear: "2024春"
   },
   {
     id: 43,
@@ -1626,7 +1836,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5,
-    flavorProfile: '醇厚顺滑'
+    flavorProfile: '醇厚顺滑',
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶冲泡最佳",
+    famousMountain: "雪峰山",
+    harvestYear: "2024春"
   },
   {
     id: 44,
@@ -1664,7 +1879,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4,
-    flavorProfile: '茉莉花香'
+    flavorProfile: '茉莉花香',
+    soupColor: "#E8D5B7",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，玻璃杯或白瓷杯冲泡最佳",
+    famousMountain: "鼓山",
+    harvestYear: "2024夏"
   },
   {
     id: 45,
@@ -1702,7 +1922,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4,
-    flavorProfile: '桂花香'
+    flavorProfile: '桂花香',
+    soupColor: "#E8D5B7",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，紫砂壶或盖碗冲泡最佳",
+    famousMountain: "未知名山",
+    harvestYear: "2024秋"
   },
   {
     id: 46,
@@ -1739,7 +1964,12 @@ const TEA_DATA = [
     processLevel: 1,
     organic: false,
     award: '',
-    rating: 3.5
+    rating: 3.5,
+    soupColor: "#E8D5B7",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，玻璃壶或煮茶壶冲泡最佳",
+    famousMountain: "未知名山",
+    harvestYear: "2024春"
   },
   {
     id: 47,
@@ -1776,7 +2006,12 @@ const TEA_DATA = [
     processLevel: 1,
     organic: false,
     award: '',
-    rating: 3.5
+    rating: 3.5,
+    soupColor: "#E8D5B7",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，玻璃壶或煮茶壶冲泡最佳",
+    famousMountain: "未知名山",
+    harvestYear: "2024春"
   },
   {
     id: 48,
@@ -1814,7 +2049,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3,
-    flavorProfile: '清淡回甘'
+    flavorProfile: '清淡回甘',
+    soupColor: "#E8D5B7",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，玻璃杯冲泡最佳",
+    famousMountain: "未知名山",
+    harvestYear: "2024秋"
   },
   {
     id: 49,
@@ -1851,7 +2091,12 @@ const TEA_DATA = [
     processLevel: 1,
     organic: false,
     award: '',
-    rating: 3.5
+    rating: 3.5,
+    soupColor: "#E8D5B7",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，玻璃杯冲泡最佳",
+    famousMountain: "未知名山",
+    harvestYear: "2024夏"
   },
   {
     id: 50,
@@ -1888,7 +2133,12 @@ const TEA_DATA = [
     processLevel: 1,
     organic: false,
     award: '',
-    rating: 3.5
+    rating: 3.5,
+    soupColor: "#E8D5B7",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，玻璃杯或煮茶壶冲泡最佳",
+    famousMountain: "未知名山",
+    harvestYear: "2024夏"
   },
   {
     id: 52,
@@ -1925,7 +2175,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: true,
     award: '1915年 巴拿马万国博览会金奖',
-    rating: 4
+    rating: 4,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，玻璃杯冲泡最佳",
+    famousMountain: "莫干山",
+    harvestYear: "2024春"
   },
   {
     id: 58,
@@ -1962,7 +2217,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: true,
     award: '1915年 巴拿马万国博览会金奖',
-    rating: 4
+    rating: 4,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，玻璃杯冲泡最佳",
+    famousMountain: "苗岭",
+    harvestYear: "2024春"
   },
   {
     id: 59,
@@ -1999,7 +2259,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '1916年 巴拿马万国博览会金奖',
-    rating: 4
+    rating: 4,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，盖杯冲泡最佳",
+    famousMountain: "黄山",
+    harvestYear: "2024春"
   },
   {
     id: 65,
@@ -2036,7 +2301,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '1916年 巴拿马万国博览会金奖',
-    rating: 4
+    rating: 4,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 66,
@@ -2073,7 +2343,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '1915年 巴拿马万国博览会金奖',
-    rating: 4
+    rating: 4,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，盖碗冲泡最佳",
+    famousMountain: "鼓山",
+    harvestYear: "2024春"
   },
   {
     id: 67,
@@ -2110,7 +2385,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，盖碗冲泡最佳",
+    famousMountain: "鼓山",
+    harvestYear: "2024春"
   },
   {
     id: 68,
@@ -2147,7 +2427,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90℃，盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 69,
@@ -2184,7 +2469,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: true,
     award: '云南名茶',
-    rating: 4
+    rating: 4,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，紫砂壶冲泡最佳",
+    famousMountain: "大雪山",
+    harvestYear: "2024春"
   },
   {
     id: 70,
@@ -2221,7 +2511,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，紫砂壶冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 71,
@@ -2258,7 +2553,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '班章为王',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 72,
@@ -2295,7 +2595,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '冰岛为后',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 73,
@@ -2332,7 +2637,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，紫砂壶冲泡最佳",
+    famousMountain: "大雪山",
+    harvestYear: "2024春"
   },
   {
     id: 74,
@@ -2369,7 +2679,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 75,
@@ -2406,7 +2721,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 76,
@@ -2443,7 +2763,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 77,
@@ -2480,7 +2805,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 78,
@@ -2517,7 +2847,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，紫砂壶冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 79,
@@ -2554,7 +2889,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温100℃，盖碗冲泡最佳",
+    famousMountain: "凤凰山",
+    harvestYear: "2024春"
   },
   {
     id: 80,
@@ -2591,7 +2931,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温95℃，盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 83,
@@ -2628,7 +2973,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温100℃，盖碗冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 84,
@@ -2665,7 +3015,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: true,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，盖碗冲泡最佳",
+    famousMountain: "阿里山",
+    harvestYear: "2024春"
   },
   {
     id: 85,
@@ -2702,7 +3057,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: true,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，盖碗冲泡最佳",
+    famousMountain: "文山",
+    harvestYear: "2024春"
   },
   {
     id: 86,
@@ -2739,7 +3099,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: true,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温85℃，盖碗冲泡最佳",
+    famousMountain: "阿里山",
+    harvestYear: "2024春"
   },
   {
     id: 87,
@@ -2776,7 +3141,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，盖碗冲泡最佳",
+    famousMountain: "阿里山",
+    harvestYear: "2024春"
   },
   {
     id: 88,
@@ -2813,7 +3183,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#DAA520",
+    bodyType: "中性",
+    learningContent: "水温100℃，盖碗冲泡最佳",
+    famousMountain: "凤凰山",
+    harvestYear: "2024春"
   },
   {
     id: 93,
@@ -2850,7 +3225,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，盖碗冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024春"
   },
   {
     id: 94,
@@ -2887,7 +3267,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温80℃，玻璃杯冲泡最佳",
+    famousMountain: "蒙顶山",
+    harvestYear: "2024春"
   },
   {
     id: 99,
@@ -2924,7 +3309,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#FFFDD0",
+    bodyType: "中性",
+    learningContent: "水温85℃，玻璃杯冲泡最佳",
+    famousMountain: "峨眉山",
+    harvestYear: "2024春"
   },
   {
     id: 100,
@@ -2961,7 +3351,12 @@ const TEA_DATA = [
     processLevel: 2,
     organic: false,
     award: '',
-    rating: 4
+    rating: 4,
+    soupColor: "#FFFDD0",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，玻璃壶冲泡最佳",
+    famousMountain: "峨眉山",
+    harvestYear: "2024春"
   },
   {
     id: 101,
@@ -2999,6 +3394,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.8
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 102,
@@ -3036,6 +3437,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 103,
@@ -3073,6 +3480,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 104,
@@ -3110,6 +3523,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.6
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 105,
@@ -3147,6 +3566,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 106,
@@ -3184,6 +3609,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.3
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 107,
@@ -3221,6 +3652,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.2
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 108,
@@ -3258,6 +3695,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.4
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 109,
@@ -3295,6 +3738,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.6
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 110,
@@ -3332,6 +3781,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.4
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 111,
@@ -3369,6 +3824,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 112,
@@ -3406,6 +3867,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.7
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，冲泡最佳",
+    famousMountain: "敬亭山",
+    harvestYear: "2024春"
   },
   {
     id: 113,
@@ -3443,6 +3910,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.8
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "黄山",
+    harvestYear: "2024春"
   },
   {
     id: 114,
@@ -3480,6 +3953,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 115,
@@ -3517,6 +3996,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 116,
@@ -3554,6 +4039,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 117,
@@ -3591,6 +4082,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.6
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温75-80℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 118,
@@ -3628,6 +4125,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.6
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
   id: 119,
@@ -3675,7 +4178,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.6
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 120,
   name: "庐山云雾茶",
@@ -3722,7 +4231,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.7
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "庐山",
+    harvestYear: "2024春"
+  },
   {
   id: 121,
   name: "井冈山翠绿茶",
@@ -3769,7 +4284,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.4
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 122,
   name: "采花毛尖",
@@ -3816,7 +4337,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 123,
   name: "英山云雾茶",
@@ -3863,7 +4390,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.3
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 124,
   name: "三峡绿茶",
@@ -3910,7 +4443,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.4
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 125,
   name: "安化松针",
@@ -3957,7 +4496,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 126,
   name: "古丈毛尖",
@@ -4004,7 +4549,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.6
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 127,
   name: "岳麓毛尖",
@@ -4051,7 +4602,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.3
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 128,
   name: "永川秀芽",
@@ -4098,7 +4655,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 129,
   name: "南泉毛峰",
@@ -4145,7 +4708,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.2
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 130,
   name: "四面山茶",
@@ -4192,7 +4761,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.4
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 131,
   name: "紫阳毛尖",
@@ -4239,7 +4814,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.6
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 132,
   name: "秦岭云雾茶",
@@ -4286,7 +4867,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.7
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 133,
   name: "汉中仙毫",
@@ -4333,7 +4920,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.6
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 134,
   name: "宁强雀舌",
@@ -4380,7 +4973,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 135,
   name: "武夷岩茶（绿茶类）",
@@ -4427,7 +5026,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.8
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
+  },
   {
   id: 136,
   name: "霞浦元宵茶",
@@ -4474,7 +5079,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
     id: 137,
     name: '湖红工夫',
@@ -4511,6 +5122,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 139,
@@ -4548,6 +5165,12 @@ const TEA_DATA = [
     organic: false,
     award: '1986年贵州省科技进步奖',
     rating: 4.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 140,
@@ -4585,6 +5208,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 141,
@@ -4622,6 +5251,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 142,
@@ -4659,6 +5294,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 143,
@@ -4696,6 +5337,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 144,
@@ -4733,6 +5380,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 145,
@@ -4770,6 +5423,12 @@ const TEA_DATA = [
     organic: false,
     award: '2014年获国际茶博会金奖',
     rating: 4.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 146,
@@ -4807,6 +5466,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 147,
@@ -4844,6 +5509,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 148,
@@ -4881,6 +5552,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 149,
@@ -4918,6 +5595,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 150,
@@ -4955,6 +5638,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 151,
@@ -4992,6 +5681,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 152,
@@ -5029,6 +5724,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 153,
@@ -5066,6 +5767,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 154,
@@ -5103,6 +5810,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 156,
@@ -5140,6 +5853,12 @@ const TEA_DATA = [
     organic: false,
     award: '四川名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 157,
@@ -5177,6 +5896,12 @@ const TEA_DATA = [
     organic: false,
     award: '中华老字号',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 159,
@@ -5214,6 +5939,12 @@ const TEA_DATA = [
     organic: false,
     award: '云南名茶',
     rating: 5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 160,
@@ -5251,6 +5982,12 @@ const TEA_DATA = [
     organic: false,
     award: '台湾名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 162,
@@ -5288,6 +6025,12 @@ const TEA_DATA = [
     organic: false,
     award: '四川创新名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "峨眉山",
+    harvestYear: "2024春"
   },
   {
     id: 163,
@@ -5325,6 +6068,12 @@ const TEA_DATA = [
     organic: false,
     award: '世界三大高香红茶',
     rating: 5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 164,
@@ -5362,6 +6111,12 @@ const TEA_DATA = [
     organic: false,
     award: '世界产量最大红茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
   },
   {
     id: 165,
@@ -5399,6 +6154,12 @@ const TEA_DATA = [
     organic: false,
     award: '世界三大高香红茶',
     rating: 5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
   },
   {
     id: 166,
@@ -5436,6 +6197,12 @@ const TEA_DATA = [
     organic: false,
     award: '世界重要红茶出口国',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
   },
   {
     id: 167,
@@ -5473,6 +6240,12 @@ const TEA_DATA = [
     organic: false,
     award: '广东创新名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "凤凰山",
+    harvestYear: "2024春"
   },
   {
     id: 168,
@@ -5510,6 +6283,12 @@ const TEA_DATA = [
     organic: false,
     award: '湖南名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 169,
@@ -5547,6 +6326,12 @@ const TEA_DATA = [
     organic: false,
     award: '广西创新名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 170,
@@ -5584,6 +6369,12 @@ const TEA_DATA = [
     organic: true,
     award: '贵州名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 171,
@@ -5621,6 +6412,12 @@ const TEA_DATA = [
     organic: true,
     award: '稀世珍茗',
     rating: 5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "武夷山",
+    harvestYear: "2024春"
   },
   {
     id: 172,
@@ -5658,6 +6455,12 @@ const TEA_DATA = [
     organic: false,
     award: '广东创新名茶',
     rating: 4
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
   },
   {
     id: 173,
@@ -5695,6 +6498,12 @@ const TEA_DATA = [
     organic: true,
     award: '荒野茶王',
     rating: 5
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024春"
   },
   {
     id: 174,
@@ -5732,6 +6541,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 5
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024春"
   },
   {
     id: 175,
@@ -5769,6 +6584,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024春"
   },
   {
     id: 176,
@@ -5806,6 +6627,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024秋"
   },
   {
     id: 177,
@@ -5843,6 +6670,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "太姥山",
+    harvestYear: "2024秋"
   },
   {
     id: 178,
@@ -5880,6 +6713,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 5
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 180,
@@ -5917,6 +6756,12 @@ const TEA_DATA = [
     organic: true,
     award: '古树茶王',
     rating: 5
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 181,
@@ -5954,6 +6799,12 @@ const TEA_DATA = [
     organic: true,
     award: '佛茶之首',
     rating: 5
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "峨眉山",
+    harvestYear: "2024春"
   },
   {
     id: 182,
@@ -5991,6 +6842,12 @@ const TEA_DATA = [
     organic: true,
     award: '生态茶王',
     rating: 4.5
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 183,
@@ -6028,6 +6885,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 184,
@@ -6065,6 +6928,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 185,
@@ -6102,6 +6971,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "蒙顶山",
+    harvestYear: "2024春"
   },
   {
     id: 186,
@@ -6139,6 +7014,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 187,
@@ -6176,6 +7057,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 188,
@@ -6213,6 +7100,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 189,
@@ -6250,6 +7143,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 190,
@@ -6287,6 +7186,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 191,
@@ -6324,6 +7229,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 192,
@@ -6361,6 +7272,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 193,
@@ -6398,6 +7315,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "蒙顶山",
+    harvestYear: "2024春"
   },
   {
     id: 194,
@@ -6435,6 +7358,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 5
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 195,
@@ -6472,6 +7401,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 5
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 196,
@@ -6509,6 +7444,12 @@ const TEA_DATA = [
     organic: false,
     award: '世界农业遗产',
     rating: 5
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，冲泡最佳",
+    famousMountain: "景迈山",
+    harvestYear: "2024春"
   },
   {
     id: 197,
@@ -6546,6 +7487,12 @@ const TEA_DATA = [
     organic: false,
     award: '过渡型茶王',
     rating: 5
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 198,
@@ -6583,6 +7530,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，冲泡最佳",
+    famousMountain: "易武山",
+    harvestYear: "2024春"
   },
   {
     id: 199,
@@ -6620,6 +7573,12 @@ const TEA_DATA = [
     organic: false,
     award: '小班章',
     rating: 4
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 200,
@@ -6657,6 +7616,12 @@ const TEA_DATA = [
     organic: false,
     award: '妖茶',
     rating: 5
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
   },
   {
     id: 201,
@@ -6694,6 +7659,12 @@ const TEA_DATA = [
     organic: false,
     award: '古六大茶山',
     rating: 4
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 202,
@@ -6731,6 +7702,12 @@ const TEA_DATA = [
     organic: false,
     award: '贡茶',
     rating: 5
+  ,
+    soupColor: "#7A3B10",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 203,
@@ -6768,6 +7745,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "君山",
+    harvestYear: "2024春"
   },
   {
     id: 204,
@@ -6805,6 +7788,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.3
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 205,
@@ -6842,6 +7831,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 3.8
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 206,
@@ -6879,6 +7874,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.1
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 207,
@@ -6916,6 +7917,12 @@ const TEA_DATA = [
     organic: true,
     award: '',
     rating: 4.4
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 208,
@@ -6953,6 +7960,12 @@ const TEA_DATA = [
     organic: true,
     award: '',
     rating: 4.5
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
     id: 209,
@@ -6990,6 +8003,12 @@ const TEA_DATA = [
     organic: false,
     award: '',
     rating: 4.2
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
   },
   {
   id: 210,
@@ -7037,7 +8056,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.7
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 211,
   name: "茉莉龙珠",
@@ -7084,7 +8109,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.6
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 212,
   name: "茉莉大白毫",
@@ -7131,7 +8162,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.7
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 213,
   name: "珠兰大方",
@@ -7178,7 +8215,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
   {
   id: 214,
   name: "珠兰芽珠",
@@ -7225,7 +8268,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.4
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "黄山",
+    harvestYear: "2024春"
+  },
   {
   id: 215,
   name: "桂花龙井",
@@ -7272,7 +8321,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.7
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "狮峰山",
+    harvestYear: "2024秋"
+  },
   {
   id: 218,
   name: "玫瑰普洱",
@@ -7319,7 +8374,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温95-100℃，冲泡最佳",
+    famousMountain: "南糯山",
+    harvestYear: "2024春"
+  },
   {
   id: 219,
   name: "洛神花茶",
@@ -7366,7 +8427,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024秋"
+  },
   {
   id: 220,
   name: "菊花茶",
@@ -7413,7 +8480,13 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.5
-},
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024秋"
+  },
   {
   id: 221,
   name: "金银花茶",
@@ -7460,12 +8533,1733 @@ const TEA_DATA = [
   organic: false,
   award: "",
   rating: 4.3
-},
-  {"id":222,"name":"珠兰茶","type":"花茶","origin":"安徽黄山","grade":"特级","period":"清代","desc":"珠兰花茶是黄山特产，以珠兰花与绿茶窨制而成，香气清雅持久。","detail":"珠兰茶选用黄山境内海拔500-800米的茶园，采撷新鲜珠兰花与烘青绿茶窨制而成。珠兰花期在每年4-5月，鲜花入茶需经过精心养护、通花、起花、复火等工艺，成品茶既有绿茶的鲜爽，又兼具珠兰花的清雅芬芳。","story":"据《黄山志》记载，珠兰茶始于清代乾隆年间，距今已有两百多年历史。黄山茶农在长期实践中发现珠兰花与绿茶香气相融，便创制出这款名茶，曾被列为贡品进献朝廷。","efficacy":"清热解毒、醒脑提神、消食化积、护齿防龋","gradeDesc":"特级：芽叶细嫩，花香浓郁；一级：条索紧结，香气尚浓；二级：滋味醇和，花香持久","color":"黄绿明亮，汤色清澈","brewing":{"temperature":"85-90℃","teaware":"瓷盖碗或玻璃杯","steps":"先温杯，投茶5克，注入1/3水润茶，再注满水，浸泡1-2分钟即可饮用，可续水3-4次"},"storage":"密封保存，置于阴凉干燥处，避免阳光直射和异味侵入，建议冷藏保鲜","foodPairing":"徽州糕点、桂花酥、莲子羹","tastingTerms":"花香清雅、滋味鲜爽、回甘明显","suitableCrowd":"白领、学生、注重养生人群","flavorProfile":{"bitter":1,"astringent":2,"sweet":4,"fragrant":5,"returning":4},"suitableSeason":"春季、秋季","originDetail":"安徽省黄山市境内黄山风景区周边，海拔500-800米，气候温和，雨量充沛，常年云雾缭绕，土壤肥沃，非常适宜茶树生长。","storyExtended":"珠兰茶在黄山地区又称\"花茶之王\"，当地茶农世代传承窨制技艺，每逢珠兰花季，家家户户忙着采花、养花、窨茶。20世纪80年代，珠兰茶曾出口日本、东南亚等地，深受国际友人喜爱。","teaEmoji":"🌸","category":"花茶","wuXing":"木","efficacyDetail":"珠兰花含有丰富的芳香油，具有提神醒脑的功效；绿茶茶多酚可抗氧化、消食化积；两者结合更能清热解毒、清除自由基、保护牙齿。","altitude":"500-800米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（4-5月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"1988年获农业部优质农产品奖","rating":4.5},
-  {"id":223,"name":"玉兰茶","type":"花茶","origin":"江苏苏州","grade":"特级","period":"宋代","desc":"玉兰花茶是苏州传统花茶，以白玉兰花窨制，香气浓郁持久。","detail":"玉兰茶产于苏州虎丘、光福一带，选用当地白玉兰花与烘青绿茶为原料，经过多次窨制而成。玉兰花大而洁白，香气浓郁，与茶香交融，形成独特的花茶风味。","story":"苏州种兰赏兰历史悠久，宋代《平园诗话》记载当地有以玉兰窨茶的传统。明清时期，虎丘一带茶馆多有供应玉兰茶，文人墨客品茗赏兰，留下不少诗篇。","efficacy":"理气和中、散寒止痛、温肺止咳、提神醒脑","gradeDesc":"特级：花大饱满，香气浓郁；一级：花香尚浓，滋味醇厚；二级：香气持久，入口甘醇","color":"橙黄明亮，晶莹剔透","brewing":{"temperature":"90-95℃","teaware":"瓷壶或紫砂壶","steps":"取茶5-6克，以90℃热水冲泡，第一泡洗茶不饮，第二泡浸泡30秒后品饮，可续水5-6次"},"storage":"密封保存于干燥通风处，避免潮湿和异味，建议低温保存","foodPairing":"苏式月饼、枣泥酥、桂花糕","tastingTerms":"花香馥郁、滋味浓醇、甘甜持久","suitableCrowd":"中老年人、女性、体质虚寒者","flavorProfile":{"bitter":1,"astringent":1,"sweet":4,"fragrant":5,"returning":4},"suitableSeason":"冬季、春季","originDetail":"江苏省苏州市虎丘区、光福镇一带，属亚热带季风气候，温暖湿润，四季分明，土壤偏酸性，非常适合玉兰树和茶树的生长。","storyExtended":"苏州玉兰茶在民国时期最为兴盛，虎丘附近的茶厂专门生产玉兰茶，产品远销上海、南京等大城市。改革开放后，苏州恢复玉兰茶生产，并在2010年后开发出有机玉兰茶等高端产品。","teaEmoji":"🌼","category":"花茶","wuXing":"金","efficacyDetail":"玉兰花性温，含有芳香成分，可散寒止痛、温肺理气；配合绿茶的茶多酚，共同起到润肺止咳、提神醒脑的作用，适合冬季饮用。","altitude":"10-50米","priceRange":3,"suitableTime":"冬季午后、春季早晨","harvestSeason":"春季（3-4月采花）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"2015年获苏州非遗产品认证","rating":4.4},
-  {"id":224,"name":"玳玳花茶","type":"花茶","origin":"福建福州","grade":"特级","period":"清代","desc":"玳玳花茶是福州特产花茶，以玳玳花窨制，香气清甜。","detail":"玳玳花茶产于福建省福州市郊及闽侯县，是福州花茶的代表品种之一。玳玳花又名回青橙，花香清甜，与烘青绿茶窨制后，茶香与花香融为一体，滋味醇和甘甜。","story":"福州花茶历史可追溯至清代咸丰年间，当时福州茉莉花茶已闻名天下，玳玳花茶则是20世纪初发展起来的新品种。因其香气独特，很快在东南亚华人中流行，成为侨乡送礼佳品。","efficacy":"疏肝理气、和胃止痛、消食导滞、润肺止咳","gradeDesc":"特级：玳玳花多而新鲜，香气浓郁；一级：花香明显，滋味醇厚；二级：香气尚可，口感甘甜","color":"黄绿透亮，清澈明亮","brewing":{"temperature":"85-90℃","teaware":"盖碗或瓷杯","steps":"取茶5克，以85℃热水冲泡，润茶后注入满杯水，浸泡1-2分钟饮用，可续水3-4次"},"storage":"密封保存于阴凉干燥处，避免阳光直射和串味，冷藏更佳","foodPairing":"福州鱼丸、芋泥、礼饼","tastingTerms":"花香清甜、滋味甘醇、回味悠长","suitableCrowd":"青年女性、胃肠功能较弱者","flavorProfile":{"bitter":1,"astringent":1,"sweet":5,"fragrant":4,"returning":4},"suitableSeason":"春季、秋季","originDetail":"福建省福州市闽侯县、连江县等地，属亚热带海洋性气候，温暖湿润，雨水充沛，丘陵地带红壤土适宜茶树和玳玳花生长。","storyExtended":"玳玳花在福州又称\"回青橙\"，因果实常悬于树上不落，来年新花盛开时旧果犹存，故有\"父子同树\"之说。这一奇特现象被福州茶农巧妙利用，发展出独特的玳玳花茶产业。","teaEmoji":"🍊","category":"花茶","wuXing":"土","efficacyDetail":"玳玳花含有挥发油和类黄酮，具有疏肝理气、和胃止痛的功效；配合绿茶消食化积的作用，对肝胃不和、消化不良有很好的调理作用。","altitude":"100-300米","priceRange":2,"suitableTime":"下午、晚间","harvestSeason":"夏季（6-7月采花）","age":1,"caffeine":3,"processLevel":3,"organic":false,"award":"福建老字号产品","rating":4.3},
-  {"id":225,"name":"黄金茶","type":"黄茶","origin":"湖南保靖","grade":"特级","period":"明代","desc":"黄金茶是湖南保靖特产，因叶色金黄而得名，滋味鲜爽回甘。","detail":"黄金茶产于湖南省湘西土家族苗族自治州保靖县，是当地独有的珍稀茶树品种。茶树新芽呈金黄色，制成的干茶亦呈金黄色，故名\"黄金茶\"。其氨基酸含量极高，滋味特别鲜爽。","story":"据保靖县志记载，黄金茶始于明代洪武年间，距今已有600多年历史。相传一位土家族老人在深山中发现此茶树，采制后香气独特，献于州府，被列为贡茶。当地民间更有\"一两黄金一两茶\"的说法，凸显其珍贵。","efficacy":"清热解毒、生津止渴、抗氧化、增强免疫","gradeDesc":"特级：芽头肥壮，全金黄色，汤色明亮；一级：芽叶完整，色泽金黄；二级：叶色尚金黄，滋味鲜醇","color":"金黄明亮，晶莹剔透","brewing":{"temperature":"80-85℃","teaware":"玻璃杯或瓷盖碗","steps":"先温杯，投茶3-4克，注入1/3杯80℃热水润茶，再注满水，浸泡1分钟即可品饮，可续水2-3次"},"storage":"密封保存于冰箱冷藏室，避免受潮和氧化，开封后尽快饮用","foodPairing":"湘西腊肉、酸汤鱼、土家糍粑","tastingTerms":"鲜爽回甘、毫香显露、滋味醇厚","suitableCrowd":"电脑工作者、爱美女性、免疫力低下者","flavorProfile":{"bitter":1,"astringent":1,"sweet":5,"fragrant":3,"returning":5},"suitableSeason":"春季、夏季","originDetail":"湖南省湘西州保靖县碗米坡镇、迁陵镇等地，海拔400-800米，属于武陵山脉腹地，云雾缭绕，土壤富含硒元素，气候温和湿润，昼夜温差大，适宜茶树积累氨基酸。","storyExtended":"黄金茶因其极高的氨基酸含量（普通绿茶的2-3倍）被称为\"茶中黄金\"。2010年上海世博会上，黄金茶作为湖南特色农产品参展，获得国内外游客青睐。近年来，保靖县大力发展黄金茶产业，已建成标准化茶园3万余亩。","teaEmoji":"✨","category":"黄茶","wuXing":"金","efficacyDetail":"黄金茶氨基酸含量极高，其中茶氨酸占比超过50%，具有显著的增强免疫力、抗疲劳、舒缓情绪的作用；另含有丰富的硒元素，可抗氧化、防衰老。","altitude":"400-800米","priceRange":4,"suitableTime":"上午、下午","harvestSeason":"春季（3-4月）","age":1,"caffeine":2,"processLevel":4,"organic":false,"award":"2018年获中国茶叶博览会金奖","rating":4.7},
-  {"id":227,"name":"文山包种","type":"乌龙茶","origin":"台湾台北","grade":"比赛茶级","period":"清代","desc":"文山包种是台湾北部特色乌龙茶，香气高昂著称。","detail":"文山包种产于台湾省新北市坪林区、石碇区、深坑区一带，属于台湾北部三大茶叶产区之一。因早期采用纸包包装而得名\"包种\"，属轻度发酵乌龙茶，以香气高昂著称，有\"北包种\"之美誉。","story":"文山包种的历史可追溯至清代嘉庆年间，距今约200年。当时福建安溪茶商将乌龙茶苗引入台北文山地区种植，并传授制茶技艺。由于当地气候温和、雨量充沛，茶叶品质逐渐超越福建原产地，所产茶叶被统称为\"文山包种\"，成为台湾乌龙茶的代表品种之一。","efficacy":"减肥消脂、抗氧化、预防龋齿、舒缓神经","gradeDesc":"比赛茶级：香气高昂，滋味醇厚，回甘强；特级：花香明显，滋味甘醇；一级：香气尚可，滋味平和","color":"蜜绿金黄，清澈明亮","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（盖碗或紫砂壶）","steps":"取茶8克，以沸水冲泡，第一泡洗茶不饮，第二泡浸泡30秒，第三泡起每泡延长10秒，可连续冲泡6-7次"},"storage":"密封保存于阴凉干燥处，避免阳光直射和潮湿；未开封可保存1-2年，冷藏更佳","foodPairing":"台湾凤梨酥、桂花糕、绿豆糕","tastingTerms":"香气高昂、花香显著、滋味醇厚、回甘持久","suitableCrowd":"年轻人、上班族、减肥人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":3,"fragrant":5,"returning":4},"suitableSeason":"春季、秋季","originDetail":"台湾省新北市坪林区、石碇区，位于翡翠水库上游，海拔200-600米，属亚热带季风气候，年均温20-25℃，降雨充沛，常年云雾缭绕，土壤为酸性红土，非常适宜乌龙茶生长。","storyExtended":"文山包种在台湾茶发展史中地位重要。1975年台湾省政府举办首届优良食品竞赛，文山包种获得特等奖。此后每年春秋两季的\"文山包种茶比赛\"成为台湾茶业界盛事，最高等级的\"特等奖\"茶一斤可卖到数万台币。坪林区还建立了台湾唯一的茶叶博物馆，记录文山包种的千年传承。","teaEmoji":"🌿","category":"乌龙茶","wuXing":"木","efficacyDetail":"文山包种属于轻度发酵乌龙茶，茶多酚和咖啡因含量适中，儿茶素具有抗氧化、减肥消脂的功效；茶叶中的氟化物可预防龋齿；高香品种的特性来自丰富的芳香烃物质，有舒缓神经、提神醒脑的作用。","altitude":"200-600米","priceRange":4,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）、秋季（10-11月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"1975年获台湾优良食品竞赛特等奖","rating":4.6},
-  {"id":228,"name":"木栅铁观音","type":"乌龙茶","origin":"台湾台北","grade":"比赛茶级","period":"清代","desc":"木栅铁观音是台北木栅特色重发酵乌龙茶，滋味醇厚回甘。","detail":"木栅铁观音产于台湾省台北市文山区木栅一带，是台湾最具代表性的重发酵乌龙茶。1885年由福建安溪引入铁观音茶苗，在木栅深坑地区种植成功，因地制宜发展出独特的重发酵工艺，形成滋味浓郁、兰香沉韵的品质特征。","story":"木栅铁观音的历史与台北茶产业兴衰紧密相连。清代末年，福建茶商张氏兄弟将安溪铁观音引种至木栅，试种成功后逐步扩大规模。日据时期，木栅铁观音曾作为军供茶品。1949年后，茶农在传统工艺基础上改进创新，品质更上一层。1970年代，木栅铁观音在台湾十大名茶评选中脱颖而出，成为台湾乌龙茶的经典代表。","efficacy":"消脂减肥、降血压、降血脂、抗衰老","gradeDesc":"比赛茶级：滋味醇厚，甘甜回味，兰香沉韵；特级：香气浓郁，滋味甘醇；一级：香气尚可，滋味平和","color":"金黄透亮，琥珀色泽","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（紫砂壶或盖碗）","steps":"取茶8-10克，以沸水冲泡，第一泡洗茶，第二泡浸泡30-40秒，后续每泡延长10-15秒，可冲泡8-10次，品质极佳者可达12泡以上"},"storage":"密封保存于阴凉干燥处，避免阳光直射；适合长期存放，年代越久越醇香，建议冷藏保存","foodPairing":"铁板牛排、红烧肉、台湾卤肉饭","tastingTerms":"兰香沉韵、滋味醇厚、回甘绵长、喉韵显著","suitableCrowd":"中年人、爱茶人士、需降脂人群","flavorProfile":{"bitter":3,"astringent":3,"sweet":3,"fragrant":4,"returning":5},"suitableSeason":"秋季、冬季","originDetail":"台湾省台北市文山区木栅路、指南路一带，海拔100-400米，属于台北盆地边缘丘陵地带，背靠指南山，面临景美溪，气候温暖潮湿，常年云雾缭绕，土壤为红土，非常适合重发酵乌龙茶的种植。","storyExtended":"木栅铁观音最独特之处在于其\"重发酵\"工艺，发酵度达到30%-40%，远高于一般乌龙茶，这使茶叶中的儿茶素充分氧化，形成独特的韵味。当地茶农世代传承\"看青做青\"的经验，根据天气、茶叶状态灵活调整发酵程度。2008年，木栅铁观音传统手工制作技艺被列入台北市非物质文化遗产，成为台湾茶文化的重要符号。","teaEmoji":"🍃","category":"乌龙茶","wuXing":"金","efficacyDetail":"重发酵工艺使木栅铁观音含有较多的茶红素和茶褐素，具有显著的消脂减肥、降血脂功效；茶叶中的咖啡因可促进新陈代谢；丰富的儿茶素和维生素E具有抗衰老、增强免疫力的作用；铁观音特有的兰香成分有舒缓情绪的功效。","altitude":"100-400米","priceRange":5,"suitableTime":"下午、晚间","harvestSeason":"秋季（10-11月）","age":3,"caffeine":4,"processLevel":5,"organic":false,"award":"2008年列入台北市非物质文化遗产","rating":4.8},
-  {"id":229,"name":"腊梅花茶","type":"花茶","origin":"四川成都","grade":"特级","period":"清代","desc":"腊梅花茶，清香淡雅","detail":"腊梅花茶以腊梅花蕾为原料，冲泡后香气清雅。","story":"腊梅在寒冬开放，腊梅花茶是四川地区的传统花茶。","efficacy":"清热解毒、疏肝理气、缓解疲劳","gradeDesc":"特级：花蕾饱满，色泽金黄，香气清雅","color":"淡黄清亮","brewing":{"temperature":"90-95℃","teaware":"玻璃杯","steps":"直接冲泡，浸泡3-5分钟"},"storage":"密封保存于阴凉干燥处","foodPairing":"川菜、糕点","tastingTerms":"清香淡雅、甘甜可口","suitableCrowd":"大众消费者、冬季饮用","flavorProfile":{"bitter":0,"astringent":1,"sweet":7,"fragrant":8,"returning":5},"suitableSeason":"冬季","originDetail":"四川省成都市","storyExtended":"腊梅花茶是四川传统花茶品种，腊梅在寒冬季节绽放。","teaEmoji":"🌸","category":"花茶","wuXing":"金","efficacyDetail":"腊梅花茶含有腊梅精油，具有清热解毒、疏肝理气的功效。","altitude":"海拔300-600米","priceRange":2,"suitableTime":"午+晚","harvestSeason":"冬","age":0,"caffeine":0,"processLevel":1,"organic":false,"award":"","rating":4.3}
+,
+    soupColor: "#FFFDD0",
+    bodyType: "热底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
+  },
+  {
+    id: 222,
+    name: '太行毛尖',
+    type: '绿茶',
+    origin: '河北保定',
+    grade: '一级',
+    period: '现代',
+    desc: '太行山麓绿茶，芽尖细嫩鲜醇',
+    detail: '太行毛尖产于河北保定太行山区，茶树生长在海拔800-1200米的高山云雾之中。采用传统毛尖制作工艺，经杀青、揉捻、干燥等工序精制而成，芽尖细嫩，白毫显露，滋味鲜爽醇厚。',
+    story: '太行山脉自古是茶马古道要塞，20世纪80年代保定茶农引进优质茶种，在太行山区试种成功，开创了河北绿茶新篇章。',
+    efficacy: '清热解毒、提神醒脑、消食化积',
+    gradeDesc: '一级：一芽一叶或一芽二叶初展，色泽翠绿，白毫显露',
+    color: '翠绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '透明玻璃杯',
+      steps: '先注水1/3润茶，再注满水，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避免阳光直射和异味入侵',
+    foodPairing: '河北驴肉火烧、保定冰糖葫芦、核桃酥',
+    tastingTerms: '鲜爽醇厚、嫩香持久、回甘明显',
+    suitableCrowd: '办公室白领、学生、茶艺爱好者',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 6, fragrant: 5, returning: 5},
+    suitableSeason: '春季、夏季',
+    originDetail: '河北省保定市涞源县太行山区，海拔800-1200米，气候凉爽，昼夜温差大，土壤富含矿物质',
+    storyExtended: '太行毛尖的诞生源于改革开放后河北茶产业的振兴。太行山区虽地处北方，但独特的微气候条件使其成为茶叶种植的新兴区域。当地茶农结合信阳毛尖工艺与本地特点，创制出独具北国风味的太行毛尖。',
+    teaEmoji: '⛰️',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '富含茶多酚和氨基酸，具有清热解毒、提神醒脑、消食化积的功效，适合日常饮用。',
+    altitude: '海拔800-1200米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '',
+    rating: 4.2
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 223,
+    name: '燕山翠茗',
+    type: '绿茶',
+    origin: '河北承德',
+    grade: '一级',
+    period: '现代',
+    desc: '燕山山脉新秀绿茶，清香怡人',
+    detail: '燕山翠茗产于河北承德燕山山脉，茶园分布在海拔600-1000米的山坡上。采用现代绿茶加工工艺，条索紧结，色泽翠绿，冲泡后汤色明亮，香气清高持久。',
+    story: '燕山地区种茶始于21世纪初，承德利用其独特的山地气候，引进抗寒茶种，填补了河北高纬度地区茶叶生产的空白。',
+    efficacy: '清热解毒、生津止渴、抗氧化',
+    gradeDesc: '一级：一芽二叶，条索紧结，色泽翠绿油润',
+    color: '翠绿清澈',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '白瓷盖碗',
+      steps: '取茶3克，85℃水冲泡，第一泡30秒，后续递增15秒'
+    },
+    storage: '密封保存于阴凉干燥处，冷藏保鲜更佳',
+    foodPairing: '承德杏仁露、鲜花玫瑰饼、山楂糕',
+    tastingTerms: '清香高爽、滋味甘醇、回甘清甜',
+    suitableCrowd: '中老年人、养生爱好者、旅游者',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 6, fragrant: 6, returning: 5},
+    suitableSeason: '春季、夏季',
+    originDetail: '河北省承德市兴隆县燕山山脉，海拔600-1000米，属温带大陆性季风气候',
+    storyExtended: '燕山翠茗是河北承德响应国家南茶北引战略的成果。燕山山脉云雾缭绕，土壤肥沃，出产的茶叶具有独特的北国清香，成为承德旅游的特色伴手礼。',
+    teaEmoji: '🏔️',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '含有丰富的茶多酚和维生素C，具有良好的抗氧化、提神醒脑功效。',
+    altitude: '海拔600-1000米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.0
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 224,
+    name: '晋北红茶',
+    type: '红茶',
+    origin: '山西大同',
+    grade: '一级',
+    period: '现代',
+    desc: '山西北部红茶，温润醇厚绵甜',
+    detail: '晋北红茶产于山西大同周边山区，是北方少有的红茶品种。采用传统工夫红茶工艺，经萎凋、揉捻、发酵、干燥制成，汤色红艳明亮，滋味醇厚甘甜。',
+    story: '山西自古是茶马古道重要节点，晋商以茶闻名。21世纪初大同地区引种茶树成功，结合红茶工艺创制晋北红茶，延续晋商茶文化。',
+    efficacy: '暖胃养胃、提神消疲、促进消化',
+    gradeDesc: '一级：条索紧结，色泽乌润，金毫显露',
+    color: '红艳明亮',
+    brewing: {
+      temperature: '90-95℃',
+      teaware: '紫砂壶或瓷壶',
+      steps: '取茶5克，95℃水冲泡，第一泡洗茶，第二泡浸泡2分钟品饮'
+    },
+    storage: '密封保存于阴凉干燥处，避免潮湿和异味',
+    foodPairing: '山西刀削面、平遥牛肉、太谷饼',
+    tastingTerms: '醇厚甘甜、蜜香显著、回味悠长',
+    suitableCrowd: '中老年人、胃寒者、冬季饮用人群',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 5, returning: 6},
+    suitableSeason: '秋季、冬季',
+    originDetail: '山西省大同市灵丘县山区，海拔800-1200米，黄土高原边缘地带，光照充足',
+    storyExtended: '晋北红茶的诞生与晋商文化密不可分。历史上晋商通过茶马古道将南方茶叶运往蒙古、俄罗斯。如今大同茶农利用本地资源创制红茶，实现了南茶北制的文化传承。',
+    teaEmoji: '🏯',
+    category: '工夫红茶',
+    wuXing: '火',
+    efficacyDetail: '全发酵茶，茶黄素和茶红素含量高，具有暖胃养胃、促进血液循环的功效。',
+    altitude: '海拔800-1200米',
+    priceRange: 2,
+    suitableTime: '午+晚',
+    harvestSeason: '夏',
+    age: 0,
+    caffeine: 3,
+    processLevel: 4,
+    organic: false,
+    award: '',
+    rating: 4.1
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
+  },
+  {
+    id: 225,
+    name: '张库茶道',
+    type: '黑茶',
+    origin: '河北张家口',
+    grade: '一级',
+    period: '清代',
+    desc: '张家口边销黑茶，茶道历史传承',
+    detail: '张库茶道源于张家口至库伦（今乌兰巴托）的古茶道，曾是万里茶道重要枢纽。此茶为后发酵黑茶，茶汤深红透亮，滋味醇厚陈香，承载着晋商茶文化的厚重历史。',
+    story: '张库大道始于明末清初，晋商将南方砖茶经张家口运往蒙古草原，这条茶道延续三百余年，是万里茶道的重要组成部分。',
+    efficacy: '消食解腻、降脂减肥、调理肠胃',
+    gradeDesc: '一级：砖形紧实，色泽黑褐油润，陈香显露',
+    color: '深红透亮',
+    brewing: {
+      temperature: '100℃',
+      teaware: '紫砂壶或煮茶器',
+      steps: '取茶8克，沸水冲泡或煮饮，第一泡洗茶，第二泡浸泡3分钟'
+    },
+    storage: '密封保存于通风干燥处，越陈越香',
+    foodPairing: '烤全羊、手把肉、奶皮子、炒米',
+    tastingTerms: '陈香醇厚、滋味浓酽、回甘悠长',
+    suitableCrowd: '肉食爱好者、高血脂人群、中老年人',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 3, fragrant: 6, returning: 7},
+    suitableSeason: '冬季',
+    originDetail: '河北省张家口市，古张库大道起点，海拔500-800米',
+    storyExtended: '张库茶道是万里茶道的重要路段。晋商从福建武夷山采购茶叶，经水路运至汉口，再经陆路至张家口，最后用骆驼运往蒙古和俄罗斯。鼎盛时期每年运茶量达数十万担。',
+    teaEmoji: '🐫',
+    category: '黑茶',
+    wuXing: '水',
+    efficacyDetail: '后发酵黑茶富含益生菌和茶多糖，具有消食解腻、降脂减肥、调理肠胃的功效，尤其适合肉食为主的人群。',
+    altitude: '海拔500-800米',
+    priceRange: 2,
+    suitableTime: '午+晚',
+    harvestSeason: '秋',
+    age: 1,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.3
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024秋"
+  },
+  {
+    id: 226,
+    name: '辽红',
+    type: '红茶',
+    origin: '辽宁丹东',
+    grade: '一级',
+    period: '现代',
+    desc: '辽宁丹东红茶，汤色红艳甘醇',
+    detail: '辽红产于辽宁丹东鸭绿江畔，是东北地区少有的优质红茶。茶树生长在北纬40度的温和气候中，叶片肥厚，内含物质丰富，制成红茶后汤色红艳，蜜香显著。',
+    story: '丹东种茶始于20世纪90年代，当地利用鸭绿江流域的温暖小气候引种茶苗，经过多年培育成功创制辽红，填补了东北红茶空白。',
+    efficacy: '暖胃驱寒、提神醒脑、促进血液循环',
+    gradeDesc: '一级：条索紧结，色泽乌润，蜜香显露',
+    color: '红艳明亮',
+    brewing: {
+      temperature: '90-95℃',
+      teaware: '瓷壶或玻璃壶',
+      steps: '取茶5克，95℃水冲泡，第一泡洗茶，第二泡浸泡2分钟'
+    },
+    storage: '密封保存于阴凉干燥处，避免受潮',
+    foodPairing: '丹东海鲜、朝鲜族冷面、打糕',
+    tastingTerms: '蜜香浓郁、滋味甘醇、顺滑回甘',
+    suitableCrowd: '中老年人、女性、体寒者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 6, returning: 6},
+    suitableSeason: '秋季、冬季',
+    originDetail: '辽宁省丹东市宽甸县鸭绿江流域，海拔200-500米，温带湿润气候',
+    storyExtended: '辽红的诞生是东北茶产业的突破。丹东利用鸭绿江水汽调节气温，创造出适合茶树生长的小环境，所产红茶品质逐年提升，已成为辽宁特色农产品。',
+    teaEmoji: '🍂',
+    category: '工夫红茶',
+    wuXing: '火',
+    efficacyDetail: '全发酵茶，茶黄素含量高，具有暖胃驱寒、促进血液循环的功效。',
+    altitude: '海拔200-500米',
+    priceRange: 3,
+    suitableTime: '午+晚',
+    harvestSeason: '夏',
+    age: 0,
+    caffeine: 3,
+    processLevel: 3,
+    organic: false,
+    award: '',
+    rating: 4.2
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
+  },
+  {
+    id: 227,
+    name: '凤城老窖',
+    type: '黑茶',
+    origin: '辽宁凤城',
+    grade: '特级',
+    period: '现代',
+    desc: '凤城陈年黑茶，窖藏风味独特',
+    detail: '凤城老窖产于辽宁凤城，采用独特的窖藏发酵工艺。茶叶在特制窖洞中经年陈化，形成独特的陈香风味，汤色深红如琥珀，滋味醇厚甘滑。',
+    story: '凤城种茶历史虽短，但当地利用东北特有的窑洞环境，借鉴白酒窖藏理念，独创茶叶窖藏工艺，成为东北黑茶的特色品牌。',
+    efficacy: '消食化积、降脂降压、暖胃养胃',
+    gradeDesc: '特级：砖面平整，色泽黑褐，陈香浓郁',
+    color: '深红琥珀色',
+    brewing: {
+      temperature: '100℃',
+      teaware: '煮茶器或紫砂壶',
+      steps: '取茶8-10克，沸水煮3-5分钟，或沸水冲泡5分钟'
+    },
+    storage: '密封保存于通风干燥处，窖藏环境更佳',
+    foodPairing: '东北炖菜、锅包肉、粘豆包',
+    tastingTerms: '陈香醇厚、甘滑顺口、回味绵长',
+    suitableCrowd: '中老年人、三高人群、肉食爱好者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 4, fragrant: 5, returning: 7},
+    suitableSeason: '冬季',
+    originDetail: '辽宁省凤城市，海拔200-400米，温带大陆性气候',
+    storyExtended: '凤城老窖的窖藏工艺源自当地白酒文化。凤城酒厂的技术人员跨界创新，将白酒窖藏理念应用于茶叶陈化，研发出独具东北特色的窖藏黑茶。',
+    teaEmoji: '🏺',
+    category: '黑茶',
+    wuXing: '水',
+    efficacyDetail: '后发酵茶，含有丰富的茶多糖和益生菌，降脂降压效果显著。',
+    altitude: '海拔200-400米',
+    priceRange: 2,
+    suitableTime: '午+晚',
+    harvestSeason: '秋',
+    age: 2,
+    caffeine: 1,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.0
+  ,
+    soupColor: "#4A0E0E",
+    bodyType: "寒底",
+    learningContent: "水温100℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024秋"
+  },
+  {
+    id: 228,
+    name: '长白山红松',
+    type: '绿茶',
+    origin: '吉林长白山',
+    grade: '一级',
+    period: '现代',
+    desc: '长白山特色松针茶，清香养生',
+    detail: '长白山红松茶是以长白山红松松针为原料的特色茶饮，松针经清洗、切段、烘干制成。茶汤黄绿清澈，具有独特的松香气味，富含维生素C和多种微量元素。',
+    story: '长白山地区朝鲜族居民自古有饮用松针水的习惯。现代科研发现松针含有丰富的营养成分，遂将其开发为特色茶品，成为长白山旅游热门伴手礼。',
+    efficacy: '增强免疫、抗氧化、降血脂、清肺',
+    gradeDesc: '一级：松针完整，色泽翠绿，松香清新',
+    color: '黄绿清澈',
+    brewing: {
+      temperature: '85-90℃',
+      teaware: '玻璃杯或瓷杯',
+      steps: '取松针茶3克，90℃水冲泡，浸泡3-5分钟'
+    },
+    storage: '密封保存于阴凉干燥处，防潮防霉',
+    foodPairing: '长白山蓝莓干、松子、朝鲜族米肠',
+    tastingTerms: '松香清新、口感清爽、回甘微甜',
+    suitableCrowd: '中老年人、三高人群、户外运动者',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 4, fragrant: 7, returning: 3},
+    suitableSeason: '四季皆宜',
+    originDetail: '吉林省长白山保护区，海拔800-2000米，原始森林生态环境',
+    storyExtended: '长白山红松茶源于朝鲜族的传统养生智慧。当地老人常年饮用松针水养生延寿，现代科学研究证实松针含有丰富的维生素、氨基酸和矿物质，被誉为天然维生素丸。',
+    teaEmoji: '🌲',
+    category: '代用茶',
+    wuXing: '木',
+    efficacyDetail: '松针富含维生素C、维生素E、前花青素和多种矿物质，具有显著的抗氧化、增强免疫力的功效。',
+    altitude: '海拔800-2000米',
+    priceRange: 1,
+    suitableTime: '早+午',
+    harvestSeason: '夏',
+    age: 0,
+    caffeine: 0,
+    processLevel: 1,
+    organic: true,
+    award: '',
+    rating: 4.3
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
+  },
+  {
+    id: 229,
+    name: '吉林白茶',
+    type: '白茶',
+    origin: '吉林延边',
+    grade: '一级',
+    period: '现代',
+    desc: '吉林延边白茶，清甜淡雅怡人',
+    detail: '吉林白茶产于延边朝鲜族自治州，是东北地区唯一的白茶品种。利用当地冷凉气候，采用白茶自然萎凋工艺，成品茶毫白如银，滋味清甜淡雅。',
+    story: '延边种茶始于21世纪初，当地利用长白山余脉的冷凉气候，引种白茶品种成功，成为纬度最高的白茶产区之一。',
+    efficacy: '清热解毒、降火明目、美容养颜',
+    gradeDesc: '一级：芽叶完整，白毫显露，色泽银白',
+    color: '杏黄明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '透明玻璃杯',
+      steps: '取茶3克，85℃水冲泡，上投法先注水再投茶，浸泡2分钟'
+    },
+    storage: '密封冷藏保存，避免受潮和异味',
+    foodPairing: '朝鲜族泡菜、冷面、打糕',
+    tastingTerms: '清甜淡雅、毫香显露、回甘持久',
+    suitableCrowd: '女性、上班族、注重美容者',
+    flavorProfile: {bitter: 0, astringent: 1, sweet: 7, fragrant: 4, returning: 6},
+    suitableSeason: '夏季',
+    originDetail: '吉林省延边朝鲜族自治州龙井市，海拔300-600米',
+    storyExtended: '延边白茶的诞生是东北茶产业多元化发展的成果。朝鲜族居民喜好清淡饮食，白茶正合其口味，很快融入当地饮食文化。',
+    teaEmoji: '❄️',
+    category: '白茶',
+    wuXing: '金',
+    efficacyDetail: '白茶保留最多的天然成分，具有清热解毒、降火明目、美容养颜的功效。',
+    altitude: '海拔300-600米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 1,
+    processLevel: 1,
+    organic: false,
+    award: '',
+    rating: 4.1
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 230,
+    name: '五大连池茶',
+    type: '绿茶',
+    origin: '黑龙江黑河',
+    grade: '一级',
+    period: '现代',
+    desc: '火山岩壤绿茶，矿物质丰富',
+    detail: '五大连池茶产于黑龙江五大连池火山群周边，茶树生长在火山灰土壤中，富含矿物质和微量元素。茶叶条索紧结，汤色嫩绿，滋味鲜爽，带有独特的火山岩韵。',
+    story: '五大连池是世界地质公园，近年来当地利用火山岩土壤的独特优势发展茶叶种植，成为中国最北端的绿茶产区之一。',
+    efficacy: '补充矿物质、抗氧化、提神醒脑',
+    gradeDesc: '一级：一芽二叶，条索紧结，色泽翠绿',
+    color: '嫩绿清澈',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '瓷杯或玻璃杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处，防潮防霉',
+    foodPairing: '东北红肠、俄罗斯列巴、野生蓝莓',
+    tastingTerms: '鲜爽甘醇、火山岩韵、回甘明显',
+    suitableCrowd: '户外运动者、注重健康人群',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 5, fragrant: 4, returning: 5},
+    suitableSeason: '夏季',
+    originDetail: '黑龙江省黑河市五大连池风景区，海拔300-600米，火山岩土壤',
+    storyExtended: '五大连池的火山岩土壤富含硒、锌、铁等微量元素，被称为神奇矿泉之乡。当地茶农利用这一地理优势创制茶叶，成为独一无二的火山岩茶。',
+    teaEmoji: '🌋',
+    category: '炒青绿茶',
+    wuXing: '土',
+    efficacyDetail: '茶叶中富含火山岩土壤中的硒、锌等微量元素，对增强免疫力、抗氧化有显著效果。',
+    altitude: '海拔300-600米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4.0
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 231,
+    name: '小兴安岭茶',
+    type: '绿茶',
+    origin: '黑龙江伊春',
+    grade: '一级',
+    period: '现代',
+    desc: '小兴安岭野生茶，天然纯净',
+    detail: '小兴安岭茶产于黑龙江伊春小兴安岭林区，利用当地野生茶树种质资源培育而成。茶叶生长在原始森林环境中，天然纯净无污染，滋味清新鲜爽。',
+    story: '小兴安岭是中国重要的生态屏障，林区深处有野生茶树分布。伊春林区职工在转向林下经济过程中，开发野生茶资源，创制了小兴安岭茶。',
+    efficacy: '清热解毒、提神醒脑、延缓衰老',
+    gradeDesc: '一级：条索自然，色泽翠绿，清香扑鼻',
+    color: '碧绿清澈',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，80℃水冲泡，浸泡1-2分钟即可'
+    },
+    storage: '密封保存于阴凉干燥处，防潮防异味',
+    foodPairing: '东北山珍、榛蘑炖鸡、林蛙油',
+    tastingTerms: '清新自然、野韵独特、回甘甘甜',
+    suitableCrowd: '生态旅游者、注重食品安全者',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 6, fragrant: 5, returning: 5},
+    suitableSeason: '夏季',
+    originDetail: '黑龙江省伊春市小兴安岭林区，海拔400-800米，原始森林环境',
+    storyExtended: '小兴安岭茶的开发源于林区经济转型。伊春曾是木材主产区，禁伐后林区职工利用野生茶树资源发展茶产业，实现了从砍树人到种茶人的转变。',
+    teaEmoji: '🌳',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '野生茶树天然生长于原始森林中，无农药化肥残留，茶多酚含量高，抗氧化效果显著。',
+    altitude: '海拔400-800米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4.2
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 232,
+    name: '古丈毛尖',
+    type: '绿茶',
+    origin: '湖南古丈',
+    grade: '特级',
+    period: '唐代',
+    desc: '湘西古丈毛尖，条索紧细显毫',
+    detail: '古丈毛尖产于湖南湘西古丈县，是中国历史名茶。茶叶条索紧细圆直，白毫显露，色泽翠绿，冲泡后汤色清澈明亮，香气持久，滋味鲜醇回甘。',
+    story: '古丈毛尖始于唐代，宋列为贡品，清光绪年间闻名全国。1957年莱比锡国际博览会展出，1982年被评为全国名茶。',
+    efficacy: '清热解毒、提神醒脑、抗氧化、降脂',
+    gradeDesc: '特级：一芽一叶初展，条索紧细，白毫满披',
+    color: '翠绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '透明玻璃杯',
+      steps: '取茶3克，中投法，先注1/3水润茶，再注满浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '湘西腊肉、葛根粉、猕猴桃',
+    tastingTerms: '鲜醇回甘、嫩香持久、白毫显露',
+    suitableCrowd: '白领、学生、养生人群',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 7, fragrant: 6, returning: 7},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖南省湘西州古丈县，武陵山脉中段，海拔300-800米',
+    storyExtended: '古丈毛尖有千年历史。据《古丈坪厅志》记载，唐代即已产茶。宋代被列为贡品。1957年在莱比锡国际博览会上展出，轰动欧洲。宋祖英曾演唱《古丈茶歌》宣传家乡茶叶。',
+    teaEmoji: '🌱',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '富含茶多酚、氨基酸和维生素，清热解毒、提神醒脑，长期饮用可降血脂、抗氧化。',
+    altitude: '海拔300-800米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '1982年全国名茶',
+    rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 233,
+    name: '石门银峰',
+    type: '绿茶',
+    origin: '湖南石门',
+    grade: '特级',
+    period: '现代',
+    desc: '石门银峰绿茶，银毫显露鲜爽',
+    detail: '石门银峰产于湖南石门县壶瓶山区，因茶芽白毫如银、形似山峰而得名。茶叶外形紧细挺秀，色泽翠绿润泽，冲泡后汤色嫩绿明亮，滋味鲜爽甘醇。',
+    story: '石门银峰创制于20世纪80年代，由湖南农业大学与石门县茶叶专家联合研制。壶瓶山海拔千米以上，常年云雾缭绕，是优质绿茶理想产区。',
+    efficacy: '清热解毒、提神醒脑、生津止渴',
+    gradeDesc: '特级：一芽一叶，银毫满披，挺秀如峰',
+    color: '嫩绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，上投法先注水再投茶，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避免受潮和异味',
+    foodPairing: '石门肥肠、腊味合蒸、野生菌',
+    tastingTerms: '鲜爽甘醇、毫香显著、回甘持久',
+    suitableCrowd: '办公室人群、学生、养生者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 6, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖南省常德市石门县壶瓶山，海拔800-1200米，云雾缭绕',
+    storyExtended: '石门银峰是湖南名茶后起之秀。2007年获中茶杯一等奖，此后连续多年获奖。壶瓶山是国家级自然保护区，茶叶品质优异。',
+    teaEmoji: '⛰️',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '高海拔云雾茶，氨基酸含量丰富，鲜爽度高，提神醒脑效果好。',
+    altitude: '海拔800-1200米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '2007年中茶杯一等奖',
+    rating: 4.4
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 234,
+    name: '桐柏玉叶',
+    type: '绿茶',
+    origin: '河南桐柏',
+    grade: '一级',
+    period: '现代',
+    desc: '桐柏山绿茶，叶色翠绿如玉',
+    detail: '桐柏玉叶产于河南桐柏山，茶树生长在海拔600-1000米的山地。茶叶外形扁平光滑，色泽翠绿如玉，冲泡后汤色碧绿清澈，香气清高，滋味鲜爽回甘。',
+    story: '桐柏山是淮河源头，自古有野生茶树分布。1980年代桐柏县大力发展茶叶产业，引进龙井茶制作工艺，创制出桐柏玉叶这一特色名茶。',
+    efficacy: '清热解毒、生津止渴、防癌抗癌',
+    gradeDesc: '一级：扁平光滑，色泽翠绿，清香宜人',
+    color: '碧绿清澈',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '桐柏豆筋、南阳蒸菜、土蜂蜜',
+    tastingTerms: '鲜爽回甘、清香持久、甘甜可口',
+    suitableCrowd: '大众消费者、养生爱好者',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 6, fragrant: 5, returning: 5},
+    suitableSeason: '春季、夏季',
+    originDetail: '河南省南阳市桐柏县桐柏山，海拔600-1000米，淮河源头',
+    storyExtended: '桐柏玉叶得名于其形如玉叶、色如翡翠。桐柏山是道教名山，风景秀丽，所产茶叶品质优良，是河南绿茶的重要代表。',
+    teaEmoji: '🍃',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '富含茶多酚和硒元素，清热解毒、生津止渴，具有防癌抗癌的辅助功效。',
+    altitude: '海拔600-1000米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.1
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 235,
+    name: '仰天雪绿',
+    type: '绿茶',
+    origin: '河南固始',
+    grade: '一级',
+    period: '现代',
+    desc: '固始高山绿茶，雪后采摘珍贵',
+    detail: '仰天雪绿产于河南固始县仰天洼，因茶园位于高山之巅，冬日积雪覆盖，雪后采摘而得名。茶叶条索紧细，色泽翠绿带毫，滋味鲜爽甘醇，具有独特的高山韵。',
+    story: '固始县种茶历史悠久，仰天洼海拔800米以上，气候寒冷。茶农发现雪后茶叶品质更佳，遂创制仰天雪绿这一特色茶品。',
+    efficacy: '清热解毒、提神醒脑、抗氧化',
+    gradeDesc: '一级：条索紧细，色泽翠绿，白毫显露',
+    color: '嫩绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，80℃水冲泡，上投法，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '固始鹅块、信阳炖菜、芝麻烧饼',
+    tastingTerms: '鲜爽甘醇、高山韵显、回甘清甜',
+    suitableCrowd: '学生、白领、茶文化爱好者',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 6, fragrant: 5, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '河南省信阳市固始县仰天洼，海拔800-1000米，高山云雾区',
+    storyExtended: '仰天雪绿的名字充满诗意，取自仰天白雪，绿满山川之意。因茶园海拔高，冬日积雪覆盖，雪后初晴时采摘的茶叶格外鲜嫩，品质最佳。',
+    teaEmoji: '🏔️',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '高山寒冷环境使茶叶氨基酸含量升高，茶多酚比例适中，鲜爽度极佳，提神效果好。',
+    altitude: '海拔800-1000米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '',
+    rating: 4.3
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 236,
+    name: '狗牯脑茶',
+    type: '绿茶',
+    origin: '江西遂川',
+    grade: '特级',
+    period: '明代',
+    desc: '遂川名茶，香气清高滋味醇厚',
+    detail: '狗牯脑茶产于江西遂川县汤湖镇狗牯脑山，因山形似狗头而得名。茶叶条索紧结弯曲，色泽翠绿，冲泡后汤色黄绿明亮，香气清高，滋味醇厚回甘。',
+    story: '狗牯脑茶始于明代，清嘉庆年间被列为贡品。1915年获巴拿马万国博览会金奖。狗牯脑山常年云雾缭绕，茶叶品质极佳。',
+    efficacy: '清热解毒、提神醒脑、降脂减肥',
+    gradeDesc: '特级：一芽一叶，条索紧结，色泽翠绿润泽',
+    color: '黄绿明亮',
+    brewing: {
+      temperature: '85-90℃',
+      teaware: '玻璃杯或白瓷杯',
+      steps: '取茶3克，85℃水冲泡，中投法，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '遂川板鸭、井冈山豆皮、客家米果',
+    tastingTerms: '醇厚回甘、香气清高、滋味浓郁',
+    suitableCrowd: '中老年人、茶文化爱好者',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 6, fragrant: 7, returning: 7},
+    suitableSeason: '春季、秋季',
+    originDetail: '江西省吉安市遂川县汤湖镇狗牯脑山，海拔500-900米',
+    storyExtended: '狗牯脑茶得名于一座形似狗头的山峰。传说山上曾有一户人家养了一条忠犬，守护茶园百年。1915年获巴拿马金奖后名声大噪，成为江西第一名茶。',
+    teaEmoji: '🐕',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '富含茶多酚和氨基酸，清热解毒、提神醒脑，长期饮用有助于降脂减肥。',
+    altitude: '海拔500-900米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '1915年巴拿马金奖',
+    rating: 4.5
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 237,
+    name: '靖安白茶',
+    type: '白茶',
+    origin: '江西靖安',
+    grade: '特级',
+    period: '宋代',
+    desc: '靖安白茶，氨基酸高鲜爽甘甜',
+    detail: '靖安白茶产于江西靖安县，属于绿茶类中的白化品种。春季低温时茶芽呈玉白色，氨基酸含量高达6%以上，滋味特别鲜爽甘甜，汤色嫩绿明亮。',
+    story: '靖安白茶历史悠久，宋代已有种植。因茶叶白化现象被誉为白茶之冠，明代成为贡茶。现代科研发现其氨基酸含量远超普通绿茶。',
+    efficacy: '清热解毒、增强免疫、美容养颜',
+    gradeDesc: '特级：芽叶玉白，条索挺秀，白毫显露',
+    color: '嫩绿明亮',
+    brewing: {
+      temperature: '75-80℃',
+      teaware: '透明玻璃杯',
+      steps: '取茶3克，上投法先注水再投茶，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避免受潮和异味',
+    foodPairing: '靖安椪柑、野生猕猴桃、石鸡',
+    tastingTerms: '鲜爽甘甜、嫩香馥郁、回味无穷',
+    suitableCrowd: '女性、儿童、免疫力低下者',
+    flavorProfile: {bitter: 0, astringent: 1, sweet: 9, fragrant: 5, returning: 7},
+    suitableSeason: '春季、夏季',
+    originDetail: '江西省宜春市靖安县，海拔500-800米，森林覆盖率80%以上',
+    storyExtended: '靖安白茶的白化现象是茶树对低温的应激反应，春季低温时叶绿素合成受阻，氨基酸大量积累，使茶叶呈现玉白色，口感极为鲜甜。',
+    teaEmoji: '🤍',
+    category: '绿茶（白化品种）',
+    wuXing: '木',
+    efficacyDetail: '氨基酸含量极高（6%以上），其中茶氨酸占50%以上，具有显著的增强免疫力、舒缓情绪、美容养颜的功效。',
+    altitude: '海拔500-800米',
+    priceRange: 4,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 1,
+    processLevel: 2,
+    organic: false,
+    award: '国家地理标志产品',
+    rating: 4.6
+  ,
+    soupColor: "#FFFACD",
+    bodyType: "中性",
+    learningContent: "水温75-80℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 238,
+    name: '恩施玉露',
+    type: '绿茶',
+    origin: '湖北恩施',
+    grade: '特级',
+    period: '唐代',
+    desc: '恩施蒸青绿茶，富硒养生名品',
+    detail: '恩施玉露产于湖北恩施，是中国保留至今的蒸青绿茶。茶叶条索紧细挺直，色泽翠绿，汤色嫩绿明亮，滋味鲜爽甘醇，富含硒元素。',
+    story: '恩施玉露始于唐代，原名玉绿，清康熙年间改名玉露。恩施是世界硒都，土壤天然富硒，所产茶叶硒含量极高，养生价值突出。',
+    efficacy: '补充硒元素、抗氧化、防癌抗癌',
+    gradeDesc: '特级：一芽一叶，条索紧细挺直，色泽翠绿油润',
+    color: '嫩绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，中投法，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '恩施土家腊肉、合渣、社饭',
+    tastingTerms: '鲜爽甘醇、硒韵独特、回甘甜润',
+    suitableCrowd: '中老年人、缺硒人群、养生者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 5, returning: 7},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖北省恩施州恩施市芭蕉乡，海拔500-1200米，世界硒都',
+    storyExtended: '恩施是全球唯一独立的硒矿床所在地，土壤天然富硒。恩施玉露作为蒸青绿茶在中国独树一帜，2018年入选中国传统制茶技艺及其相关习俗非遗项目。',
+    teaEmoji: '💚',
+    category: '蒸青绿茶',
+    wuXing: '木',
+    efficacyDetail: '含有丰富的有机硒（50-250μg/100g），具有抗氧化、增强免疫力、防癌抗癌的显著功效。',
+    altitude: '海拔500-1200米',
+    priceRange: 4,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '国家地理标志产品',
+    rating: 4.7
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "武陵山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 239,
+    name: '采花毛尖',
+    type: '绿茶',
+    origin: '湖北五峰',
+    grade: '特级',
+    period: '现代',
+    desc: '五峰采花毛尖，清香鲜醇回甘',
+    detail: '采花毛尖产于湖北五峰土家族自治县采花乡，是湖北名茶。茶叶条索紧细卷曲，白毫显露，色泽翠绿，冲泡后汤色清澈明亮，香气清高持久。',
+    story: '采花毛尖创制于20世纪80年代，由五峰茶科所研制。采花乡是土家族聚居地，海拔800米以上，常年云雾缭绕，是高山云雾茶的优质产区。',
+    efficacy: '清热解毒、提神醒脑、消食化积',
+    gradeDesc: '特级：一芽一叶，条索紧细，白毫满披',
+    color: '清澈明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，上投法，80℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '土家腊肉、苞谷粑粑、葛根粉',
+    tastingTerms: '清香高爽、鲜醇回甘、毫香显露',
+    suitableCrowd: '白领、学生、养生人群',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 7, fragrant: 6, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖北省宜昌市五峰县采花乡，海拔800-1200米，武陵山脉',
+    storyExtended: '采花毛尖因产于采花乡而得名。五峰是湖北茶叶主产区，采花乡更是核心中的核心，所产茶叶品质优异，多次获得省级以上奖项。',
+    teaEmoji: '🌸',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '高山云雾茶，氨基酸含量丰富，口感鲜爽，提神醒脑效果好。',
+    altitude: '海拔800-1200米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '湖北十大名茶',
+    rating: 4.3
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 240,
+    name: '邓村绿茶',
+    type: '绿茶',
+    origin: '湖北宜昌',
+    grade: '一级',
+    period: '现代',
+    desc: '三峡库区绿茶，滋味醇厚回甘',
+    detail: '邓村绿茶产于湖北宜昌夷陵区邓村乡，地处三峡库区。茶叶条索紧结，色泽翠绿，汤色黄绿明亮，滋味醇厚回甘，具有三峡高山茶的独特风味。',
+    story: '邓村乡种茶历史悠久，是湖北省茶叶生产第一大乡。1980年代起大力发展绿茶产业，邓村绿茶以其醇厚滋味赢得市场认可。',
+    efficacy: '清热解毒、生津止渴、抗氧化',
+    gradeDesc: '一级：一芽二叶，条索紧结，色泽翠绿',
+    color: '黄绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯或瓷杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '宜昌凉虾、萝卜饺子、三峡苕酥',
+    tastingTerms: '醇厚回甘、栗香显露、鲜爽持久',
+    suitableCrowd: '大众消费者、三峡游客',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 5, fragrant: 5, returning: 5},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖北省宜昌市夷陵区邓村乡，海拔600-1000米，三峡库区',
+    storyExtended: '邓村乡是湖北茶叶第一乡，全乡茶园面积超过8万亩。三峡工程建成后，库区气候更加湿润，茶叶品质进一步提升。',
+    teaEmoji: '🫖',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '含有丰富的茶多酚和矿物质，滋味醇厚，适合日常饮用，具有清热解毒、生津止渴的功效。',
+    altitude: '海拔600-1000米',
+    priceRange: 1,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.0
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 241,
+    name: '龟山岩绿',
+    type: '绿茶',
+    origin: '湖北麻城',
+    grade: '一级',
+    period: '现代',
+    desc: '大别山龟山绿茶，岩韵独特',
+    detail: '龟山岩绿产于湖北麻城龟峰山，因山形似龟而得名。茶树生长在岩石缝隙中，茶叶带有独特的岩韵，条索紧细，色泽翠绿，滋味鲜爽回甘。',
+    story: '龟峰山是大别山南麓名山，自古有茶树生长。龟山岩绿创制于20世纪90年代，利用岩石风化土壤的独特矿物质风味，形成岩韵绿茶。',
+    efficacy: '清热解毒、补充矿物质、提神醒脑',
+    gradeDesc: '一级：条索紧细，色泽翠绿，岩韵独特',
+    color: '翠绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '麻城肉糕、鱼面、老米酒',
+    tastingTerms: '岩韵独特、鲜爽回甘、矿泉余味',
+    suitableCrowd: '户外爱好者、茶文化研究者',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 5, fragrant: 4, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖北省黄冈市麻城市龟峰山，海拔800-1200米，大别山南麓',
+    storyExtended: '龟峰山因形似巨龟而得名，山上岩石嶙峋，茶叶生长在石缝之中，吸收了岩石风化土壤中的多种矿物质，形成了独特的岩韵。',
+    teaEmoji: '🐢',
+    category: '炒青绿茶',
+    wuXing: '土',
+    efficacyDetail: '茶叶吸收岩石土壤中的矿物质，含有丰富的硒、锌等微量元素，具有补充矿物质、抗氧化的功效。',
+    altitude: '海拔800-1200米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.0
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 242,
+    name: '峡州碧峰',
+    type: '绿茶',
+    origin: '湖北宜昌',
+    grade: '一级',
+    period: '唐代',
+    desc: '宜昌峡州名茶，碧峰挺秀鲜醇',
+    detail: '峡州碧峰产于湖北宜昌西陵峡两岸，是唐代就已闻名的峡州茶。茶叶条索紧细挺秀，色泽翠绿，汤色碧绿清澈，香气清高，滋味鲜醇回甘。',
+    story: '峡州茶在唐代陆羽《茶经》中即有记载，是古代名茶。宜昌地处三峡门户，气候温和，雨量充沛，自古就是优质茶区。',
+    efficacy: '清热解毒、提神醒脑、消食化积',
+    gradeDesc: '一级：条索紧细挺秀，色泽翠绿油润',
+    color: '碧绿清澈',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯或瓷杯',
+      steps: '取茶3克，85℃水冲泡，中投法，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '宜昌三游洞腐乳、清江鱼、三峡豆花',
+    tastingTerms: '鲜醇回甘、清香悠长、碧峰挺秀',
+    suitableCrowd: '历史文化爱好者、三峡游客',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 6, fragrant: 6, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖北省宜昌市西陵峡两岸，海拔300-600米，三峡库区',
+    storyExtended: '陆羽《茶经》记载：山南以峡州上。峡州即今宜昌，唐代已是著名茶区。峡州碧峰传承千年茶脉，是三峡地区最具历史底蕴的茶叶品牌。',
+    teaEmoji: '⛵',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '传统茶区出品，茶多酚和氨基酸含量均衡，口感鲜醇，提神醒脑效果好。',
+    altitude: '海拔300-600米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.2
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 243,
+    name: '安化松针',
+    type: '绿茶',
+    origin: '湖南安化',
+    grade: '特级',
+    period: '明代',
+    desc: '安化松针绿茶，形似松针翠绿',
+    detail: '安化松针产于湖南安化县，因外形细直如松针而得名。茶叶条索紧细圆直，色泽翠绿，白毫显露，冲泡后汤色清澈明亮，香气清高持久。',
+    story: '安化以黑茶闻名天下，安化松针则是其绿茶精品，创制于明代。安化地处雪峰山脉，常年云雾缭绕，是优质茶区。',
+    efficacy: '清热解毒、提神醒脑、抗氧化',
+    gradeDesc: '特级：一芽一叶，条索细直如针，白毫满披',
+    color: '清澈明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，80℃水冲泡，中投法，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '安化黑茶糕点、腊肉、擂茶',
+    tastingTerms: '清高持久、鲜爽甘醇、松针挺秀',
+    suitableCrowd: '茶文化爱好者、养生人群',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 6, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖南省益阳市安化县，雪峰山脉，海拔400-800米',
+    storyExtended: '安化是万里茶道的重要起点，黑茶远销蒙古俄罗斯。安化松针是安化绿茶的代表，与安化黑茶并称安化双绝，展现了安化茶叶的多样性。',
+    teaEmoji: '🌲',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '富含茶多酚和氨基酸，外形美观，口感鲜爽，具有清热解毒、提神醒脑的功效。',
+    altitude: '海拔400-800米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '',
+    rating: 4.4
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 244,
+    name: '沅陵碣滩茶',
+    type: '绿茶',
+    origin: '湖南沅陵',
+    grade: '一级',
+    period: '唐代',
+    desc: '唐代贡茶碣滩茶，滋味鲜醇回甘',
+    detail: '沅陵碣滩茶产于湖南沅陵县碣滩，是唐代贡茶。茶叶条索紧结，色泽翠绿，冲泡后汤色黄绿明亮，香气清高，滋味鲜醇回甘，历史悠久。',
+    story: '碣滩茶在唐代被列为贡茶，《茶经》中有碣滩茶记载。沅陵地处沅水河畔，气候温和湿润，土壤肥沃，自古就是优质茶区。',
+    efficacy: '清热解毒、提神醒脑、消食化痰',
+    gradeDesc: '一级：条索紧结，色泽翠绿，清香宜人',
+    color: '黄绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯或瓷杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '沅陵晒兰肉、灯盏窝、葛根粉',
+    tastingTerms: '鲜醇回甘、清香持久、历史风韵',
+    suitableCrowd: '历史文化爱好者、中老年人',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 6, fragrant: 6, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖南省怀化市沅陵县碣滩，沅水河畔，海拔200-500米',
+    storyExtended: '陆羽《茶经》中记载了碣滩茶，唐代即为贡品。沅陵是湘西门户，历史文化名城，碣滩茶承载了千年茶文化传承。',
+    teaEmoji: '🏞️',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '千年贡茶工艺传承，茶多酚含量适中，口感鲜醇，适合日常饮用。',
+    altitude: '海拔200-500米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.1
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 245,
+    name: '南岳云雾',
+    type: '绿茶',
+    origin: '湖南衡山',
+    grade: '特级',
+    period: '唐代',
+    desc: '衡山南岳云雾茶，佛门禅茶佳品',
+    detail: '南岳云雾产于湖南衡山，因茶园终年云雾缭绕而得名。茶叶条索紧细，色泽翠绿，冲泡后汤色清澈明亮，香气清雅，滋味鲜醇甘甜，是佛门禅茶的代表。',
+    story: '衡山是佛教名山，南岳云雾茶始于唐代，由寺庙僧侣种植。南岳大庙和祝融峰等寺庙历代种茶制茶，是禅茶文化的发源地之一。',
+    efficacy: '清热解毒、静心安神、提神醒脑',
+    gradeDesc: '特级：一芽一叶，条索紧细，色泽翠绿油润',
+    color: '清澈明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯或白瓷杯',
+      steps: '取茶3克，80℃水冲泡，上投法，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '南岳斋菜、衡山豆腐、云雾笋',
+    tastingTerms: '清雅脱俗、鲜醇甘甜、禅意悠长',
+    suitableCrowd: '修行者、文化人、养生者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 6, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖南省衡阳市南岳区衡山，海拔800-1300米，佛教名山',
+    storyExtended: '南岳云雾茶是禅茶一味的典范。衡山历代高僧以茶修行，茶禅一味。唐代诗僧齐己曾赋诗咏南岳茶，宋代佛印禅师也在此品茶论道。',
+    teaEmoji: '☁️',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '高海拔云雾茶，氨基酸含量丰富，口感鲜甜，具有静心安神的功效，是禅修佳品。',
+    altitude: '海拔800-1300米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '湖南十大名茶',
+    rating: 4.4
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 246,
+    name: '高桥银峰',
+    type: '绿茶',
+    origin: '湖南长沙',
+    grade: '特级',
+    period: '现代',
+    desc: '长沙高桥银峰，银毫显露鲜爽',
+    detail: '高桥银峰产于湖南长沙县高桥镇，是新中国成立后创制的名茶。茶叶条索紧细卷曲，银毫满披，色泽翠绿，冲泡后汤色嫩绿明亮，滋味鲜爽甘醇。',
+    story: '高桥银峰创制于1959年，由湖南省茶叶研究所研制，是献给建国十周年的礼物。高桥镇是湖南茶叶科研的重要基地。',
+    efficacy: '清热解毒、提神醒脑、抗氧化',
+    gradeDesc: '特级：一芽一叶，银毫满披，色泽翠绿油润',
+    color: '嫩绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，上投法先注水再投茶，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '长沙臭豆腐、糖油粑粑、口味虾',
+    tastingTerms: '鲜爽甘醇、毫香浓郁、回甘持久',
+    suitableCrowd: '白领、学生、长沙游客',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 6, returning: 7},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖南省长沙市长沙县高桥镇，海拔100-300米，湘中丘陵',
+    storyExtended: '高桥银峰是新中国茶业的骄傲。1959年献给国庆十周年，周恩来总理品尝后赞不绝口。高桥镇至今保留着完整的茶树品种资源圃。',
+    teaEmoji: '🥈',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '湖南省茶叶研究所出品，品质稳定，茶多酚和氨基酸均衡，鲜爽度高。',
+    altitude: '海拔100-300米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '1959年国庆献礼茶',
+    rating: 4.4
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 247,
+    name: '婺源茗眉',
+    type: '绿茶',
+    origin: '江西婺源',
+    grade: '特级',
+    period: '宋代',
+    desc: '婺源绿茶精品，形如眉毛秀丽',
+    detail: '婺源茗眉产于江西婺源县，因外形弯曲如眉而得名。茶叶条索紧细弯曲，色泽翠绿油润，冲泡后汤色黄绿明亮，香气清高持久，滋味醇厚回甘。',
+    story: '婺源是中国绿茶金三角核心产区，种茶历史可追溯至宋代。婺源茗眉是婺源绿茶中的精品，1958年创制，品质优异。',
+    efficacy: '清热解毒、提神醒脑、抗氧化',
+    gradeDesc: '特级：一芽一叶，条索紧细弯曲，色泽翠绿',
+    color: '黄绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，85℃水冲泡，中投法，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '婺源糊豆腐、汽糕、清明果',
+    tastingTerms: '醇厚回甘、香气清高、眉形秀丽',
+    suitableCrowd: '茶文化爱好者、旅游者',
+    flavorProfile: {bitter: 2, astringent: 2, sweet: 6, fragrant: 7, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '江西省上饶市婺源县，海拔300-800米，中国最美乡村',
+    storyExtended: '婺源是中国绿茶金三角核心区，与安徽黄山、浙江开化并称绿茶三大产区。婺源茗眉形如女子秀眉，被誉为绿茶中的美人。',
+    teaEmoji: '🌸',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '中国绿茶金三角核心产区出品，茶多酚含量适中，香气清高，提神效果好。',
+    altitude: '海拔300-800米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '国家地理标志产品',
+    rating: 4.3
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 248,
+    name: '浮梁仙芝',
+    type: '绿茶',
+    origin: '江西浮梁',
+    grade: '一级',
+    period: '唐代',
+    desc: '唐代浮梁名茶，历史底蕴深厚',
+    detail: '浮梁仙芝产于江西浮梁县，是唐代就已闻名的历史名茶。茶叶条索紧细，色泽翠绿，汤色清澈明亮，香气清雅，滋味鲜醇回甘。',
+    story: '浮梁在唐代是重要茶区，白居易《琵琶行》中商人重利轻别离，前月浮梁买茶去即指此地。浮梁仙芝创制于20世纪80年代，传承千年茶脉。',
+    efficacy: '清热解毒、提神醒脑、消食化积',
+    gradeDesc: '一级：条索紧细，色泽翠绿，清香宜人',
+    color: '清澈明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯或瓷杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '浮梁碱水粑、瓷泥煨鸡、苦槠豆腐',
+    tastingTerms: '鲜醇回甘、清香雅致、历史回味',
+    suitableCrowd: '历史文化爱好者、陶瓷文化旅游者',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 6, fragrant: 5, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '江西省景德镇市浮梁县，海拔200-600米，瓷茶之乡',
+    storyExtended: '浮梁自古是瓷茶之乡，白居易千古名句让浮梁茶名扬天下。浮梁还是海上丝绸之路茶瓷贸易的重要起点，茶叶与瓷器一同远销海外。',
+    teaEmoji: '🏺',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '千年茶区出品，茶多酚和矿物质含量均衡，口感鲜醇，具有清热解毒的功效。',
+    altitude: '海拔200-600米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.2
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 249,
+    name: '金刚碧绿',
+    type: '绿茶',
+    origin: '河南商城',
+    grade: '一级',
+    period: '现代',
+    desc: '商城金刚台碧绿，高山云雾绿茶',
+    detail: '金刚碧绿产于河南商城县金刚台自然保护区，是河南高山绿茶代表。茶叶条索紧细，色泽翠绿，汤色碧绿清澈，滋味鲜爽甘醇。',
+    story: '金刚台是大别山主峰之一，海拔1500米以上。1980年代商城利用高山云雾气候发展茶产业，创制金刚碧绿，成为河南新兴名茶。',
+    efficacy: '清热解毒、提神醒脑、抗氧化',
+    gradeDesc: '一级：条索紧细，色泽翠绿油润',
+    color: '碧绿清澈',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '商城炖菜、筒鲜鱼、野生葛粉',
+    tastingTerms: '鲜爽甘醇、高山韵显、回甘清甜',
+    suitableCrowd: '户外爱好者、养生人群',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 6, fragrant: 5, returning: 5},
+    suitableSeason: '春季、夏季',
+    originDetail: '河南省信阳市商城县金刚台自然保护区，海拔800-1500米',
+    storyExtended: '金刚台是大别山在河南境内的最高峰，国家级自然保护区。高山云雾环境造就了金刚碧绿独特的品质，是河南茶产业的新亮点。',
+    teaEmoji: '💎',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '高山茶氨基酸含量高，口感鲜爽，具有清热解毒、提神醒脑的功效。',
+    altitude: '海拔800-1500米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4.1
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 250,
+    name: '圣水绿茶',
+    type: '绿茶',
+    origin: '湖北竹山',
+    grade: '一级',
+    period: '现代',
+    desc: '竹山圣水绿茶，高山生态佳品',
+    detail: '圣水绿茶产于湖北竹山县圣水寺周边，是鄂西北高山绿茶。茶叶条索紧结，色泽翠绿，汤色黄绿明亮，香气清高，滋味鲜爽回甘。',
+    story: '竹山地处秦巴山区，圣水寺是当地名胜。1990年代竹山利用高山生态优势发展茶产业，圣水绿茶以其纯净品质赢得市场。',
+    efficacy: '清热解毒、提神醒脑、生津止渴',
+    gradeDesc: '一级：条索紧结，色泽翠绿，清香宜人',
+    color: '黄绿明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，85℃水冲泡，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '竹山腊肉、洋芋粑粑、苞谷酒',
+    tastingTerms: '鲜爽回甘、清香持久、高山风味',
+    suitableCrowd: '大众消费者、生态旅游者',
+    flavorProfile: {bitter: 1, astringent: 2, sweet: 6, fragrant: 5, returning: 5},
+    suitableSeason: '春季、夏季',
+    originDetail: '湖北省十堰市竹山县圣水寺，秦巴山区，海拔600-1000米',
+    storyExtended: '圣水绿茶因圣水寺而得名。竹山是南水北调水源地，生态环境优良，所产茶叶纯净无污染，是绿色生态茶的代表。',
+    teaEmoji: '💧',
+    category: '炒青绿茶',
+    wuXing: '水',
+    efficacyDetail: '南水北调水源地出品，生态纯净，茶多酚适中，口感鲜爽。',
+    altitude: '海拔600-1000米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: true,
+    award: '',
+    rating: 4.0
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 251,
+    name: '宁红工夫',
+    type: '红茶',
+    origin: '江西修水',
+    grade: '特级',
+    period: '清代',
+    desc: '江西修水宁红茶，工夫红茶精品',
+    detail: '宁红工夫产于江西修水县，是中国传统工夫红茶之一。茶叶条索紧细，色泽乌润，冲泡后汤色红艳明亮，香气馥郁，滋味醇厚甘甜。',
+    story: '宁红茶始于清代道光年间，距今约200年。修水地处幕阜山脉，气候温和湿润，是优质红茶产区。宁红工夫曾出口欧洲，被誉为茶中珍品。',
+    efficacy: '暖胃养胃、提神消疲、促进消化',
+    gradeDesc: '特级：条索紧细，色泽乌润，金毫显露',
+    color: '红艳明亮',
+    brewing: {
+      temperature: '90-95℃',
+      teaware: '紫砂壶或瓷壶',
+      steps: '取茶5克，95℃水冲泡，第一泡洗茶，第二泡浸泡2分钟'
+    },
+    storage: '密封保存于阴凉干燥处，避免受潮',
+    foodPairing: '修水哨子、三都米粉、艾米果',
+    tastingTerms: '醇厚甘甜、蜜香馥郁、回味悠长',
+    suitableCrowd: '中老年人、红茶爱好者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 6, returning: 7},
+    suitableSeason: '秋季、冬季',
+    originDetail: '江西省九江市修水县，幕阜山脉，海拔400-800米',
+    storyExtended: '宁红工夫是中国传统工夫红茶的重要代表，与祁红、滇红并称。清代道光年间创制后迅速走红，远销欧洲。2018年宁红茶制作技艺列入江西省非遗名录。',
+    teaEmoji: '☕',
+    category: '工夫红茶',
+    wuXing: '火',
+    efficacyDetail: '全发酵红茶，茶黄素和茶红素含量丰富，暖胃养胃效果显著。',
+    altitude: '海拔400-800米',
+    priceRange: 3,
+    suitableTime: '午+晚',
+    harvestSeason: '夏',
+    age: 0,
+    caffeine: 3,
+    processLevel: 4,
+    organic: false,
+    award: '江西省非物质文化遗产',
+    rating: 4.5
+  ,
+    soupColor: "#C0392B",
+    bodyType: "寒底",
+    learningContent: "水温90-95℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024夏"
+  },
+  {
+    id: 252,
+    name: '双井绿',
+    type: '绿茶',
+    origin: '江西修水',
+    grade: '一级',
+    period: '宋代',
+    desc: '宋代双井绿茶，黄庭坚故里名茶',
+    detail: '双井绿产于江西修水县双井村，是北宋书法家黄庭坚故里的名茶。茶叶条索紧细，色泽翠绿，汤色清澈明亮，香气清雅，滋味鲜醇。',
+    story: '双井绿始于宋代，因产于双井村而得名。黄庭坚曾作《双井茶送子瞻》赠苏轼，使双井茶名扬天下，成为文人墨客争相品赏的佳茗。',
+    efficacy: '清热解毒、提神醒脑、消除疲劳',
+    gradeDesc: '一级：条索紧细，色泽翠绿，清香宜人',
+    color: '清澈明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯或白瓷杯',
+      steps: '取茶3克，85℃水冲泡，中投法，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '修水茶点、艾米果、红薯干',
+    tastingTerms: '鲜醇清香、文人雅韵、回甘悠长',
+    suitableCrowd: '文人雅士、学生、文化爱好者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 5, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '江西省九江市修水县双井村，海拔200-500米',
+    storyExtended: '黄庭坚是北宋著名书法家、诗人，他嗜茶如命，曾作《双井茶送子瞻》：我持玄圭与苍璧，以暗投人渠不识。将家乡双井茶比作玄圭苍璧赠予苏轼。',
+    teaEmoji: '📜',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '千年文化名茶，茶多酚含量适中，滋味鲜醇，伴有文人故事，品茶如品诗。',
+    altitude: '海拔200-500米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.3
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 253,
+    name: '麻姑茶',
+    type: '绿茶',
+    origin: '江西南城',
+    grade: '一级',
+    period: '唐代',
+    desc: '南城麻姑山茶，道教仙山佳茗',
+    detail: '麻姑茶产于江西南城县麻姑山，是道教名山仙茶。茶叶条索紧细，色泽翠绿，汤色清澈明亮，香气清雅，滋味甘醇，充满仙风道骨之气。',
+    story: '麻姑山是道教三十六小洞天之一，麻姑仙女传说流传千年。唐代颜真卿任抚州刺史时曾游麻姑山，作《麻姑仙坛记》，麻姑茶随之闻名。',
+    efficacy: '清热解毒、静心安神、延年益寿',
+    gradeDesc: '一级：条索紧细，色泽翠绿，清香宜人',
+    color: '清澈明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯或白瓷杯',
+      steps: '取茶3克，80℃水冲泡，上投法，浸泡1-2分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '南城米粉、麻姑寿酒、蜜桔',
+    tastingTerms: '甘醇清香、仙风道骨、回味悠长',
+    suitableCrowd: '道教文化爱好者、中老年人',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 7, fragrant: 5, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '江西省抚州市南城县麻姑山，海拔400-800米，道教洞天福地',
+    storyExtended: '麻姑山因麻姑仙女而得名。麻姑是道教长寿仙女，麻姑献寿是传统寿礼题材。颜真卿的《麻姑仙坛记》被誉为天下第一楷书，使麻姑茶染上了浓厚的文化艺术气息。',
+    teaEmoji: '🧚',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '道教仙山出品，茶叶在清幽环境中生长，口感清雅甘甜，具有静心安神的功效。',
+    altitude: '海拔400-800米',
+    priceRange: 2,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.2
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 254,
+    name: '上饶白眉',
+    type: '绿茶',
+    origin: '江西上饶',
+    grade: '特级',
+    period: '现代',
+    desc: '上饶白眉绿茶，形如白眉秀丽',
+    detail: '上饶白眉产于江西上饶市，因茶叶外形弯曲如白色眉毛而得名。茶叶条索紧细弯曲，白毫满披，色泽翠绿，冲泡后汤色清澈明亮，滋味鲜爽甘醇。',
+    story: '上饶白眉创制于20世纪80年代，是江西名茶后起之秀。上饶地处武夷山脉北麓，气候温和，雨量充沛，是优质绿茶产区。',
+    efficacy: '清热解毒、提神醒脑、抗氧化',
+    gradeDesc: '特级：一芽一叶，条索紧细弯曲，白毫满披',
+    color: '清澈明亮',
+    brewing: {
+      temperature: '80-85℃',
+      teaware: '玻璃杯',
+      steps: '取茶3克，上投法先注水再投茶，浸泡1-2分钟'
+    },
+    storage: '密封冷藏保存，避光防潮',
+    foodPairing: '上饶鸡腿、弋阳年糕、铅山烫粉',
+    tastingTerms: '鲜爽甘醇、毫香显露、眉形秀美',
+    suitableCrowd: '白领、女性、茶艺爱好者',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 8, fragrant: 5, returning: 6},
+    suitableSeason: '春季、夏季',
+    originDetail: '江西省上饶市，武夷山脉北麓，海拔400-800米',
+    storyExtended: '上饶白眉形似寿星白眉，寓意长寿吉祥。上饶是朱熹故里，人文底蕴深厚，上饶白眉将茶文化与理学文化融为一体。',
+    teaEmoji: '👴',
+    category: '炒青绿茶',
+    wuXing: '木',
+    efficacyDetail: '白毫丰富，氨基酸含量高，口感鲜甜，具有清热解毒、美容养颜的功效。',
+    altitude: '海拔400-800米',
+    priceRange: 3,
+    suitableTime: '早+午',
+    harvestSeason: '春',
+    age: 0,
+    caffeine: 2,
+    processLevel: 2,
+    organic: false,
+    award: '',
+    rating: 4.3
+  ,
+    soupColor: "#C8E6C9",
+    bodyType: "热底",
+    learningContent: "水温80-85℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {
+    id: 255,
+    name: '远安鹿苑',
+    type: '黄茶',
+    origin: '湖北远安',
+    grade: '一级',
+    period: '清代',
+    desc: '湖北远安鹿苑黄茶，黄汤黄叶醇和',
+    detail: '远安鹿苑产于湖北远安县鹿苑寺周边，是湖北传统黄茶。茶叶条索紧结，色泽金黄，冲泡后汤色橙黄明亮，滋味醇和甘甜，具有独特的黄茶风味。',
+    story: '远安鹿苑茶始于清代，因产于鹿苑寺而得名。鹿苑寺是佛教古刹，寺僧素有种茶制茶传统，远安鹿苑传承了黄茶闷黄工艺。',
+    efficacy: '健脾养胃、消食化积、清热解毒',
+    gradeDesc: '一级：条索紧结，色泽金黄，黄汤黄叶',
+    color: '橙黄明亮',
+    brewing: {
+      temperature: '85-90℃',
+      teaware: '瓷壶或盖碗',
+      steps: '取茶4克，90℃水冲泡，浸泡2-3分钟'
+    },
+    storage: '密封保存于阴凉干燥处',
+    foodPairing: '远安冲菜、西河鱼、鹿苑素斋',
+    tastingTerms: '醇和甘甜、黄茶风味、回味绵长',
+    suitableCrowd: '脾胃虚弱者、中老年人',
+    flavorProfile: {bitter: 1, astringent: 1, sweet: 6, fragrant: 4, returning: 5},
+    suitableSeason: '秋季',
+    originDetail: '湖北省宜昌市远安县鹿苑寺，海拔300-600米',
+    storyExtended: '远安鹿苑是湖北传统黄茶，与君山银针齐名。鹿苑寺的僧人传承了黄茶独特的闷黄工艺，使茶叶形成黄汤黄叶的独特品质。',
+    teaEmoji: '🦌',
+    category: '黄茶',
+    wuXing: '土',
+    efficacyDetail: '黄茶经过闷黄工艺，茶多酚部分氧化，对胃肠刺激小，健脾养胃效果显著。',
+    altitude: '海拔300-600米',
+    priceRange: 2,
+    suitableTime: '午+晚',
+    harvestSeason: '春',
+    age: 1,
+    caffeine: 2,
+    processLevel: 3,
+    organic: false,
+    award: '',
+    rating: 4.2
+  ,
+    soupColor: "#E8C44A",
+    bodyType: "中性",
+    learningContent: "水温85-90℃，冲泡最佳",
+    famousMountain: "其他名山",
+    harvestYear: "2024春"
+  },
+  {"id":256,"name":"千岛玉叶","type":"绿茶","origin":"浙江淳安","grade":"特级","period":"现代","desc":"千岛玉叶产于千岛湖畔，外形扁平挺直，色泽翠绿，香气清高持久。","detail":"千岛玉叶创制于1984年，产于浙江省淳安县千岛湖周边山区茶园。千岛湖水质清澈，常年云雾缭绕，茶园海拔300-800米，土壤肥沃，气候温和湿润。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、理条、做形、干燥等工序制成，外形扁平似玉，色绿润泽，故名玉叶。","story":"千岛玉叶虽为新创名茶，但千岛湖地区自古产茶。唐代陆羽《茶经》中已有睦州（今淳安一带）产茶记载。1984年，淳安县组织茶叶专家在传统工艺基础上研制千岛玉叶，凭借优秀的品质迅速获得市场认可。","efficacy":"清热解毒、提神醒脑、抗氧化、降脂减肥","gradeDesc":"特级：扁平挺直，色泽翠绿，白毫显露；一级：条索扁平，色泽绿润；二级：外形尚扁，香气清纯","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3克，以80℃热水冲泡，先注水三分之一润茶，再注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"千岛","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避免阳光直射和异味入侵，建议冷藏保鲜","foodPairing":"千岛湖鱼头、清蒸白鱼、桂花糕、绿豆糕","tastingTerms":"清香高长、滋味鲜爽、回甘生津","suitableCrowd":"上班族、学生、电脑工作者、注重养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"浙江省杭州市淳安县千岛湖风景区周边，海拔300-800米，属亚热带季风气候，年均气温17℃，雨量充沛，土壤为黄红壤，有机质含量丰富","storyExtended":"千岛玉叶虽然创制时间不长，但凭借千岛湖优越的自然生态环境和精湛的制作工艺，迅速跻身中国名茶行列。1990年代起多次获得浙江省名茶评比金奖，并被选为国礼赠送国际友人。千岛湖的碧水青山赋予了这款茶独特的灵气。","teaEmoji":"🌿","category":"扁形绿茶","wuXing":"木","efficacyDetail":"千岛玉叶富含茶多酚、氨基酸和维生素，具有清热解毒、提神醒脑、抗氧化、延缓衰老、降脂减肥等功效，常饮有助于保护心血管健康。","altitude":"300-800米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"浙江省名茶评比金奖","rating":4.5,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"雁荡","harvestYear":"2024春"},
+  {"id":257,"name":"雁荡毛峰","type":"绿茶","origin":"浙江乐清","grade":"特级","period":"宋代","desc":"雁荡毛峰产于雁荡山，芽毫显露，香气清雅持久，滋味鲜浓。","detail":"雁荡毛峰产于浙江省乐清市雁荡山风景区，是中国历史名茶之一。雁荡山以奇峰怪石、飞瀑流泉闻名，茶树生长在海拔400-800米的云雾山中，常年受云雾滋润。采制工艺讲究，清明前后采摘一芽一叶初展，经摊放、杀青、揉捻、烘干等工序制成，成品芽毫显露，色泽翠绿。","story":"雁荡山自古产茶，北宋时期已有雁荡茶的记载。据《乐清县志》记载，雁荡山僧人在唐宋时期就开始种植茶叶，所产茶叶因品质优异成为贡茶。明代地理学家徐霞客游历雁荡山时，也曾品尝当地山茶，赞不绝口。","efficacy":"清热解毒、提神益思、生津止渴、抗氧化","gradeDesc":"特级：芽毫显露，色泽翠绿，香气清雅；一级：条索紧结，香气尚浓；二级：滋味醇和，回甘明显","color":"翠绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯或白瓷杯","steps":"取茶3克，以80℃热水冲泡，先润茶30秒，再注满水，浸泡1-2分钟即可品饮，可续水3-4次"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免异味侵入","foodPairing":"温州鱼丸、乐清泥蚶、雁荡山素饼","tastingTerms":"清香高长、鲜浓回甘、毫香显露","suitableCrowd":"白领、学生、游客、养生爱好者","flavorProfile":{"bitter":2,"astringent":3,"sweet":6,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"浙江省乐清市雁荡山风景区，海拔400-800米，属亚热带海洋性气候，温暖湿润，雨量充沛，常年云雾缭绕，土壤为山地黄壤，富含矿物质","storyExtended":"雁荡毛峰在宋代已成名茶，历代文人墨客多有赞誉。清代乾隆年间被列为浙江名茶。20世纪80年代以来，雁荡毛峰多次获浙江省名茶评比金奖，2010年入选浙江省非物质文化遗产名录。","teaEmoji":"⛰️","category":"烘青绿茶","wuXing":"木","efficacyDetail":"雁荡毛峰含有丰富的茶多酚、氨基酸和矿物质，具有清热解毒、提神益思、生津止渴、抗氧化的功效，对预防心血管疾病有一定作用。","altitude":"400-800米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"浙江省名茶评比金奖","rating":4.4,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"松阳","harvestYear":"2024春"},
+  {"id":258,"name":"松阳银猴","type":"绿茶","origin":"浙江松阳","grade":"特级","period":"现代","desc":"松阳银猴产于松阳县，外形卷曲如猴，银毫满披，滋味鲜醇。","detail":"松阳银猴创制于1970年代，产于浙江省丽水市松阳县。松阳县是中国名茶之乡，茶园多分布在海拔400-800米的山区，气候温润，云雾弥漫。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，因外形卷曲似猴，银毫显露而得名银猴。","story":"松阳产茶历史悠久，唐代已是浙南重要茶区。1970年代，松阳茶农在传统工艺基础上创新，研制出独具特色的松阳银猴。凭借优异的品质和独特的外形，松阳银猴迅速成为浙江名茶新秀。","efficacy":"清热解毒、提神醒脑、抗氧化、助消化","gradeDesc":"特级：卷曲紧结，银毫满披，色泽银绿；一级：条索卷曲，毫显；二级：外形尚卷，香气清纯","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3-4克，以80℃热水冲泡，采用上投法先注水再投茶，浸泡1-2分钟即可饮用，可续水3-4次"},"storage":"密封冷藏保存，避免受潮和异味，开封后尽快饮用","foodPairing":"松阳红糖糕、清明粿、茶香鸡","tastingTerms":"银毫显露、香气清高、滋味鲜醇","suitableCrowd":"上班族、老年人、养生人群","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"浙江省丽水市松阳县新兴镇、赤寿乡等地，海拔400-800米，属亚热带季风气候，温暖湿润，土壤为黄红壤，有机质含量高","storyExtended":"松阳县有1800多年的建县历史，是中国绿茶主产区之一。松阳银猴自1970年代创制以来发展迅速，2000年被认定为浙江省名茶，多次在国内外茶叶评比中获奖。","teaEmoji":"🐵","category":"卷曲型绿茶","wuXing":"木","efficacyDetail":"松阳银猴含有茶多酚、氨基酸、咖啡碱等成分，具有清热解毒、提神醒脑、抗氧化、助消化的功效，常饮对保护视力、预防龋齿有一定作用。","altitude":"400-800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"浙江省名茶","rating":4.3,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"普陀","harvestYear":"2024春"},
+  {"id":259,"name":"普陀佛茶","type":"绿茶","origin":"浙江舟山","grade":"特级","period":"唐代","desc":"普陀佛茶产于普陀山，形似圆珠，色翠绿，香清幽，是佛门名茶。","detail":"普陀佛茶产于浙江省舟山市普陀山，是中国最著名的佛茶之一。普陀山是中国四大佛教名山之一，观音菩萨道场。茶树多生长于寺庙周边的山坡茶园，受海风雾气滋润。采制工艺独特，成品形似圆珠，色翠绿油润，冲泡后香气清幽，滋味甘醇。","story":"普陀佛茶的历史可追溯至唐代，当时普陀山僧人从外地引进茶种，在寺院周边种植，用于供佛和待客。宋代以后，普陀佛茶名声渐起，成为佛教名茶。传说观音菩萨曾化身为采茶女，在普陀山教授僧侣制茶技艺，因此普陀佛茶又被称为观音茶。","efficacy":"清心除烦、提神醒脑、抗氧化、静心养性","gradeDesc":"特级：圆珠紧结，色泽翠绿，白毫显露；一级：粒圆尚紧，香气清雅；二级：外形尚圆，滋味醇和","color":"翠绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷杯或紫砂壶","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次，品饮时宜静心细品"},"storage":"密封保存于阴凉干燥处，避免受潮和异味，建议冷藏保存","foodPairing":"素斋、舟山海鲜面、观音饼","tastingTerms":"香气清幽、滋味甘醇、佛韵悠长","suitableCrowd":"修行者、老年人、心神不宁者、素食人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":7,"returning":6},"suitableSeason":"春季、秋季","originDetail":"浙江省舟山市普陀山景区，海拔50-280米，属海洋性气候，空气湿润，常年海雾缭绕，土壤为黄壤和棕壤","storyExtended":"普陀佛茶自古以来就是普陀山的象征之一。每年清明前后，普陀山各大寺庙都会举行采茶、制茶的佛事活动。普陀佛茶不仅是一种饮品，更承载着佛教文化的智慧与慈悲。2011年，普陀佛茶制作技艺被列入浙江省非物质文化遗产名录。","teaEmoji":"🙏","category":"圆珠型绿茶","wuXing":"木","efficacyDetail":"普陀佛茶含有茶多酚、氨基酸和多种维生素，具有清心除烦、提神醒脑、抗氧化、静心养性的功效，茶氨酸有助于舒缓情绪，适合冥想静修时饮用。","altitude":"50-280米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"浙江省非物质文化遗产","rating":4.5,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"金山","harvestYear":"2024春"},
+  {"id":260,"name":"金山翠芽","type":"绿茶","origin":"江苏镇江","grade":"特级","period":"现代","desc":"金山翠芽产于镇江金山脚下，外形扁平似剑，色泽翠绿，香气清雅悠长。","detail":"金山翠芽创制于1980年代，产于江苏省镇江市金山风景区周边。茶园分布在长江与金山之间的丘陵地带，气候温和，土壤肥沃。选用一芽一叶初展的鲜叶，经摊放、杀青、理条、烘焙等工序制成，成品外形扁平挺直似剑，色泽翠绿润泽。","story":"金山是镇江著名风景区，也是白蛇传故事的发生地。金山翠芽虽为新创名茶，但承载了深厚的历史文化底蕴。据传当地茶农受到金山寺晨钟暮鼓的启发，将茶叶制成剑形，寓意宝剑锋从磨砺出。","efficacy":"清热解毒、提神醒脑、抗氧化、护齿防龋","gradeDesc":"特级：扁平似剑，色泽翠绿，白毫显露；一级：条索扁平，色绿润泽；二级：外形尚扁，香气纯正","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3克，以85℃热水冲泡，先注水三分之一润茶，再注满水，浸泡1-2分钟即可品饮，可续水3-4次"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果最佳，避免阳光直射","foodPairing":"镇江锅盖面、肴肉、蟹粉狮子头","tastingTerms":"清香悠长、滋味鲜爽、回甘生津","suitableCrowd":"上班族、白领、游客、健康养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"扬州","harvestYear":"2024春"},"suitableSeason":"春季、夏季","originDetail":"江苏省镇江市润州区金山风景区周边，海拔50-200米，属北亚热带季风气候，四季分明，雨量适中，土壤为黄棕壤","storyExtended":"金山翠芽凭借金山的历史文化底蕴和优秀的品质，在江苏省内外享有盛誉。多次获江苏省名茶评比金奖，已成为镇江城市名片之一。","teaEmoji":"🏔️","category":"扁形绿茶","wuXing":"金","efficacyDetail":"金山翠芽含有丰富的茶多酚、氨基酸和维生素，具有清热解毒、提神醒脑、抗氧化、护齿防龋的功效，常饮有助于增强免疫力。","altitude":"50-200米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"江苏省名茶评比金奖","rating":4.4},
+  {"id":261,"name":"扬州绿杨春","type":"绿茶","origin":"江苏扬州","grade":"特级","period":"现代","desc":"绿杨春产于扬州蜀冈，外形纤秀，色泽翠绿，香气清高芬芳。","detail":"扬州绿杨春创制于1980年代，产于江苏省扬州市蜀冈-瘦西湖风景区周边。扬州自古是繁华都会，绿杨二字取自绿杨城郭之美称。茶园分布在蜀冈丘陵地带，选用一芽一叶初展的鲜叶，采用名优绿茶工艺制成，成品外形纤秀紧结，色泽翠绿。","story":"扬州千年运河畔自古产茶，唐代扬州已是茶叶贸易中心。绿杨春虽为新创名茶，但承载了扬州深厚的历史文化底蕴。茶名取自清代诗人王士祯绿杨城郭是扬州的诗句，寓意扬州如诗如画的江南春色。","efficacy":"清热解毒、提神醒脑、生津止渴、美容养颜","gradeDesc":"特级：外形纤秀，色泽翠绿，白毫显露；一级：条索紧结，色绿润泽；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷杯或玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可饮用，可续水3-4次"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免异味","foodPairing":"扬州炒饭、三丁包子、翡翠烧卖、扬州干丝","tastingTerms":"香气清高、滋味鲜醇、回甘绵长","suitableCrowd":"文人雅士、女性、白领、注重养生者","flavorProfile":{"bitter":1,"astringent":2,"sweet":8,"fragrant":9,"returning":7,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"无锡","harvestYear":"2024春"},"suitableSeason":"春季、夏季","originDetail":"江苏省扬州市蜀冈-瘦西湖风景区周边，海拔30-100米，属北亚热带季风气候，温暖湿润，四季分明，土壤为黄棕壤","storyExtended":"绿杨春凝聚了扬州千年文化的灵气，自1980年代创制以来，凭借扬州的历史文化底蕴和优秀的茶叶品质，迅速在华东地区走红。品一杯绿杨春，仿佛置身于烟花三月的扬州。","teaEmoji":"🌿","category":"条形绿茶","wuXing":"木","efficacyDetail":"绿杨春含有丰富的茶多酚、氨基酸和维生素C，具有清热解毒、提神醒脑、生津止渴、美容养颜的功效，对缓解春困有良好效果。","altitude":"30-100米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"江苏省名茶评比金奖","rating":4.4},
+  {"id":262,"name":"无锡毫茶","type":"绿茶","origin":"江苏无锡","grade":"特级","period":"现代","desc":"无锡毫茶产于太湖之滨，白毫满披，色泽银绿，香气清雅。","detail":"无锡毫茶创制于1970年代，产于江苏省无锡市太湖沿岸的丘陵地带。无锡地处太湖之滨，气候温和，雨量充沛，茶园多分布在海拔50-200米的山坡上。选用一芽一叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品白毫满披，银绿润泽，故名毫茶。","story":"无锡自古是江南鱼米之乡，太湖之滨的自然环境非常适合茶树生长。1970年代，当地茶叶专家在传统工艺基础上，结合无锡独特的气候条件，创制出独具特色的无锡毫茶。凭借太湖水的滋润和精湛工艺，无锡毫茶品质优异。","efficacy":"清热解毒、提神醒脑、抗氧化、降血脂","gradeDesc":"特级：白毫满披，色泽银绿，香气清雅；一级：毫显色绿，香气尚浓；二级：滋味鲜醇，回甘明显","color":"银绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，采用上投法先注水再投茶，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"南京","harvestYear":"2024春"},"storage":"密封冷藏保存，避免受潮和异味，开封后尽快饮用","foodPairing":"无锡酱排骨、太湖三白、阳山水蜜桃","tastingTerms":"毫香显露、清雅芬芳、滋味鲜醇","suitableCrowd":"上班族、中老年人、健康养生人群","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"江苏省无锡市滨湖区、惠山区太湖沿岸丘陵，海拔50-200米，属亚热带季风气候，温暖湿润，土壤为黄棕壤","storyExtended":"无锡毫茶自创制以来发展迅速，多次在江苏省名茶评比中获奖。太湖碧水蓝天、鱼米之乡的优越环境，赋予了无锡毫茶独特的风味。","teaEmoji":"🍃","category":"条形绿茶","wuXing":"水","efficacyDetail":"无锡毫茶含有茶多酚、氨基酸、咖啡碱等成分，具有清热解毒、提神醒脑、抗氧化、降血脂的功效，太湖水的滋润赋予其独特的甘甜。","altitude":"50-200米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"江苏省名茶评比金奖","rating":4.3},
+  {"id":263,"name":"南京雨花茶","type":"绿茶","origin":"江苏南京","grade":"特级","period":"现代","desc":"南京雨花茶形似松针，色泽翠绿，香气清雅，纪念革命先烈。","detail":"南京雨花茶创制于1958年，产于江苏省南京市中山陵和雨花台一带。为纪念雨花台革命先烈而创制，形似松针，寓意革命精神万古长青。选用一芽一叶初展的鲜叶，经杀青、揉捻、搓条、拉条、烘干等独特工序制成，成品紧直如松针，色绿润泽。","story":"1958年，为纪念雨花台革命先烈，江苏省组织茶叶专家创制了南京雨花茶。松针形状寓意革命烈士坚贞不屈的精神，翠绿色泽象征革命精神万古长青。南京雨花茶不仅是优质绿茶，更是爱国主义精神的象征。","efficacy":"清热解毒、提神醒脑、抗氧化、降脂降压","gradeDesc":"特级：紧直如针，色泽翠绿，白毫显露；一级：条索紧直，色绿润泽；二级：外形尚直，香气纯正","color":"翠绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶30秒，再注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"岳西","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免异味侵入","foodPairing":"南京盐水鸭、鸭血粉丝汤、小笼包","tastingTerms":"清雅高长、滋味鲜爽、回甘生津","suitableCrowd":"白领、学生、爱国教育场所游客","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"江苏省南京市玄武区中山陵、雨花台一带，海拔30-200米，属北亚热带季风气候，四季分明，土壤为黄棕壤","storyExtended":"南京雨花茶以其独特的松针外形和深厚的文化内涵，成为中国名茶中独树一帜的存在。多次获得全国名茶评比金奖，并入选中国十大名茶候选名录。","teaEmoji":"🌲","category":"针形绿茶","wuXing":"木","efficacyDetail":"南京雨花茶含有丰富的茶多酚、氨基酸、维生素和矿物质，具有清热解毒、提神醒脑、抗氧化、降脂降压的功效，适合高血压、高血脂人群饮用。","altitude":"30-200米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":4,"organic":false,"award":"全国名茶评比金奖","rating":4.6},
+  {"id":264,"name":"岳西翠兰","type":"绿茶","origin":"安徽岳西","grade":"特级","period":"现代","desc":"岳西翠兰产于大别山腹地，形似兰花，色泽翠绿，香气清高悠长。","detail":"岳西翠兰创制于1980年代，产于安徽省安庆市岳西县，地处大别山腹地。茶园分布在海拔500-1000米的高山地带，常年云雾缭绕，气候凉爽湿润。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、理条、烘焙等工序制成，成品外形似兰花绽放，色绿润泽，香气清高。","story":"岳西县自古产茶，但岳西翠兰是新创名茶。1980年代，当地茶叶专家利用岳西优越的自然条件，结合传统制茶工艺，创制了形似兰花的岳西翠兰。因产于大别山深处，品质纯净，香气独特，很快获得市场认可。","efficacy":"清热解毒、提神醒脑、抗氧化、降血压","gradeDesc":"特级：形似兰花，色泽翠绿，白毫显露；一级：条索紧结，色绿润泽；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"桐城","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果最佳，避免受潮","foodPairing":"岳西茭白、大别山香菇、农家土鸡","tastingTerms":"清高悠长、滋味鲜爽、回甘生津","suitableCrowd":"上班族、中老年人、养身保健人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"安徽省安庆市岳西县大别山区，海拔500-1000米，属亚热带季风气候，凉爽湿润，雨量充沛，土壤为黄棕壤，有机质丰富","storyExtended":"岳西翠兰凭借大别山优越的自然环境和精湛的制茶工艺，在华东地区享有盛誉。2010年入选国家地理标志保护产品，成为大别山革命老区的一张绿色名片。","teaEmoji":"🌿","category":"兰花形绿茶","wuXing":"木","efficacyDetail":"岳西翠兰产自高山生态茶园，含有丰富的茶多酚、氨基酸和硒元素，具有清热解毒、提神醒脑、抗氧化、降血压的功效。","altitude":"500-1000米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"国家地理标志保护产品","rating":4.4},
+  {"id":265,"name":"桐城小花","type":"绿茶","origin":"安徽桐城","grade":"特级","period":"明代","desc":"桐城小花产于桐城龙眠山，形似花朵，色泽翠绿，香气清雅持久。","detail":"桐城小花产于安徽省桐城市龙眠山一带，是安徽历史名茶。茶树生长在海拔300-600米的山坡上，常年云雾滋润。采制工艺精湛，选用一芽一叶或一芽二叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品形似小花，色绿润泽。","story":"桐城产茶历史可追溯至明代，清代是桐城小花发展的鼎盛期。桐城派文人方苞、姚鼐等均喜饮当地茶，桐城小花因此与桐城文派一同流芳。明代著名思想家方以智曾赞曰：龙眠山茶，花之魂也。","efficacy":"清热解毒、提神益思、生津止渴、抗氧化","gradeDesc":"特级：形似小花，色泽翠绿，白毫显露；一级：条索紧结，香气清高；二级：滋味醇和，回甘明显","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷杯或玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"舒城","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免异味侵入","foodPairing":"桐城水碗、蒿子粑、龙眠山笋干","tastingTerms":"清雅持久、滋味鲜醇、回甘生津","suitableCrowd":"文人雅士、白领、注重养生者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"安徽省桐城市龙眠山、大关镇等地，海拔300-600米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄棕壤","storyExtended":"桐城小花与桐城文派有着不解之缘。明清时期，桐城文风鼎盛，文人们在龙眠山品茶论道，桐城小花成为文人雅集的重要元素，被列入安徽省非物质文化遗产名录。","teaEmoji":"🌸","category":"花朵形绿茶","wuXing":"木","efficacyDetail":"桐城小花含有茶多酚、氨基酸、咖啡碱和多种维生素，具有清热解毒、提神益思、生津止渴、抗氧化的功效，对保护视力有良好作用。","altitude":"300-600米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"安徽省非物质文化遗产","rating":4.4},
+  {"id":266,"name":"舒城兰花","type":"绿茶","origin":"安徽舒城","grade":"特级","period":"清代","desc":"舒城兰花产于舒城晓天镇，形如兰花，色绿润，香清雅。","detail":"舒城兰花产于安徽省六安市舒城县晓天镇、万佛湖周边山区，是安徽传统名茶。茶园分布在海拔400-800米的山坡上，常年云雾缭绕。采制工艺传承百年，选用一芽二叶至一芽三叶的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品形似兰花绽放，色绿润泽。","story":"舒城产茶历史悠久，清代乾隆年间舒城兰花已成为贡茶。据传乾隆皇帝下江南时路过舒城，品尝当地茶叶后大加赞赏，问及茶名，地方官员指着漫山遍野的兰花答道：此茶生于兰花之间，名曰兰花茶。乾隆欣然赐名舒城兰花。","efficacy":"清热解毒、提神醒脑、生津止渴、助消化","gradeDesc":"特级：形似兰花，色泽翠绿，白毫显露；一级：条索紧结，香气清高；二级：香气纯正，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷杯或玻璃杯","steps":"取茶4克，以80℃热水冲泡，先润茶30秒，再注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"休宁","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"舒城板栗、万佛湖鱼头、六安瓜片糕点","tastingTerms":"兰花香雅、滋味鲜醇、回甘持久","suitableCrowd":"爱茶人士、中老年人、健康养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":8,"returning":6},"suitableSeason":"春季、夏季","originDetail":"安徽省舒城县晓天镇、万佛湖周边山区，海拔400-800米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄棕壤","storyExtended":"舒城兰花有着数百年的传承历史，是安徽传统名茶之一。万佛湖的清澈水汽和漫山兰花赋予了舒城兰花独特的芬芳，近年来多次在安徽省茶博会获奖。","teaEmoji":"🌺","category":"兰花形绿茶","wuXing":"木","efficacyDetail":"舒城兰花含有丰富的茶多酚、氨基酸、咖啡碱等成分，具有清热解毒、提神醒脑、生津止渴、助消化的功效，其独特的兰花香具有舒缓神经的作用。","altitude":"400-800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"安徽省茶博会金奖","rating":4.3,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"闽北","harvestYear":"2024春"},
+  {"id":267,"name":"休宁松萝","type":"绿茶","origin":"安徽休宁","grade":"特级","period":"明代","desc":"休宁松萝是明代名茶，产于松萝山，形紧色绿，香高味醇。","detail":"休宁松萝产于安徽省黄山市休宁县松萝山一带，是中国最古老的炒青绿茶之一，距今已有400多年历史。松萝山海拔约500米，常年云雾缭绕。采制工艺独特，选用一芽二叶至一芽三叶的鲜叶，经杀青、揉捻、炒制等工序制成，成品条索紧结卷曲，色泽绿润。","story":"休宁松萝创制于明代隆庆年间（约1570年），由僧人大方创制。据《徽州府志》记载，松萝山原产绿茶品质一般，大方和尚改进炒制方法后，茶叶品质大幅提升，从此松萝茶名扬天下。松萝茶是中国炒青绿茶的开山鼻祖。","efficacy":"清热解毒、消食化积、提神醒脑、抗氧化","gradeDesc":"特级：条索紧结卷曲，色泽绿润，白毫显露；一级：条索尚紧，色绿；二级：滋味醇和，香气纯正","color":"翠绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷盖碗或玻璃杯","steps":"取茶4-5克，以85℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"徽州毛豆腐、黄山烧饼、休宁茶干","tastingTerms":"香气高爽、滋味醇厚、回甘明显","suitableCrowd":"爱茶人士、中老年人、养生保健人群","flavorProfile":{"bitter":3,"astringent":3,"sweet":5,"fragrant":7,"returning":6},"suitableSeason":"春季、秋季","originDetail":"安徽省黄山市休宁县松萝山，海拔300-600米，属亚热带季风气候，温暖湿润，雨量充沛，土壤为黄棕壤","storyExtended":"休宁松萝在中国茶叶史上具有里程碑意义，被誉为炒青鼻祖。明代许次纾《茶疏》中记载：徽之松萝，法极精工。松萝茶的炒制工艺后来传入杭州，催生了西湖龙井等名茶。","teaEmoji":"🍃","category":"炒青绿茶","wuXing":"木","efficacyDetail":"休宁松萝最大的特点是降火消食，徽州民间有松萝茶克食的说法。含有丰富的茶多酚、儿茶素和咖啡碱，具有清热解毒、消食化积、提神醒脑、抗氧化的功效。","altitude":"300-600米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-5月）","age":0,"caffeine":3,"processLevel":3,"organic":false,"award":"安徽省非物质文化遗产","rating":4.3,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"白芽","harvestYear":"2024春"},
+  {"id":268,"name":"闽北水仙","type":"乌龙茶","origin":"福建建瓯","grade":"特级","period":"清代","desc":"闽北水仙是福建乌龙茶代表之一，香气独特，滋味醇厚回甘。","detail":"闽北水仙产于福建省建瓯市、建阳市、武夷山市一带，是福建乌龙茶的重要品种。茶树品种为水仙种，树龄可达百年以上，老枞水仙品质更佳。采制工艺独特，经晒青、晾青、做青、杀青、揉捻、烘干等工序制成，成品条索肥壮紧结，色泽乌褐油润。","story":"闽北水仙的起源可追溯至清代康熙年间。据传建瓯一茶农在深山中发现了野生水仙茶树，将其移植到茶园中培育。因其制成的茶叶香气独特如兰花，滋味醇厚似水仙，故得名水仙茶。","efficacy":"消脂减肥、降血压、抗氧化、提神醒脑","gradeDesc":"特级：条索肥壮，色泽乌褐油润，香气浓郁；一级：条索尚紧，色泽尚润；二级：香气纯正，滋味醇和","color":"金黄明亮，琥珀透亮","brewing":{"temperature":"95-100℃","teaware":"紫砂壶或盖碗","steps":"取茶8克，以沸水冲泡，第一泡洗茶不饮，第二泡浸泡30秒，后续每泡延长10-15秒，可冲泡7-8次"},"storage":"密封保存于阴凉干燥处，适合长期存放，年代越久越醇香，建议冷藏保存","foodPairing":"闽北板鸭、建瓯光饼、武夷山熏鹅","tastingTerms":"兰花香显、滋味醇厚、回甘绵长","suitableCrowd":"中年人、爱茶人士、需要降脂人群","flavorProfile":{"bitter":3,"astringent":3,"sweet":4,"fragrant":8,"returning":6},"suitableSeason":"秋季、冬季","originDetail":"福建省建瓯市、建阳市、武夷山市等地，海拔300-800米，属亚热带季风气候，温暖湿润，雨量充沛，土壤为红壤","storyExtended":"闽北水仙在福建茶界地位重要，是乌龙茶四大名枞之一。水仙茶树寿命长，常有百年老枞，品质远胜新枞，有醇不过水仙的美誉。","teaEmoji":"🌿","category":"乌龙茶","wuXing":"木","efficacyDetail":"闽北水仙属于半发酵茶，茶多酚经适度氧化后形成丰富的茶红素，具有消脂减肥、降血压、抗氧化、提神醒脑的功效，老枞水仙的药用价值更高。","altitude":"300-800米","priceRange":3,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）、秋季（10-11月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"福建省名茶","rating":4.5,"soupColor":"#FFFDD0","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"福州","harvestYear":"2024春"},
+  {"id":269,"name":"白芽奇兰","type":"乌龙茶","origin":"福建平和","grade":"特级","period":"清代","desc":"白芽奇兰产于平和县，以白芽品种制成，兰香幽雅，滋味甘醇。","detail":"白芽奇兰产于福建省漳州市平和县大芹山一带，是福建乌龙茶中的珍稀品种。茶树品种为奇兰种，因新芽呈白色而得名白芽奇兰。采制工艺独特，经晒青、晾青、做青、杀青、揉捻、烘干等工序制成，成品条索紧结，色泽砂绿润泽，冲泡后兰香幽雅。","story":"白芽奇兰的起源可追溯至清代乾隆年间。据传平和县茶农在茶园中发现一株变异茶树，新芽呈白色，制茶后香气独特如兰。当地茶商将其命名为白芽奇兰，并作为珍品进贡朝廷。","efficacy":"提神醒脑、抗氧化、降脂减肥、舒缓神经","gradeDesc":"特级：条索紧结，色泽砂绿，白芽显露，兰香幽雅；一级：条索尚紧，香气清高；二级：滋味醇和，兰香明显","color":"金黄明亮，清澈透亮","brewing":{"temperature":"95-100℃","teaware":"紫砂壶或盖碗","steps":"取茶8克，以沸水冲泡，第一泡洗茶不饮，第二泡浸泡30秒，后续每泡延长10秒，可冲泡6-8次"},"storage":"密封保存于阴凉干燥处，建议冷藏保存，避免受潮和异味","foodPairing":"平和蜜柚、闽南糕点、白水贡糖","tastingTerms":"兰香幽雅、滋味甘醇、回甘持久","suitableCrowd":"女性、爱茶人士、压力大的人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":5,"fragrant":9,"returning":7},"suitableSeason":"春季、秋季","originDetail":"福建省漳州市平和县大芹山、九峰镇等地，海拔400-1000米，属亚热带季风气候，温暖湿润，雨量充沛，土壤为红壤","storyExtended":"白芽奇兰以其独特的白芽特性和幽雅的兰香，在福建乌龙茶中独树一帜。大芹山海拔较高，云雾缭绕，是白芽奇兰最优质的生长区域。","teaEmoji":"🌸","category":"乌龙茶","wuXing":"木","efficacyDetail":"白芽奇兰含有丰富的茶多酚、氨基酸和芳香物质，具有提神醒脑、抗氧化、降脂减肥、舒缓神经的功效，其独特的兰香成分具有放松身心的作用。","altitude":"400-1000米","priceRange":4,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）、秋季（10-11月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"福建省茶王赛金奖","rating":4.6,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"霞浦","harvestYear":"2024春"},
+  {"id":270,"name":"福州茉莉","type":"花茶","origin":"福建福州","grade":"特级","period":"宋代","desc":"福州茉莉花茶历史悠久，以茉莉花与绿茶窨制，香飘四海。","detail":"福州茉莉花茶产于福建省福州市及周边地区，是中国最著名的茉莉花茶。选用优质烘青绿茶为茶坯，与福州特产的茉莉鲜花经多次窨制而成。福州气候温暖湿润，茉莉花生长期长，香气浓郁。好的福州茉莉花茶要经过七窨一提的精湛工艺。","story":"福州茉莉花茶的历史可追溯至宋代，明清时期福州已成为中国茉莉花茶的生产和贸易中心。福州茉莉花茶曾是清廷贡品，也是海上丝绸之路的重要出口商品。19世纪远销欧美，被誉为中国春天的味道。","efficacy":"理气和中、提神醒脑、抗氧化、美容养颜","gradeDesc":"特级：花香浓郁持久，茶味鲜醇，七窨一提；一级：花香明显，滋味醇和；二级：香气尚可，回甘明显","color":"黄绿明亮，清澈透亮","brewing":{"temperature":"85-90℃","teaware":"瓷盖碗或玻璃杯","steps":"取茶4-5克，以90℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可饮用，可续水3-4次"},"storage":"密封保存于阴凉干燥处，避免阳光直射和异味侵入，冷藏保鲜效果更佳","foodPairing":"福州鱼丸、芋泥、礼饼、橄榄","tastingTerms":"茉莉花香、鲜灵持久、滋味甘醇","suitableCrowd":"女性、白领、注重养颜者、精神紧张者","flavorProfile":{"bitter":1,"astringent":1,"sweet":6,"fragrant":10,"returning":5,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"漳平","harvestYear":"2024春"},"suitableSeason":"春季、夏季","originDetail":"福建省福州市仓山区、闽侯县等地，海拔10-200米，属亚热带海洋性气候，温暖湿润，茉莉花生长期4-10月","storyExtended":"福州茉莉花茶在历史上是福州城市名片。19世纪中叶，福州港开埠后，茉莉花茶大量出口。2014年，福州茉莉花茶窨制技艺被列入国家级非物质文化遗产名录。","teaEmoji":"🌸","category":"花茶","wuXing":"木","efficacyDetail":"福州茉莉花茶含有丰富的芳香油、茶多酚和氨基酸，具有理气和中、提神醒脑、抗氧化、美容养颜的功效，茉莉花香对缓解焦虑、改善情绪有良好作用。","altitude":"10-200米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季制茶（5-10月窨花）","age":0,"caffeine":2,"processLevel":5,"organic":false,"award":"国家级非物质文化遗产","rating":4.6},
+  {"id":271,"name":"霞浦元宵茶","type":"绿茶","origin":"福建霞浦","grade":"特级","period":"现代","desc":"霞浦元宵茶产于霞浦县，元宵节前后采摘，芽叶细嫩，香气清雅。","detail":"霞浦元宵茶产于福建省宁德市霞浦县，是中国最早上市的春茶之一。因在元宵节前后即可采摘制作而得名。霞浦地处福建东北沿海，气候温暖，茶树萌芽极早。选用一芽一叶初展的鲜叶，经杀青、揉捻、烘干等工序制成，成品芽叶细嫩，色泽翠绿。","story":"霞浦元宵茶创制于20世纪末，得益于霞浦独特的地理位置和气候条件。霞浦位于北纬26度，冬季温暖，加上海洋性气候调节，茶树在立春后即开始萌芽，比内地茶区早20-30天。当地茶农利用这一优势，开发出元宵节前上市的早春绿茶。","efficacy":"清热解毒、提神醒脑、抗氧化、补充维生素","gradeDesc":"特级：芽叶细嫩，色泽翠绿，白毫显露；一级：条索紧细，香气清雅；二级：滋味鲜醇，回甘明显","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"75-80℃","teaware":"透明玻璃杯","steps":"取茶3克，以75℃热水冲泡，采用上投法先注水再投茶，浸泡1-2分钟即可品饮，可续水2-3次"},"storage":"密封冷藏保存于0-5℃，避免受潮和氧化，开封后尽快饮用","foodPairing":"霞浦海带、闽东鱼丸、海蛎煎","tastingTerms":"清香鲜灵、滋味甘爽、回甘清新","suitableCrowd":"女性、年轻人、春季养生人群","flavorProfile":{"bitter":1,"astringent":1,"sweet":8,"fragrant":7,"returning":6,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"上犹","harvestYear":"2024春"},"suitableSeason":"春季","originDetail":"福建省宁德市霞浦县松港街道、三沙镇等地，海拔50-500米，属亚热带海洋性气候，冬季温暖，年均气温18-20℃","storyExtended":"霞浦元宵茶被称为中国第一早春茶，每年元宵节前后开始采摘，比西湖龙井早约一个月。霞浦县近年来大力发展元宵茶产业，已成为当地农民增收的重要来源。","teaEmoji":"🌱","category":"早春绿茶","wuXing":"木","efficacyDetail":"霞浦元宵茶采摘时间最早，芽叶嫩度极高，氨基酸含量丰富，具有清热解毒、提神醒脑、抗氧化、补充维生素的功效，是春季养生的理想茶饮。","altitude":"50-500米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（2月-3月初）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"福建省名茶","rating":4.3},
+  {"id":272,"name":"漳平水仙","type":"乌龙茶","origin":"福建漳平","grade":"特级","period":"清代","desc":"漳平水仙是闽西乌龙茶代表，以水仙品种制成茶饼，兰香清幽。","detail":"漳平水仙产于福建省龙岩市漳平市，是福建唯一的紧压型乌龙茶。以水仙茶树品种为原料，经晒青、晾青、做青、杀青、揉捻、压制成饼等工序制成。独特的饼状造型便于保存和运输，冲泡后汤色金黄明亮，兰香清幽，滋味醇厚。","story":"漳平水仙创制于清代，距今约200年。当时漳平茶农为方便茶叶运往外地销售，借鉴普洱茶的压制工艺，将水仙乌龙茶压制成小饼。这一创新不仅解决了运输问题，还在陈化过程中使茶味更加醇厚。","efficacy":"消脂减肥、降血压、抗氧化、提神醒脑","gradeDesc":"特级：饼形端正，色泽乌褐，兰香清幽；一级：饼形尚整，香气清雅；二级：滋味醇和，香气纯正","color":"金黄明亮，清澈透亮","brewing":{"temperature":"95-100℃","teaware":"紫砂壶或盖碗","steps":"取茶8克（约一小饼），以沸水冲泡，第一泡洗茶，第二泡浸泡30秒，后续每泡延长10秒，可冲泡8-10次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"双井","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，适合长期存放，陈化后风味更佳","foodPairing":"闽西八大干、芋子包、漳平水仙茶饼","tastingTerms":"兰香清幽、滋味醇厚、回甘绵长","suitableCrowd":"爱茶人士、中年人、需要降脂人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":4,"fragrant":7,"returning":6},"suitableSeason":"秋季、冬季","originDetail":"福建省龙岩市漳平市南洋镇、双洋镇等地，海拔300-800米，属亚热带季风气候，气候温和，雨量充沛，土壤为红壤","storyExtended":"漳平水仙是福建乌龙茶中的独特品类，其饼状造型在中国乌龙茶中独一无二。漳平水仙茶饼的传统制作技艺被列入福建省非物质文化遗产。","teaEmoji":"🍵","category":"紧压乌龙茶","wuXing":"木","efficacyDetail":"漳平水仙经过紧压和陈化，茶多酚适度氧化，形成丰富的茶红素和茶褐素，具有消脂减肥、降血压、抗氧化、提神醒脑的功效。","altitude":"300-800米","priceRange":3,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）、秋季（10-11月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"福建省非物质文化遗产","rating":4.4},
+  {"id":273,"name":"上犹毛尖","type":"绿茶","origin":"江西上犹","grade":"特级","period":"现代","desc":"上犹毛尖产于赣南上犹县，条索紧细，白毫显露，香气清高。","detail":"上犹毛尖产于江西省赣州市上犹县五指峰、陡水湖一带。茶园分布在海拔400-800米的山区，气候温和湿润，常年云雾缭绕。选用一芽一叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品条索紧细卷曲，白毫显露，色泽翠绿。","story":"上犹县种茶历史可追溯至唐代，但上犹毛尖作为品牌名茶创制于1980年代。上犹地处赣南山区，生态环境优良，当地茶农在传统工艺基础上精心改良，创制出独具特色的上犹毛尖。","efficacy":"清热解毒、提神醒脑、抗氧化、生津止渴","gradeDesc":"特级：条索紧细，白毫显露，色泽翠绿；一级：条索尚紧，香气清高；二级：滋味醇和，回甘明显","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#FFFACD","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"瑞金","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳","foodPairing":"赣南脐橙、南安板鸭、上犹鱼丝","tastingTerms":"清高鲜爽、回甘生津、毫香显露","suitableCrowd":"上班族、学生、健康养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"江西省赣州市上犹县五指峰乡、陡水镇等地，海拔400-800米，属亚热带季风气候，温暖湿润，土壤为红壤","storyExtended":"上犹毛尖是赣南地区的代表性绿茶，凭借优良品质多次在江西省名茶评比中获奖。上犹县森林覆盖率高达80%以上，生态环境极佳。","teaEmoji":"🌿","category":"毛尖绿茶","wuXing":"木","efficacyDetail":"上犹毛尖含有丰富的茶多酚、氨基酸和维生素，具有清热解毒、提神醒脑、抗氧化、生津止渴的功效。","altitude":"400-800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"江西省名茶评比金奖","rating":4.3},
+  {"id":274,"name":"双井绿","type":"绿茶","origin":"江西修水","grade":"特级","period":"宋代","desc":"双井绿产于修水双井村，是宋代名茶，外形圆紧，色绿香高。","detail":"双井绿产于江西省九江市修水县双井村，是中国历史上著名的绿茶品种。双井村是北宋著名诗人黄庭坚的故乡。茶树生长在海拔200-400米的山坡上，选用一芽一叶或一芽二叶初展的鲜叶，经杀青、揉捻、烘焙等工序制成，成品外形圆紧如珠，色泽翠绿。","story":"双井绿的历史可追溯至宋代，与黄庭坚有着密切关系。黄庭坚常以家乡双井茶馈赠友人，其诗中多次提及双井茶。苏轼也曾赋诗赞双井茶。宋代双井茶与建茶齐名，是当时最著名的绿茶之一。","efficacy":"清热解毒、提神醒脑、抗氧化、护齿防龋","gradeDesc":"特级：圆紧如珠，色泽翠绿，白毫显露；一级：粒圆尚紧，色绿润泽；二级：香气清纯，滋味醇和","color":"翠绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷杯或玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"井冈","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳","foodPairing":"修水哨子、宁红茶点、九江茶饼","tastingTerms":"清高持久、滋味鲜爽、回甘生津","suitableCrowd":"文人雅士、学生、上班族","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"江西省九江市修水县双井村，海拔200-400米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄棕壤","storyExtended":"双井绿承载着千年的文化传承。双井村不仅是黄庭坚的故里，也是宋代文化重镇。黄庭坚与苏轼等人以茶会友的故事流传千年，双井绿也因此被誉为文人茶。","teaEmoji":"📜","category":"圆珠型绿茶","wuXing":"木","efficacyDetail":"双井绿含有丰富的茶多酚和氨基酸，具有清热解毒、提神醒脑、抗氧化、护齿防龋的功效，是文人雅士钟爱的清雅茶饮。","altitude":"200-400米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"江西省名茶","rating":4.4},
+  {"id":275,"name":"瑞金白茶","type":"白茶","origin":"江西瑞金","grade":"特级","period":"现代","desc":"瑞金白茶的唯一性在于其产地瑞金——中国红色政权的摇篮。","detail":"瑞金白茶产于江西省瑞金市，是江西新兴的名优白茶品种。瑞金地处武夷山脉西麓，海拔300-600米，气候温和湿润。选用白茶品种的鲜叶，经萎凋、干燥等传统白茶工艺制成。成品芽毫显露，色泽银白，冲泡后汤色杏黄明亮，滋味清甜。","story":"瑞金白茶是20世纪末引进福建白茶品种和工艺后发展起来的新兴茶品。瑞金是红色故都、共和国摇篮，当地政府依托红色旅游资源，大力发展特色农业，白茶产业应运而生。","efficacy":"清热解毒、抗氧化、降血糖、增强免疫力","gradeDesc":"特级：芽毫显露，色泽银白，香气清雅；一级：色泽尚白，香气纯正；二级：滋味清甜，回甘明显","color":"杏黄明亮，清澈透亮","brewing":{"temperature":"85-90℃","teaware":"玻璃杯或瓷杯","steps":"取茶3克，以85℃热水冲泡，先润茶后注满水，浸泡2-3分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"竹叶","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，白茶可长期存放，越陈越香，避免受潮","foodPairing":"瑞金牛肉汤、客家酿豆腐、红薯干","tastingTerms":"清香淡雅、滋味清甜、回甘悠长","suitableCrowd":"中老年人、糖尿病患者、免疫力低下者","flavorProfile":{"bitter":1,"astringent":1,"sweet":7,"fragrant":6,"returning":5},"suitableSeason":"春季、夏季","originDetail":"江西省瑞金市日东乡、泽覃乡等地，海拔300-600米，属亚热带季风气候，气候温和，雨量充沛，土壤为红壤","storyExtended":"瑞金白茶融合了红色文化与绿色生态，成为赣南地区特色农产品的代表。瑞金市将白茶产业与旅游产业相结合，打造红色茶旅品牌。","teaEmoji":"⭐","category":"白茶","wuXing":"金","efficacyDetail":"瑞金白茶未经揉捻和杀青，最大程度保留了茶叶中的天然活性成分，含有丰富的茶多酚、氨基酸和黄酮类物质，具有清热解毒、抗氧化、降血糖、增强免疫力的功效。","altitude":"300-600米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":1,"caffeine":1,"processLevel":2,"organic":false,"award":"江西省名优茶","rating":4.2},
+  {"id":276,"name":"井冈翠绿","type":"绿茶","origin":"江西井冈山","grade":"特级","period":"现代","desc":"井冈翠绿产于革命圣地井冈山，色泽翠绿，香气清高。","detail":"井冈翠绿产于江西省井冈山市，是井冈山革命根据地的特色名茶。茶园分布在海拔500-1000米的井冈山腹地，常年云雾缭绕，生态环境极佳。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品条索紧结，色泽翠绿油润。","story":"井冈山自古产茶，但井冈翠绿作为品牌名茶创制于20世纪末。井冈山是中国革命的摇篮，当地依托丰富的红色旅游资源和优越的自然生态环境，开发出井冈翠绿这一特色茶品。翠绿二字既形容茶叶色泽，也寓意井冈山永远青翠的革命精神。","efficacy":"清热解毒、提神醒脑、抗氧化、降血脂","gradeDesc":"特级：条索紧结，色泽翠绿，白毫显露；一级：条索尚紧，香气清高；二级：滋味醇和，回甘明显","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"蒙顶","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"井冈山烟笋、红军菜、客家酿豆腐","tastingTerms":"清高鲜爽、滋味醇厚、回甘生津","suitableCrowd":"游客、上班族、注重健康人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"江西省井冈山市茨坪镇、黄洋界等地，海拔500-1000米，属亚热带季风气候，气候凉爽，雨量充沛，土壤为黄棕壤","storyExtended":"井冈翠绿融合了红色文化与绿色生态，是井冈山旅游的特色产品。井冈山森林覆盖率高达86%，茶园分布在青山绿水之间。","teaEmoji":"⛰️","category":"条形绿茶","wuXing":"木","efficacyDetail":"井冈翠绿产自高海拔生态茶园，含有丰富的茶多酚、氨基酸和矿物质，具有清热解毒、提神醒脑、抗氧化、降血脂的功效。","altitude":"500-1000米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"江西省名茶","rating":4.3},
+  {"id":277,"name":"竹叶青","type":"绿茶","origin":"四川峨眉","grade":"特级","period":"现代","desc":"竹叶青产于峨眉山，外形扁直似竹叶，色翠绿，香高味醇。","detail":"竹叶青产于四川省峨眉山市，创制于1964年。茶树生长在峨眉山海拔800-1500米的高山茶园，常年云雾缭绕，生态环境极佳。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、理条、做形、烘焙等工序制成，成品外形扁直似竹叶，色泽翠绿油润。","story":"1964年，陈毅元帅视察峨眉山，在万年寺品尝了当地僧人制作的绿茶后赞不绝口。寺僧请元帅赐名，陈毅见茶形似竹叶，即兴命名为竹叶青。此后竹叶青茶名声大振，成为峨眉山的标志性名茶。","efficacy":"清热解毒、提神醒脑、抗氧化、降脂减肥","gradeDesc":"特级：扁直似竹叶，色泽翠绿，白毫显露，香气浓郁；一级：条索扁直，色绿润泽；二级：滋味鲜醇，回甘明显","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3克，以80℃热水冲泡，先注水三分之一润茶，再注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"川红","harvestYear":"2024春"},"storage":"密封冷藏保存于0-5℃，避免受潮和异味侵入，开封后尽快饮用","foodPairing":"峨眉山雪魔芋、川味凉粉、峨眉糕","tastingTerms":"清香高长、滋味鲜醇、回甘生津","suitableCrowd":"上班族、白领、注重养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"四川省峨眉山市峨眉山景区，海拔800-1500米，属亚热带季风气候，气候凉爽湿润，常年云雾缭绕，土壤为山地黄壤","storyExtended":"竹叶青茶自陈毅元帅赐名以来，发展成为中国名茶中的佼佼者。峨眉山是普贤菩萨道场，佛门圣地与茶文化完美融合。竹叶青茶多次在国际茶叶博览会上获得金奖，是四川茶叶的代表品牌。","teaEmoji":"🎋","category":"扁形绿茶","wuXing":"木","efficacyDetail":"竹叶青富含茶多酚、氨基酸、维生素C和矿物质，具有清热解毒、提神醒脑、抗氧化、降脂减肥的功效，峨眉山高海拔环境赋予其纯净的品质。","altitude":"800-1500米","priceRange":4,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":4,"organic":false,"award":"国际茶叶博览会金奖","rating":4.7,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"文君","harvestYear":"2024春"},
+  {"id":278,"name":"蒙顶甘露","type":"绿茶","origin":"四川雅安","grade":"特级","period":"唐代","desc":"蒙顶甘露产于蒙顶山，是中国最古老的名茶之一，卷曲多毫，香高味醇。","detail":"蒙顶甘露产于四川省雅安市名山区蒙顶山，是中国历史最悠久的名茶，距今已有2000多年历史。蒙顶山海拔约1400米，常年云雾缭绕，雨量充沛。选用一芽一叶初展的鲜叶，经杀青、揉捻、做形、烘干等传统工艺制成，成品卷曲紧结，白毫显露，色泽嫩绿。","story":"蒙顶甘露是中国茶文化的发源地之一。西汉时期，茶祖吴理真在蒙顶山人工种植茶树，开创了世界人工种茶的先河。唐代蒙顶茶被列为贡茶，有扬子江中水，蒙山顶上茶的千古名句。茶圣陆羽曾亲赴蒙顶山考察，对蒙顶茶给予极高评价。","efficacy":"清热解毒、提神醒脑、抗氧化、延缓衰老","gradeDesc":"特级：卷曲多毫，色泽嫩绿，香气浓郁；一级：条索紧结，毫显；二级：滋味鲜醇，回甘明显","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷杯或玻璃杯","steps":"取茶3克，以80℃热水冲泡，采用上投法先注水再投茶，浸泡1-2分钟即可品饮，可续水3-4次"},"storage":"密封冷藏保存，避免受潮和异味侵入，开封后尽快饮用","foodPairing":"雅安雅鱼、蒙顶山茶饼、川味糕点","tastingTerms":"香高味醇、回甘持久、毫香显露","suitableCrowd":"爱茶人士、中老年人、注重养生者","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":8},"suitableSeason":"春季、夏季","originDetail":"四川省雅安市名山区蒙顶山，海拔800-1400米，属亚热带季风气候，雨量充沛，常年云雾缭绕，土壤为黄壤","storyExtended":"蒙顶山是中国茶文化的圣山。西汉甘露年间吴理真在蒙顶山植下七株茶树，被尊为茶祖。蒙顶甘露是中国贡茶制度中历时最长的名茶，从唐代到清代绵延一千余年。如今蒙顶山仍保留着皇茶园遗址和古老的茶树。","teaEmoji":"🏔️","category":"卷曲型绿茶","wuXing":"木","efficacyDetail":"蒙顶甘露含有丰富的茶多酚、氨基酸、儿茶素和多种维生素，具有清热解毒、提神醒脑、抗氧化、延缓衰老的功效，2000多年的栽培历史证明其卓越的养生价值。","altitude":"800-1400米","priceRange":4,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":4,"organic":false,"award":"中国历史文化名茶","rating":4.6,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"峨眉","harvestYear":"2024春"},
+  {"id":279,"name":"川红","type":"红茶","origin":"四川宜宾","grade":"特级","period":"现代","desc":"川红是四川红茶代表，产于宜宾，条索紧细，色泽乌润，香气甜纯。","detail":"川红产于四川省宜宾市及周边地区，是中国三大工夫红茶之一。宜宾地处川南，气候温暖湿润，茶园分布在海拔400-1000米的山坡上。选用云南大叶种或四川中小叶种的鲜叶，经萎凋、揉捻、发酵、干燥等工夫红茶工艺制成，成品条索紧细，色泽乌润，金毫显露。","story":"川红创制于1950年代，当时为满足出口需要，国家在四川宜宾建立了红茶生产基地。宜宾气候条件适宜红茶加工，生产的川红工夫红茶品质优良，很快成为重要的出口创汇产品。川红以早、白、香为特点，在国际市场上享有赛祁红的美誉。","efficacy":"暖胃养胃、抗氧化、降血脂、提神醒脑","gradeDesc":"特级：条索紧细，金毫显露，色泽乌润，香气甜纯；一级：条索尚紧，色泽尚润；二级：滋味醇和，香气甜纯","color":"红艳明亮，清澈透亮","brewing":{"temperature":"90-95℃","teaware":"瓷壶或紫砂壶","steps":"取茶4-5克，以90℃热水冲泡，第一泡浸泡30-40秒，后续每泡延长10秒，可冲泡4-5次"},"storage":"密封保存于阴凉干燥处，避免阳光直射和潮湿，红茶可存放1-2年","foodPairing":"宜宾燃面、李庄白肉、川味点心","tastingTerms":"甜纯高长、滋味浓醇、金圈明显","suitableCrowd":"中老年人、胃寒者、女性","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"秋季、冬季","originDetail":"四川省宜宾市翠屏区、南溪区等地，海拔400-1000米，属亚热带季风气候，温暖湿润，雨量充沛，土壤为黄壤","storyExtended":"川红工夫红茶是中国三大工夫红茶之一，与祁红、滇红齐名。20世纪50-80年代，川红大量出口苏联和东欧国家，是国家重要的创汇商品。","teaEmoji":"❤️","category":"工夫红茶","wuXing":"火","efficacyDetail":"川红经过完全发酵，茶多酚氧化为茶红素和茶黄素，具有暖胃养胃、抗氧化、降血脂、提神醒脑的功效，茶性温和，适合冬季和胃寒者饮用。","altitude":"400-1000米","priceRange":2,"suitableTime":"下午、晚间","harvestSeason":"春季（3-5月）、夏季（6-7月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"中国三大工夫红茶之一","rating":4.3,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"巴南","harvestYear":"2024春"},
+  {"id":280,"name":"文君绿茶","type":"绿茶","origin":"四川邛崃","grade":"特级","period":"现代","desc":"文君绿茶产于邛崃，以卓文君命名，外形纤秀，香气清雅。","detail":"文君绿茶产于四川省邛崃市（古称临邛），创制于1980年代。邛崃是卓文君的故乡，文君绿茶因此得名。茶园分布在海拔500-800米的山区，气候温和湿润。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，外形纤秀紧结，色泽翠绿。","story":"邛崃是汉代才女卓文君的故乡，文君与司马相如的爱情故事千古流传。1980年代，当地茶叶专家为弘扬文君文化，创制了文君绿茶。茶名取自卓文君，茶形纤秀似文君倩影，茶香清雅如文君气质。","efficacy":"清热解毒、提神醒脑、抗氧化、美容养颜","gradeDesc":"特级：外形纤秀，色泽翠绿，白毫显露；一级：条索紧结，色绿润泽；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"瓷杯或玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"邛崃奶汤面、钵钵鸡、川味小吃","tastingTerms":"清雅持久、滋味鲜醇、回甘生津","suitableCrowd":"女性、白领、文人雅士","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":8,"returning":6,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"永川","harvestYear":"2024春"},"suitableSeason":"春季、夏季","originDetail":"四川省邛崃市平乐镇、天台山镇等地，海拔500-800米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄壤","storyExtended":"文君绿茶将卓文君的文化IP与茶叶产业完美结合。邛崃保留着文君井、文君故居等历史遗迹，文君绿茶成为游客必买的伴手礼。","teaEmoji":"🎵","category":"条形绿茶","wuXing":"木","efficacyDetail":"文君绿茶含有茶多酚、氨基酸和维生素C，具有清热解毒、提神醒脑、抗氧化、美容养颜的功效，适合女性饮用。","altitude":"500-800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"四川省名茶评比金奖","rating":4.3},
+  {"id":281,"name":"峨眉毛峰","type":"绿茶","origin":"四川雅安","grade":"特级","period":"现代","desc":"峨眉毛峰产于雅安凤鸣乡，外形紧细卷曲，银毫显露，香气清高。","detail":"峨眉毛峰产于四川省雅安市雨城区凤鸣乡，创制于1970年代。茶园分布在海拔800-1200米的山区，与蒙顶山相邻，生态环境极佳。选用一芽一叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品条索紧细卷曲，银毫显露，色泽银绿润泽。","story":"峨眉毛峰的创制借鉴了蒙顶甘露的传统工艺，结合现代制茶技术发展而来。雅安自古是中国茶文化重镇，凤鸣乡地处蒙顶山与峨眉山之间的茶叶黄金产区。峨眉毛峰凭借优良的品质，在1970年代就获得了四川省名茶称号。","efficacy":"清热解毒、提神醒脑、抗氧化、降血脂","gradeDesc":"特级：紧细卷曲，银毫显露，色泽银绿；一级：条索尚紧，毫显色绿；二级：香气纯正，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，采用上投法先注水再投茶，浸泡1-2分钟即可品饮，可续水3-4次"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"雅安雅鱼、蒙顶山茶点、川味糕点","tastingTerms":"清高持久、滋味鲜爽、回甘生津","suitableCrowd":"上班族、学生、注重养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":7,"returning":7,"soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"南川","harvestYear":"2024春"},"suitableSeason":"春季、夏季","originDetail":"四川省雅安市雨城区凤鸣乡，海拔800-1200米，属亚热带季风气候，雨量充沛，常年云雾缭绕，土壤为黄壤","storyExtended":"峨眉毛峰与蒙顶甘露并称为雅安绿茶双璧。雅安是茶马古道的起点之一，千年茶文化积淀深厚。峨眉毛峰多次在四川省茶博会获奖。","teaEmoji":"🌿","category":"卷曲型绿茶","wuXing":"木","efficacyDetail":"峨眉毛峰含有丰富的茶多酚、氨基酸和矿物质，具有清热解毒、提神醒脑、抗氧化、降血脂的功效，高海拔环境赋予其纯净的品质。","altitude":"800-1200米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"四川省名茶","rating":4.2},
+  {"id":282,"name":"巴南银针","type":"绿茶","origin":"重庆巴南","grade":"特级","period":"现代","desc":"巴南银针产于重庆巴南区，外形挺直如针，银毫满披，香气清高。","detail":"巴南银针产于重庆市巴南区二圣镇、天坪山一带，创制于1990年代。茶园分布在海拔500-800米的山坡上，气候温和湿润，常年云雾缭绕。选用一芽一叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品外形挺直如针，银毫满披，色泽银绿。","story":"巴南区是重庆传统的茶产区，种茶历史可追溯至唐宋时期。1990年代，当地茶叶专家利用巴南优越的自然条件，创制出独具特色的巴南银针。其针形造型和银毫特色在重庆茶区独树一帜。","efficacy":"清热解毒、提神醒脑、抗氧化、生津止渴","gradeDesc":"特级：挺直如针，银毫满披，色泽银绿；一级：条索挺直，毫显色绿；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"高脚玻璃杯","steps":"取茶3克，以80℃热水冲泡，采用上投法先注水再投茶，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"都匀","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮和异味","foodPairing":"重庆火锅（解腻）、麻辣小面、山城汤圆","tastingTerms":"清高持久、滋味鲜爽、回甘生津","suitableCrowd":"上班族、吃火锅人群、养生爱好者","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"重庆市巴南区二圣镇、天坪山，海拔500-800米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄壤","storyExtended":"巴南银针是重庆绿茶的代表品牌之一。巴南区依托主城区位优势，将茶产业与乡村旅游相结合，天坪山已成为重庆市民周末休闲的热门去处。","teaEmoji":"🌿","category":"针形绿茶","wuXing":"木","efficacyDetail":"巴南银针含有丰富的茶多酚、氨基酸和维生素，具有清热解毒、提神醒脑、抗氧化、生津止渴的功效，吃火锅后饮用可消解油腻、保护肠胃。","altitude":"500-800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"重庆市名茶评比金奖","rating":4.3},
+  {"id":283,"name":"永川秀芽","type":"绿茶","origin":"重庆永川","grade":"特级","period":"现代","desc":"永川秀芽产于永川茶山竹海，外形紧秀，色泽翠绿，香气清雅。","detail":"永川秀芽产于重庆市永川区茶山竹海一带，创制于1960年代。茶园分布在海拔400-800米的箕山山脉，与万亩竹海相邻，生态环境极佳。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、揉捻、做形、烘干等工序制成，成品外形紧秀，色泽翠绿润泽。","story":"永川秀芽是重庆历史最悠久的创新名茶。1960年代，永川茶农引种优质茶树品种，结合当地独特的竹海生态环境，创制出永川秀芽。因其产于竹海之间，茶叶吸收了竹林的清新之气，形成了独特的品质风格。","efficacy":"清热解毒、提神醒脑、抗氧化、降血脂","gradeDesc":"特级：外形紧秀，色泽翠绿，白毫显露；一级：条索紧结，色绿润泽；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"湄潭","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"永川豆豉鱼、竹笋宴、重庆小吃","tastingTerms":"清雅芬芳、滋味鲜醇、回甘生津","suitableCrowd":"上班族、注重健康人群、旅游者","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"重庆市永川区茶山竹海风景区，海拔400-800米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄壤","storyExtended":"永川秀芽产于著名茶山竹海景区，2万亩连片茶园与5万亩竹海交织。张艺谋导演的电影《十面埋伏》曾在茶山竹海取景，为永川秀芽增添了文化魅力。","teaEmoji":"🎋","category":"条形绿茶","wuXing":"木","efficacyDetail":"永川秀芽产于竹海之间，茶叶吸收了竹林的清新气息，含有丰富的茶多酚、氨基酸和维生素，具有清热解毒、提神醒脑、抗氧化、降血脂的功效。","altitude":"400-800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"国际茶博会金奖","rating":4.4},
+  {"id":284,"name":"南川红碎茶","type":"红茶","origin":"重庆南川","grade":"一级","period":"现代","desc":"南川红碎茶产于金佛山，颗粒紧结，汤色红亮，滋味浓强。","detail":"南川红碎茶产于重庆市南川区金佛山一带，是中国红碎茶的重要产区。金佛山海拔500-1000米，气候温和湿润。采用CTC工艺（压碎、撕裂、卷曲）制作，成品呈颗粒状，色泽乌润。冲泡后汤色红艳明亮，滋味浓强鲜爽，适合加奶调饮。","story":"南川红碎茶创制于1970年代，当时为满足国际市场需求，国家在金佛山建立了红碎茶生产基地。南川得天独厚的气候条件非常适合红茶加工，生产的红碎茶品质优良，大量出口到欧美市场。","efficacy":"暖胃养胃、提神醒脑、抗氧化、助消化","gradeDesc":"特级：颗粒紧结，色泽乌润，汤色红艳；一级：颗粒尚紧，色乌尚润；二级：滋味浓醇，汤色红亮","color":"红艳明亮，清澈透亮","brewing":{"temperature":"95-100℃","teaware":"瓷壶或玻璃壶","steps":"取茶3-4克，以沸水冲泡，浸泡2-3分钟，可加牛奶或柠檬调饮，适合制作奶茶","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"梵净","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避免潮湿和阳光直射","foodPairing":"英式下午茶点心、重庆火锅（解辣）、蛋糕烘焙","tastingTerms":"浓强鲜爽、汤色红艳、适合调饮","suitableCrowd":"年轻人、奶茶爱好者、西方饮茶习惯者","flavorProfile":{"bitter":3,"astringent":3,"sweet":4,"fragrant":6,"returning":4},"suitableSeason":"秋季、冬季","originDetail":"重庆市南川区金佛山，海拔500-1000米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄壤","storyExtended":"南川红碎茶是重庆重要的出口茶品。20世纪80年代是鼎盛时期，产品远销英国、美国、澳大利亚等20多个国家。近年来随着新式茶饮的兴起，红碎茶在奶茶市场重新获得青睐。","teaEmoji":"🫖","category":"红碎茶","wuXing":"火","efficacyDetail":"南川红碎茶经过完全发酵和CTC工艺处理，茶汤浸出快，浓度高，具有暖胃养胃、提神醒脑、抗氧化、助消化的功效，特别适合加奶制成奶茶饮用。","altitude":"500-1000米","priceRange":1,"suitableTime":"下午、晚间","harvestSeason":"夏季（6-9月）","age":1,"caffeine":4,"processLevel":3,"organic":false,"award":"出口创汇优质产品","rating":4.0},
+  {"id":285,"name":"都匀毛尖","type":"绿茶","origin":"贵州都匀","grade":"特级","period":"明代","desc":"都匀毛尖是中国十大名茶之一，产于贵州都匀，卷曲多毫，香高味醇。","detail":"都匀毛尖产于贵州省黔南州都匀市团山、坝固等地，是中国十大名茶之一。茶园分布在海拔800-1500米的苗岭山区，常年云雾缭绕。选用一芽一叶初展的鲜叶，经杀青、揉捻、搓团提毫、烘干等独特工序制成，成品卷曲似螺，白毫显露，色泽绿中带黄。","story":"都匀毛尖的历史可追溯至明代，已有600多年历史。明代崇祯年间，都匀毛尖被列为贡茶。1956年，毛泽东主席品尝后连声称好，并亲自命名为毛尖茶——因茶条索紧细卷曲如铁钉，白毫显露如毛尖，从此都匀毛尖名扬天下。","efficacy":"清热解毒、提神醒脑、抗氧化、降血压","gradeDesc":"特级：卷曲似螺，白毫显露，色泽绿黄；一级：条索紧卷，毫显色绿；二级：滋味鲜醇，回甘明显","color":"绿中透黄，清澈明亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3克，以80℃热水冲泡，采用上投法先注水再投茶，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"石阡","harvestYear":"2024春"},"storage":"密封冷藏保存，避免受潮和异味，开封后尽快饮用","foodPairing":"贵州酸汤鱼、花溪牛肉粉、丝娃娃","tastingTerms":"香高持久、滋味鲜浓、回甘生津","suitableCrowd":"上班族、中老年人、注重养生者","flavorProfile":{"bitter":2,"astringent":3,"sweet":6,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"贵州省黔南州都匀市团山、坝固、墨冲等地，海拔800-1500米，属亚热带季风气候，气候凉爽湿润，常年云雾缭绕，土壤为黄壤","storyExtended":"都匀毛尖是中国十大名茶中唯一来自贵州的茶叶。1915年巴拿马万国博览会上，都匀毛尖与茅台酒一同获得金奖。1956年毛泽东主席品尝后亲自命名，更使其名扬四海。","teaEmoji":"🌿","category":"卷曲型绿茶","wuXing":"木","efficacyDetail":"都匀毛尖含有丰富的茶多酚、氨基酸、矿物质和硒元素，具有清热解毒、提神醒脑、抗氧化、降血压的功效，贵州高原的纯净生态赋予其卓越品质。","altitude":"800-1500米","priceRange":4,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":4,"organic":false,"award":"1915年巴拿马万国博览会金奖","rating":4.7},
+  {"id":286,"name":"湄潭翠芽","type":"绿茶","origin":"贵州湄潭","grade":"特级","period":"现代","desc":"湄潭翠芽产于湄潭县，外形扁平似剑，色绿润，香高味醇。","detail":"湄潭翠芽产于贵州省遵义市湄潭县，创制于1970年代。湄潭是中国名茶之乡，茶园分布在海拔800-1200米的山区，与万亩茶海相连。选用一芽一叶初展的鲜叶，经杀青、理条、做形、烘干等工序制成，成品外形扁平似剑，色泽翠绿油润。","story":"湄潭县是贵州最大的茶叶生产基地，种茶历史可追溯至唐代。1939年，民国政府在湄潭建立中央实验茶场，是中国现代茶产业的摇篮之一。1970年代，湄潭茶叶专家在传统工艺基础上创制了湄潭翠芽。","efficacy":"清热解毒、提神醒脑、抗氧化、降脂减肥","gradeDesc":"特级：扁平似剑，色泽翠绿，白毫显露；一级：条索扁平，色绿润泽；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3克，以80℃热水冲泡，先注水三分之一润茶，再注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"遵义","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"遵义羊肉粉、湄潭茶香鸡、贵州辣子鸡","tastingTerms":"香高持久、滋味鲜醇、回甘生津","suitableCrowd":"上班族、中老年人、注重养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"贵州省遵义市湄潭县永兴镇、兴隆镇等地，海拔800-1200米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄壤","storyExtended":"湄潭翠芽产自中国最大的连片茶园——湄潭万亩茶海，这片茶海连绵数十里。湄潭县茶叶种植面积超过60万亩，是中国茶叶百强县第一名。","teaEmoji":"🌱","category":"扁形绿茶","wuXing":"木","efficacyDetail":"湄潭翠芽含有丰富的茶多酚、氨基酸、维生素和锌硒等微量元素，具有清热解毒、提神醒脑、抗氧化、降脂减肥的功效。","altitude":"800-1200米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"国际茶博会金奖","rating":4.5},
+  {"id":287,"name":"梵净山翠峰","type":"绿茶","origin":"贵州铜仁","grade":"特级","period":"现代","desc":"梵净山翠峰产于梵净山麓，外形扁平翠绿，香气清高持久。","detail":"梵净山翠峰产于贵州省铜仁市梵净山国家级自然保护区周边，创制于1990年代。梵净山是世界自然遗产，海拔500-1500米，常年云雾缭绕，生态环境原始纯净。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、理条、做形、烘干等工序制成，成品外形扁平，色泽翠绿。","story":"梵净山是弥勒菩萨道场，佛教名山。梵净山周边自古产茶，但梵净山翠峰是新创名茶。1990年代，当地茶农在梵净山原始生态环境中培育优质茶园，创制出梵净山翠峰。凭借梵净山的灵气和纯净生态，这款茶迅速成为贵州名茶新星。","efficacy":"清热解毒、提神醒脑、抗氧化、增强免疫力","gradeDesc":"特级：扁平挺直，色泽翠绿，白毫显露；一级：条索扁平，色绿润泽；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"滇红","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"铜仁社饭、江口米豆腐、梵净山素斋","tastingTerms":"清高持久、滋味鲜爽、回甘生津","suitableCrowd":"养生爱好者、修行者、注重健康人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"贵州省铜仁市梵净山国家级自然保护区周边，海拔500-1500米，属亚热带季风气候，气候凉爽湿润，常年云雾缭绕，土壤为黄壤","storyExtended":"梵净山翠峰产自世界自然遗产梵净山，这里的空气、水源、土壤均保持原始状态。2018年入选中国茶叶博物馆馆藏名茶。品梵净翠峰，仿佛呼吸到了梵净山最纯净的空气。","teaEmoji":"⛰️","category":"扁形绿茶","wuXing":"木","efficacyDetail":"梵净山翠峰产自原始生态区，茶叶中富含茶多酚、氨基酸和硒元素，具有清热解毒、提神醒脑、抗氧化、增强免疫力的功效。","altitude":"500-1500米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":true,"award":"贵州省名茶评比金奖","rating":4.4,"soupColor":"#4A0E0E","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"普洱","harvestYear":"2024春"},
+  {"id":288,"name":"石阡苔茶","type":"绿茶","origin":"贵州石阡","grade":"特级","period":"唐代","desc":"石阡苔茶是贵州古老茶种，芽叶紫红，制茶后香高味醇。","detail":"石阡苔茶产于贵州省铜仁市石阡县，是中国最古老的茶树品种之一。石阡苔茶茶树为灌木型中叶种，芽叶呈紫红色，是罕见的紫芽品种。茶园分布在海拔500-1200米的山区，常年云雾缭绕。茶叶中花青素含量极高，制茶后香高味醇，风味独特。","story":"石阡种茶历史可追溯至唐代，据《石阡县志》记载，唐代石阡已有茶叶作为贡品进献朝廷。明清时期石阡茶通过乌江运往重庆、武汉等地。石阡苔茶因芽叶呈紫红色而被称为紫茶，民间有石阡紫茶，茶中珍品的说法。","efficacy":"清热解毒、抗氧化、降血脂、延缓衰老","gradeDesc":"特级：芽叶紫红，条索紧结，色泽乌润；一级：条索尚紧，香气浓郁；二级：滋味醇厚，回甘明显","color":"金黄明亮，清澈透亮","brewing":{"temperature":"85-90℃","teaware":"瓷杯或紫砂壶","steps":"取茶4克，以85℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水4-5次"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"石阡皮蛋、绿豆粉、贵州腊味","tastingTerms":"香高持久、滋味醇厚、回甘悠长","suitableCrowd":"中老年人、三高人群、养生爱好者","flavorProfile":{"bitter":3,"astringent":3,"sweet":5,"fragrant":7,"returning":6},"suitableSeason":"春季、秋季","originDetail":"贵州省铜仁市石阡县五德镇、龙塘镇等地，海拔500-1200米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄壤","storyExtended":"石阡苔茶是贵州茶树种质资源的活化石。石阡苔茶紫芽品种含有极高的花青素，其含量是普通绿茶的50-100倍。石阡县被授予中国苔茶之乡称号，制作技艺列入贵州省非物质文化遗产。","teaEmoji":"💜","category":"紫芽绿茶","wuXing":"火","efficacyDetail":"石阡苔茶因芽叶紫红，花青素含量极高，是普通绿茶的50-100倍。花青素具有极强的抗氧化、降血脂、延缓衰老的功效，对预防心血管疾病有显著效果。","altitude":"500-1200米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"贵州省非物质文化遗产","rating":4.4,"soupColor":"#4A0E0E","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"下关","harvestYear":"2024春"},
+  {"id":289,"name":"遵义红","type":"红茶","origin":"贵州遵义","grade":"特级","period":"现代","desc":"遵义红产于遵义湄潭，是贵州工夫红茶代表，金毫显露，香气甜纯。","detail":"遵义红产于贵州省遵义市湄潭县，创制于2000年代，是贵州新兴的工夫红茶。湄潭气候温和湿润，茶园分布在海拔800-1200米的高山地带。选用云南大叶种或贵州中小叶种的鲜叶，经萎凋、揉捻、发酵、干燥等工夫红茶工艺制成，成品金毫显露，色泽乌润。","story":"遵义红是贵州茶产业转型的成果。历史上遵义以生产绿茶为主，2000年以后为适应国内外红茶市场需求，当地茶企借鉴云南滇红和福建工夫红茶工艺，结合遵义茶叶特点，创制出遵义红。凭借优良品质，迅速在红茶市场崭露头角。","efficacy":"暖胃养胃、抗氧化、降血脂、提神醒脑","gradeDesc":"特级：金毫显露，色泽乌润，香气甜纯；一级：条索紧细，色泽尚润；二级：滋味醇和，香气甜香","color":"红艳明亮，金圈显露","brewing":{"temperature":"90-95℃","teaware":"瓷壶或紫砂壶","steps":"取茶4-5克，以90℃热水冲泡，第一泡浸泡30秒，后续每泡延长10秒，可冲泡5-6次"},"storage":"密封保存于阴凉干燥处，避免潮湿和阳光直射，可存放1-2年","foodPairing":"遵义羊肉粉、贵州辣子鸡、黔味糕点","tastingTerms":"甜纯高长、滋味浓醇、金圈明显","suitableCrowd":"中老年人、女性、胃寒者","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"冬季、秋季","originDetail":"贵州省遵义市湄潭县，海拔800-1200米，属亚热带季风气候，气候温和，雨量充沛，土壤为黄壤","storyExtended":"遵义红以革命圣地遵义命名，具有深厚的红色文化内涵。遵义会议是中国共产党历史上的转折点，遵义红则代表着贵州茶产业的转型升级。","teaEmoji":"🔴","category":"工夫红茶","wuXing":"火","efficacyDetail":"遵义红经过完全发酵，茶多酚氧化为茶红素和茶黄素，具有暖胃养胃、抗氧化、降血脂、提神醒脑的功效，遵义高海拔生态茶园赋予其纯净品质。","altitude":"800-1200米","priceRange":3,"suitableTime":"下午、晚间","harvestSeason":"春季（3-5月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"贵州省名茶评比金奖","rating":4.4,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"南糯","harvestYear":"2024春"},
+  {"id":290,"name":"滇红","type":"红茶","origin":"云南凤庆","grade":"特级","period":"现代","desc":"滇红是中国三大红茶之一，产于云南凤庆，金毫显露，香气浓郁。","detail":"滇红产于云南省临沧市凤庆县及周边地区，创制于1939年，是中国三大工夫红茶之一。凤庆地处横断山脉南端，海拔1500-2000米，气候温暖湿润。选用云南大叶种鲜叶，经萎凋、揉捻、发酵、干燥等工序制成，成品金毫显露，色泽乌润，冲泡后汤色红艳明亮。","story":"1939年，中国茶叶专家冯绍裘在云南凤庆试制红茶成功，标志着滇红的诞生。当时正值抗战时期，东南茶区沦陷，云南成为后方茶叶生产基地。滇红一经问世便以优异的品质轰动国际茶界，被誉为锦绣红茶。","efficacy":"暖胃养胃、抗氧化、降血脂、提神醒脑","gradeDesc":"特级：金毫满披，色泽乌润，香气浓郁；一级：金毫显露，色泽尚润；二级：滋味醇厚，香气甜纯","color":"红艳明亮，金圈显露","brewing":{"temperature":"90-95℃","teaware":"瓷壶或紫砂壶","steps":"取茶4-5克，以90℃热水冲泡，第一泡浸泡30-40秒，后续每泡延长10秒，可冲泡5-6次"},"storage":"密封保存于阴凉干燥处，避免潮湿和阳光直射，可存放2-3年","foodPairing":"云南过桥米线、汽锅鸡、宣威火腿","tastingTerms":"浓郁高长、滋味浓强、金圈显露","suitableCrowd":"中老年人、女性、胃寒者","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":8,"returning":6},"suitableSeason":"秋季、冬季","originDetail":"云南省临沧市凤庆县，海拔1500-2000米，属亚热带高原季风气候，气候温暖，年温差小，日温差大，土壤为红壤","storyExtended":"滇红是中国红茶发展史上的重要里程碑。1939年创制后，滇红以形美、色艳、香高、味浓的品质特征迅速占领国际市场。凤庆县被誉为中国红茶之都。","teaEmoji":"❤️","category":"工夫红茶","wuXing":"火","efficacyDetail":"滇红采用云南大叶种制成，茶多酚含量丰富，经过发酵后形成丰富的茶红素和茶黄素，具有暖胃养胃、抗氧化、降血脂、提神醒脑的功效。","altitude":"1500-2000米","priceRange":3,"suitableTime":"下午、晚间","harvestSeason":"春季（3-5月）、夏季（6-8月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"中国三大红茶之一","rating":4.6,"soupColor":"#4A0E0E","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"景迈","harvestYear":"2024春"},
+  {"id":291,"name":"普洱茶","type":"黑茶","origin":"云南普洱","grade":"古树茶","period":"唐代","desc":"普洱茶是云南地理标志产品，历史悠久，越陈越香，有可以喝的古董之称。","detail":"普洱茶产于云南省普洱市、西双版纳州、临沧市等地，是以云南大叶种晒青毛茶为原料，经后发酵加工而成的黑茶。根据工艺分为生茶和熟茶两种。生茶经自然陈化，熟茶经人工渥堆发酵。普洱茶具有越陈越香的特性，存放越久品质越好。","story":"普洱茶的历史可追溯至东汉时期，距今已有近2000年。唐宋时期，普洱茶通过茶马古道销往西藏和东南亚。明清时期，普洱茶成为贡茶，云南普洱府因此得名。俗话说爷爷做茶孙子卖，指普洱茶可以世代相传。","efficacy":"降脂减肥、消食化积、抗氧化、降三高","gradeDesc":"古树茶：树龄百年以上，滋味醇厚回甘；特级：原料优质，陈香显著；一级：滋味醇和，香气纯正","color":"红浓明亮（熟茶）、金黄透亮（生茶）","brewing":{"temperature":"100℃","teaware":"紫砂壶或盖碗","steps":"取茶6-8克，以沸水冲泡，第一泡洗茶，第二泡起浸泡10-20秒，可冲泡10次以上，也可煮饮"},"storage":"密封后置于通风干燥处，避免异味和阳光直射，陈化环境温度20-30℃，湿度60-70%","foodPairing":"云南火腿、过桥米线、烤乳扇","tastingTerms":"陈香显著、滋味醇厚、回甘悠长","suitableCrowd":"中老年人、三高人群、减肥人士","flavorProfile":{"bitter":3,"astringent":2,"sweet":4,"fragrant":6,"returning":7,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"宝洪","harvestYear":"2024春"},"suitableSeason":"四季皆宜","originDetail":"云南省普洱市、西双版纳州勐海县、临沧市双江县等地，海拔1000-2000米，属亚热带高原气候，雨量充沛，土壤为红壤和砖红壤","storyExtended":"普洱茶是世界茶树的发源地产品。云南是茶树的原产地，至今西双版纳仍有1700多年树龄的野生古茶树。2008年，普洱茶制作技艺被列入国家级非物质文化遗产。","teaEmoji":"🟤","category":"黑茶","wuXing":"土","efficacyDetail":"普洱茶经过发酵后，茶多酚、儿茶素等物质发生转化，形成独特的降脂减肥、消食化积功效。普洱熟茶中的益生菌能调节肠道菌群，对降三高有显著效果。","altitude":"1000-2000米","priceRange":4,"suitableTime":"下午、晚间","harvestSeason":"春季（3-5月）、秋季（9-11月）","age":5,"caffeine":3,"processLevel":4,"organic":false,"award":"国家级非物质文化遗产","rating":4.8},
+  {"id":292,"name":"下关沱茶","type":"黑茶","origin":"云南大理","grade":"特级","period":"清代","desc":"下关沱茶产于大理下关，形似碗状，是普洱茶经典形态之一。","detail":"下关沱茶产于云南省大理白族自治州下关镇，创制于清代光绪年间，距今已有100多年历史。以云南大叶种晒青毛茶为原料，经蒸压成型制成碗状沱茶。沱茶形态独特，腹部凹陷如碗，便于包装运输和长期存放。下关沱茶经过后发酵自然陈化，越陈越香。","story":"下关沱茶起源于清代茶马古道贸易时期。当时马帮将散装茶叶运往下关（今大理），在下关压制成沱茶后再销往藏区和东南亚。沱茶的碗状造型是马帮在长期实践中发明的，既能紧密堆放又不易碎裂。","efficacy":"消食化积、降脂减肥、抗氧化、暖胃养胃","gradeDesc":"特级：碗形端正，条索肥壮，陈香显著；一级：碗形尚整，香气纯正；二级：滋味醇和，回甘明显","color":"红浓明亮，清澈透亮","brewing":{"temperature":"100℃","teaware":"紫砂壶或煮茶壶","steps":"将沱茶撬成小块，取6-8克，以沸水冲泡，第一泡洗茶，第二泡起浸泡20-30秒，可冲泡10次以上，也可煮饮","soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"潮州","harvestYear":"2024春"},"storage":"密封后置于阴凉干燥通风处，避免异味和阳光直射，可长期存放，越陈越香","foodPairing":"大理乳扇、巍山扒肉饵丝、喜洲粑粑","tastingTerms":"陈香浓郁、滋味醇厚、回甘持久","suitableCrowd":"中老年人、肉食爱好者、减肥人群","flavorProfile":{"bitter":3,"astringent":3,"sweet":4,"fragrant":6,"returning":7},"suitableSeason":"四季皆宜","originDetail":"云南省大理白族自治州大理市下关镇，海拔约2000米，属高原季风气候，气候温和，年温差小","storyExtended":"下关沱茶是茶马古道历史的活化石。从清代至今，无数马帮从下关出发，沿滇藏茶马古道将沱茶运往西藏、四川乃至尼泊尔、印度。2008年制作技艺列入国家级非物质文化遗产。","teaEmoji":"🏺","category":"紧压黑茶","wuXing":"土","efficacyDetail":"下关沱茶经过长期后发酵，茶多酚转化为丰富的茶红素、茶褐素，具有消食化积、降脂减肥、抗氧化、暖胃养胃的功效。","altitude":"约2000米","priceRange":3,"suitableTime":"下午、晚间","harvestSeason":"春季（3-5月）","age":3,"caffeine":3,"processLevel":4,"organic":false,"award":"国家级非物质文化遗产","rating":4.5},
+  {"id":293,"name":"南糯白毫","type":"绿茶","origin":"云南勐海","grade":"特级","period":"现代","desc":"南糯白毫产于南糯山，是云南大叶种烘青绿茶，白毫显露，香气清高。","detail":"南糯白毫产于云南省西双版纳州勐海县南糯山，创制于1980年代。南糯山是古茶树资源极为丰富的茶山，海拔1200-1800米。选用云南大叶种一芽一叶或一芽二叶初展的鲜叶，经杀青、揉捻、烘干等工序制成，成品白毫满披，色泽银绿。","story":"南糯山是普洱茶古六大茶山之一，以古茶树闻名。1980年代，当地茶农在传统普洱茶工艺之外，尝试用大叶种鲜叶制作绿茶。凭借南糯山优质的古茶树原料和独特的云南大叶种特性，南糯白毫品质优异。","efficacy":"清热解毒、提神醒脑、抗氧化、降血脂","gradeDesc":"特级：白毫满披，色泽银绿，香气浓郁；一级：毫显色绿，香气清高；二级：滋味浓醇，回甘明显","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"仁化","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"傣味烤鱼、竹筒饭、云南野菌","tastingTerms":"毫香显露、滋味浓爽、回甘生津","suitableCrowd":"上班族、注重养生人群、茶爱好者","flavorProfile":{"bitter":3,"astringent":3,"sweet":5,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"云南省西双版纳州勐海县南糯山，海拔1200-1800米，属热带亚热带高原气候，气候温暖湿润，土壤为红壤","storyExtended":"南糯山是普洱茶的发源地之一，拥有大量古茶树资源，其中最著名的是树龄800多年的南糯山茶王树。南糯白毫以古茶树原料制成，具有独特的山野气韵。","teaEmoji":"🌿","category":"大叶种绿茶","wuXing":"木","efficacyDetail":"南糯白毫以云南大叶种制成，茶多酚和咖啡碱含量高于中小叶种绿茶，具有清热解毒、提神醒脑、抗氧化、降血脂的功效，滋味浓强，别具一格。","altitude":"1200-1800米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":3,"processLevel":3,"organic":false,"award":"云南省名茶","rating":4.3},
+  {"id":294,"name":"景迈古茶","type":"黑茶","origin":"云南澜沧","grade":"古树茶","period":"唐代","desc":"景迈古茶产于景迈山千年古茶园，茶树与森林共生，兰香蜜韵。","detail":"景迈古茶产于云南省普洱市澜沧县景迈山，是以景迈山古茶树鲜叶制成的普洱茶。景迈山拥有世界上保存最完好、年代最久远的人工栽培型古茶园，树龄多在数百年至千年以上。茶树与森林共生，茶叶具有独特的兰花香和蜜韵。","story":"景迈山种茶历史可追溯至唐代，距今已有1300多年。据传布朗族祖先帕哎冷在景迈山发现并驯化了野生茶树，带领族人开垦茶园。帕哎冷留下遗言：留下金银财宝终有用完之时，留下茶树，可让子孙后代取之不尽。","efficacy":"降脂减肥、消食化积、抗氧化、延缓衰老","gradeDesc":"古树茶：树龄百年以上，兰香蜜韵，滋味醇厚；特级：原料优质，香气独特；一级：滋味醇和，回甘明显","color":"金黄透亮（新茶）、红浓明亮（陈茶）","brewing":{"temperature":"100℃","teaware":"紫砂壶或盖碗","steps":"取茶6-8克，以沸水冲泡，第一泡洗茶，第二泡起浸泡10-20秒，可冲泡15次以上，古树茶耐泡度极高","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"乐昌","harvestYear":"2024春"},"storage":"密封后置于阴凉干燥通风处，适合长期存放，越陈越香","foodPairing":"佤族鸡肉烂饭、傣味烤肉、野生菌火锅","tastingTerms":"兰香蜜韵、滋味醇厚、回甘悠长","suitableCrowd":"爱茶人士、收藏者、养生人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":5,"fragrant":9,"returning":8},"suitableSeason":"四季皆宜","originDetail":"云南省普洱市澜沧拉祜族自治县景迈山，海拔1400-1600米，属亚热带高原气候，气候温和，雨量充沛，古茶园与森林混生","storyExtended":"景迈山2023年古茶林文化景观被列入世界遗产名录，成为中国第57项世界遗产。这里的古茶园是人与自然和谐共生的典范，茶树不施农药化肥，完全是森林里长出的茶。","teaEmoji":"🌳","category":"古树普洱茶","wuXing":"土","efficacyDetail":"景迈古茶以百年以上古茶树制成，茶叶内含物质极为丰富，具有降脂减肥、消食化积、抗氧化、延缓衰老的功效，古树茶的兰香蜜韵成分对舒缓情绪有独特作用。","altitude":"1400-1600米","priceRange":5,"suitableTime":"下午、晚间","harvestSeason":"春季（3-4月）、秋季（9-10月）","age":5,"caffeine":3,"processLevel":4,"organic":true,"award":"世界文化遗产","rating":4.9},
+  {"id":295,"name":"宝洪茶","type":"绿茶","origin":"云南宜良","grade":"特级","period":"唐代","desc":"宝洪茶产于昆明宜良宝洪山，是云南历史名茶，外形扁直，香高味醇。","detail":"宝洪茶产于云南省昆明市宜良县宝洪山，是云南历史悠久的绿茶品种。宝洪山海拔约1800米，气候凉爽，常年云雾缭绕。选用一芽一叶或一芽二叶初展的鲜叶，经杀青、理条、做形、烘干等工序制成。成品外形扁直，色泽翠绿油润，冲泡后香气高爽持久。","story":"宝洪茶的历史可追溯至唐代。据传宝洪山宝洪寺的僧人从四川引种茶树，在寺院周边种植。宝洪寺僧以茶待客，宝洪茶逐渐声名远播。明清时期，宝洪茶是云南著名的绿茶品种，深受昆明文人墨客喜爱。","efficacy":"清热解毒、提神醒脑、抗氧化、生津止渴","gradeDesc":"特级：外形扁直，色泽翠绿，白毫显露；一级：条索扁平，色绿润泽；二级：香气清纯，滋味醇和","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶3克，以80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可品饮，可续水3-4次","soupColor":"#FFFDD0","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"横县","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保鲜效果更佳，避免受潮","foodPairing":"宜良烤鸭、昆明小锅米线、滇味糕点","tastingTerms":"高爽持久、滋味鲜爽、回甘生津","suitableCrowd":"上班族、注重养生人群、游客","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"云南省昆明市宜良县宝洪山，海拔约1800米，属亚热带高原气候，气候凉爽，日照充足，昼夜温差大，土壤为红壤","storyExtended":"宝洪茶是云南省历史最悠久的绿茶品种之一，在云南这个普洱茶王国里独树一帜。宝洪山是昆明近郊的风景名胜，禅茶文化深厚。","teaEmoji":"🏔️","category":"扁形绿茶","wuXing":"木","efficacyDetail":"宝洪茶含有丰富的茶多酚、氨基酸和维生素，具有清热解毒、提神醒脑、抗氧化、生津止渴的功效，昆明高原气候赋予其独特的清爽风味。","altitude":"约1800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"云南省名茶","rating":4.2},
+  {"id":296,"name":"潮州单丛","type":"乌龙茶","origin":"广东潮州","grade":"特级","period":"宋代","desc":"潮州单丛是广东乌龙茶的代表，以单株采制、香型丰富著称。","detail":"潮州单丛产于广东省潮州市凤凰山及周边茶区，是凤凰单丛的经典代表。凤凰山海拔1000米以上，常年云雾缭绕，土壤为黄壤和红壤，非常适合茶树生长。潮州单丛采用单株采制工艺，每株茶树单独采摘、晾晒、做青、杀青、揉捻、烘焙，保留了各株茶树的独特香气特征。","story":"潮州单丛的历史可追溯至南宋末年，至今已有近千年。相传宋帝赵昺逃亡至潮州凤凰山，当地茶农献上单丛茶，帝饮后赞不绝口，从此凤凰单丛名扬天下。","efficacy":"清热解毒、消食去腻、降脂减肥、提神醒脑","gradeDesc":"特级：条索紧结肥壮，色泽乌褐油润，香气浓郁持久；一级：条索尚紧结，香气高扬；二级：条索尚匀整，香气清纯","color":"金黄明亮，清澈透亮","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（紫砂壶或盖碗）","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡15秒，随后每泡增加5-10秒，可冲泡8-12次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"桂林","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避光防潮，陈化后风味更佳","foodPairing":"潮州卤水、牛肉丸、蚝烙、潮式月饼","tastingTerms":"花香浓郁、滋味醇厚、回甘强劲、喉韵悠长","suitableCrowd":"茶艺爱好者、应酬较多者、需降脂人群","flavorProfile":{"bitter":2,"astringent":3,"sweet":5,"fragrant":9,"returning":8},"suitableSeason":"春季、秋季、冬季","originDetail":"广东省潮州市潮安区凤凰镇，凤凰山海拔800-1498米，属亚热带季风气候，年均温18-22℃，年降雨量1800-2200mm，常年云雾缭绕","storyExtended":"潮州单丛被誉为\"茶中香水\"，其香型极为丰富，有芝兰香、蜜兰香、夜来香、桂花香、杏仁香、肉桂香等数十种。每一株茶树的香气都不一样，这就是单丛的魅力所在。潮州工夫茶以单丛为主要茶品，泡茶仪式感极强，是潮汕文化的重要符号。","teaEmoji":"🌺","category":"乌龙茶","wuXing":"木","efficacyDetail":"潮州单丛茶多酚含量适中，儿茶素具有抗氧化、消脂减肥、预防心血管疾病的功效；丰富的芳香物质可提神醒脑、舒缓情绪。长期饮用对降血压、降血脂有显著效果。","altitude":"海拔800-1498米","priceRange":4,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）","age":1,"caffeine":3,"processLevel":5,"organic":false,"award":"中国十大名茶之一","rating":4.8},
+  {"id":297,"name":"仁化银毫","type":"绿茶","origin":"广东仁化","grade":"特级","period":"清代","desc":"仁化银毫是广东名优绿茶，芽头肥壮，白毫满披，滋味鲜爽。","detail":"仁化银毫产于广东省韶关市仁化县丹霞山一带，是广东省历史名茶。茶树生长在丹霞地貌的红色砂岩风化土壤中，土壤富含矿物质，茶叶品质独特。银毫茶采摘标准严格，只采一芽一叶初展，制作工艺精细，成品茶银白似雪，白毫显露。","story":"仁化银毫创制于清代光绪年间，已有百余年历史。相传丹霞山一位僧人从外地引入茶树，在山间种植，因丹霞独特的红砂岩土壤，茶叶品质与众不同，白毫特别丰富，故得名银毫。","efficacy":"清热解毒、生津止渴、抗氧化、美容养颜","gradeDesc":"特级：芽头肥壮，白毫满披，色泽银绿；一级：白毫较多，色泽绿润；二级：白毫尚显，滋味鲜爽","color":"嫩绿清澈，白毫漂浮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"先注水三分之一润茶，再注满水，浸泡1-2分钟，可续水2-3次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"凌云","harvestYear":"2024春"},"storage":"密封冷藏保存于0-5℃环境，避免阳光和异味","foodPairing":"丹霞豆腐、仁化酸笋、客家盐焗鸡","tastingTerms":"白毫显露、滋味鲜爽、甘甜回味、清香悠长","suitableCrowd":"女性、办公室白领、美容爱好者","flavorProfile":{"bitter":1,"astringent":2,"sweet":8,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"广东省韶关市仁化县丹霞山周边，海拔200-600米，丹霞地貌红砂岩土壤，富含矿物质，气候温暖湿润","storyExtended":"仁化银毫因产于世界自然遗产丹霞山而闻名。丹霞山的红色砂岩风化后形成独特的土壤，富含钾、钙、镁等矿物质，使茶叶品质独具特色。银毫茶每年只在春季采摘，产量稀少，是广东绿茶中的珍品。","teaEmoji":"✨","category":"炒青绿茶","wuXing":"木","efficacyDetail":"仁化银毫富含茶多酚、氨基酸和维生素C，具有抗氧化、清除自由基、美容养颜的功效。白毫中的芳香物质有舒缓神经、提神醒脑的作用。","altitude":"海拔200-600米","priceRange":3,"suitableTime":"上午","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"广东省名优茶金奖","rating":4.5,"soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"昭平","harvestYear":"2024春"},
+  {"id":298,"name":"乐昌白毛茶","type":"绿茶","origin":"广东乐昌","grade":"一级","period":"清代","desc":"乐昌白毛茶是广东特色绿茶，白毫特多，滋味醇爽。","detail":"乐昌白毛茶产于广东省韶关市乐昌市大源镇、九峰镇等地，是广东省传统名茶。乐昌地处南岭山脉南麓，气候温暖湿润，常年云雾缭绕，土壤为黄红壤，非常适合茶树生长。白毛茶以白毫繁多著称，芽头肥壮，银白似雪，冲泡后茶汤清澈明亮。","story":"乐昌白毛茶始种于清代同治年间，距今约150年。当地茶农发现九峰山上野生茶树白毫异常丰富，采制后茶味鲜醇，便在此开垦茶园，逐渐发展成为乐昌特色名茶。","efficacy":"清热解毒、提神醒脑、抗氧化、降血压","gradeDesc":"一级：芽叶肥壮，白毫显露，色泽绿润；二级：白毫明显，滋味醇和；三级：白毫尚显，滋味鲜爽","color":"嫩绿明亮，白毫漂浮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"上投法，先注满水再投茶，浸泡1-2分钟即可品饮"},"storage":"密封冷藏保存，避免阳光直射和异味侵入","foodPairing":"乐昌马蹄、九峰水果、客家酿豆腐","tastingTerms":"白毫满披、滋味鲜醇、回甘明显、清香持久","suitableCrowd":"大众消费者、学生、注重健康者","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":6,"returning":5},"suitableSeason":"春季、夏季","originDetail":"广东省韶关市乐昌市九峰山、大源镇，海拔400-800米，南岭山脉南麓，黄红壤，气候温暖湿润","storyExtended":"乐昌白毛茶以九峰山产区最优。九峰山因九座山峰连绵而得名，山中云雾终年不散，空气清新，溪水潺潺，是茶树生长的理想之地。每年春季采茶时节，满山茶香，吸引众多游客前来品茶观光。","teaEmoji":"🌿","category":"炒青绿茶","wuXing":"木","efficacyDetail":"乐昌白毛茶含有丰富的茶多酚和维生素，具有抗氧化、清除自由基、降血压、预防心血管疾病的功效。白毫中的芳香油可舒缓情绪，提神醒脑。","altitude":"海拔400-800米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"广东省优质茶","rating":4.2,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"白沙","harvestYear":"2024春"},
+  {"id":299,"name":"横县茉莉花茶","type":"花茶","origin":"广西横县","grade":"特级","period":"现代","desc":"横县茉莉花茶是中国最大茉莉花产区出品，花香浓郁持久。","detail":"横县茉莉花茶产于广西壮族自治区南宁市横县，是中国茉莉花之乡。横县种植茉莉花已有400多年历史，目前茉莉花种植面积超过10万亩，年产鲜花8万吨，占全国茉莉花产量的80%以上。茉莉花茶以优质烘青绿茶为茶坯，与新鲜茉莉花多次窨制而成，花香浓郁持久。","story":"横县茉莉花种植始于明代，但大规模发展是在1980年代。横县独特的气候条件非常适合茉莉花生长，花期长达6个月，花蕾饱满，香气浓郁。如今横县茉莉花茶已出口到世界各地。","efficacy":"理气和中、开郁辟秽、美容养颜、提神醒脑","gradeDesc":"特级：花香浓郁持久，茶底匀整绿润；一级：花香清爽，滋味醇和；二级：花香尚浓，滋味甘醇","color":"黄绿明亮，清澈透亮","brewing":{"temperature":"85-90℃","teaware":"瓷盖碗或玻璃杯","steps":"取茶5克，85℃热水冲泡，先润茶后注满水，浸泡1-2分钟饮用，可续水3-4次"},"storage":"密封保存于阴凉干燥处，避免阳光直射和串味，冷藏更佳","foodPairing":"横县鱼生、南宁老友粉、桂林米粉","tastingTerms":"花香浓郁、滋味醇和、甘甜持久、茶香花香交融","suitableCrowd":"女性、白领、美容爱好者、情绪焦虑者","flavorProfile":{"bitter":1,"astringent":1,"sweet":6,"fragrant":9,"returning":5},"suitableSeason":"春季、夏季、秋季","originDetail":"广西壮族自治区南宁市横县横州镇、校椅镇等地，海拔50-200米，亚热带季风气候，年均温21.5℃，年降雨量1450mm","storyExtended":"横县被誉为\"中国茉莉花之乡\"，每年夏季举办茉莉花文化节，吸引数十万游客。横县茉莉花茶产业带动了当地经济发展，形成了从种植、加工到销售的完整产业链。横县茉莉花茶以其独特的品质和香气，已成为中国花茶的第一品牌。","teaEmoji":"🌸","category":"花茶","wuXing":"金","efficacyDetail":"茉莉花含有芳樟醇、茉莉酮等芳香成分，具有理气和中、开郁辟秽的功效；配合绿茶茶多酚的抗氧化作用，茉莉花茶对美容养颜、舒缓情绪、改善睡眠有良好效果。","altitude":"海拔50-200米","priceRange":2,"suitableTime":"下午、晚间","harvestSeason":"夏季（5-10月）","age":1,"caffeine":2,"processLevel":4,"organic":false,"award":"国家地理标志保护产品","rating":4.6,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"永春","harvestYear":"2024春"},
+  {"id":300,"name":"桂林毛尖","type":"绿茶","origin":"广西桂林","grade":"特级","period":"现代","desc":"桂林毛尖是广西名优绿茶，条形紧细，白毫显露，滋味鲜爽。","detail":"桂林毛尖产于广西壮族自治区桂林市尧山、漓江沿岸茶区，创制于1970年代。桂林山水甲天下，茶树生长在漓江两岸的喀斯特地貌环境中，土壤为石灰岩风化土，富含矿物质，茶叶品质独特。成品茶条索紧细卷曲，白毫显露，色泽翠绿。","story":"桂林毛尖是新中国成立后广西自主创制的名优绿茶。1970年代桂林茶科所在尧山建立茶园，利用桂林得天独厚的自然环境，结合传统毛尖制作工艺，创制出口感鲜爽、香气清新的桂林毛尖。","efficacy":"清热解毒、生津止渴、提神醒脑、抗氧化","gradeDesc":"特级：条索紧细，白毫显露，色泽翠绿；一级：条索尚紧，白毫较多；二级：条索尚匀，滋味鲜爽","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3-4克，80℃热水冲泡，先润茶30秒再注满水，浸泡1-2分钟饮用"},"storage":"密封冷藏保存于0-5℃环境，避免受潮和异味","foodPairing":"桂林米粉、阳朔啤酒鱼、荔浦芋头","tastingTerms":"清新鲜爽、回甘明显、毫香显露、滋味甘醇","suitableCrowd":"学生、白领、旅游者、注重养生者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"广西壮族自治区桂林市尧山、漓江沿岸，海拔200-600米，喀斯特地貌，石灰岩风化土壤，气候温暖湿润","storyExtended":"桂林毛尖产于山水甲天下的桂林，茶区与桂林山水融为一体。茶树在漓江晨雾中生长，吸收喀斯特地貌土壤中的矿物质，形成了独特的清鲜风味。每年三月春茶开采，茶农凌晨上山采茶，制成毛尖后带着兰花香与栗香，深受游客喜爱。","teaEmoji":"🏔️","category":"炒青绿茶","wuXing":"木","efficacyDetail":"桂林毛尖茶多酚和氨基酸含量均衡，具有清热解毒、生津止渴、抗氧化、提神醒脑的功效。喀斯特地貌土壤富含钙镁离子，使茶叶具有独特的矿物质口感。","altitude":"海拔200-600米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"广西名优茶金奖","rating":4.3,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"平和","harvestYear":"2024春"},
+  {"id":301,"name":"凌云白毫","type":"绿茶","origin":"广西凌云","grade":"特级","period":"清代","desc":"凌云白毫是广西名茶，芽头肥壮，白毫特多，滋味鲜爽醇厚。","detail":"凌云白毫产于广西壮族自治区百色市凌云县，是广西历史名茶。凌云县地处云贵高原东南边缘，海拔800-1200米，常年云雾缭绕，土壤为黄红壤，非常适合茶树生长。凌云白毫茶以白毫多而著称，芽头肥壮，银白似雪，成品茶香气清高，滋味鲜爽醇厚。","story":"凌云白毫茶始种于清代乾隆年间，已有200多年历史。相传一位瑶族老人在凌云山上发现野生茶树，白毫特别丰富，采制后香飘十里。此后当地茶农纷纷种植，凌云白毫逐渐成为广西名茶。","efficacy":"清热解毒、生津止渴、抗氧化、延缓衰老","gradeDesc":"特级：芽头肥壮，白毫满披，色泽银绿；一级：白毫较多，色泽翠绿；二级：白毫尚显，滋味醇爽","color":"嫩绿清澈，白毫漂浮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"上投法冲泡，先注满水再投茶，浸泡1-2分钟，白毫飞舞极具观赏性"},"storage":"密封冷藏保存于0-5℃环境，避免受潮和异味","foodPairing":"凌云酸鱼、百色芒果、乐业猕猴桃","tastingTerms":"白毫飞舞、滋味鲜爽、回甘持久、清香高雅","suitableCrowd":"女性、上班族、注重美容者","flavorProfile":{"bitter":1,"astringent":2,"sweet":8,"fragrant":7,"returning":7},"suitableSeason":"春季、夏季","originDetail":"广西壮族自治区百色市凌云县，海拔800-1200米，云贵高原东南边缘，黄红壤，年均温18-20℃","storyExtended":"凌云白毫茶生长在海拔千米以上的高山云雾之中，日夜温差大，有利于茶叶氨基酸和芳香物质的积累。每年春季清明前后，茶农上山采摘嫩芽，凌云白毫制作工艺讲究，轻采轻放、薄摊薄晾，以保留白毫的完整性。冲泡时白毫飞舞，极具观赏性，被誉为\"杯中舞者\"。","teaEmoji":"🕊️","category":"炒青绿茶","wuXing":"木","efficacyDetail":"凌云白毫茶氨基酸含量高，茶多酚适中，具有抗氧化、延缓衰老、美容养颜的功效。白毫中含有丰富的芳香物质，能舒缓神经、提神醒脑。高海拔生长环境使茶叶含有更多矿物质和微量元素。","altitude":"海拔800-1200米","priceRange":3,"suitableTime":"上午","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"广西名茶","rating":4.4,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"阿里","harvestYear":"2024春"},
+  {"id":302,"name":"昭平红茶","type":"红茶","origin":"广西昭平","grade":"一级","period":"现代","desc":"昭平红茶是广西新兴红茶，汤色红亮，滋味甜醇。","detail":"昭平红茶产于广西壮族自治区贺州市昭平县，创制于2000年代。昭平县地处桂东北，气候温暖湿润，山地资源丰富，适合茶树生长。昭平红茶采用云南大叶种和本地群体种为原料，经萎凋、揉捻、发酵、干燥等工艺制成，成品茶条索紧结，色泽乌润，汤色红亮。","story":"昭平县历史上以绿茶生产为主，2008年昭平茶企引入红茶制作工艺，利用当地优质茶青制作红茶。由于昭平独特的气候和土壤条件，制作出的红茶香气独特，滋味甜醇，很快在市场上受到欢迎。","efficacy":"暖胃养胃、提神消疲、促进消化、抗氧化","gradeDesc":"一级：条索紧结，色泽乌润，汤色红亮；二级：条索尚紧，滋味醇和；三级：条索尚匀，甘甜可口","color":"红艳明亮，金圈明显","brewing":{"temperature":"90-95℃","teaware":"瓷壶或紫砂壶","steps":"取茶5克，90℃热水冲泡，第一泡30秒，第二泡40秒，后续每泡增加10秒，可冲泡5-6次"},"storage":"密封保存于阴凉干燥处，避免潮湿和异味，可长期存放","foodPairing":"昭平豆豉、贺州牛肠酸、桂林米粉","tastingTerms":"甜醇甘润、汤色红亮、香气馥郁、回味绵长","suitableCrowd":"中老年人、胃寒者、女性","flavorProfile":{"bitter":1,"astringent":2,"sweet":8,"fragrant":6,"returning":6},"suitableSeason":"秋季、冬季","originDetail":"广西壮族自治区贺州市昭平县，海拔300-800米，桂东北山地，黄红壤，气候温暖湿润","storyExtended":"昭平红茶是广西红茶的后起之秀，虽然创制时间不长，但凭借昭平优越的自然环境和精湛的制作工艺，品质迅速提升。昭平红茶融合了云南大叶种的浓郁和本地品种的甜醇，形成了独特的风味，被誉为\"桂红新秀\"。","teaEmoji":"🍂","category":"红茶","wuXing":"火","efficacyDetail":"昭平红茶全发酵工艺使茶多酚氧化为茶红素和茶黄素，具有暖胃养胃、促进消化的功效。咖啡因含量适中，能提神消疲而不致兴奋过度。丰富的茶黄素有抗氧化作用。","altitude":"海拔300-800米","priceRange":2,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）","age":1,"caffeine":3,"processLevel":3,"organic":false,"award":"广西名优茶","rating":4.3,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"梨山","harvestYear":"2024春"},
+  {"id":303,"name":"白沙绿茶","type":"绿茶","origin":"海南白沙","grade":"一级","period":"现代","desc":"白沙绿茶是海南著名绿茶，产自热带雨林，滋味鲜爽甘甜。","detail":"白沙绿茶产于海南省白沙黎族自治县，是海南最著名的绿茶品种。白沙县地处海南岛中部偏西，属热带季风气候，森林覆盖率高，生态环境优越。茶树生长在陨石坑周边，土壤为陨石撞击形成的特殊红壤，富含矿物质，赋予白沙绿茶独特的品质。","story":"白沙绿茶创制于1970年代，白沙陨石坑是70万年前陨石撞击形成的地质奇观，坑内土壤富含钛、铁等多种微量元素。1970年代海南农垦在此建立茶园，发现茶叶品质特别优异，从此白沙绿茶声名鹊起。","efficacy":"清热解毒、生津止渴、抗氧化、补充矿物质","gradeDesc":"一级：条索紧细，色泽翠绿，汤色明亮；二级：条索尚紧，滋味鲜爽；三级：条索尚匀，甘甜可口","color":"嫩绿清澈，明亮透亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3-4克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟即可"},"storage":"密封冷藏保存，避免阳光直射和异味侵入","foodPairing":"海南文昌鸡、加积鸭、陵水酸粉","tastingTerms":"鲜爽清甜、回甘迅速、栗香显露、滋味醇和","suitableCrowd":"大众消费者、热带旅游者、注重健康者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":6,"returning":6},"suitableSeason":"春季、夏季、秋季","originDetail":"海南省白沙黎族自治县陨石坑周边，海拔100-300米，热带季风气候，陨石撞击形成特殊红壤","storyExtended":"白沙绿茶最独特之处在于其生长在陨石坑的土壤中。70万年前一颗陨石撞击地球，形成了直径3.7公里的白沙陨石坑。坑内土壤富含钛、铁、锰等微量元素，种出的茶叶氨基酸含量特别高，滋味鲜爽甘甜，具有独特的\"陨石茶\"美誉。","teaEmoji":"🌴","category":"炒青绿茶","wuXing":"木","efficacyDetail":"白沙绿茶生长在陨石坑特殊土壤中，富含钛、铁等微量元素，具有补充矿物质、抗氧化、增强免疫力的功效。热带气候使茶叶氨基酸含量较高，鲜爽度突出。","altitude":"海拔100-300米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（2-4月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"海南名牌产品","rating":4.3,"soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"大禹","harvestYear":"2024春"},
+  {"id":304,"name":"永春佛手","type":"乌龙茶","origin":"福建永春","grade":"特级","period":"清代","desc":"永春佛手是福建特色乌龙茶，因叶似佛手柑而得名，香气独特。","detail":"永春佛手产于福建省泉州市永春县苏坑、玉斗等乡镇，已有300余年种植历史。佛手茶树叶片宽大肥厚，形似佛手柑，是乌龙茶中的特色品种。制作工艺包括晒青、摇青、杀青、揉捻、烘焙等，成品茶条索紧结肥壮，色泽砂绿，香气有独特的佛手柑香。","story":"相传清代康熙年间，永春县一位老茶农在山中发现一株叶片奇特的茶树，叶片宽大如佛手柑。采制后香气独特，带有佛手柑的清香。老茶农将其命名为佛手茶，此后在永春广泛种植。","efficacy":"理气止痛、健胃消食、润肺止咳、降血压","gradeDesc":"特级：条索紧结肥壮，色泽砂绿，佛手柑香显；一级：条索尚紧，香气明显；二级：条索尚匀，香气清纯","color":"金黄明亮，清澈透亮","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（紫砂壶或盖碗）","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡30秒，后续每泡增加10秒，可冲泡5-7次"},"storage":"密封保存于阴凉干燥处，避免潮湿和异味，可长期存放","foodPairing":"永春香醋、永春芦柑、泉州面线糊","tastingTerms":"佛手柑香、滋味醇厚、回甘明显、喉韵独特","suitableCrowd":"消化不良者、胃胀气者、需降脂人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":4,"fragrant":7,"returning":5,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"紫阳","harvestYear":"2024春"},"suitableSeason":"秋季、冬季","originDetail":"福建省泉州市永春县苏坑镇、玉斗镇，海拔400-800米，亚热带季风气候，红黄壤，常年云雾缭绕","storyExtended":"永春佛手是福建乌龙茶中的特色品种，其最大的特点是独特的佛手柑香。佛手茶树是乌龙茶中叶片最大的品种之一，叶片宽大肥厚，内含物质丰富。永春佛手在东南亚华侨中享有盛誉，是著名侨销茶。佛手茶耐泡性极强，可冲泡8-10次仍有香气。","teaEmoji":"🤲","category":"乌龙茶","wuXing":"木","efficacyDetail":"永春佛手中的佛手柑香成分具有理气止痛、健胃消食的功效，对胃胀、消化不良有很好的缓解作用。茶多酚和儿茶素可降血压、降血脂、抗氧化。","altitude":"海拔400-800米","priceRange":3,"suitableTime":"下午","harvestSeason":"春季（4-5月）","age":2,"caffeine":3,"processLevel":4,"organic":false,"award":"福建省名茶","rating":4.5},
+  {"id":305,"name":"平和白芽奇兰","type":"乌龙茶","origin":"福建平和","grade":"特级","period":"清代","desc":"平和白芽奇兰是闽南乌龙茶珍品，嫩芽呈白色，奇兰香气独特。","detail":"平和白芽奇兰产于福建省漳州市平和县，是闽南乌龙茶中的珍稀品种。白芽奇兰因茶树嫩芽呈白色、成品茶有奇兰香气而得名。平和县地处闽南金三角，气候温和，雨量充沛，土壤偏酸性，非常适合茶树生长。白芽奇兰制作工艺精细，成品茶外形半球型紧结，色泽翠绿油润。","story":"白芽奇兰创制于清代乾隆年间，已有250余年历史。相传平和县九峰镇茶农梦见山中有株奇异茶树，嫩芽雪白。翌日循迹寻找，果然发现此茶树。采制后香气奇异如兰，故得名白芽奇兰。","efficacy":"清热解毒、健胃消食、提神醒脑、美容养颜","gradeDesc":"特级：半球型紧结，色泽翠绿，奇兰香浓郁；一级：条索紧结，清香明显；二级：条索尚匀，滋味醇和","color":"金黄明亮，清澈透亮","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（盖碗或紫砂壶）","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡25秒，后续每泡增加5-10秒，可冲泡6-8次"},"storage":"密封保存于阴凉干燥处，避光防潮，可冷藏保存","foodPairing":"平和蜜柚、漳州卤面、闽南海鲜","tastingTerms":"奇兰香显、滋味甘醇、回甘持久、兰韵悠长","suitableCrowd":"茶艺爱好者、脑力工作者、美容爱好者","flavorProfile":{"bitter":2,"astringent":2,"sweet":5,"fragrant":8,"returning":7,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"汉中","harvestYear":"2024春"},"suitableSeason":"春季、秋季","originDetail":"福建省漳州市平和县九峰镇、崎岭乡，海拔300-800米，亚热带季风气候，红黄壤","storyExtended":"平和白芽奇兰是平和县的特产名茶，与平和蜜柚并称\"平和双宝\"。白芽奇兰因嫩芽呈白色这一独特品种特征，在乌龙茶品系中极为罕见。其奇兰香气清幽高扬，被誉为\"兰中皇后\"。白芽奇兰在台湾也有引种，称为\"奇兰茶\"。","teaEmoji":"🌱","category":"乌龙茶","wuXing":"木","efficacyDetail":"平和白芽奇兰含有丰富的芳香物质和茶多酚，具有提神醒脑、美容养颜、抗氧化、降血脂的功效。独特的奇兰香成分有舒缓神经、调节情绪的作用。","altitude":"海拔300-800米","priceRange":3,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"福建省优质茶奖","rating":4.5},
+  {"id":306,"name":"阿里山茶","type":"乌龙茶","origin":"台湾嘉义","grade":"比赛茶级","period":"现代","desc":"阿里山茶是台湾高山茶代表，产于海拔1000米以上，滋味甘醇幽雅。","detail":"阿里山茶产于台湾省嘉义县阿里山茶区，是台湾最著名的高山乌龙茶之一。阿里山海拔1000-1600米，终年云雾缭绕，日夜温差大，茶树生长缓慢，有利于氨基酸和芳香物质的积累。阿里山茶属轻发酵乌龙茶，成品茶外形半球型紧结，色泽墨绿油润，冲泡后香气高雅幽远。","story":"阿里山茶的发展始于1970年代，当时台湾政府推广高山茶种植，阿里山因其优越的自然条件成为重要茶区。阿里山茶品质优异，很快在台湾茶比赛中屡获佳绩，成为台湾高山茶的标杆。","efficacy":"提神醒脑、抗氧化、降血脂、促进新陈代谢","gradeDesc":"比赛茶级：外形紧结，香气高雅，滋味甘醇；特级：色泽墨绿，花香清幽；一级：条索紧结，滋味醇和","color":"蜜绿金黄，清澈明亮","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（紫砂壶或盖碗）","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡40秒，后续每泡增加10秒，可冲泡6-8次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"商南","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避光防潮，可长期存放，冷藏更佳","foodPairing":"阿里山竹筒饭、嘉义火鸡肉饭、台湾凤梨酥","tastingTerms":"高山冷韵、香气幽雅、滋味甘醇、回甘绵长","suitableCrowd":"茶艺爱好者、上班族、养生人士","flavorProfile":{"bitter":1,"astringent":2,"sweet":5,"fragrant":8,"returning":7},"suitableSeason":"春季、秋季、冬季","originDetail":"台湾省嘉义县阿里山乡，海拔1000-1600米，亚热带高山气候，年均温15-18℃，常年云雾缭绕，红壤","storyExtended":"阿里山茶是台湾高山茶的代名词，因产于阿里山而得名。阿里山森林铁路、日出、云海、晚霞与高山茶并称\"阿里山五奇\"。阿里山茶园多位于陡峭山坡上，管理、采摘均靠人工，产量有限但品质优异。阿里山茶带有独特的\"山韵\"，是高山茶特有的冷香和甘甜。","teaEmoji":"🏔️","category":"乌龙茶","wuXing":"木","efficacyDetail":"阿里山高山茶氨基酸含量高，茶多酚适中，具有提神醒脑、抗氧化、降血脂的功效。高山环境使茶叶含有丰富的芳香物质，有舒缓情绪、减轻压力的作用。","altitude":"海拔1000-1600米","priceRange":5,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）、秋季（10-11月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"台湾优良食品竞赛金奖","rating":4.7},
+  {"id":307,"name":"梨山茶","type":"乌龙茶","origin":"台湾台中","grade":"比赛茶级","period":"现代","desc":"梨山茶是台湾最高海拔乌龙茶之一，甘甜醇厚，冷韵悠长。","detail":"梨山茶产于台湾省台中市和平区梨山茶区，海拔1800-2600米，是台湾海拔最高的茶区之一。梨山地区气候冷凉，终年云雾环绕，日夜温差可达15℃以上，茶树生长极为缓慢，叶片肥厚，内含物质丰富。梨山茶属轻发酵乌龙茶，成品茶外形紧结匀整，色泽墨绿油润。","story":"梨山茶种植始于1980年代，是台湾高山茶向更高海拔发展的成果。梨山原是水果产区，以梨、苹果闻名。茶农发现高海拔环境非常适合茶树生长，便开始在梨山种植乌龙茶，结果品质惊人，迅速成为台湾最顶级的高山茶之一。","efficacy":"提神醒脑、抗氧化、降血压、美容养颜","gradeDesc":"比赛茶级：紧结匀整，香气冷艳，滋味甘甜；特级：色泽墨绿，花香冷韵；一级：条索紧结，滋味醇厚","color":"蜜绿金黄，清澈明亮","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（紫砂壶或盖碗）","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡45秒，后续每泡增加10-15秒，可冲泡6-8次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"陇南","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避光防潮，冷藏保存风味更佳","foodPairing":"梨山水蜜桃、台湾麻糬、桂花糕","tastingTerms":"高山冷韵、甘甜如饴、花香清幽、回甘持久","suitableCrowd":"资深茶客、高端商务人士、养生爱好者","flavorProfile":{"bitter":1,"astringent":1,"sweet":7,"fragrant":9,"returning":8},"suitableSeason":"秋季、冬季","originDetail":"台湾省台中市和平区梨山，海拔1800-2600米，中央山脉高山气候，年均温10-15℃，终年云雾，红黄壤","storyExtended":"梨山茶生长在台湾最高海拔的茶区，茶园常隐于云雾之中。冬季气温可降至零度以下，茶树进入休眠，积蓄养分。春季冰雪消融后，新芽肥壮，内含物质丰富。梨山茶以其独特的\"高山冷韵\"著称——这是高山茶特有的清凉感和甘甜的完美结合。梨山茶产量极为稀少，是台湾茶中的奢侈品。","teaEmoji":"🏔️","category":"乌龙茶","wuXing":"木","efficacyDetail":"梨山高海拔环境使茶叶中茶氨酸含量极高，具有显著的舒缓情绪、缓解压力、改善睡眠的作用。丰富的抗氧化物质可延缓衰老、美容养颜。","altitude":"海拔1800-2600米","priceRange":6,"suitableTime":"下午、晚间","harvestSeason":"春季（5-6月）、秋季（10-11月）","age":1,"caffeine":2,"processLevel":4,"organic":false,"award":"台湾冬季比赛茶特等奖","rating":4.9},
+  {"id":308,"name":"大禹岭茶","type":"乌龙茶","origin":"台湾花莲","grade":"比赛茶级","period":"现代","desc":"大禹岭茶是台湾海拔最高的乌龙茶，稀有珍贵，滋味醇厚甘甜。","detail":"大禹岭茶产于台湾省花莲县大禹岭茶区，海拔2200-2600米，是台湾海拔最高、品质最优的乌龙茶产区。大禹岭位于合欢山附近，冬季常有冰雪，茶树生长极其缓慢，产量极为稀少。成品茶外形紧结，色泽墨绿，带有独特的\"霜气\"，冲泡后香气清冷高雅。","story":"大禹岭茶是台湾高山茶的巅峰之作。1990年代茶农在中横公路大禹岭段开垦茶园，发现此处的茶树在极端冷凉环境中生长，叶片肥厚，内含物质极其丰富。大禹岭茶一出世便以惊人的品质征服茶界，被誉为\"台湾茶王\"。","efficacy":"强效抗氧化、降三高、提神醒脑、延缓衰老","gradeDesc":"比赛茶级：条索紧结，冷香显著，甘甜如蜜；特级：墨绿油润，冷韵悠长；一级：紧结匀整，滋味醇厚","color":"蜜绿金黄，明亮透彻","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（紫砂壶或盖碗）","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡45-60秒，后续每泡增加15秒，可冲泡7-9次","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"文县","harvestYear":"2024春"},"storage":"密封冷藏保存，避免阳光直射，建议尽快饮用以保留鲜爽度","foodPairing":"台湾凤梨酥、蛋黄酥、高山水果","tastingTerms":"冰霜冷韵、甘甜如蜜、香气清冷、喉韵深邃","suitableCrowd":"高端茶客、收藏家、商务馈赠","flavorProfile":{"bitter":1,"astringent":1,"sweet":8,"fragrant":10,"returning":9},"suitableSeason":"冬季、春季","originDetail":"台湾省花莲县大禹岭，海拔2200-2600米，合欢山附近，高山寒带气候，冬季有冰雪，年均温8-12℃，红黄壤","storyExtended":"大禹岭茶是台湾茶中的传奇。由于海拔极高，采摘极为困难，每年产量仅数百斤，是真正的\"茶中黄金\"。大禹岭茶的最大特点是\"霜气\"——在冰雪环境中生长的茶树，叶片中积累了独特的物质，冲泡时释放出清冷幽雅的香气，令人仿佛嗅到高山冰雪的气息。大禹岭茶在台湾茶比赛中几乎每次都获得最高奖。","teaEmoji":"❄️","category":"乌龙茶","wuXing":"木","efficacyDetail":"大禹岭茶因生长在极端高海拔环境，茶多酚和氨基酸含量极高，具有强效抗氧化、清除自由基、降三高的功效。独特的霜气来自茶树在低温环境中积累的保护性物质，对人体有极佳的保健作用。","altitude":"海拔2200-2600米","priceRange":8,"suitableTime":"下午","harvestSeason":"春季（5-6月）","age":1,"caffeine":2,"processLevel":5,"organic":false,"award":"台湾高山茶王称号","rating":5.0,"soupColor":"#4A0E0E","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"康砖","harvestYear":"2024春"},
+  {"id":309,"name":"紫阳毛尖","type":"绿茶","origin":"陕西安康","grade":"特级","period":"唐代","desc":"紫阳毛尖是陕南名茶，天然富硒，滋味鲜爽回甘。","detail":"紫阳毛尖产于陕西省安康市紫阳县，是陕南最著名的绿茶，也是中国最早的贡茶之一。紫阳县位于秦巴山区，是中国最北的茶区之一，土壤富含硒元素，是中国著名的富硒区。紫阳毛尖采摘标准严格，只采一芽一叶或一芽二叶初展，制作工艺包括杀青、揉捻、干燥等，成品茶条索紧细卷曲。","story":"紫阳毛尖在唐代就是贡品，紫阳县是中国最早人工种茶的地区之一。唐代茶圣陆羽在《茶经》中记载的\"山南茶\"即包括紫阳茶。紫阳毛尖作为贡茶延续千年，享有盛誉。","efficacy":"补硒抗氧化、清热解毒、提神醒脑、增强免疫力","gradeDesc":"特级：条索紧细，色泽翠绿，白毫显露；一级：条索尚紧，滋味鲜爽；二级：条索尚匀，栗香明显","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶4克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟饮用"},"storage":"密封冷藏保存，避免阳光直射和受潮","foodPairing":"安康蒸面、紫阳蒸盆子、陕南腊肉","tastingTerms":"鲜爽回甘、栗香显露、硒茶韵味、滋味醇和","suitableCrowd":"中老年人、缺硒人群、电脑工作者","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"陕西省安康市紫阳县，海拔400-800米，秦巴山区，黄棕壤，富含硒元素，年均温15℃","storyExtended":"紫阳毛尖的最大特色是\"富硒\"。紫阳县是世界著名的富硒区，土壤硒含量居全国之首。硒是人体必需的微量元素，具有抗氧化、增强免疫力的功效。紫阳毛尖因此被誉为\"硒茶之王\"，是日常补硒的理想选择。紫阳毛尖的采制历史可追溯至西周时期，是中国最古老的茶区之一。","teaEmoji":"🍃","category":"炒青绿茶","wuXing":"木","efficacyDetail":"紫阳毛尖富含有机硒，具有显著的抗氧化、增强免疫力、预防心血管疾病的功效。长期饮用可有效补硒，预防克山病等硒缺乏症。茶多酚和氨基酸含量适中，清热解毒效果良好。","altitude":"海拔400-800米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"国家地理标志保护产品","rating":4.5,"soupColor":"#4A0E0E","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"青海","harvestYear":"2024春"},
+  {"id":310,"name":"汉中仙毫","type":"绿茶","origin":"陕西汉中","grade":"特级","period":"现代","desc":"汉中仙毫是汉中名优绿茶，形似仙毫，滋味鲜爽甘醇。","detail":"汉中仙毫产于陕西省汉中市西乡、勉县、宁强等地，创制于1980年代。汉中地处秦巴山区腹地，气候温和，雨量充沛，土壤肥沃，是中国最北的高品质茶区之一。汉中仙毫以单芽或一芽一叶初展为原料，外形细直如毫，色泽翠绿，汤色嫩绿明亮，香气清高持久。","story":"汉中仙毫是在传统汉中绿茶基础上，于1980年代改进工艺创制而成的名优绿茶。汉中茶区历史悠久，但仙毫茶的创制标志着汉中绿茶品质的飞跃。仙毫之名取其外形细如仙毫之美意。","efficacy":"清热解毒、提神醒脑、抗氧化、延缓衰老","gradeDesc":"特级：外形细直如毫，色泽翠绿，香气清高；一级：条索紧直，滋味鲜爽；二级：条索尚直，栗香明显","color":"嫩绿清澈，明亮见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟，可续水2-3次"},"storage":"密封冷藏保存于0-5℃，避免阳光和异味","foodPairing":"汉中米皮、菜豆腐、西乡牛肉干","tastingTerms":"仙毫挺秀、滋味鲜爽、甘甜回味、清香悠长","suitableCrowd":"白领、学生、注重养生者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":8,"returning":6},"suitableSeason":"春季、夏季","originDetail":"陕西省汉中市西乡县、勉县、宁强县，海拔600-1200米，秦巴山区，黄棕壤，气候温和湿润","storyExtended":"汉中仙毫是陕西绿茶的后起之秀，虽创制时间不长，但凭借汉中优越的自然条件和精湛的制作工艺，迅速成为陕西名茶的代表。汉中茶区位于北纬33度附近，是中国最北的优质茶区，茶树生长期长，昼夜温差大，有利于氨基酸和芳香物质的积累。","teaEmoji":"✨","category":"细嫩绿茶","wuXing":"木","efficacyDetail":"汉中仙毫氨基酸含量高，茶多酚适中，具有清热解毒、提神醒脑、抗氧化、延缓衰老的功效。北方茶区昼夜温差大，使茶叶含有更多的芳香物质和可溶性糖。","altitude":"海拔600-1200米","priceRange":3,"suitableTime":"上午","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"中国国际茶博会金奖","rating":4.5,"soupColor":"#8B4513","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"八宝","harvestYear":"2024春"},
+  {"id":311,"name":"商南泉茗","type":"绿茶","origin":"陕西商洛","grade":"一级","period":"现代","desc":"商南泉茗是陕西新兴名优绿茶，产自秦岭腹地，滋味鲜醇。","detail":"商南泉茗产于陕西省商洛市商南县，创制于1990年代。商南县地处秦岭腹地，丹江源头，山清水秀，生态环境极佳。茶树生长在海拔800-1200米的山区，常年云雾缭绕，泉水充沛。商南泉茗以单芽或一芽一叶为原料，外形细秀匀整，色泽翠绿，滋味鲜醇。","story":"商南县历史上并非传统茶区。1990年代，当地政府在秦岭山区引进茶树试种成功，发现这里的自然环境非常适合茶树生长，茶叶品质优异。于是创制了商南泉茗，成为陕西最北端的新兴名茶。","efficacy":"清热解毒、生津止渴、提神醒脑、抗氧化","gradeDesc":"一级：外形细秀，色泽翠绿，汤色明亮；二级：条索尚紧，滋味鲜爽；三级：条索尚匀，口感甘醇","color":"嫩绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3-4克，80℃热水冲泡，浸泡1-2分钟饮用"},"storage":"密封冷藏保存，避免潮湿和异味","foodPairing":"商洛核桃、丹凤葡萄酒、秦岭木耳","tastingTerms":"清新鲜爽、甘甜回味、栗香显露、泉水清韵","suitableCrowd":"大众消费者、旅游者、注重健康者","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":6,"returning":5},"suitableSeason":"春季、夏季","originDetail":"陕西省商洛市商南县，海拔800-1200米，秦岭腹地，丹江源头，黄棕壤，气候凉爽湿润","storyExtended":"商南泉茗是中国最北端的优质绿茶之一，地处北纬33.5度，是茶树种植的北界。秦岭山脉阻挡了北方寒流，丹江河谷提供了温润气候，使茶树在这里能够安全越冬并产出优质茶叶。商南泉茗虽为后起之秀，但因其独特的北方高山茶品质而备受关注。","teaEmoji":"💧","category":"炒青绿茶","wuXing":"水","efficacyDetail":"商南泉茗生长在秦岭腹地的洁净环境中，富含氨基酸和维生素，具有清热解毒、生津止渴、提神醒脑的功效。北方茶区茶叶内含物质更丰富，抗氧化能力强。","altitude":"海拔800-1200米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（4-5月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"陕西名优茶","rating":4.2,"soupColor":"#8B4513","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"和田","harvestYear":"2024春"},
+  {"id":312,"name":"陇南绿茶","type":"绿茶","origin":"甘肃陇南","grade":"一级","period":"现代","desc":"陇南绿茶是甘肃特色绿茶，产自陇南山区，滋味鲜爽甘醇。","detail":"陇南绿茶产于甘肃省陇南市康县、文县、武都等地，是中国西北地区少有的优质绿茶产区。陇南地处秦巴山区西段，气候温和湿润，森林覆盖率高，生态环境优越。茶树引种自陕西和四川，在陇南独特的气候和土壤条件下，形成了独特的品质特征。","story":"陇南茶产业起步较晚，1960年代开始引种茶树。陇南地区气候接近亚热带，是甘肃唯一适合种茶的地区。经过数十年的发展，陇南绿茶已成为西北地区的重要茶叶品种。","efficacy":"清热解毒、提神醒脑、生津止渴、抗氧化","gradeDesc":"一级：条索紧结，色泽翠绿，汤色明亮；二级：条索尚紧，滋味鲜爽；三级：条索尚匀，口感醇和","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取茶4克，80℃热水冲泡，浸泡1-2分钟饮用"},"storage":"密封保存于阴凉干燥处，可冷藏保鲜","foodPairing":"陇南核桃、武都花椒、甘肃牛肉面","tastingTerms":"鲜爽甘醇、清香持久、回甘明显、西北韵味","suitableCrowd":"西北地区居民、大众消费者","flavorProfile":{"bitter":2,"astringent":3,"sweet":6,"fragrant":5,"returning":5,"soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"印度","harvestYear":"2024春"},"suitableSeason":"春季、夏季","originDetail":"甘肃省陇南市康县、文县、武都区，海拔800-1500米，秦巴山区西段，黄棕壤，气候温和湿润","storyExtended":"陇南是甘肃唯一的茶叶产区，也是中国西北地区重要的茶叶基地。陇南绿茶虽然知名度不如江南名茶，但其生长在秦岭西部的高山峡谷中，空气清新、水质优良，茶叶品质纯正。近年来陇南大力发展茶产业，茶园面积不断扩大，成为当地农民增收的重要途径。","teaEmoji":"🏔️","category":"炒青绿茶","wuXing":"木","efficacyDetail":"陇南绿茶生长在西北高海拔地区，昼夜温差大，茶叶内含物质丰富，茶多酚和氨基酸含量均衡，具有清热解毒、提神醒脑、抗氧化的功效。","altitude":"海拔800-1500米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（4-5月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"甘肃省优质农产品","rating":4.1},
+  {"id":313,"name":"文县绿茶","type":"绿茶","origin":"甘肃文县","grade":"一级","period":"现代","desc":"文县绿茶是甘肃优质绿茶，产自白水江畔，滋味鲜醇甘甜。","detail":"文县绿茶产于甘肃省陇南市文县碧口镇、中庙镇等地，是甘肃最优质的绿茶产区之一。文县地处白水江畔，气候温暖湿润，是甘肃省少有的亚热带气候区域。碧口镇海拔600-1000米，常年云雾缭绕，土壤肥沃，非常适合茶树生长。文县绿茶外形紧秀，色泽翠绿，香气清高。","story":"文县碧口镇自古就是茶马古道上的重要驿站。1960年代，当地引种茶树并获成功，碧口成为甘肃最早的茶叶产区之一。文县绿茶以碧口镇品质最佳，有\"碧口龙井\"之美称。","efficacy":"清热解毒、生津止渴、提神醒脑、降血脂","gradeDesc":"一级：条索紧秀，色泽翠绿，香气清高；二级：条索尚紧，滋味鲜醇；三级：条索尚匀，口感甘甜","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶4克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟饮用"},"storage":"密封保存于阴凉干燥处，可冷藏保存","foodPairing":"文县花椒、碧口豆腐干、陇南核桃","tastingTerms":"鲜醇甘甜、清香持久、回甘迅速、茶韵悠长","suitableCrowd":"西北地区居民、旅游者、注重健康者","flavorProfile":{"bitter":2,"astringent":2,"sweet":7,"fragrant":6,"returning":5,"soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"印度","harvestYear":"2024春"},"suitableSeason":"春季、夏季","originDetail":"甘肃省陇南市文县碧口镇、中庙镇，海拔600-1000米，白水江畔，黄棕壤，亚热带气候北缘","storyExtended":"文县碧口镇位于甘肃最南端，是甘肃唯一的亚热带气候区，素有\"甘肃小江南\"之称。碧口镇不仅产茶，还是茶马古道上的重要节点，历史上川茶入甘多经此地。文县绿茶被誉为\"甘肃的龙井\"，虽然产量不大，但品质优异，深受西北茶客喜爱。","teaEmoji":"🍃","category":"炒青绿茶","wuXing":"木","efficacyDetail":"文县绿茶生长在白水江畔的亚热带气候区，茶叶氨基酸含量较高，茶多酚适中，具有清热解毒、生津止渴、提神醒脑、降血脂的功效。","altitude":"海拔600-1000米","priceRange":2,"suitableTime":"上午","harvestSeason":"春季（4-5月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"甘肃省名优茶","rating":4.2},
+  {"id":314,"name":"康砖茶","type":"黑茶","origin":"青海","grade":"一级","period":"明代","desc":"康砖茶是青海藏族传统黑茶，压制紧实，茶汤红浓，滋味醇和。","detail":"康砖茶是青藏高原藏族同胞的传统茶饮，主要流通于青海、西藏、四川藏区。康砖茶以四川雅安等地的大叶种茶为原料，经杀青、揉捻、渥堆、干燥后压制成砖形，每块重约500克。康砖茶是藏区不可或缺的日常饮品，用于制作酥油茶。","story":"康砖茶的历史与茶马古道密切相关。自唐代起，中原地区的茶叶通过茶马古道运往藏区，交换马匹。为方便运输，茶叶被压制成砖形，康砖茶由此诞生。至今康砖茶仍是青海藏族日常生活中最重要的饮品。","efficacy":"消食化积、降脂减肥、补充维生素、缓解高原反应","gradeDesc":"一级：砖面平整，纹理清晰，茶汤红浓；二级：砖面尚平，滋味醇和；三级：砖面基本平整，汤色红亮","color":"红浓明亮，油润感强","brewing":{"temperature":"100℃","teaware":"铜壶或陶壶","steps":"取茶10-15克敲碎，沸水煮3-5分钟，可加入盐和酥油制酥油茶"},"storage":"存放于通风干燥处，越陈越香，可长期保存","foodPairing":"藏族糌粑、酥油、牦牛肉干","tastingTerms":"醇和甘润、陈香浓郁、茶汤红浓、滋味饱满","suitableCrowd":"高原居民、肉食为主者、需降脂人群","flavorProfile":{"bitter":2,"astringent":2,"sweet":4,"fragrant":4,"returning":3,"soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"斯里","harvestYear":"2024春"},"suitableSeason":"全年适宜","originDetail":"原产四川雅安，主要消费于青海、西藏、四川藏区，茶马古道重要商品","storyExtended":"康砖茶是茶马古道上最重要的商品之一。历史上，四川雅安的茶叶被压制成砖，由背夫背运经二郎山进入藏区。康砖茶在藏区被誉为\"生命之茶\"，藏族同胞\"宁可三日无粮，不可一日无茶\"。康砖茶不仅是饮品，更是藏族文化的重要元素。","teaEmoji":"🧱","category":"黑茶","wuXing":"土","efficacyDetail":"康砖茶经渥堆发酵，茶多酚氧化为茶褐素，具有消食化积、降脂减肥的功效。在高原地区，康砖茶能补充维生素，缓解高原反应，促进消化。与酥油搭配的酥油茶是高寒地区的能量补给佳品。","altitude":"海拔2500-4500米（消费区）","priceRange":1,"suitableTime":"早+午+晚","harvestSeason":"四季","age":5,"caffeine":3,"processLevel":4,"organic":false,"award":"国家级非物质文化遗产","rating":4.3},
+  {"id":315,"name":"青海砖茶","type":"黑茶","origin":"青海","grade":"一级","period":"清代","desc":"青海砖茶是青藏高原传统紧压茶，以茯砖为主，金花茂盛。","detail":"青海砖茶是青海地区消费量最大的茶叶品种，以茯砖茶为主。茯砖茶以黑毛茶为原料，经渥堆、汽蒸、压制、发花等工序制成。青海砖茶最大的特色是\"金花\"——在发花过程中产生的冠突散囊菌，金花茂盛是品质优良的标志。茶汤红浓，菌花香浓郁。","story":"青海砖茶源自茶马互市。清代乾隆年间，茯砖茶制作工艺成熟，大量销往青海、甘肃等西北地区。青海多民族杂居，砖茶是各族人民的共同饮品，在回族的盖碗茶、藏族的酥油茶中都不可或缺。","efficacy":"消食解腻、降脂降糖、调节肠胃、补充膳食纤维","gradeDesc":"一级：砖面平整，金花茂盛，菌花香浓；二级：金花较多，汤色红亮；三级：金花尚显，滋味醇和","color":"红浓明亮，橙红透亮","brewing":{"temperature":"100℃","teaware":"陶壶或铜壶","steps":"取茶10克敲碎，沸水煮泡3-5分钟，或沸水冲泡后焖5分钟"},"storage":"存放于通风干燥处，越陈越香，可长期保存","foodPairing":"青海手抓羊肉、面片、馕饼","tastingTerms":"金花菌香、醇和甘甜、茶汤红浓、滋味饱满","suitableCrowd":"西北居民、肉食为主者、三高人群","flavorProfile":{"bitter":1,"astringent":1,"sweet":5,"fragrant":5,"returning":4,"soupColor":"#C8E6C9","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"日本","harvestYear":"2024春"},"suitableSeason":"全年适宜，冬季最佳","originDetail":"原产湖南、陕西等地，主要消费于青海及西北各省，茶马互市重要商品","storyExtended":"青海砖茶是西北地区多民族共同的文化遗产。茯砖茶上的\"金花\"是一种益生菌——冠突散囊菌，对人体肠道健康非常有益。青海人喝砖茶喜欢加盐、加奶，制成奶茶，既能解渴又能充饥。在青海的农村和牧区，砖茶是待客的必需品。","teaEmoji":"🧱","category":"黑茶","wuXing":"土","efficacyDetail":"青海砖茶中的金花菌（冠突散囊菌）具有调节肠道菌群、促进消化的功效。茯砖茶经发酵产生多种有益物质，可降脂降糖，对三高人群有良好的调理作用。","altitude":"海拔2000-4000米（消费区）","priceRange":1,"suitableTime":"早+午+晚","harvestSeason":"四季","age":3,"caffeine":3,"processLevel":4,"organic":false,"award":"国家级非物质文化遗产","rating":4.2},
+  {"id":316,"name":"八宝茶配料","type":"养生茶","origin":"宁夏银川","grade":"特级","period":"清代","desc":"八宝茶是宁夏回族传统养生茶饮，以八种配料组合而成。","detail":"八宝茶是宁夏回族的传统茶饮，以茶叶为基底，配以枸杞、红枣、桂圆、核桃仁、葡萄干、冰糖、芝麻等八种配料，故名\"八宝茶\"。八宝茶是回族待客的最高礼仪，也是日常养生保健的重要饮品。宁夏枸杞和八宝茶是宁夏的两大特产。","story":"八宝茶源于清代回族茶文化，最初是回族富贵人家的待客茶。八种配料各有寓意，枸杞代表健康，红枣代表甜蜜，桂圆代表团圆，核桃代表智慧，葡萄干代表丰收，芝麻代表节节高升，冰糖代表纯洁，茶叶代表清雅。","efficacy":"滋补养生、益气补血、明目安神、养肝补肾","gradeDesc":"特级：枸杞饱满，红枣肉厚，配料齐全，品质上乘；一级：配料齐全，品质优良；二级：基本配料齐全","color":"橙黄透亮，配料色彩丰富","brewing":{"temperature":"100℃","teaware":"盖碗","steps":"取八宝茶配料一份放入盖碗，沸水冲泡，加盖焖3-5分钟后饮用，可续水3-4次，最后食用配料"},"storage":"密封保存于阴凉干燥处，防潮防虫，建议冷藏","foodPairing":"宁夏羊肉、馓子、油香","tastingTerms":"甘甜醇和、配料丰富、香气复合、回味悠长","suitableCrowd":"中老年人、女性、体弱者、冬季养生者","flavorProfile":{"bitter":0,"astringent":0,"sweet":9,"fragrant":7,"returning":6,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"日本","harvestYear":"2024春"},"suitableSeason":"冬季、春季","originDetail":"宁夏回族自治区银川市、吴忠市，回族聚居区，传统盖碗茶文化","storyExtended":"八宝茶是宁夏回族文化的重要符号。在回族婚礼、节日和日常待客中，八宝茶是必不可少的饮品。冲泡八宝茶使用传统的盖碗——\"三炮台\"，由碗、盖、托三部分组成。喝八宝茶讲究\"一口香、二口甜、三口润\"，品茶的同时也品味人生。","teaEmoji":"🍵","category":"养生茶","wuXing":"金","efficacyDetail":"八宝茶配料科学搭配，枸杞养肝明目，红枣补血安神，桂圆补心脾，核桃益智健脑，葡萄干补气血，芝麻养发润肤，冰糖润肺，茶叶提神。八宝合一，具有综合滋补养生的功效。","altitude":"海拔1100-1200米","priceRange":2,"suitableTime":"早+午+晚","harvestSeason":"四季","age":0,"caffeine":1,"processLevel":2,"organic":false,"award":"宁夏非物质文化遗产","rating":4.6},
+  {"id":317,"name":"和田红柳茶","type":"养生茶","origin":"新疆和田","grade":"一级","period":"传统","desc":"和田红柳茶是新疆维吾尔族传统药茶，以红柳枝叶制成，独特西域风味。","detail":"和田红柳茶是新疆和田地区维吾尔族的传统药茶。红柳（柽柳）是新疆沙漠地区常见的灌木，其嫩枝和叶片经采摘、清洗、晾晒后制成茶饮。红柳茶汤色橙红，带有独特的草木清香，是维吾尔族日常生活中常用的保健茶饮。","story":"红柳茶在维吾尔族中已有数百年的使用历史。在塔克拉玛干沙漠边缘的和田地区，红柳是生命力最顽强的植物之一。维吾尔族先民发现红柳具有清热解毒的功效，便开始采制红柳茶，世代相传至今。","efficacy":"清热解毒、祛风除湿、利水消肿、缓解咽喉肿痛","gradeDesc":"一级：枝叶嫩绿，香气清新，汤色橙红；二级：枝叶尚嫩，滋味醇和","color":"橙红明亮，清澈透亮","brewing":{"temperature":"100℃","teaware":"铜壶或玻璃杯","steps":"取红柳枝叶5克，沸水冲泡，加盖焖5-8分钟饮用，可续水2-3次"},"storage":"密封保存于阴凉干燥处，避免潮湿和虫蛀","foodPairing":"新疆烤羊肉串、手抓饭、馕饼","tastingTerms":"草木清香、微苦回甘、西域风味、自然纯净","suitableCrowd":"沙漠地区居民、风热感冒者、咽喉不适者","flavorProfile":{"bitter":3,"astringent":2,"sweet":3,"fragrant":5,"returning":3,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"日本","harvestYear":"2024春"},"suitableSeason":"夏季、秋季","originDetail":"新疆维吾尔自治区和田地区，塔克拉玛干沙漠南缘，干旱少雨，红柳自然生长","storyExtended":"和田红柳茶是沙漠中的珍贵饮品。红柳在极度干旱的沙漠环境中生长，展现了顽强的生命力。维吾尔族人民敬重红柳，认为它有辟邪驱病的功效。红柳茶不仅是饮品，更是沙漠文化的一部分。每年夏季，维吾尔族家庭都会采制红柳茶储存起来，用于秋冬季节的保健。","teaEmoji":"🏜️","category":"养生茶","wuXing":"水","efficacyDetail":"红柳含有柽柳素、黄酮类化合物等活性成分，具有清热解毒、祛风除湿、利水消肿的功效。对沙漠地区的风热感冒、咽喉肿痛有很好的缓解作用。","altitude":"海拔1000-1500米","priceRange":1,"suitableTime":"午+晚","harvestSeason":"夏季（6-8月）","age":0,"caffeine":0,"processLevel":1,"organic":false,"award":"","rating":4.0},
+  {"id":318,"name":"印度大吉岭红茶","type":"红茶","origin":"印度大吉岭","grade":"特级","period":"近代","desc":"大吉岭红茶被誉为\"红茶皇后\"，产于喜马拉雅山麓，麝香葡萄香独特。","detail":"大吉岭红茶产于印度西孟加拉邦喜马拉雅山麓的大吉岭地区，海拔1500-2500米。1841年英国传教士从中国引种茶树，在大吉岭独特的气候和土壤条件下，茶树表现出优异的品质。大吉岭红茶外形条索紧细，色泽褐润，汤色橙黄明亮，带有独特的麝香葡萄香。","story":"1841年，英国传教士布鲁斯从中国引种茶籽到大吉岭，试种成功后逐步推广。大吉岭独特的高山气候和喜马拉雅山南麓的土壤，赋予了茶叶独特的麝香葡萄香（Muscatel），使其在世界红茶中独树一帜。","efficacy":"暖胃健脾、提神消疲、美容养颜、抗氧化","gradeDesc":"特级（FTGFOP）：全叶金黄毫尖，麝香葡萄香浓郁；一级（GFOP）：条索紧细，香气清雅；二级（FOP）：叶片完整，滋味醇和","color":"橙黄明亮，金圈明显","brewing":{"temperature":"90-95℃","teaware":"骨瓷杯或白瓷壶","steps":"取茶3-4克，90℃热水冲泡，浸泡3-5分钟，不加奶更能品味层次","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"英国","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避免阳光直射和异味，建议在一年内饮用以保持鲜香","foodPairing":"英式司康饼、三明治、马卡龙、清淡蛋糕","tastingTerms":"麝香葡萄香、花香清雅、滋味细腻、回甘悠长","suitableCrowd":"茶艺爱好者、女性、高端商务人士","flavorProfile":{"bitter":1,"astringent":2,"sweet":5,"fragrant":9,"returning":6},"suitableSeason":"春季、秋季","originDetail":"印度西孟加拉邦大吉岭地区，海拔1500-2500米，喜马拉雅山南麓，年均温12-15℃，年降雨量3000mm","storyExtended":"大吉岭红茶是世界三大高香红茶之一（另两个是斯里兰卡锡兰红茶、中国祁门红茶）。大吉岭的茶园多位于陡峭山坡上，采茶女清晨上山采摘，只采两叶一芽。大吉岭红茶一年分三次采摘：春摘（First Flush）鲜爽清雅、夏摘（Second Flush）麝香葡萄香最盛、秋摘（Autumnal）醇厚甘甜。","teaEmoji":"🏔️","category":"红茶","wuXing":"火","efficacyDetail":"大吉岭红茶富含茶黄素和茶红素，全发酵工艺使茶性温和，具有暖胃健脾、提神消疲的功效。独特的麝香葡萄香来自茶树品种和喜马拉雅山麓独特微生物环境，有舒缓情绪的作用。","altitude":"海拔1500-2500米","priceRange":5,"suitableTime":"下午","harvestSeason":"春季（3-4月）、夏季（5-6月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"世界红茶皇后美誉","rating":4.8},
+  {"id":319,"name":"印度阿萨姆红茶","type":"红茶","origin":"印度阿萨姆","grade":"一级","period":"近代","desc":"阿萨姆红茶是世界产量最大的红茶，滋味浓强，汤色红艳，是奶茶最佳基底。","detail":"阿萨姆红茶产于印度东北部的阿萨姆邦，布拉马普特拉河谷地区，海拔100-300米。1823年英国植物学家在阿萨姆发现野生大叶种茶树，随后大规模种植。阿萨姆红茶以其浓郁的麦芽香和醇厚的口感著称，是世界早餐茶和奶茶的主要原料。","story":"1823年，英国植物学家罗伯特·布鲁斯在阿萨姆发现了野生大叶种茶树（Camellia sinensis var. assamica），这是与中国小叶种不同的茶树亚种。随后东印度公司在阿萨姆大规模开垦茶园，使阿萨姆成为世界最大的红茶产区。","efficacy":"提神醒脑、暖胃养胃、促进消化、增强代谢","gradeDesc":"一级（OP）：条索粗壮，色泽乌褐，麦芽香浓；二级（BOP）：碎茶为主，汤色红艳；三级（CTC）：茶包级别，滋味浓强","color":"红艳明亮，汤色深浓","brewing":{"temperature":"100℃","teaware":"瓷壶","steps":"取茶5克，沸水冲泡，浸泡4-5分钟，加奶加糖制成经典奶茶风味更佳","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"肯尼","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避免潮湿和异味","foodPairing":"英式早餐、印度咖喱、烤饼、甜点","tastingTerms":"麦芽香浓、滋味醇厚、汤色红艳、回甘强","suitableCrowd":"奶茶爱好者、早餐搭配、需要提神者","flavorProfile":{"bitter":3,"astringent":4,"sweet":3,"fragrant":5,"returning":4},"suitableSeason":"全年适宜","originDetail":"印度阿萨姆邦，布拉马普特拉河谷，海拔100-300米，热带季风气候，年均温25-30℃，年降雨量2500mm","storyExtended":"阿萨姆邦是世界最大的茶叶产区之一，拥有800多个大型茶园。阿萨姆红茶产量占印度茶叶总产量的50%以上。阿萨姆大叶种茶树叶片大而肥厚，茶多酚含量极高，制成的红茶特别浓强，是调和式红茶（如英式早餐茶、爱尔兰早餐茶）的主要原料。阿萨姆红茶加奶后色泽诱人，被称为\"奶茶之王\"。","teaEmoji":"🍂","category":"红茶","wuXing":"火","efficacyDetail":"阿萨姆红茶咖啡因含量较高，具有强烈的提神醒脑效果。全发酵工艺使茶性温和，暖胃养胃。大叶种茶树茶多酚含量高，抗氧化能力强，可促进新陈代谢。","altitude":"海拔100-300米","priceRange":2,"suitableTime":"早+午","harvestSeason":"夏季（5-10月）","age":1,"caffeine":4,"processLevel":3,"organic":false,"award":"世界最大红茶产区","rating":4.3},
+  {"id":320,"name":"斯里兰卡锡兰红茶","type":"红茶","origin":"斯里兰卡","grade":"一级","period":"近代","desc":"锡兰红茶是世界三大高香红茶之一，香气馥郁，汤色红亮，清爽宜人。","detail":"锡兰红茶产于斯里兰卡（旧称锡兰）中部高地，海拔1200-2200米。1867年英国种植园主从印度引种茶树到斯里兰卡，在独特的热带高山气候条件下，形成了香气馥郁、汤色红亮的锡兰红茶风格。锡兰红茶按海拔分为高海拔、中海拔和低海拔三个等级，高海拔茶品质最佳。","story":"1867年，斯里兰卡咖啡产业因锈病崩溃，英国种植园主转向茶叶种植。苏格兰人詹姆斯·泰勒在康提附近建立了第一个茶园，开启了斯里兰卡的茶叶时代。如今斯里兰卡是世界第二大茶叶出口国，茶叶出口是国家的经济支柱。","efficacy":"清热解毒、提神消疲、抗氧化、增强免疫力","gradeDesc":"一级（OP）：条索紧细，色泽乌润，香气清爽；二级（BOP）：碎茶为主，汤色红亮；三级（CTC）：茶包级别，滋味浓强","color":"红亮清澈，金圈明显","brewing":{"temperature":"95-100℃","teaware":"瓷壶或玻璃壶","steps":"取茶5克，沸水冲泡，浸泡3-4分钟，可清饮也可加奶","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"越南","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避免潮湿和阳光直射","foodPairing":"斯里兰卡咖喱、椰香糕点、水果沙拉","tastingTerms":"清爽芬芳、薄荷清凉、汤色红亮、回甘明显","suitableCrowd":"大众消费者、下午茶爱好者、旅游者","flavorProfile":{"bitter":2,"astringent":2,"sweet":4,"fragrant":8,"returning":5},"suitableSeason":"春夏秋冬皆宜","originDetail":"斯里兰卡中央省康提、努沃勒埃利耶等地，海拔1200-2200米，热带高山气候，年均温15-20℃，年降雨量2000mm","storyExtended":"锡兰红茶是世界三大高香红茶之一。斯里兰卡茶叶以\"锡兰茶\"品牌行销全球，其狮子标志是品质的保证。锡兰红茶最著名的产区是努沃勒埃利耶（Nuwara Eliya），海拔最高达2200米，被称为\"小英格兰\"，所产红茶清爽芬芳，带有薄荷般的清凉感。斯里兰卡也是世界最大的传统红茶出口国。","teaEmoji":"🦁","category":"红茶","wuXing":"火","efficacyDetail":"锡兰红茶富含茶黄素和抗氧化物质，具有清热解毒、提神消疲、增强免疫力的功效。高海拔茶叶氨基酸含量较高，滋味更清爽。","altitude":"海拔1200-2200米","priceRange":2,"suitableTime":"下午","harvestSeason":"全年可采，品质以干季为佳","age":1,"caffeine":3,"processLevel":3,"organic":false,"award":"世界三大高香红茶之一","rating":4.5,"soupColor":"#C8E6C9","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"泰国","harvestYear":"2024春"},
+  {"id":321,"name":"日本抹茶","type":"绿茶粉","origin":"日本京都","grade":"特级","period":"唐代","desc":"日本抹茶是碾磨成粉末的绿茶，色泽翠绿，是日本茶道的核心。","detail":"日本抹茶是以覆下栽培的碾茶为原料，用石磨碾磨成超微粉末的绿茶。抹茶制作工艺独特：茶树在采摘前20-30天进行遮光覆盖，减少茶多酚生成，增加叶绿素和氨基酸含量。采摘后经蒸汽杀青、干燥制成碾茶，再用石磨缓慢碾磨成2-20微米的超微粉末。","story":"抹茶源于中国宋代点茶法，由日本僧人荣西禅师于12世纪传入日本。此后在日本发展出独特的茶道文化，成为日本文化的精髓。京都宇治是日本最著名的抹茶产地，宇治抹茶已有800余年历史。","efficacy":"抗氧化、提神醒脑、增强免疫力、促进代谢","gradeDesc":"特级（茶道级）：色泽翠绿，细腻如粉，甘醇鲜爽；一级（饮用级）：色泽绿润，口感鲜醇；二级（食品级）：用于烘焙和食品加工","color":"翠绿明亮，泡沫细腻","brewing":{"temperature":"70-80℃","teaware":"茶碗、茶筅","steps":"取抹茶粉2克放入茶碗，注入70℃热水60ml，用茶筅快速打泡至细腻泡沫状"},"storage":"密封冷藏保存，避免光照和氧化，开封后一个月内饮完","foodPairing":"和果子、抹茶蛋糕、抹茶冰淇淋、寿司","tastingTerms":"鲜爽甘醇、海苔清香、细腻润滑、回甘悠长","suitableCrowd":"茶道爱好者、注重健康者、时尚人士","flavorProfile":{"bitter":2,"astringent":1,"sweet":6,"fragrant":8,"returning":7},"suitableSeason":"春季、夏季","originDetail":"日本京都府宇治市、爱知县西尾市、福冈县八女市，海拔50-200米，温带气候","storyExtended":"抹茶是日本茶道的灵魂。日本茶道大师千利休提出了\"和敬清寂\"的茶道精神。抹茶饮用方式与中国泡茶完全不同——将抹茶粉放入茶碗，用竹制茶筅打泡，直到表面形成细腻的翡翠色泡沫。抹茶不仅是饮品，更是一种精神修行。现代抹茶已走出茶道，广泛应用于食品、化妆品等领域。","teaEmoji":"🍵","category":"绿茶粉","wuXing":"木","efficacyDetail":"抹茶是吃茶而非喝茶，茶叶的所有营养成分都被摄入。富含儿茶素（抗氧化能力是普通绿茶137倍）、茶氨酸（舒缓压力）、叶绿素（排毒）、膳食纤维（促进消化）。覆下栽培使抹茶氨基酸含量大增，滋味特别鲜爽。","altitude":"海拔50-200米","priceRange":4,"suitableTime":"上午","harvestSeason":"春季（4-5月）","age":0,"caffeine":3,"processLevel":5,"organic":false,"award":"世界非物质文化遗产","rating":4.7,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"客家","harvestYear":"2024春"},
+  {"id":322,"name":"日本煎茶","type":"绿茶","origin":"日本静冈","grade":"特级","period":"唐代","desc":"日本煎茶是日本最普遍的绿茶，蒸青工艺保留鲜绿色泽，滋味鲜爽。","detail":"日本煎茶是日本消费量最大的绿茶品种，约占日本茶叶消费量的80%。煎茶采用蒸青工艺（蒸汽杀青），区别于中国绿茶的炒青工艺，能最大程度保留茶叶的绿色和鲜爽度。煎茶外形细长如针，色泽鲜绿，冲泡后茶汤黄绿明亮，带有清新的海苔香。","story":"煎茶工艺由日本茶人永谷宗円于1738年创制于宇治。他将蒸青工艺系统化，开创了日本煎茶的新纪元。静冈县牧之原台地是日本最大的煎茶产区，明治维新后开垦的大茶园至今仍是日本茶产业的核心。","efficacy":"清热解毒、提神醒脑、抗氧化、预防龋齿","gradeDesc":"特级：色泽鲜绿，条索细直，海苔香清雅；一级：色泽绿润，香气清新；二级：滋味鲜爽，口感醇和","color":"黄绿明亮，清澈见底","brewing":{"temperature":"70-80℃","teaware":"急须壶（日式侧把壶）","steps":"取茶5克，70℃热水冲泡，第一泡60秒，第二泡30秒，可冲泡3-4次"},"storage":"密封冷藏保存，避免光照和氧化，开封后尽快饮用","foodPairing":"寿司、刺身、天妇罗、日本和果子","tastingTerms":"海苔清香、鲜爽甘甜、回甘明显、口感柔和","suitableCrowd":"大众消费者、日本料理爱好者、健康饮食者","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":7,"returning":5},"suitableSeason":"春季、夏季","originDetail":"日本静冈县牧之原台地、鹿儿岛县、京都府，海拔50-300米，温带海洋性气候","storyExtended":"日本煎茶是日本茶文化的基石。与抹茶的仪式感不同，煎茶是日本家庭的日常茶饮。煎茶的蒸青工艺源自中国唐代，但在日本得到了极致发展。静冈县因富士山融雪灌溉和温暖气候，成为日本最大的煎茶产区。日本煎茶分类极细，根据蒸青时间分为浅蒸、中蒸、深蒸三种风格。","teaEmoji":"🍃","category":"绿茶","wuXing":"木","efficacyDetail":"日本煎茶采用蒸青工艺，维生素C和叶绿素保留更完整，抗氧化能力更强。茶氨酸含量较高，具有舒缓神经、减轻压力的效果。儿茶素可预防龋齿、清新口气。","altitude":"海拔50-300米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（4-5月）、夏季（6-7月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"日本农林水产省大臣奖","rating":4.4,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"桂平","harvestYear":"2024春"},
+  {"id":323,"name":"日本玉露","type":"绿茶","origin":"日本福冈","grade":"特级","period":"近代","desc":"日本玉露是最高级的日本绿茶，鲜爽甘甜，被誉为\"绿茶中的极品\"。","detail":"日本玉露是日本最高等级的绿茶，以独特的覆下栽培法培育。茶树在采摘前20-30天用苇帘或遮光布覆盖，阻隔90%以上的阳光。这种遮光处理使茶叶中茶氨酸含量大增，儿茶素生成减少，形成了玉露独特的鲜甜滋味和海苔般的高雅香气。玉露产量稀少，制作工艺极其精细。","story":"玉露的栽培法由日本茶商山本山德兵卫于1835年在京都宇治首创。他发现遮光栽培的茶叶滋味特别鲜甜，便推广此法。玉露此后成为日本绿茶的巅峰之作，也是进献天皇的贡茶。","efficacy":"安神减压、增强免疫力、抗氧化、美容养颜","gradeDesc":"特级：色泽深绿，条索细直，鲜甜甘醇；一级：色泽绿润，口感鲜爽；二级（碾茶级）：用于制作抹茶","color":"浅黄绿色，清澈明亮","brewing":{"temperature":"50-60℃","teaware":"小瓷壶","steps":"取茶5克，50℃温水冲泡，浸泡2-3分钟，低温慢萃才能释放玉露的鲜甜滋味"},"storage":"密封冷藏保存，开封后尽快饮用，避免氧化","foodPairing":"高级寿司、刺身、京都和果子","tastingTerms":"鲜甜如蜜、海苔馥郁、口感润滑、回甘极度悠长","suitableCrowd":"高端茶客、茶道爱好者、馈赠佳品","flavorProfile":{"bitter":0,"astringent":0,"sweet":10,"fragrant":9,"returning":10},"suitableSeason":"春季、夏季","originDetail":"日本福冈县八女市、京都府宇治市、静冈县，海拔50-200米，温带气候，遮光栽培","storyExtended":"玉露是日本绿茶的极致表现。其独特的鲜甜味来自高含量的茶氨酸——遮光栽培使茶氨酸含量达到普通绿茶的3-5倍，而带来苦涩味的儿茶素大幅减少。冲泡玉露要用50℃的低温水，被称为\"玉露的温度\"，这样能把茶氨酸充分溶出，同时避免儿茶素的苦涩。玉露产量稀少，是日本最昂贵的绿茶。","teaEmoji":"💎","category":"绿茶","wuXing":"木","efficacyDetail":"玉露茶氨酸含量极高，具有显著的安神减压、改善睡眠、增强免疫力的功效。覆下栽培使叶绿素含量大增，具有排毒养颜的作用。低温饮用对胃温和，适合各类人群。","altitude":"海拔50-200米","priceRange":6,"suitableTime":"上午","harvestSeason":"春季（4-5月）","age":0,"caffeine":3,"processLevel":5,"organic":false,"award":"日本茶最高等级","rating":4.9,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"覃塘","harvestYear":"2024春"},
+  {"id":324,"name":"英国伯爵红茶","type":"红茶","origin":"英国","grade":"特级","period":"近代","desc":"伯爵红茶是英国经典调味红茶，以佛手柑油熏制，香气独特优雅。","detail":"伯爵红茶（Earl Grey Tea）是世界上最著名的调味红茶之一。以优质红茶（通常为中国祁门红茶或锡兰红茶）为基底，用意大利佛手柑（Bergamot）果皮提炼的精油熏制而成，带有独特的柑橘清香。伯爵红茶是英式下午茶的经典之选。","story":"伯爵红茶的历史有多种传说。最广为流传的说法是：1830年代，英国首相格雷伯爵二世从中国使节处获得了一款用佛手柑调味的红茶配方，格雷伯爵非常喜爱，便让伦敦茶商Twinings按其配方制作，伯爵红茶由此诞生并流传至今。","efficacy":"提神醒脑、舒缓情绪、抗氧化、促进消化","gradeDesc":"特级：佛手柑香浓郁，茶底优质，口感丰富；一级：香气清雅，茶味醇和；二级：调香适度，口感平和","color":"红亮清澈，橙红透亮","brewing":{"temperature":"95-100℃","teaware":"骨瓷茶具","steps":"取茶3-4克，沸水冲泡，浸泡3-5分钟，可依喜好加奶或不加奶"},"storage":"密封保存于阴凉干燥处，避免阳光直射，避免与其他香料串味","foodPairing":"英式司康饼、三明治、柠檬蛋糕、黄油饼干","tastingTerms":"佛手柑香、柑橘清新、茶味醇和、香气优雅","suitableCrowd":"下午茶爱好者、女性、文艺青年","flavorProfile":{"bitter":2,"astringent":2,"sweet":4,"fragrant":9,"returning":4,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"水满","harvestYear":"2024春"},"suitableSeason":"全年适宜","originDetail":"发源于英国伦敦，佛手柑产自意大利卡拉布里亚，茶底来自中国、印度、斯里兰卡","storyExtended":"伯爵红茶是英国茶文化的标志性产品。英式下午茶文化中，伯爵红茶是必备茶品之一。佛手柑油的添加量是伯爵红茶的灵魂，过多则掩盖茶香，过少则缺乏特色。现代伯爵红茶有多个变种：伯爵女士茶（Lady Grey，添加柠檬和橙皮）、俄罗斯伯爵茶（添加柠檬草）等。","teaEmoji":"👑","category":"调味红茶","wuXing":"火","efficacyDetail":"伯爵红茶中的佛手柑油具有舒缓情绪、缓解焦虑的功效，红茶基底提供提神醒脑、促进消化的作用。佛手柑精油还有轻微的抗菌消炎作用。","altitude":"依茶底产地而定","priceRange":3,"suitableTime":"下午","harvestSeason":"全年配制","age":1,"caffeine":3,"processLevel":3,"organic":false,"award":"世界最著名调味红茶","rating":4.5},
+  {"id":325,"name":"肯尼亚红茶","type":"红茶","origin":"肯尼亚","grade":"一级","period":"近代","desc":"肯尼亚红茶是世界重要的红茶出口品种，汤色红艳，滋味清爽。","detail":"肯尼亚红茶产于东非肯尼亚的高原地区，海拔1500-2700米。1903年英国传教士从印度引种茶树到肯尼亚，得益于赤道附近高海拔地区的凉爽气候和充沛雨水，肯尼亚迅速发展成为世界第三大茶叶生产国和最大的红茶出口国。肯尼亚红茶以鲜红的汤色和清爽的滋味著称，是全球茶包的主要原料。","story":"肯尼亚的茶产业始于1903年，英国殖民者从印度阿萨姆引种茶树。肯尼亚地处赤道，高海拔地区全年气候如春，茶树可以全年生长，一年可采摘15-20次。肯尼亚独立后大力发展茶产业，如今茶叶是肯尼亚最大的出口创汇农产品。","efficacy":"提神醒脑、清热解毒、抗氧化、增强免疫力","gradeDesc":"一级（PF1）：颗粒匀整，汤色红艳，滋味清爽；二级（PD）：碎茶为主，口感醇和；三级（CTC）：茶包级别，浓强鲜爽","color":"红艳明亮，清澈透亮","brewing":{"temperature":"100℃","teaware":"瓷壶","steps":"取茶5克，沸水冲泡，浸泡3-4分钟，可加奶调饮","soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"武夷","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避免潮湿","foodPairing":"肯尼亚烤玉米、恰帕提饼、萨莫萨","tastingTerms":"汤色红艳、清爽可口、略带果香、回甘快","suitableCrowd":"大众消费者、茶包爱好者","flavorProfile":{"bitter":2,"astringent":3,"sweet":3,"fragrant":5,"returning":3},"suitableSeason":"全年适宜","originDetail":"肯尼亚裂谷省凯里乔、尼耶利、基安布等地，海拔1500-2700米，赤道高原气候，年均温15-20℃，全年可采","storyExtended":"肯尼亚是世界最大的红茶出口国，茶叶出口量占全球茶叶贸易的25%以上。肯尼亚红茶主要采用CTC（压碎、撕裂、卷曲）工艺生产，适合制作茶包。肯尼亚的茶园多由小农户经营，全国有超过50万茶农。肯尼亚红茶色泽红艳，是英式早餐茶的重要原料。","teaEmoji":"🦒","category":"红茶","wuXing":"火","efficacyDetail":"肯尼亚红茶茶多酚含量丰富，抗氧化能力强。赤道高海拔地区的紫外线较强，刺激茶树产生更多抗氧化物质。具有提神醒脑、清热解毒、增强免疫力的功效。","altitude":"海拔1500-2700米","priceRange":1,"suitableTime":"早+午","harvestSeason":"全年可采","age":1,"caffeine":3,"processLevel":2,"organic":false,"award":"世界最大红茶出口国","rating":4.2},
+  {"id":326,"name":"越南河内茶","type":"绿茶","origin":"越南河内","grade":"一级","period":"传统","desc":"越南河内茶是越南北部传统绿茶，滋味清鲜，带有独特的地域风味。","detail":"越南河内茶产于越南北部红河三角洲及周边山区，是越南历史最悠久的茶叶产区之一。河内周边茶区海拔200-800米，气候湿热，雨水充沛，茶树全年生长旺盛。越南绿茶采用炒青工艺，外形条索紧结，色泽墨绿，冲泡后汤色黄绿明亮，带有独特的清香。","story":"越南茶叶种植历史悠久，可追溯至2000年前。越南北部与中国云南、广西接壤，茶文化深受中国影响。河内是越南茶文化的中心，遍布大街小巷的茶馆是越南人社交的重要场所。","efficacy":"清热解毒、生津止渴、提神醒脑、降火祛暑","gradeDesc":"一级：条索紧结，墨绿油润，清香明显；二级：条索尚紧，滋味鲜爽；三级：条索尚匀，口感醇和","color":"黄绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"盖碗或玻璃杯","steps":"取茶5克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟饮用","soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"金萱","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，热带地区建议冷藏","foodPairing":"越南春卷、河粉、法棍三明治","tastingTerms":"清新鲜爽、略带草香、回甘明显、滋味醇和","suitableCrowd":"大众消费者、热带旅游者、东南亚美食爱好者","flavorProfile":{"bitter":2,"astringent":2,"sweet":5,"fragrant":5,"returning":4},"suitableSeason":"夏季、秋季","originDetail":"越南河内市及周边太原省、富寿省，海拔200-800米，热带季风气候，年均温23-25℃","storyExtended":"越南是世界第五大茶叶生产国。河内茶文化深受中国影响但又独具特色——越南人喜欢喝浓茶，常在茶馆一坐就是半天。越南的\"滴漏咖啡\"和\"街头茶摊\"是城市的两大风景线。河内茶以鲜爽著称，适合在炎热潮湿的气候中饮用，有极好的解暑效果。","teaEmoji":"🇻🇳","category":"绿茶","wuXing":"木","efficacyDetail":"越南河内茶生长在热带气候中，茶多酚和维生素C含量较高，具有清热解毒、生津止渴、降火祛暑的功效。对热带地区常见的湿热症状有很好的调理作用。","altitude":"海拔200-800米","priceRange":1,"suitableTime":"上午、午后","harvestSeason":"全年可采，春季最佳","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"越南传统名茶","rating":4.0},
+  {"id":327,"name":"泰国冰茶","type":"调味红茶","origin":"泰国","grade":"一级","period":"现代","desc":"泰国冰茶是泰国街头经典饮品，以浓郁红茶加炼乳冰块制成，甜香诱人。","detail":"泰国冰茶（Cha Yen）是泰国最著名的茶饮之一，以浓郁的红茶为基底，加入炼乳、糖和大量冰块制成。传统上使用泰国本地种植的红茶，经烘焙后带有独特的烟熏香气。加入橙色的食用色素（或天然的罗望子）使茶汤呈现诱人的橙红色，是泰国街头最受欢迎的饮品。","story":"泰国冰茶的起源可追溯至20世纪中期。随着冰块在泰国普及，泰国人开始在传统奶茶中加入大量冰块，创造出清凉解暑的冰茶。泰国冰茶以其独特的橙色外观和浓郁甜美的口感，迅速成为泰国最具辨识度的饮品之一，并被世界各地的泰国餐厅推广。","efficacy":"解暑降温、补充能量、提神醒脑、舒缓情绪","gradeDesc":"一级：茶味浓郁，甜度适中，橙红诱人；二级：茶味较浓，口感甜美","color":"橙红艳丽，奶香浓郁","brewing":{"temperature":"100℃","teaware":"大玻璃杯","steps":"红茶5克沸水泡3分钟，滤出茶汤，加炼乳和糖搅匀，加满冰块即可","soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"四季","harvestYear":"2024春"},"storage":"红茶基底密封保存于阴凉干燥处，现调现饮为佳","foodPairing":"泰式炒河粉、冬阴功汤、芒果糯米饭","tastingTerms":"甜香浓郁、奶味丰富、清凉解暑、茶香悠然","suitableCrowd":"年轻人、甜食爱好者、夏日解暑人群","flavorProfile":{"bitter":1,"astringent":1,"sweet":9,"fragrant":7,"returning":3},"suitableSeason":"夏季","originDetail":"泰国各地街头茶摊，茶底主要产自泰国北部清迈、清莱等茶区，海拔500-1200米","storyExtended":"泰国冰茶是泰国饮食文化中不可或缺的一部分。在曼谷的街头巷尾，随处可见推着小车售卖冰茶的商贩。泰国人喝冰茶喜欢用塑料袋装，插入吸管边走边喝。泰国冰茶的魅力在于其独特的橙色茶汤和浓郁的炼乳甜香，在炎热的东南亚天气中，一杯冰凉的泰茶是最好的消暑饮品。","teaEmoji":"🧋","category":"调味红茶","wuXing":"火","efficacyDetail":"泰国冰茶中的红茶提供提神醒脑的作用，炼乳和糖提供快速能量，冰块迅速降温解暑。在炎热天气中饮用可有效预防中暑，补充流失的水分和电解质。","altitude":"海拔500-1200米（茶底）","priceRange":1,"suitableTime":"下午","harvestSeason":"全年可制","age":0,"caffeine":3,"processLevel":2,"organic":false,"award":"泰国国民饮品","rating":4.4},
+  {"id":328,"name":"客家炒茶","type":"绿茶","origin":"广东梅州","grade":"一级","period":"清代","desc":"客家炒茶是广东客家传统绿茶，炒制独特，滋味醇厚回甘。","detail":"客家炒茶产于广东省梅州市、河源市等客家地区，是客家人世代传承的传统茶饮。客家炒茶采用高火炒制工艺，与普通绿茶的烘青工艺不同，成品茶色泽灰绿，带有独特的焦香和炒米香。冲泡后茶汤黄绿明亮，滋味醇厚，特别耐泡。","story":"客家炒茶的历史与客家人迁徙密切相关。客家人从中原南迁至粤东山区后，发现当地潮湿多雨，茶叶不易保存。他们创造出高火炒制工艺，使茶叶含水量降至最低，便于长期保存。客家炒茶成为客家人日常生活和待客的必备品。","efficacy":"暖胃祛湿、消食化积、提神醒脑、降脂减肥","gradeDesc":"一级：条索紧结，色泽灰绿，焦香明显；二级：条索尚紧，炒米香显；三级：条索尚匀，滋味醇和","color":"黄绿明亮，清澈透亮","brewing":{"temperature":"90-95℃","teaware":"盖碗或瓷壶","steps":"取茶5-6克，90℃热水冲泡，浸泡1-2分钟，可续水5-6次，越泡越香","soupColor":"#DAA520","bodyType":"中性","learningContent":"水温80-90℃冲泡","famousMountain":"杉林","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，炒茶含水量低，可较长时间保存","foodPairing":"客家酿豆腐、梅菜扣肉、盐焗鸡","tastingTerms":"炒米焦香、滋味醇厚、回甘明显、耐泡性强","suitableCrowd":"客家人、中老年人、湿气重人群","flavorProfile":{"bitter":3,"astringent":3,"sweet":5,"fragrant":5,"returning":5},"suitableSeason":"春夏秋冬皆宜","originDetail":"广东省梅州市、河源市客家地区，海拔200-800米，粤东山区，红黄壤，气候湿热","storyExtended":"客家炒茶是客家文化的味觉符号。客家人\"逢客必茶\"，无论是婚丧嫁娶、岁时节庆，还是日常劳作间隙，炒茶都是必备之物。客家炒茶的独特之处在于\"炒\"——高温铁锅手工翻炒，使茶叶中的水分完全蒸发，形成独特的焦香。这种工艺极耗体力，体现了客家人勤劳坚韧的精神。","teaEmoji":"🔥","category":"炒青绿茶","wuXing":"火","efficacyDetail":"客家炒茶经高火炒制，茶性偏温，具有暖胃祛湿、消食化积的功效。炒制过程中产生的美拉德反应产物有独特的焦香味，对消食化积效果显著，特别适合客家人以肉食为主的饮食习惯。","altitude":"海拔200-800米","priceRange":2,"suitableTime":"早+午+晚","harvestSeason":"春季（3-4月）","age":1,"caffeine":2,"processLevel":3,"organic":false,"award":"广东省非物质文化遗产","rating":4.2},
+  {"id":329,"name":"桂平西山茶","type":"绿茶","origin":"广西桂平","grade":"一级","period":"唐代","desc":"桂平西山茶是广西历史名茶，产自佛教圣地西山，滋味鲜醇甘爽。","detail":"桂平西山茶产于广西壮族自治区桂平市西山风景区，已有千年以上历史。西山是佛教圣地，山中古刹林立，茶树与寺庙相伴生长。西山茶以中小叶种茶树为原料，采摘标准为一芽一叶或一芽二叶，传统手工制作，成品茶条索紧细，色泽翠绿，冲泡后汤色碧绿清澈。","story":"桂平西山种茶始于唐代，西山洗石庵僧人从外地引种茶树，在寺庙周边种植。西山茶以\"棋盘石\"茶园品质最佳，相传唐代高僧在此品茶下棋而得名。宋代时西山茶被列为贡品，享有盛誉。","efficacy":"清热解毒、生津止渴、提神醒脑、安神定志","gradeDesc":"一级：条索紧细，翠绿油润，清香持久；二级：条索尚紧，滋味鲜醇；三级：条索尚匀，口感甘甜","color":"碧绿清澈，明亮见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶4克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟饮用","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"午子","harvestYear":"2024春"},"storage":"密封冷藏保存于0-5℃，避免受潮和异味","foodPairing":"桂平米粉、西山素斋、社坡腐竹","tastingTerms":"清鲜甘醇、花香隐现、回甘持久、佛门清韵","suitableCrowd":"佛教信徒、旅游者、注重养生者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":6,"returning":6},"suitableSeason":"春季、夏季","originDetail":"广西壮族自治区贵港市桂平市西山风景区，海拔200-680米，石灰岩峰林地貌，气候温暖湿润","storyExtended":"桂平西山茶因产于佛教圣地西山而得名，茶树常年与古寺钟声相伴，被誉为\"佛茶\"。西山终年云雾缭绕，空气清新，泉水甘冽，茶树在这样灵秀的环境中生长，茶叶也仿佛带上了灵气。每年春季采茶时节，西山举办茶文化节，吸引众多游客前来品茶礼佛。","teaEmoji":"🏯","category":"炒青绿茶","wuXing":"木","efficacyDetail":"桂平西山茶生长在石灰岩峰林地貌的土壤中，富含钙、镁等矿物质。茶多酚和氨基酸比例协调，具有清热解毒、生津止渴、提神醒脑的功效。佛门清静环境生长的茶叶，有助于安神定志。","altitude":"海拔200-680米","priceRange":2,"suitableTime":"上午","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"广西名优茶","rating":4.3},
+  {"id":330,"name":"覃塘毛尖","type":"绿茶","origin":"广西贵港","grade":"一级","period":"现代","desc":"覃塘毛尖是广西贵港名茶，白毫显露，滋味鲜爽甘醇。","detail":"覃塘毛尖产于广西壮族自治区贵港市覃塘区，创制于1980年代。覃塘区海拔200-500米，土壤为红黄壤，气候温暖湿润，适合茶树生长。覃塘毛尖以福鼎大白茶等良种为原料，采摘标准为一芽一叶或一芽二叶初展，制作工艺讲究，成品茶条索紧细，白毫显露。","story":"覃塘毛尖是贵港市的自主创制名茶。1980年代贵港市引种优良茶树品种，结合传统毛尖制作工艺，创制出覃塘毛尖。得益于贵港特有的土壤和气候条件，覃塘毛尖品质优异，很快成为广西名茶。","efficacy":"清热解毒、提神醒脑、抗氧化、美容养颜","gradeDesc":"一级：条索紧细，白毫显露，色泽翠绿；二级：条索尚紧，滋味鲜爽；三级：条索尚匀，口感醇和","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3-4克，80℃热水冲泡，上投法冲泡，先注水再投茶，浸泡1-2分钟","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"秦巴","harvestYear":"2024春"},"storage":"密封冷藏保存，避免阳光直射和异味侵入","foodPairing":"贵港莲藕、覃塘马蹄、桥圩鸭肉","tastingTerms":"白毫飞舞、鲜爽甘醇、回甘明显、清香持久","suitableCrowd":"白领、学生、女性消费者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":6,"returning":6},"suitableSeason":"春季、夏季","originDetail":"广西壮族自治区贵港市覃塘区，海拔200-500米，红黄壤，亚热带季风气候","storyExtended":"覃塘毛尖是贵港市的骄傲。虽然创制时间不长，但覃塘毛尖凭借优良的品质和独特的口感，多次在广西名茶评比中获奖。覃塘区的茶农精心管理茶园，坚持手工采摘和传统工艺制作，保证了覃塘毛尖的纯正品质。","teaEmoji":"🌿","category":"炒青绿茶","wuXing":"木","efficacyDetail":"覃塘毛尖茶多酚和氨基酸含量均衡，具有清热解毒、提神醒脑、美容养颜的功效。白毫中的芳香物质有抗氧化和舒缓神经的作用。","altitude":"海拔200-500米","priceRange":2,"suitableTime":"上午","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"广西名优茶金奖","rating":4.2,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"碧口","harvestYear":"2024春"},
+  {"id":331,"name":"水满茶","type":"绿茶","origin":"海南五指山","grade":"一级","period":"传统","desc":"水满茶是海南五指山黎族传统茶饮，野生茶树制成，滋味独特。","detail":"水满茶产于海南省五指山市水满乡，是海南黎族苗族同胞的传统茶饮。五指山海拔800-1867米，是中国最南端的高山茶区，热带雨林气候，生态环境极佳。水满茶以五指山野生大叶种茶树为原料，叶片肥大，内含物质丰富。制作工艺简单自然，最大限度保留了茶叶的原始风味。","story":"水满茶在黎族中已有数百年饮用历史。黎族先民发现五指山中的野生茶树，采其嫩叶煮水饮用，发现能消暑解渴、提神醒脑。水满乡是五指山腹地的一个黎族村庄，因茶闻名，水满茶也称\"黎族野生茶\"。","efficacy":"清热解毒、消暑解渴、提神醒脑、补充矿物质","gradeDesc":"一级：叶片肥大，色泽深绿，野生茶韵明显；二级：叶片尚匀，滋味醇厚；三级：叶片尚整，口感甘甜","color":"黄绿明亮，清澈见底","brewing":{"temperature":"85-90℃","teaware":"陶壶或玻璃杯","steps":"取茶5克，85℃热水冲泡，浸泡2-3分钟，可煮饮风味更佳"},"storage":"密封保存于阴凉干燥处，热带地区建议冷藏","foodPairing":"黎族竹筒饭、五脚猪、山兰酒","tastingTerms":"野生茶韵、滋味醇厚、回甘持久、热带雨林气息","suitableCrowd":"旅游者、热带地区居民、野生茶爱好者","flavorProfile":{"bitter":3,"astringent":3,"sweet":4,"fragrant":5,"returning":5},"suitableSeason":"夏季","originDetail":"海南省五指山市水满乡，海拔800-1200米，热带雨林气候，五指山国家级自然保护区","storyExtended":"水满茶是海南最原生态的茶叶。茶树生长在五指山的原始热带雨林中，与百年古树为邻，吸收雨林的灵气。黎族采茶人以传统方式采制，不施农药化肥，保持了茶叶的最天然品质。水满茶在黎族文化中占有重要地位，是黎族待客、节庆的必备饮品。","teaEmoji":"🌴","category":"炒青绿茶","wuXing":"木","efficacyDetail":"水满野生茶树生长在热带雨林环境中，茶叶含有丰富的矿物质和微量元素，具有清热解毒、消暑解渴、提神醒脑的功效。野生茶树的茶多酚含量较高，抗氧化能力较强。","altitude":"海拔800-1200米","priceRange":2,"suitableTime":"上午","harvestSeason":"春季（2-4月）","age":0,"caffeine":3,"processLevel":2,"organic":true,"award":"海南特色农产品","rating":4.1,"soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"康县","harvestYear":"2024春"},
+  {"id":332,"name":"武夷肉桂","type":"乌龙茶","origin":"福建武夷山","grade":"特级","period":"清代","desc":"武夷肉桂是武夷岩茶名丛，桂皮香显，岩韵突出，滋味醇厚。","detail":"武夷肉桂产于福建省武夷山市武夷山风景区，是武夷岩茶中的名丛之一，已有200余年历史。肉桂茶树为灌木型中叶种，因成品茶带有独特的桂皮香而得名。武夷肉桂产于武夷山\"三坑两涧\"等核心岩区，独特的丹霞地貌和微气候环境赋予其鲜明的\"岩韵\"。","story":"武夷肉桂始种于清代嘉庆年间，最初只是武夷山天心岩一带的小品种。因其独特的桂皮香气和强烈的岩韵，逐渐受到茶客青睐。1980年代后，武夷肉桂种植面积迅速扩大，成为武夷岩茶中最受欢迎的品种之一。","efficacy":"消脂减肥、降血压、抗氧化、暖胃驱寒","gradeDesc":"特级（正岩）：条索紧结，桂皮香辛锐，岩韵明显；一级（半岩）：香气浓郁，口感醇厚；二级（洲茶）：香气尚显，滋味醇和","color":"橙黄明亮，清澈透亮","brewing":{"temperature":"100℃","teaware":"紫砂壶或盖碗","steps":"取茶8克，沸水冲泡，第一泡即冲即出洗茶，第二泡浸泡15秒，后续每泡增加5-10秒，可冲泡8-12次"},"storage":"密封保存于阴凉干燥处，避光防潮，岩茶可长期存放越陈越香","foodPairing":"武夷山笋干、红菇炖鸡、武夷山溪鱼","tastingTerms":"桂皮香辛锐、岩韵显著、滋味浓醇、回甘强烈","suitableCrowd":"岩茶爱好者、资深茶客、需降脂人群","flavorProfile":{"bitter":3,"astringent":4,"sweet":3,"fragrant":8,"returning":7},"suitableSeason":"秋季、冬季","originDetail":"福建省武夷山市武夷山风景区三坑两涧（慧苑坑、牛栏坑、倒水坑、流香涧、悟源涧），海拔300-700米，丹霞地貌，紫色砂砾岩风化土壤","storyExtended":"武夷肉桂是武夷岩茶中性格最鲜明的品种，以其辛锐的桂皮香和强烈的岩韵著称。武夷岩茶有\"香不过肉桂，醇不过水仙\"之说，肉桂以香见长。正岩肉桂生长在武夷山\"三坑两涧\"的岩石缝隙中，茶树根系深入岩层，吸收岩石风化土壤中的矿物质，形成独特的\"岩骨花香\"。","teaEmoji":"🪨","category":"乌龙茶","wuXing":"土","efficacyDetail":"武夷肉桂含有丰富的茶多酚和儿茶素，岩茶特有的矿物质成分具有降血压、降血脂的功效。桂皮香成分有暖胃驱寒、促进消化的作用。适合体寒者和需要降脂的人群饮用。","altitude":"海拔300-700米","priceRange":4,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）","age":2,"caffeine":4,"processLevel":5,"organic":false,"award":"武夷岩茶名丛","rating":4.7,"soupColor":"#4A0E0E","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"青海","harvestYear":"2024春"},
+  {"id":333,"name":"金萱茶","type":"乌龙茶","origin":"台湾嘉义","grade":"特级","period":"现代","desc":"金萱茶是台湾特色乌龙茶品种，奶香独特，口感柔和甘甜。","detail":"金萱茶是台湾茶业改良场于1980年培育的乌龙茶新品种，编号\"台茶12号\"，以培育者吴振铎祖母的名字\"金萱\"命名。金萱茶最大的特色是其独特的天然奶香，这种奶香来自茶树品种本身，非添加任何香料。成品茶外形紧结，色泽墨绿，冲泡后奶香清雅，口感柔和。","story":"1980年，台湾茶业改良场场长吴振铎以硬枝红心为母本、台农8号为父本进行杂交，成功培育出台茶12号金萱。金萱茶一推出便以其独特的奶香受到市场热捧，很快成为台湾种植面积最大的乌龙茶品种之一。","efficacy":"舒缓情绪、美容养颜、抗氧化、促进代谢","gradeDesc":"特级：奶香清雅，滋味甘醇，汤色明亮；一级：奶香明显，口感柔和；二级：香气尚清，滋味醇和","color":"蜜绿金黄，清澈明亮","brewing":{"temperature":"95-100℃","teaware":"盖碗或紫砂壶","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡35秒，后续每泡增加10秒，可冲泡5-7次"},"storage":"密封保存于阴凉干燥处，避光防潮，建议冷藏","foodPairing":"台湾凤梨酥、牛轧糖、麻糬","tastingTerms":"天然奶香、口感柔和、甘甜顺滑、喉韵舒适","suitableCrowd":"女性、年轻人、初次接触乌龙茶者","flavorProfile":{"bitter":1,"astringent":1,"sweet":6,"fragrant":8,"returning":5,"soupColor":"#8B4513","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"枸杞","harvestYear":"2024春"},"suitableSeason":"春季、秋季","originDetail":"台湾省嘉义县阿里山茶区、南投县等地，海拔800-1600米，亚热带高山气候，红壤","storyExtended":"金萱茶是台湾茶业的骄傲，是台湾自主培育最成功的茶树品种。金萱茶的奶香来自品种基因，非人力添加，是茶树育种学的一大成就。金萱茶适合制作轻发酵乌龙茶，近年来也被用来制作红茶（金萱红茶），都表现出优异的品质。金萱茶是许多人进入乌龙茶世界的入门茶。","teaEmoji":"🥛","category":"乌龙茶","wuXing":"木","efficacyDetail":"金萱茶茶多酚和咖啡因含量适中，口感柔和，对胃刺激小。天然的奶香成分来自茶树品种中的芳香物质，有舒缓情绪、放松身心的作用。适合女性和初次接触乌龙茶的人饮用。","altitude":"海拔800-1600米","priceRange":3,"suitableTime":"下午","harvestSeason":"春季（4-5月）、秋季（10-11月）","age":1,"caffeine":2,"processLevel":4,"organic":false,"award":"台湾自主培育优良品种","rating":4.5},
+  {"id":334,"name":"四季春茶","type":"乌龙茶","origin":"台湾南投","grade":"一级","period":"现代","desc":"四季春茶是台湾高产品种乌龙茶，花香清雅，四季可采。","detail":"四季春茶是台湾茶业改良场培育的乌龙茶品种，因一年四季均可采摘而得名。四季春茶树生长势强，产量高，适应性广。成品茶带有清雅的花香，尤其以栀子花香最为突出。四季春茶价格亲民，是台湾大众消费量最大的乌龙茶品种之一。","story":"四季春茶品种源自台湾木栅茶区的自然杂交种，因表现出极强的生长势和全年可采的特点，被茶农命名为\"四季春\"。1980年代经茶业改良场选育推广后，迅速成为台湾低海拔茶区的主要品种。","efficacy":"清热解毒、提神醒脑、消食解腻、经济实惠","gradeDesc":"一级：条索紧结，花香清雅，滋味醇爽；二级：条索尚紧，花香明显；三级：条索尚匀，口感醇和","color":"蜜绿明亮，清澈透亮","brewing":{"temperature":"95-100℃","teaware":"盖碗或瓷杯","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡30秒，后续每泡增加5-10秒，可冲泡4-6次","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"尼泊","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，避免潮湿","foodPairing":"台湾卤味、炒米粉、碗粿","tastingTerms":"栀子花香、滋味醇爽、回甘快、性价比高","suitableCrowd":"大众消费者、学生、日常茶饮爱好者","flavorProfile":{"bitter":2,"astringent":2,"sweet":5,"fragrant":7,"returning":4},"suitableSeason":"春夏秋冬皆宜","originDetail":"台湾省南投县名间乡、竹山镇等地，海拔200-600米，亚热带气候，红壤","storyExtended":"四季春茶是台湾最\"勤劳\"的茶树品种，一年可采收5-6次，是台湾茶农的\"摇钱树\"。虽然四季春茶的品质不及高山乌龙茶精细，但其清雅的花香和亲民的价格使其成为台湾人日常饮用的\"国民茶\"。在台湾的便当店、小吃摊，免费供应的茶水大多就是四季春。","teaEmoji":"🌸","category":"乌龙茶","wuXing":"木","efficacyDetail":"四季春茶茶多酚和咖啡因含量适中，具有清热解毒、提神醒脑、消食解腻的功效。花香成分来自丰富的芳香物质，有舒缓情绪的作用。性价比高，适合日常大量饮用。","altitude":"海拔200-600米","priceRange":1,"suitableTime":"早+午+晚","harvestSeason":"四季可采","age":0,"caffeine":3,"processLevel":3,"organic":false,"award":"台湾大众名茶","rating":4.0},
+  {"id":335,"name":"杉林溪茶","type":"乌龙茶","origin":"台湾南投","grade":"比赛茶级","period":"现代","desc":"杉林溪茶是台湾高山乌龙茶代表，冷香幽雅，甘甜持久。","detail":"杉林溪茶产于台湾省南投县竹山镇杉林溪森林游乐区周边，海拔1200-1800米，是台湾著名的高山乌龙茶产区。杉林溪原始森林茂密，溪水潺潺，终年云雾缭绕，茶园与原始杉木林交错分布。杉林溪茶属轻发酵乌龙茶，成品茶外形紧结，色泽墨绿，带有独特的\"杉林冷香\"。","story":"杉林溪茶区开发于1980年代，原是原始森林区，后来部分林地开垦为茶园。杉林溪的冷凉气候和原始森林环境为茶树提供了绝佳的生长条件，杉林溪茶很快在台湾茶比赛中脱颖而出，成为与阿里山茶、梨山茶齐名的高山茶产区。","efficacy":"提神醒脑、抗氧化、降血脂、舒缓情绪","gradeDesc":"比赛茶级：冷香幽雅，甘甜绵长，杉林韵味；特级：花香清雅，滋味甘醇；一级：香气明显，口感醇和","color":"蜜绿金黄，清澈明亮","brewing":{"temperature":"95-100℃","teaware":"功夫茶具（紫砂壶或盖碗）","steps":"取茶8克，沸水冲泡，第一泡洗茶，第二泡浸泡40秒，后续每泡增加10秒，可冲泡6-8次","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"土耳","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，冷藏保存风味更佳","foodPairing":"竹山番薯、南投梅子、台湾凤梨酥","tastingTerms":"杉林冷香、甘甜醇厚、回甘持久、山韵幽深","suitableCrowd":"茶艺爱好者、高山茶粉丝、追求品质者","flavorProfile":{"bitter":1,"astringent":2,"sweet":6,"fragrant":8,"returning":7},"suitableSeason":"秋季、冬季","originDetail":"台湾省南投县竹山镇杉林溪，海拔1200-1800米，中央山脉高山气候，原始森林环境，红黄壤","storyExtended":"杉林溪茶被誉为\"森林中的茶\"。茶园被原始杉木林环绕，茶树在森林的庇护下生长，吸收森林中的芳香物质，形成了独特的\"杉林冷香\"。杉林溪还是台湾著名的避暑胜地，每年夏季游客络绎不绝，赏瀑品茶成为杉林溪的特色旅游项目。","teaEmoji":"🌲","category":"乌龙茶","wuXing":"木","efficacyDetail":"杉林溪高山茶氨基酸含量高，茶多酚适中，具有提神醒脑、抗氧化、降血脂的功效。森林环境中的负离子和芳香物质对舒缓情绪、减轻压力有显著效果。","altitude":"海拔1200-1800米","priceRange":4,"suitableTime":"下午、晚间","harvestSeason":"春季（4-5月）、秋季（10-11月）","age":1,"caffeine":3,"processLevel":4,"organic":false,"award":"台湾优良食品竞赛金奖","rating":4.6},
+  {"id":336,"name":"午子仙毫","type":"绿茶","origin":"陕西西乡","grade":"特级","period":"现代","desc":"午子仙毫是陕西名优绿茶，外形细秀如毫，滋味鲜爽甘醇。","detail":"午子仙毫产于陕西省汉中市西乡县午子山一带，创制于1980年代。西乡县是陕南重要的茶叶产区，午子山海拔800-1200米，终年云雾缭绕。午子仙毫以单芽或一芽一叶初展为原料，外形细秀匀直，色泽翠绿，白毫显露，冲泡后香气清高持久。","story":"午子仙毫是在西乡传统\"午子茶\"基础上，于1980年代改进工艺创制而成。西乡县种茶历史悠久，但过去以粗茶为主。午子仙毫的创制标志着西乡茶叶品质的飞跃，如今已成为陕西名茶的代表之一。","efficacy":"清热解毒、提神醒脑、抗氧化、延缓衰老","gradeDesc":"特级：外形细秀如毫，白毫显露，香气清高；一级：条索紧直，滋味鲜爽；二级：条索尚直，口感醇和","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3-4克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟，可续水2-3次","soupColor":"#8B4513","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"阿根","harvestYear":"2024春"},"storage":"密封冷藏保存，避免阳光和异味","foodPairing":"西乡牛肉干、汉中米皮、陕南腊肉","tastingTerms":"仙毫挺秀、鲜爽甘醇、栗香持久、回甘明显","suitableCrowd":"白领、学生、旅游者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"陕西省汉中市西乡县午子山，海拔800-1200米，秦巴山区，黄棕壤，年均温14-16℃","storyExtended":"午子仙毫因产于午子山而得名，午子山是道教名山，山势险峻，风景秀丽。茶树生长在午子山的云雾之中，昼夜温差大，氨基酸积累丰富。午子仙毫以其细秀的外形和鲜爽的滋味，被誉为\"陕西绿茶的明珠\"。","teaEmoji":"🏔️","category":"细嫩绿茶","wuXing":"木","efficacyDetail":"午子仙毫氨基酸含量高，茶多酚适中，具有清热解毒、提神醒脑、抗氧化、延缓衰老的功效。高海拔生长环境使茶叶含有更多芳香物质。","altitude":"海拔800-1200米","priceRange":3,"suitableTime":"上午","harvestSeason":"春季（3-4月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"陕西名优茶金奖","rating":4.4},
+  {"id":337,"name":"秦巴雾毫","type":"绿茶","origin":"陕西镇巴","grade":"一级","period":"现代","desc":"秦巴雾毫是陕南新兴名茶，产于秦巴山区云雾之中，滋味鲜醇。","detail":"秦巴雾毫产于陕西省汉中市镇巴县，创制于1990年代。镇巴县地处秦巴山区腹地，海拔800-1500米，常年云雾缭绕，是茶树生长的理想环境。秦巴雾毫以福鼎大白茶等良种为原料，外形紧秀匀齐，白毫显露，汤色嫩绿明亮。","story":"镇巴县历史上以生产粗茶为主，1990年代当地茶企引进优良品种和先进工艺，创制了秦巴雾毫。\"雾毫\"之名取自茶区常年云雾缭绕的自然环境和茶叶白毫显露的品质特征。","efficacy":"清热解毒、提神醒脑、生津止渴、抗氧化","gradeDesc":"一级：条索紧秀，白毫显露，栗香明显；二级：条索尚紧，滋味鲜爽；三级：条索尚匀，口感醇和","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶4克，80℃热水冲泡，浸泡1-2分钟饮用","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"韩国","harvestYear":"2024春"},"storage":"密封冷藏保存，避免阳光和异味","foodPairing":"镇巴腊肉、陕南核桃、汉中米皮","tastingTerms":"清香鲜醇、栗香持久、回甘明显、秦巴风情","suitableCrowd":"西北地区居民、旅游者、大众消费者","flavorProfile":{"bitter":2,"astringent":2,"sweet":6,"fragrant":6,"returning":5},"suitableSeason":"春季、夏季","originDetail":"陕西省汉中市镇巴县，海拔800-1500米，秦巴山区腹地，黄棕壤，气候温和湿润","storyExtended":"秦巴雾毫是陕西绿茶的新秀。镇巴县地处大巴山深处，山高林密，云雾终年不散，空气清新无污染。秦巴雾毫虽然知名度不及紫阳毛尖和汉中仙毫，但其优异的品质和独特的秦巴山区风味，使其逐渐受到茶叶爱好者的关注。","teaEmoji":"🌫️","category":"炒青绿茶","wuXing":"木","efficacyDetail":"秦巴雾毫生长在秦巴山区高海拔环境中，茶多酚和氨基酸含量均衡，具有清热解毒、提神醒脑、生津止渴、抗氧化的功效。","altitude":"海拔800-1500米","priceRange":2,"suitableTime":"上午","harvestSeason":"春季（4-5月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"陕西名优茶","rating":4.1},
+  {"id":338,"name":"碧口龙井","type":"绿茶","origin":"甘肃文县","grade":"一级","period":"现代","desc":"碧口龙井是甘肃特色扁形绿茶，产自碧口古镇，外形扁平，滋味鲜爽。","detail":"碧口龙井产于甘肃省陇南市文县碧口镇，创制于1970年代。碧口镇位于甘肃最南端，白水江畔，是甘肃省唯一的亚热带气候区。碧口龙井借鉴西湖龙井的扁形制作工艺，以当地优质茶青为原料，外形扁平光滑，色泽翠绿，冲泡后香气清高，滋味鲜爽。","story":"1970年代，碧口镇茶农在浙江龙井制作师傅的指导下，学习龙井茶制作工艺，利用碧口当地优良的茶树品种，创制出具有独特风味的碧口龙井。碧口龙井被誉为\"甘肃的龙井茶\"。","efficacy":"清热解毒、提神醒脑、生津止渴、抗氧化","gradeDesc":"一级：外形扁平，色泽翠绿，香气清高；二级：外形尚扁，滋味鲜爽；三级：外形尚扁，口感醇和","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3-4克，80℃热水冲泡，先润茶后注满水，浸泡1-2分钟饮用","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"缅甸","harvestYear":"2024春"},"storage":"密封冷藏保存，避免阳光和异味","foodPairing":"碧口豆腐干、文县花椒、甘肃牛肉面","tastingTerms":"鲜爽甘醇、豆香清雅、回甘明显、西北龙井","suitableCrowd":"西北地区居民、龙井茶爱好者、旅游者","flavorProfile":{"bitter":1,"astringent":2,"sweet":7,"fragrant":6,"returning":5},"suitableSeason":"春季、夏季","originDetail":"甘肃省陇南市文县碧口镇，海拔600-900米，白水江畔，亚热带气候北缘，黄棕壤","storyExtended":"碧口龙井是南北茶文化交流的结晶。碧口镇是茶马古道上的重要驿站，历史上川茶入甘多经此地。碧口龙井融合了江南龙井的制作工艺和西北茶区的独特风土，形成了\"南北合璧\"的特殊品质。碧口龙井虽然产量不大，但其独特的地理位置和品质特征使其在甘肃乃至西北地区独树一帜。","teaEmoji":"🍃","category":"扁形绿茶","wuXing":"木","efficacyDetail":"碧口龙井生长在白水江畔的亚热带气候区，茶多酚和氨基酸含量均衡，具有清热解毒、提神醒脑、生津止渴、抗氧化的功效。","altitude":"海拔600-900米","priceRange":2,"suitableTime":"上午","harvestSeason":"春季（4-5月）","age":0,"caffeine":2,"processLevel":3,"organic":false,"award":"甘肃省名优茶","rating":4.2},
+  {"id":339,"name":"康县龙井","type":"绿茶","origin":"甘肃康县","grade":"一级","period":"现代","desc":"康县龙井是甘肃陇南扁形绿茶，秦岭腹地出产，品质优异。","detail":"康县龙井产于甘肃省陇南市康县，创制于1990年代。康县地处秦岭西段南麓，气候温和湿润，森林覆盖率高，生态环境极佳。康县龙井借鉴龙井茶制作工艺，以当地良种茶青为原料，外形扁平挺直，色泽翠绿，冲泡后汤色嫩绿明亮，栗香持久。","story":"康县是甘肃重要的茶叶产区，1990年代康县茶企引进龙井茶制作工艺，利用康县优越的自然条件，创制出康县龙井。康县龙井以其优良品质在甘肃省多次获奖，成为陇南茶叶的重要品牌。","efficacy":"清热解毒、提神醒脑、抗氧化、降血脂","gradeDesc":"一级：外形扁平挺直，色泽翠绿，栗香明显；二级：外形尚扁，滋味鲜爽；三级：外形尚扁，口感醇和","color":"嫩绿明亮，清澈见底","brewing":{"temperature":"80-85℃","teaware":"透明玻璃杯","steps":"取茶3-4克，80℃热水冲泡，浸泡1-2分钟饮用","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"马拉","harvestYear":"2024春"},"storage":"密封冷藏保存，避免阳光和异味","foodPairing":"康县木耳、陇南核桃、甘肃面食","tastingTerms":"栗香清雅、鲜爽甘醇、回甘明显、秦岭风味","suitableCrowd":"西北地区居民、大众消费者","flavorProfile":{"bitter":1,"astringent":2,"sweet":6,"fragrant":6,"returning":5},"suitableSeason":"春季、夏季","originDetail":"甘肃省陇南市康县，海拔800-1400米，秦岭西段南麓，黄棕壤，气候温和湿润","storyExtended":"康县是甘肃茶叶的重要产区，森林覆盖率高达70%以上，被誉为\"陇上江南\"。康县龙井生长在秦岭腹地的原生态环境中，茶树与森林为伴，吸收大自然的灵气。康县龙井虽然知名度不高，但品质纯正，是值得品尝的西北好茶。","teaEmoji":"🏔️","category":"扁形绿茶","wuXing":"木","efficacyDetail":"康县龙井生长在秦岭腹地的洁净环境中，茶多酚和氨基酸含量适中，具有清热解毒、提神醒脑、抗氧化、降血脂的功效。","altitude":"海拔800-1400米","priceRange":2,"suitableTime":"上午","harvestSeason":"春季（4-5月）","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"甘肃省优质农产品","rating":4.1},
+  {"id":340,"name":"青海茯茶","type":"黑茶","origin":"青海","grade":"一级","period":"明代","desc":"青海茯茶是青藏高原传统黑茶，金花茂盛，滋味醇和。","detail":"青海茯茶是青海省消费量最大的茶叶品种之一，属于茯砖茶系列。茯茶以粗老茶叶为原料，经渥堆、压制、发花等工序制成。青海茯茶最大的特色是砖内生长的\"金花\"——冠突散囊菌，这是茯茶品质优良的标志。茶汤红浓，菌花香浓郁，口感醇和甘润。","story":"茯茶的历史可追溯至明代，最初产于陕西泾阳。清代以后茯茶大量销往青海、甘肃等西北地区，成为西北各族人民的生活必需品。青海茯茶在青海多民族饮食文化中占有重要地位。","efficacy":"消食解腻、降脂减肥、调节肠道菌群、补充维生素","gradeDesc":"一级：金花茂盛，菌花香浓，汤色红浓；二级：金花较多，口感醇和；三级：金花尚显，滋味甘润","color":"红浓明亮，油润感强","brewing":{"temperature":"100℃","teaware":"铜壶或陶壶","steps":"取茶10克敲碎，沸水煮3-5分钟，或沸水冲泡后焖5分钟，可加盐加奶调饮","soupColor":"#C8E6C9","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"老挝","harvestYear":"2024春"},"storage":"存放于通风干燥处，越陈越香，可长期保存","foodPairing":"青海手抓羊肉、青稞面、馓子","tastingTerms":"金花菌香、醇和甘润、茶汤红浓、暖胃驱寒","suitableCrowd":"西北居民、肉食为主者、肠胃功能弱者","flavorProfile":{"bitter":1,"astringent":1,"sweet":5,"fragrant":4,"returning":4},"suitableSeason":"全年适宜，冬季最佳","originDetail":"茯茶原产陕西泾阳、湖南益阳等地，青海为主要消费区","storyExtended":"青海茯茶是西北多民族共享的茶饮。茯茶中的\"金花\"是一种益生菌——冠突散囊菌，对人体肠道健康非常有益，被称为\"可以喝的益生菌\"。在青海高原的严寒气候中，一碗热腾腾的茯茶不仅能驱寒暖身，还能帮助消化高原地区以肉食为主的饮食。","teaEmoji":"🧱","category":"黑茶","wuXing":"土","efficacyDetail":"青海茯茶中的金花菌（冠突散囊菌）是天然益生菌，具有调节肠道菌群、促进消化的功效。茯茶发酵产生的茶褐素可降脂减肥，对三高人群有调理作用。长期饮用可改善肠胃功能。","altitude":"海拔2000-4000米（消费区）","priceRange":1,"suitableTime":"早+午+晚","harvestSeason":"四季","age":3,"caffeine":2,"processLevel":4,"organic":false,"award":"国家级非物质文化遗产","rating":4.2},
+  {"id":341,"name":"枸杞芽茶","type":"养生茶","origin":"宁夏中宁","grade":"一级","period":"传统","desc":"枸杞芽茶是宁夏特色养生茶，以枸杞嫩芽制成，营养丰富。","detail":"枸杞芽茶产于宁夏回族自治区中卫市中宁县，以枸杞树春天萌发的嫩芽为原料制成。中宁县是中国枸杞之乡，枸杞种植历史悠久，品质最优。枸杞芽茶采摘于每年春季枸杞萌芽期，只取最嫩的芽尖，经杀青、揉捻、干燥制成，色泽翠绿，汤色黄绿明亮。","story":"枸杞芽茶的历史与枸杞种植同步。宁夏人自古就知道枸杞浑身是宝，不仅枸杞子可以入药养生，枸杞嫩芽也可制成茶饮。枸杞芽茶在宁夏民间有\"长寿茶\"的美誉，是中老年人日常养生的首选。","efficacy":"养肝明目、滋补养生、降血糖、抗氧化","gradeDesc":"一级：芽叶嫩绿，汤色明亮，清香甘甜；二级：芽叶尚嫩，滋味甘醇；三级：芽叶尚整，口感甘润","color":"黄绿明亮，清澈透亮","brewing":{"temperature":"80-85℃","teaware":"玻璃杯","steps":"取枸杞芽茶3-4克，80℃热水冲泡，浸泡2-3分钟饮用，可续水2-3次","soupColor":"#C0392B","bodyType":"寒底","learningContent":"水温80-90℃冲泡","famousMountain":"印尼","harvestYear":"2024春"},"storage":"密封保存于阴凉干燥处，防潮防虫","foodPairing":"宁夏羊肉、枸杞糕点、八宝茶","tastingTerms":"清香甘甜、枸杞韵味、回甘明显、养生佳品","suitableCrowd":"中老年人、电脑工作者、养生爱好者","flavorProfile":{"bitter":1,"astringent":1,"sweet":7,"fragrant":5,"returning":5},"suitableSeason":"春季、夏季","originDetail":"宁夏回族自治区中卫市中宁县，海拔1100-1300米，黄河冲积平原，沙质土壤，日照充足","storyExtended":"中宁枸杞甲天下，中宁枸杞芽茶是枸杞产业的延伸产品。枸杞芽茶充分利用了枸杞树春天的嫩芽资源，变废为宝。枸杞芽含有丰富的甜菜碱、枸杞多糖、胡萝卜素等营养成分，制成茶饮后既保留了枸杞的养生功效，又比枸杞子更易于日常饮用。","teaEmoji":"🫐","category":"养生茶","wuXing":"水","efficacyDetail":"枸杞芽含有丰富的枸杞多糖、甜菜碱、胡萝卜素、维生素C等营养成分，具有养肝明目、降血糖、抗氧化、延缓衰老的功效。长期饮用对改善视力、增强免疫力有显著效果。","altitude":"海拔1100-1300米","priceRange":2,"suitableTime":"上午、午后","harvestSeason":"春季（4-5月）","age":0,"caffeine":0,"processLevel":2,"organic":false,"award":"宁夏特色农产品","rating":4.3,"soupColor":"#8B4513","bodyType":"热底","learningContent":"水温80-90℃冲泡","famousMountain":"摩洛","harvestYear":"2024春"},
+  {"id":342,"name":"尼泊尔红茶","type":"红茶","origin":"尼泊尔","grade":"一级","period":"近代","desc":"尼泊尔红茶产于喜马拉雅山南麓，品质接近大吉岭，性价比极高。","detail":"尼泊尔红茶产于尼泊尔东部伊拉姆（Ilam）等地区，与大吉岭仅一山之隔，海拔1500-2500米。尼泊尔红茶与大吉岭红茶共享喜马拉雅山南麓的优越自然条件，茶叶品质接近大吉岭，带有类似的麝香葡萄香，但价格更为亲民。","story":"尼泊尔茶叶种植始于19世纪末，受邻国印度大吉岭的影响而发展。尼泊尔东部的伊拉姆地区气候和土壤条件与大吉岭相似，出产的红茶品质优异。近年来尼泊尔红茶在国际市场上越来越受关注。","efficacy":"暖胃养胃、提神醒脑、抗氧化、美容养颜","gradeDesc":"一级：条索紧细，色泽褐润，花香明显；二级：条索尚紧，滋味醇和；三级：条索尚匀，口感清爽","color":"橙黄明亮，金圈明显","brewing":{"temperature":"90-95℃","teaware":"瓷壶或玻璃壶","steps":"取茶3-4克，90℃热水冲泡，浸泡3-4分钟饮用"},"storage":"密封保存于阴凉干燥处，避免潮湿和阳光直射","foodPairing":"尼泊尔馍馍、咖喱、清淡糕点","tastingTerms":"花香清雅、麝香葡萄韵、回甘持久、喜马拉雅气息","suitableCrowd":"红茶爱好者、追求性价比者、旅游者","flavorProfile":{"bitter":2,"astringent":2,"sweet":5,"fragrant":8,"returning":5},"suitableSeason":"春季、秋季","originDetail":"尼泊尔东部伊拉姆、丹库塔等地，海拔1500-2500米，喜马拉雅山南麓，年均温12-18℃","storyExtended":"尼泊尔红茶是大吉岭红茶的\"近亲\"。喜马拉雅山脉的南麓同时孕育了大吉岭和尼泊尔两大红茶产区，两者地理条件相似，茶叶品质也相近。尼泊尔红茶因知名度不如大吉岭，价格相对亲民，被茶界称为\"穷人的大吉岭\"，但其品质绝不逊色。近年来随着有机认证的推广，尼泊尔有机红茶在国际市场上声名鹊起。","teaEmoji":"🏔️","category":"红茶","wuXing":"火","efficacyDetail":"尼泊尔红茶富含茶黄素和茶红素，具有暖胃养胃、提神醒脑的功效。喜马拉雅山麓高海拔环境中生长的茶叶氨基酸含量高，滋味更加鲜甜，抗氧化能力更强。","altitude":"海拔1500-2500米","priceRange":2,"suitableTime":"下午","harvestSeason":"春季（3-4月）、夏季（5-6月）","age":1,"caffeine":3,"processLevel":3,"organic":true,"award":"喜马拉雅优质红茶","rating":4.4},
+  {"id":343,"name":"土耳其红茶","type":"红茶","origin":"土耳其","grade":"一级","period":"近代","desc":"土耳其红茶是土耳其国民饮品，双层茶壶煮制，色泽红艳，滋味浓郁。","detail":"土耳其红茶（Çay）产于土耳其东北部里泽（Rize）省的黑海沿岸地区，是土耳其人生活中不可或缺的饮品。土耳其红茶采用传统的双层茶壶煮制方法——下层壶烧水，上层壶放茶，利用蒸汽蒸煮茶叶。茶汤色泽深红，滋味浓郁，土耳其人习惯加方糖饮用，用郁金香形玻璃杯盛装。","story":"土耳其茶叶种植始于20世纪初，最初从格鲁吉亚引种。里泽省的湿润黑海气候非常适合茶树生长。土耳其红茶在土耳其文化中地位重要——土耳其人均茶叶消费量居世界第一，每天饮用数杯茶是土耳其人的生活习惯。","efficacy":"提神提气、暖胃驱寒、促进消化、社交纽带","gradeDesc":"一级：条索细碎，色泽乌黑，浓郁醇厚；二级：碎茶为主，口感浓烈；三级：茶包级别，日常饮用","color":"深红明亮，浓郁厚重","brewing":{"temperature":"100℃","teaware":"双层茶壶（Çaydanlık）","steps":"下层烧水，上层放茶15-20克，用沸水蒸汽蒸煮茶叶15-20分钟，饮用时先倒浓茶再加热水稀释至个人口味"},"storage":"密封保存于阴凉干燥处，土耳其气候干燥，常温保存即可","foodPairing":"土耳其烤肉、芝麻面包圈、土耳其软糖","tastingTerms":"浓郁醇厚、茶味饱满、回甘强劲、土耳其风情","suitableCrowd":"红茶爱好者、喜欢浓郁口感者、社交达人","flavorProfile":{"bitter":4,"astringent":4,"sweet":2,"fragrant":4,"returning":3},"suitableSeason":"全年适宜","originDetail":"土耳其东北部里泽省，黑海沿岸，海拔100-800米，湿润海洋性气候，年均温14-18℃","storyExtended":"土耳其是世界上人均茶叶消费量最大的国家，每人年均消费超过3公斤茶叶。在土耳其，茶不仅是一种饮品，更是一种社交方式。大街小巷遍布茶馆，人们一边喝茶一边聊天、下棋。土耳其人喝茶用特制的郁金香形玻璃杯，透过杯壁可以欣赏茶汤的深红色泽。\"请喝茶\"是土耳其人最常见的问候语。","teaEmoji":"🇹🇷","category":"红茶","wuXing":"火","efficacyDetail":"土耳其红茶经长时间蒸煮，茶多酚和咖啡因充分溶出，提神效果显著。浓郁的红茶口感有助于暖胃驱寒、促进消化。土耳其红茶常加糖饮用，能快速补充能量。","altitude":"海拔100-800米","priceRange":1,"suitableTime":"早+午+晚","harvestSeason":"夏季（5-10月）","age":1,"caffeine":4,"processLevel":2,"organic":false,"award":"土耳其国民饮品","rating":4.3},
+  {"id":344,"name":"阿根廷马黛茶","type":"养生茶","origin":"阿根廷","grade":"一级","period":"传统","desc":"马黛茶是南美洲传统茶饮，以马黛树叶制成，提神醒脑，营养丰富。","detail":"马黛茶（Yerba Mate）是南美洲特别是阿根廷、巴拉圭、乌拉圭的传统茶饮，以马黛树（巴拉圭冬青）的叶和嫩枝制成。马黛茶不是传统意义上的\"茶\"（非山茶属），但饮用方式相似。马黛茶含有咖啡因和多种维生素、矿物质，被称为\"南美咖啡\"。传统饮用方式是用葫芦杯和金属吸管（Bombilla）饮用。","story":"马黛茶的历史可追溯至南美洲原住民瓜拉尼人，已有数百年历史。西班牙殖民者到达南美后，发现原住民饮用马黛茶后精力充沛，也开始饮用。如今马黛茶是阿根廷的国饮，阿根廷是世界上最大的马黛茶生产国和消费国。","efficacy":"提神醒脑、补充能量、促进消化、增强免疫力","gradeDesc":"一级：叶片完整，色泽绿润，香气清新；二级：碎叶为主，口感醇和；三级：粉状，日常饮用","color":"黄绿明亮，略带浑浊","brewing":{"temperature":"70-80℃","teaware":"葫芦杯+金属吸管","steps":"葫芦杯装入马黛茶叶至2/3满，插入吸管，注入70℃热水，用吸管饮用。可多次续水，共饮一杯是社交礼仪"},"storage":"密封保存于阴凉干燥处，防潮防异味","foodPairing":"阿根廷烤肉、烤肉饺子、甜奶酱面包","tastingTerms":"草香独特、微苦回甘、烟熏味、南美风情","suitableCrowd":"健身人群、需要提神者、异域文化爱好者","flavorProfile":{"bitter":4,"astringent":3,"sweet":3,"fragrant":4,"returning":3},"suitableSeason":"全年适宜","originDetail":"阿根廷米西奥内斯省、科连特斯省，海拔200-800米，亚热带气候，红壤","storyExtended":"马黛茶是南美洲的文化符号。在阿根廷，马黛茶不仅是一种饮品，更是一种社交仪式。朋友间共用一个葫芦杯、同一根吸管轮流饮用马黛茶，象征着信任和友谊。阿根廷球星梅西在赛前常饮用马黛茶，使这款南美传统茶饮在全球范围内广为人知。","teaEmoji":"🧉","category":"养生茶","wuXing":"木","efficacyDetail":"马黛茶含有咖啡因、茶碱和可可碱，提神效果温和持久。富含多种维生素（B1、B2、C）和矿物质（钾、镁、锰），具有补充能量、促进消化、增强免疫力的功效。马黛茶酚有抗氧化作用。","altitude":"海拔200-800米","priceRange":2,"suitableTime":"早+午","harvestSeason":"全年可采","age":0,"caffeine":3,"processLevel":2,"organic":false,"award":"阿根廷国饮","rating":4.5},
+  {"id":345,"name":"韩国传统绿茶","type":"绿茶","origin":"韩国河东","grade":"特级","period":"唐代","desc":"韩国传统绿茶承袭唐代蒸青工艺，滋味鲜爽清雅，禅意十足。","detail":"韩国传统绿茶主要产于韩国庆尚南道河东郡、全罗南道宝城郡等地。韩国的茶文化源自中国唐代，保留了古老的蒸青制茶法。韩国绿茶按采摘时间分为：雨前（谷雨前）、细雀（谷雨后）、中雀（稍后）三个等级。韩国绿茶外形细直如针，色泽深绿，冲泡后汤色浅绿清澈，滋味清雅。","story":"韩国茶文化由遣唐使从中国传入，公元828年新罗兴德王时期，遣唐使金大廉从中国带回茶籽，种植于智异山。此后韩国茶文化在寺庙中传承发展，形成了独特的韩国茶道。","efficacy":"清热解毒、安神定志、抗氧化、修身养性","gradeDesc":"特级（雨前）：色泽深绿，口感鲜醇，禅茶韵味；一级（细雀）：香气清雅，滋味醇和；二级（中雀）：口感清爽","color":"浅绿清澈，淡雅透亮","brewing":{"temperature":"60-70℃","teaware":"韩国陶瓷茶具","steps":"取茶3克，60℃温水冲泡，先润茶后注水，浸泡1-2分钟，低温慢萃以显清雅之味"},"storage":"密封冷藏保存，避免氧化和光照，韩国传统用韩纸包裹贮藏","foodPairing":"韩国松饼、韩果、年糕","tastingTerms":"清雅淡远、鲜爽甘醇、禅意十足、回味悠长","suitableCrowd":"茶道爱好者、禅修者、注重精神修养者","flavorProfile":{"bitter":1,"astringent":1,"sweet":6,"fragrant":7,"returning":6},"suitableSeason":"春季、夏季","originDetail":"韩国庆尚南道河东郡智异山、全罗南道宝城郡，海拔200-800米，温带气候，花岗岩风化土壤","storyExtended":"韩国茶文化与中国渊源深厚，但又发展出独特的民族特色。韩国茶道强调\"和、敬、俭、真\"的精神，注重内心的修行。韩国绿茶以宝城郡和河东郡最为著名，宝城绿茶产量最大，河东绿茶品质最优。韩国的寺庙中至今保留着古老的制茶传统，僧人们将制茶作为修行的一部分。","teaEmoji":"🇰🇷","category":"绿茶","wuXing":"木","efficacyDetail":"韩国传统绿茶采用蒸青工艺，保留了大量叶绿素和维生素，抗氧化能力强。茶氨酸含量较高，具有安神定志、减轻压力的功效。低温冲泡方式使茶叶中的咖啡因溶出较少，刺激性低。","altitude":"海拔200-800米","priceRange":3,"suitableTime":"上午","harvestSeason":"春季（4-5月）","age":0,"caffeine":2,"processLevel":4,"organic":false,"award":"韩国名茶","rating":4.4},
+  {"id":346,"name":"缅甸红茶","type":"红茶","origin":"缅甸","grade":"一级","period":"近代","desc":"缅甸红茶是东南亚特色红茶，风味独特，常用于制作缅甸奶茶。","detail":"缅甸红茶产于缅甸掸邦高原，海拔800-1500米。英国殖民时期引种茶树，在掸邦高原的凉爽气候中发展形成缅甸红茶产业。缅甸红茶条索紧结，色泽乌润，冲泡后汤色红亮，滋味浓郁，带有独特的香气。缅甸人喜欢将红茶与炼乳调制成甜奶茶（Lahpet Ye）。","story":"缅甸茶产业始于英国殖民时期的19世纪末。掸邦高原的气候和土壤条件与印度阿萨姆相似，非常适合茶树生长。缅甸红茶不仅用于饮用，缅甸还有独特的茶叶沙拉（Lahpet Thoke）——以腌渍茶叶为原料的传统美食。","efficacy":"提神醒脑、暖胃养胃、促进消化、补充能量","gradeDesc":"一级：条索紧结，色泽乌润，滋味浓郁；二级：条索尚紧，口感醇厚；三级：碎茶为主，适合调制奶茶","color":"红亮清澈，浓郁诱人","brewing":{"temperature":"100℃","teaware":"瓷壶","steps":"取茶5克，沸水冲泡，浸泡4-5分钟，加炼乳和糖制成缅甸甜奶茶"},"storage":"密封保存于阴凉干燥处，避免潮湿","foodPairing":"缅甸茶叶沙拉、鱼汤米粉、椰子糕","tastingTerms":"茶味浓郁、炼乳甜香、口感顺滑、东南亚风味","suitableCrowd":"奶茶爱好者、东南亚美食爱好者","flavorProfile":{"bitter":3,"astringent":3,"sweet":3,"fragrant":5,"returning":3},"suitableSeason":"全年适宜","originDetail":"缅甸掸邦高原，海拔800-1500米，热带高原气候，年均温18-22℃","storyExtended":"缅甸茶文化独具特色。缅甸不仅是饮茶大国，还是世界上唯一将茶叶作为食物大量食用的国家。缅甸的茶叶沙拉（Lahpet Thoke）以腌渍茶叶为主要原料，是缅甸最具代表性的传统美食。在缅甸的茶馆中，人们一边喝着甜奶茶，一边吃着茶叶沙拉，形成独特的\"茶叶双吃\"文化。","teaEmoji":"🇲🇲","category":"红茶","wuXing":"火","efficacyDetail":"缅甸红茶咖啡因含量较高，提神效果显著。与炼乳搭配的缅甸奶茶能快速补充能量，适合高原地区居民日常饮用。红茶中的茶黄素有抗氧化和促进消化的作用。","altitude":"海拔800-1500米","priceRange":1,"suitableTime":"早+午","harvestSeason":"全年可采","age":1,"caffeine":4,"processLevel":2,"organic":false,"award":"缅甸国民饮品","rating":4.1},
+  {"id":347,"name":"马拉维红茶","type":"红茶","origin":"马拉维","grade":"一级","period":"近代","desc":"马拉维红茶是非洲重要红茶品种，汤色红艳，品质扎实。","detail":"马拉维红茶产于非洲东南部马拉维共和国的南部高原地区，海拔600-1500米。马拉维是非洲第二大茶叶生产国，茶叶出口是该国重要的外汇来源。马拉维红茶采用CTC工艺生产，茶汤红艳明亮，滋味浓郁，主要用作拼配红茶和茶包原料。","story":"马拉维茶产业始于19世纪末英国殖民时期。最初在马拉维南部的姆兰杰山区引种茶树，得益于高原凉爽气候和肥沃的火山土壤，茶树生长旺盛。马拉维独立后继续发展茶产业，如今茶叶是该国最重要的出口农产品之一。","efficacy":"提神醒脑、抗氧化、促进新陈代谢、经济实惠","gradeDesc":"一级：颗粒匀整，汤色红艳，口感浓郁；二级：颗粒尚匀，滋味醇和；三级：颗粒较碎，日常饮用","color":"红艳明亮，浓郁厚实","brewing":{"temperature":"100℃","teaware":"瓷壶","steps":"取茶5克，沸水冲泡，浸泡3-4分钟，可加奶调饮"},"storage":"密封保存于阴凉干燥处，非洲气候干燥，注意防潮","foodPairing":"马拉维玉米饼、烤鱼、热带水果","tastingTerms":"浓郁扎实、汤色红艳、滋味饱满、非洲风情","suitableCrowd":"拼配茶商、茶包生产商、大众消费者","flavorProfile":{"bitter":3,"astringent":3,"sweet":2,"fragrant":4,"returning":2},"suitableSeason":"全年适宜","originDetail":"马拉维南部姆兰杰山区，海拔600-1500米，东非高原，火山红壤，热带高原气候","storyExtended":"马拉维虽小却是非洲茶叶大国。马拉维红茶以其稳定的品质和鲜艳的汤色在国际茶叶市场上占有一席之地。马拉维的茶园多由小农户经营，茶叶产业为数十万马拉维人提供了生计。马拉维红茶虽然知名度不及肯尼亚红茶，但其品质扎实，是世界红茶供应链中的重要一环。","teaEmoji":"🇲🇼","category":"红茶","wuXing":"火","efficacyDetail":"马拉维红茶茶多酚含量高，抗氧化能力强。CTC工艺使茶叶内含物质充分溶出，提神效果显著。火山土壤生长的茶叶含有丰富的矿物质。","altitude":"海拔600-1500米","priceRange":1,"suitableTime":"早+午","harvestSeason":"全年可采","age":1,"caffeine":3,"processLevel":2,"organic":false,"award":"非洲重要红茶品种","rating":4.0},
+  {"id":348,"name":"老挝茶","type":"绿茶","origin":"老挝","grade":"一级","period":"传统","desc":"老挝茶是东南亚原生态绿茶，古树茶资源丰富，风味天然。","detail":"老挝茶产于老挝北部丰沙里省、琅勃拉邦省的高山地区，海拔1000-2000米。老挝拥有大量的野生古茶树资源，树龄数百年的古茶树在原始森林中自然生长，不施农药化肥。老挝茶以古树茶为原料，制作工艺传统，最大程度保留了茶叶的天然风味。","story":"老挝的茶文化历史悠久，与中国云南西双版纳接壤的丰沙里省是重要的古茶树分布区。老挝的野生古茶树大多未经人工驯化，在原始森林中自由生长。近年来，随着古树茶市场的兴起，老挝古树茶开始受到国际关注。","efficacy":"清热解毒、生津止渴、抗氧化、原生态健康","gradeDesc":"一级：古树原料，叶片肥厚，滋味醇厚；二级：生态茶园，口感清爽；三级：台地茶，日常饮用","color":"金黄明亮，清澈透亮","brewing":{"temperature":"85-90℃","teaware":"盖碗或陶壶","steps":"取茶5克，85℃热水冲泡，第一泡洗茶，第二泡浸泡30秒，后续每泡增加10秒，可冲泡8-10次"},"storage":"密封保存于阴凉干燥处，古树茶适合长期存放转化","foodPairing":"老挝糯米饭、青木瓜沙拉、烤河鱼","tastingTerms":"原野气息、滋味醇厚、回甘持久、天然纯净","suitableCrowd":"古树茶爱好者、生态环保主义者、旅游者","flavorProfile":{"bitter":3,"astringent":3,"sweet":4,"fragrant":5,"returning":6},"suitableSeason":"春季、夏季","originDetail":"老挝丰沙里省、琅勃拉邦省，海拔1000-2000米，原始森林环境，红黄壤，热带高山气候","storyExtended":"老挝古树茶是东南亚最后的茶叶秘境之一。老挝北部与云南西双版纳同属澜沧江-湄公河流域，共享相似的茶树起源环境。老挝的古茶树散落在原始森林中，采摘不易，产量稀少。老挝茶因其天然纯净的品质和原始森林的气息，在国际市场上越来越受追捧。","teaEmoji":"🇱🇦","category":"绿茶","wuXing":"木","efficacyDetail":"老挝古树茶生长在原始森林中，茶多酚和矿物质含量丰富，具有清热解毒、抗氧化、增强免疫力的功效。古树茶内含物质丰富，耐泡性极强，回甘持久。","altitude":"海拔1000-2000米","priceRange":3,"suitableTime":"上午、午后","harvestSeason":"春季（3-5月）","age":0,"caffeine":3,"processLevel":3,"organic":true,"award":"东南亚古树茶代表","rating":4.3},
+  {"id":349,"name":"印尼红茶","type":"红茶","origin":"印度尼西亚","grade":"一级","period":"近代","desc":"印尼红茶是东南亚重要红茶，产自爪哇和苏门答腊，是世界拼配红茶的重要来源。","detail":"印尼红茶主要产于印度尼西亚爪哇岛和苏门答腊岛的高原地区，海拔800-1800米。印尼是继中国、印度、肯尼亚、斯里兰卡之后的世界第五大茶叶生产国。印尼红茶以爪哇红茶最为著名，汤色红亮，滋味清爽，是世界拼配红茶的重要来源。","story":"印尼茶产业始于17世纪荷兰殖民时期。荷兰东印度公司从中国和日本引种茶树到爪哇岛，大规模建立茶园。19世纪后期，受锡兰红茶影响，印尼转向红茶生产。如今印尼红茶在国际市场上以稳定的品质和适中的价格著称。","efficacy":"提神醒脑、清热解毒、促进消化、增强代谢","gradeDesc":"一级：条索紧结，色泽乌润，口感清爽；二级：碎茶为主，汤色红亮；三级：颗粒状，日常饮用","color":"红亮清澈，金圈明显","brewing":{"temperature":"100℃","teaware":"瓷壶","steps":"取茶5克，沸水冲泡，浸泡3-4分钟，可清饮也可加奶"},"storage":"密封保存于阴凉干燥处，热带地区注意防潮","foodPairing":"印尼炒饭、沙爹肉串、千层糕","tastingTerms":"清爽可口、汤色红亮、滋味醇和、东南亚风味","suitableCrowd":"拼配茶商、大众消费者、东南亚美食爱好者","flavorProfile":{"bitter":2,"astringent":2,"sweet":3,"fragrant":5,"returning":3},"suitableSeason":"全年适宜","originDetail":"印度尼西亚西爪哇省、中爪哇省、苏门答腊岛，海拔800-1800米，火山土壤，热带高原气候","storyExtended":"印尼是世界第五大茶叶生产国，爪哇红茶是印尼茶产业的核心。爪哇岛的火山土壤肥沃，富含矿物质，出产的红茶品质稳定。印尼红茶广泛用于国际拼配茶市场，是许多知名红茶品牌的重要原料来源。印尼也有少量绿茶和乌龙茶生产，但红茶占绝对主导地位。","teaEmoji":"🇮🇩","category":"红茶","wuXing":"火","efficacyDetail":"印尼红茶生长在火山土壤中，含有丰富的矿物质。茶多酚和咖啡因含量适中，具有提神醒脑、清热解毒、促进消化的功效。火山土壤赋予茶叶独特的矿物质香气。","altitude":"海拔800-1800米","priceRange":1,"suitableTime":"早+午","harvestSeason":"全年可采","age":1,"caffeine":3,"processLevel":2,"organic":false,"award":"世界重要红茶品种","rating":4.0},
+  {"id":350,"name":"摩洛哥薄荷茶","type":"养生茶","origin":"摩洛哥","grade":"一级","period":"传统","desc":"摩洛哥薄荷茶是北非传统茶饮，绿茶与薄荷结合，清凉甘甜。","detail":"摩洛哥薄荷茶是摩洛哥和马格里布地区的传统茶饮，以中国珠茶（火药茶）为基底，加入新鲜薄荷叶和大量白糖制成。摩洛哥薄荷茶是北非待客之道的核心——为客人奉上三杯茶是摩洛哥的礼仪：第一杯温柔如生命，第二杯浓烈如爱情，第三杯苦涩如死亡。","story":"摩洛哥薄荷茶的历史可追溯至18世纪。当时英国商人将中国绿茶引入摩洛哥，摩洛哥人在绿茶中加入本地盛产的薄荷和糖，创造出独特的薄荷茶。如今薄荷茶已成为摩洛哥的国饮，是日常生活和社交礼仪的核心。","efficacy":"清热解毒、消暑降温、提神醒脑、助消化","gradeDesc":"一级：绿茶底质优，薄荷鲜嫩，口感均衡；二级：茶底尚佳，薄荷清香；三级：日常饮用级","color":"黄绿明亮，薄荷叶漂浮","brewing":{"temperature":"100℃","teaware":"摩洛哥银壶+玻璃杯","steps":"茶壶放入珠茶5克和新鲜薄荷叶一把，加入大量白糖，沸水冲泡，从高处倒入杯中产生泡沫，反复倒出倒回以混合"},"storage":"绿茶底密封保存，新鲜薄荷即用即取","foodPairing":"库斯库斯、塔吉锅、摩洛哥甜点","tastingTerms":"薄荷清凉、甘甜可口、绿茶清韵、北非风情","suitableCrowd":"夏日解暑人群、异域文化爱好者","flavorProfile":{"bitter":1,"astringent":1,"sweet":8,"fragrant":8,"returning":4},"suitableSeason":"夏季","originDetail":"摩洛哥各地，薄荷茶文化中心在马拉喀什、非斯，茶底珠茶主要从中国进口","storyExtended":"摩洛哥薄荷茶是北非社交文化的灵魂。在摩洛哥，无论是街头商贩还是皇宫贵族，薄荷茶都是待客的首选。摩洛哥人泡茶讲究\"三杯礼\"：主人为客人奉上三杯茶，客人必须都喝完，这是对主人的尊重。薄荷茶从银壶高处倒入玻璃杯，产生细腻泡沫，这既是技术也是艺术。","teaEmoji":"🌿","category":"养生茶","wuXing":"水","efficacyDetail":"摩洛哥薄荷茶中的薄荷含有薄荷脑，具有清凉解暑、提神醒脑的功效。绿茶基底提供抗氧化和提神作用。大量的糖分在炎热干燥的北非气候中可快速补充能量。","altitude":"依茶底产地而定","priceRange":1,"suitableTime":"下午、晚间","harvestSeason":"全年可制","age":0,"caffeine":2,"processLevel":2,"organic":false,"award":"摩洛哥国饮","rating":4.5},
+  {"id": 51, "name": "霍山黄芽", "type": "黄茶", "origin": "安徽霍山", "grade": "一级", "period": "现代", "desc": "霍山黄芽是安徽特产黄茶。", "detail": "霍山黄芽产于安徽霍山，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "霍山黄芽有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "安徽霍山地区，气候温和，土壤肥沃", "storyExtended": "霍山黄芽在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "黄茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#E8C44A", "bodyType": "中性", "learningContent": "水温80-90℃冲泡", "famousMountain": "安徽霍山", "harvestYear": "2024春"},
+{"id": 53, "name": "鹿苑毛尖", "type": "绿茶", "origin": "湖北远安", "grade": "一级", "period": "现代", "desc": "鹿苑毛尖产于湖北远安。", "detail": "鹿苑毛尖产于湖北远安，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "鹿苑毛尖有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "湖北远安地区，气候温和，土壤肥沃", "storyExtended": "鹿苑毛尖在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "湖北远安", "harvestYear": "2024春"},
+{"id": 54, "name": "双桥毛尖", "type": "绿茶", "origin": "湖北大悟", "grade": "一级", "period": "现代", "desc": "双桥毛尖是湖北大悟特产。", "detail": "双桥毛尖产于湖北大悟，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "双桥毛尖有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "湖北大悟地区，气候温和，土壤肥沃", "storyExtended": "双桥毛尖在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "湖北大悟", "harvestYear": "2024春"},
+{"id": 55, "name": "宜兴红茶", "type": "红茶", "origin": "江苏宜兴", "grade": "一级", "period": "现代", "desc": "宜兴红茶是江苏宜兴特产。", "detail": "宜兴红茶产于江苏宜兴，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "宜兴红茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "江苏宜兴地区，气候温和，土壤肥沃", "storyExtended": "宜兴红茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "红茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C0392B", "bodyType": "寒底", "learningContent": "水温80-90℃冲泡", "famousMountain": "江苏宜兴", "harvestYear": "2024春"},
+{"id": 56, "name": "苏州茉莉", "type": "花茶", "origin": "江苏苏州", "grade": "一级", "period": "现代", "desc": "苏州茉莉花茶清香持久。", "detail": "苏州茉莉产于江苏苏州，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "苏州茉莉有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "江苏苏州地区，气候温和，土壤肥沃", "storyExtended": "苏州茉莉在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "花茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#FFFDD0", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "江苏苏州", "harvestYear": "2024春"},
+{"id": 57, "name": "径山茶", "type": "绿茶", "origin": "浙江余杭", "grade": "一级", "period": "现代", "desc": "径山茶是浙江余杭名茶。", "detail": "径山茶产于浙江余杭，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "径山茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "浙江余杭地区，气候温和，土壤肥沃", "storyExtended": "径山茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "浙江余杭", "harvestYear": "2024春"},
+{"id": 60, "name": "婺源绿茶", "type": "绿茶", "origin": "江西婺源", "grade": "一级", "period": "现代", "desc": "婺源绿茶是江西婺源特产。", "detail": "婺源绿茶产于江西婺源，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "婺源绿茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "江西婺源地区，气候温和，土壤肥沃", "storyExtended": "婺源绿茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "江西婺源", "harvestYear": "2024春"},
+{"id": 61, "name": "麻姑茶", "type": "绿茶", "origin": "江西南城", "grade": "一级", "period": "现代", "desc": "麻姑茶产于江西南城麻姑山。", "detail": "麻姑茶产于江西南城，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "麻姑茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "江西南城地区，气候温和，土壤肥沃", "storyExtended": "麻姑茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "江西南城", "harvestYear": "2024春"},
+{"id": 62, "name": "瑞州黄檗茶", "type": "绿茶", "origin": "江西高安", "grade": "一级", "period": "现代", "desc": "瑞州黄檗茶是江西高安特产。", "detail": "瑞州黄檗茶产于江西高安，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "瑞州黄檗茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "江西高安地区，气候温和，土壤肥沃", "storyExtended": "瑞州黄檗茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "江西高安", "harvestYear": "2024春"},
+{"id": 63, "name": "天华谷尖", "type": "绿茶", "origin": "安徽太湖", "grade": "一级", "period": "现代", "desc": "天华谷尖是安徽太湖名茶。", "detail": "天华谷尖产于安徽太湖，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "天华谷尖有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "安徽太湖地区，气候温和，土壤肥沃", "storyExtended": "天华谷尖在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "安徽太湖", "harvestYear": "2024春"},
+{"id": 64, "name": "南阳香雾", "type": "绿茶", "origin": "河南南阳", "grade": "一级", "period": "现代", "desc": "南阳香雾是河南南阳特产。", "detail": "南阳香雾产于河南南阳，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "南阳香雾有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "河南南阳地区，气候温和，土壤肥沃", "storyExtended": "南阳香雾在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "河南南阳", "harvestYear": "2024春"},
+{"id": 81, "name": "嶂山茶", "type": "绿茶", "origin": "江苏宿迁", "grade": "一级", "period": "现代", "desc": "嶂山茶是江苏宿迁名茶。", "detail": "嶂山茶产于江苏宿迁，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "嶂山茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "江苏宿迁地区，气候温和，土壤肥沃", "storyExtended": "嶂山茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "江苏宿迁", "harvestYear": "2024春"},
+{"id": 82, "name": "盘安云峰", "type": "绿茶", "origin": "浙江磐安", "grade": "一级", "period": "现代", "desc": "盘安云峰是浙江磐安特产。", "detail": "盘安云峰产于浙江磐安，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "盘安云峰有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "浙江磐安地区，气候温和，土壤肥沃", "storyExtended": "盘安云峰在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "浙江磐安", "harvestYear": "2024春"},
+{"id": 89, "name": "桃溪茶", "type": "绿茶", "origin": "浙江武义", "grade": "一级", "period": "现代", "desc": "桃溪茶产于浙江武义桃溪。", "detail": "桃溪茶产于浙江武义，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "桃溪茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "浙江武义地区，气候温和，土壤肥沃", "storyExtended": "桃溪茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "浙江武义", "harvestYear": "2024春"},
+{"id": 90, "name": "天尊贡芽", "type": "绿茶", "origin": "浙江富阳", "grade": "一级", "period": "现代", "desc": "天尊贡芽是浙江富阳特产。", "detail": "天尊贡芽产于浙江富阳，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "天尊贡芽有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "浙江富阳地区，气候温和，土壤肥沃", "storyExtended": "天尊贡芽在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "浙江富阳", "harvestYear": "2024春"},
+{"id": 91, "name": "望海茶", "type": "绿茶", "origin": "浙江宁海", "grade": "一级", "period": "现代", "desc": "望海茶产于浙江宁海望海山。", "detail": "望海茶产于浙江宁海，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "望海茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "浙江宁海地区，气候温和，土壤肥沃", "storyExtended": "望海茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "浙江宁海", "harvestYear": "2024春"},
+{"id": 92, "name": "太白顶芽", "type": "绿茶", "origin": "浙江安吉", "grade": "一级", "period": "现代", "desc": "太白顶芽是浙江安吉珍稀品种。", "detail": "太白顶芽产于浙江安吉，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "太白顶芽有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "浙江安吉地区，气候温和，土壤肥沃", "storyExtended": "太白顶芽在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "浙江安吉", "harvestYear": "2024春"},
+{"id": 95, "name": "南糯白毫", "type": "普洱", "origin": "云南勐海", "grade": "一级", "period": "现代", "desc": "南糯白毫是云南勐海古树茶。", "detail": "南糯白毫产于云南勐海，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "南糯白毫有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "云南勐海地区，气候温和，土壤肥沃", "storyExtended": "南糯白毫在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "普洱", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#7A3B10", "bodyType": "寒底", "learningContent": "水温80-90℃冲泡", "famousMountain": "云南勐海", "harvestYear": "2024春"},
+{"id": 96, "name": "景迈古茶", "type": "普洱", "origin": "云南景迈", "grade": "一级", "period": "现代", "desc": "景迈古茶是云南景迈山古树茶。", "detail": "景迈古茶产于云南景迈，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "景迈古茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "云南景迈地区，气候温和，土壤肥沃", "storyExtended": "景迈古茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "普洱", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#7A3B10", "bodyType": "寒底", "learningContent": "水温80-90℃冲泡", "famousMountain": "云南景迈", "harvestYear": "2024春"},
+{"id": 97, "name": "下关沱茶", "type": "普洱", "origin": "云南下关", "grade": "一级", "period": "现代", "desc": "下关沱茶是云南下关名茶。", "detail": "下关沱茶产于云南下关，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "下关沱茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "云南下关地区，气候温和，土壤肥沃", "storyExtended": "下关沱茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "普洱", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#7A3B10", "bodyType": "寒底", "learningContent": "水温80-90℃冲泡", "famousMountain": "云南下关", "harvestYear": "2024春"},
+{"id": 98, "name": "宝洪茶", "type": "绿茶", "origin": "云南宜良", "grade": "一级", "period": "现代", "desc": "宝洪茶是云南宜良特产。", "detail": "宝洪茶产于云南宜良，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "宝洪茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "云南宜良地区，气候温和，土壤肥沃", "storyExtended": "宝洪茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "云南宜良", "harvestYear": "2024春"},
+{"id": 138, "name": "闽北水仙", "type": "乌龙茶", "origin": "福建建瓯", "grade": "一级", "period": "现代", "desc": "闽北水仙是福建建瓯乌龙茶。", "detail": "闽北水仙产于福建建瓯，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "闽北水仙有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "福建建瓯地区，气候温和，土壤肥沃", "storyExtended": "闽北水仙在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "乌龙茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#DAA520", "bodyType": "中性", "learningContent": "水温80-90℃冲泡", "famousMountain": "福建建瓯", "harvestYear": "2024春"},
+{"id": 155, "name": "白芽奇兰", "type": "乌龙茶", "origin": "福建平和", "grade": "一级", "period": "现代", "desc": "白芽奇兰是福建平和特产。", "detail": "白芽奇兰产于福建平和，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "白芽奇兰有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "福建平和地区，气候温和，土壤肥沃", "storyExtended": "白芽奇兰在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "乌龙茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#DAA520", "bodyType": "中性", "learningContent": "水温80-90℃冲泡", "famousMountain": "福建平和", "harvestYear": "2024春"},
+{"id": 158, "name": "平和白芽奇兰", "type": "乌龙茶", "origin": "福建平和", "grade": "一级", "period": "现代", "desc": "平和白芽奇兰是福建乌龙精品。", "detail": "平和白芽奇兰产于福建平和，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "平和白芽奇兰有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "福建平和地区，气候温和，土壤肥沃", "storyExtended": "平和白芽奇兰在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "乌龙茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#DAA520", "bodyType": "中性", "learningContent": "水温80-90℃冲泡", "famousMountain": "福建平和", "harvestYear": "2024春"},
+{"id": 161, "name": "福州茉莉", "type": "花茶", "origin": "福建福州", "grade": "一级", "period": "现代", "desc": "福州茉莉花茶历史悠久。", "detail": "福州茉莉产于福建福州，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "福州茉莉有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "福建福州地区，气候温和，土壤肥沃", "storyExtended": "福州茉莉在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "花茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#FFFDD0", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "福建福州", "harvestYear": "2024春"},
+{"id": 179, "name": "霞浦元宵茶", "type": "绿茶", "origin": "福建霞浦", "grade": "一级", "period": "现代", "desc": "霞浦元宵茶是福建霞浦特产。", "detail": "霞浦元宵茶产于福建霞浦，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "霞浦元宵茶有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "福建霞浦地区，气候温和，土壤肥沃", "storyExtended": "霞浦元宵茶在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "福建霞浦", "harvestYear": "2024春"},
+{"id": 216, "name": "漳平水仙", "type": "乌龙茶", "origin": "福建漳平", "grade": "一级", "period": "现代", "desc": "漳平水仙是福建漳平乌龙茶。", "detail": "漳平水仙产于福建漳平，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "漳平水仙有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "福建漳平地区，气候温和，土壤肥沃", "storyExtended": "漳平水仙在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "乌龙茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#DAA520", "bodyType": "中性", "learningContent": "水温80-90℃冲泡", "famousMountain": "福建漳平", "harvestYear": "2024春"},
+{"id": 217, "name": "峨眉竹叶青", "type": "绿茶", "origin": "四川峨眉", "grade": "一级", "period": "现代", "desc": "峨眉竹叶青是四川峨眉名茶。", "detail": "峨眉竹叶青产于四川峨眉，是该地区的特色茶叶。茶叶品质优良，滋味鲜醇，深受茶客喜爱。", "story": "峨眉竹叶青有着悠久的历史传承，是当地茶文化的代表品种。", "efficacy": "清热解毒、提神醒脑", "gradeDesc": "一级：条索紧结，色泽绿润", "color": "嫩绿明亮", "brewing": {"temperature": "80-90℃", "teaware": "玻璃杯", "steps": "先温杯，投茶3克，注入1/3水润茶，再注满水，浸泡1-2分钟"}, "storage": "密封保存于阴凉干燥处", "foodPairing": "清淡点心", "tastingTerms": "鲜爽回甘", "suitableCrowd": "大众", "flavorProfile": {"bitter": 2, "astringent": 2, "sweet": 4, "fragrant": 3, "returning": 3}, "suitableSeason": "春季", "originDetail": "四川峨眉地区，气候温和，土壤肥沃", "storyExtended": "峨眉竹叶青在当地茶叶产业中占有重要地位。", "teaEmoji": "🍵", "category": "绿茶", "wuXing": "木", "efficacyDetail": "含有茶多酚和氨基酸，具有清热解毒、提神醒脑的功效。", "altitude": "海拔300-800米", "priceRange": 2, "suitableTime": "上午、下午", "harvestSeason": "春采", "age": 0, "caffeine": 2, "processLevel": 2, "organic": false, "award": "", "rating": 4.2, "soupColor": "#C8E6C9", "bodyType": "热底", "learningContent": "水温80-90℃冲泡", "famousMountain": "四川峨眉", "harvestYear": "2024春"}
+
 ];
