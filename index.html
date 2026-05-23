@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="茶叶百科 v6.5 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，收录50种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<meta name="description" content="茶叶百科 v6.6 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>茶叶百科 v6.5 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶百科 v6.6 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
-   茶叶百科 v6.5 — 清新雅致中国风
+   茶叶百科 v6.6 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -1469,7 +1469,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v6.5 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v6.6 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -1486,7 +1486,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v6.5</span>🍃</div>
+  <div class="hdr-logo"><span>v6.6</span>🍃</div>
   <div class="hdr-title">茶叶百科</div>
   <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
@@ -7355,6 +7355,50 @@ function renderHallOfFamePage() {
 }
 </script>
 
+
+<!-- VERSION HISTORY -->
+<script>
+// 版本历史记录
+window.VERSION_HISTORY = [
+  {
+    version: 'v6.6',
+    date: '2026-05-23',
+    changes: [
+      '🌱 数据补充：修复28条空白type字段，新增乌龙茶/黄茶/普洱/红茶等品种',
+      '📊 数据扩容：绿茶139条/红茶71条/乌龙茶35条/普洱22条/黄茶16条，总计350条',
+      '🗺️ 产区地图：升级为12×7 Grid布局，按真实经纬度排列省份方块',
+      '🏭 工厂地图：同步升级为12×7 Grid布局',
+      '📍 产地Tab：增强为省份茶叶统计列表，支持按茶类筛选+点击展开',
+      '🐛 Bug修复：删除重复的switchStdTab stub函数',
+      '📷 图片覆盖：WIKI_IMAGES 278条映射，覆盖主要知名茶叶'
+    ]
+  },
+  {
+    version: 'v6.5',
+    date: '2026-05-22',
+    changes: [
+      '🗺️ Tab合并：删除重复的地图Tab，只保留产地+产区两个Tab',
+      '🎨 UI优化：移动端浮动☰筛选按钮+侧滑面板',
+      '🐛 Bug修复：修复6处JS语法错误',
+      '📦 外部数据：分离glossary/news/season数据到独立JS文件'
+    ]
+  },
+  {
+    version: 'v6.0',
+    date: '2026-05-20',
+    changes: [
+      '🚀 全新版本：重构搜索系统，添加多维筛选器+茶叶对比台+拼音首字母搜索',
+      '📈 可视化：D1-D5价格走势图+冲泡热力图+风味雷达图+产地互动地图',
+      '📚 内容库：K1-K5冲泡指南+配餐建议+保存指南+功效详解+制茶工艺',
+      '🛠️ 工具集：品鉴笔记+收藏册+深色模式+PWA离线缓存'
+    ]
+  }
+];
+
+// 在控制台输出版本信息
+console.log('%c🍃 茶叶百科 v6.6 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
+console.log('版本历史:', window.VERSION_HISTORY);
+</script>
 
 </body>
 </html>
