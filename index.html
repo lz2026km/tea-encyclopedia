@@ -1615,7 +1615,6 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <button class="tab-btn" onclick="switchTab('typepie', this)">🍵 分布</button>
     <button class="tab-btn" onclick="switchTab('origin3d', this)">🗺️ 产区</button>
     <button class="tab-btn" onclick="switchTab('brewguide', this)">☕ 冲泡</button>
-    <button class="tab-btn" onclick="switchTab('originsolar', this)">🗺️ 地图</button>
     <button class="tab-btn" onclick="switchTab('solarterms', this)">🌾 节气</button>
     <button class="tab-btn" onclick="switchTab('storage', this)">🫙 保存</button>
     <button class="tab-btn" onclick="switchTab('process', this)">⚙️ 工艺</button>
@@ -2015,46 +2014,6 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   </div>
 
   <!-- D4 ORIGIN INTERACTIVE MAP PAGE -->
-  <div class="fav-page" id="originMapPage">
-    <div class="results-info">🗺️ 中国茶叶产地互动地图</div>
-    <div class="origin-map-wrap">
-      <div class="origin-map-header">📍 点击省份查看茶叶列表</div>
-      <div class="origin-map-svg-wrap" id="originMapSvgWrap">
-        <div class="origin-map-tooltip" id="originMapTooltip"></div>
-        <svg id="originMapSvg" class="origin-map-svg" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg">
-          <!-- 简化中国地图省份轮廓 -->
-          <path class="origin-map-province" data-province="浙江" d="M580,260 L590,250 L610,255 L620,270 L615,285 L600,290 L585,280 Z" title="浙江"/>
-          <path class="origin-map-province" data-province="江苏" d="M590,240 L610,235 L620,245 L615,260 L600,265 L585,255 Z" title="江苏"/>
-          <path class="origin-map-province" data-province="安徽" d="M560,245 L585,240 L595,255 L580,265 L555,260 Z" title="安徽"/>
-          <path class="origin-map-province" data-province="福建" d="M600,290 L615,285 L630,300 L625,320 L605,325 L590,310 Z" title="福建"/>
-          <path class="origin-map-province" data-province="江西" d="M555,280 L580,275 L600,290 L590,310 L560,305 L540,295 Z" title="江西"/>
-          <path class="origin-map-province" data-province="湖南" d="M510,295 L545,285 L560,305 L550,330 L520,335 L500,315 Z" title="湖南"/>
-          <path class="origin-map-province" data-province="湖北" d="M510,265 L545,260 L555,280 L540,295 L510,290 L495,275 Z" title="湖北"/>
-          <path class="origin-map-province" data-province="四川" d="M380,260 L420,250 L450,270 L445,310 L420,340 L380,330 L360,300 Z" title="四川"/>
-          <path class="origin-map-province" data-province="云南" d="M360,330 L400,320 L420,340 L415,380 L380,390 L340,370 L330,345 Z" title="云南"/>
-          <path class="origin-map-province" data-province="贵州" d="M420,310 L455,300 L460,330 L440,350 L415,345 L410,325 Z" title="贵州"/>
-          <path class="origin-map-province" data-province="广东" d="M560,330 L590,320 L610,345 L600,375 L570,380 L545,360 Z" title="广东"/>
-          <path class="origin-map-province" data-province="广西" d="M510,345 L555,335 L560,370 L540,390 L505,385 L490,365 Z" title="广西"/>
-          <path class="origin-map-province" data-province="海南" d="M575,390 L590,388 L595,400 L580,405 Z" title="海南"/>
-          <path class="origin-map-province" data-province="河南" d="M530,235 L560,230 L570,250 L555,260 L530,255 L515,245 Z" title="河南"/>
-          <path class="origin-map-province" data-province="山东" d="M580,210 L610,200 L620,220 L610,240 L585,245 L570,230 Z" title="山东"/>
-          <path class="origin-map-province" data-province="山西" d="M510,220 L540,215 L550,235 L530,245 L505,240 Z" title="山西"/>
-          <path class="origin-map-province" data-province="陕西" d="M460,235 L505,230 L515,250 L500,265 L460,260 L445,245 Z" title="陕西"/>
-          <path class="origin-map-province" data-province="甘肃" d="M340,210 L420,200 L450,230 L430,255 L380,255 L330,245 L320,225 Z" title="甘肃"/>
-          <path class="origin-map-province" data-province="青海" d="M260,240 L330,230 L345,260 L320,285 L270,280 L250,260 Z" title="青海"/>
-          <path class="origin-map-province" data-province="西藏" d="M180,280 L260,260 L280,300 L270,350 L220,370 L160,350 L150,310 Z" title="西藏"/>
-          <path class="origin-map-province" data-province="新疆" d="M160,150 L280,130 L300,200 L280,240 L200,250 L140,230 L130,180 Z" title="新疆"/>
-          <path class="origin-map-province" data-province="内蒙古" d="M300,120 L450,100 L480,160 L460,200 L380,210 L320,200 L290,160 Z" title="内蒙古"/>
-          <path class="origin-map-province" data-province="黑龙江" d="M480,60 L560,50 L590,90 L570,130 L500,130 L470,100 Z" title="黑龙江"/>
-          <path class="origin-map-province" data-province="吉林" d="M540,70 L580,65 L600,95 L580,120 L545,115 L530,90 Z" title="吉林"/>
-          <path class="origin-map-province" data-province="辽宁" d="M560,100 L600,95 L615,125 L595,145 L565,140 L550,120 Z" title="辽宁"/>
-          <path class="origin-map-province" data-province="河北" d="M545,180 L580,175 L595,200 L575,220 L545,215 L530,195 Z" title="河北"/>
-          <path class="origin-map-province" data-province="北京" d="M565,195 L575,192 L578,205 L570,210 Z" title="北京"/>
-          <path class="origin-map-province" data-province="天津" d="M575,205 L585,203 L588,215 L578,218 Z" title="天津"/>
-          <path class="origin-map-province" data-province="宁夏" d="M430,235 L455,232 L460,250 L445,258 L425,252 Z" title="宁夏"/>
-          <path class="origin-map-province" data-province="重庆" d="M450,280 L475,275 L485,295 L470,310 L450,305 L440,290 Z" title="重庆"/>
-        </svg>
-      </div>
       <div class="origin-map-tea-panel" id="originMapTeaPanel">
         <h4 id="originMapTeaTitle">🍵 浙江茶叶</h4>
         <div class="origin-map-tea-list" id="originMapTeaList"></div>
@@ -4300,7 +4259,6 @@ function switchTab(tab, btn) {
   if (tab === 'pricemap') { renderPriceMap(); }
   if (tab === 'priceline') { renderPriceChartPage(); }
   if (tab === 'brewguide') { renderBrewHeatmapPage(); }
-  if (tab === 'originsolar') { renderOriginMapPage(); }
   if (tab === 'solarterms') { renderSolarTermsPage(); }
   if (tab === 'typepie') { renderTypePieChart(); }
   if (tab === 'origin3d') { 
@@ -4328,7 +4286,6 @@ function switchTab(tab, btn) {
   document.getElementById('priceMapPage').classList.toggle('active', tab === 'pricemap');
   document.getElementById('priceChartPage').classList.toggle('active', tab === 'priceline');
   document.getElementById('brewHeatmapPage').classList.toggle('active', tab === 'brewguide');
-  document.getElementById('originMapPage').classList.toggle('active', tab === 'originsolar');
   document.getElementById('solarTermsPage').classList.toggle('active', tab === 'solarterms');
   document.getElementById('typePiePage').classList.toggle('active', tab === 'typepie');
   document.getElementById('origin3dPage').classList.toggle('active', tab === 'origin3d');
@@ -4344,7 +4301,7 @@ function switchTab(tab, btn) {
   currentView = tab;
 
   // Page fade-in animation
-  const pageId = tab === 'grid' ? 'gridPage' : tab === 'compare' ? 'comparePage' : tab === 'timeline' ? 'timelinePage' : tab === 'origin' ? 'originPage' : tab === 'fav' ? 'favPage' : tab === 'recent' ? 'recentPage' : tab === 'ranking' ? 'rankingPage' : tab === 'encyclopedia' ? 'encyclopediaPage' : tab === 'pricemap' ? 'priceMapPage' : tab === 'priceline' ? 'priceChartPage' : tab === 'brewguide' ? 'brewHeatmapPage' : tab === 'originsolar' ? 'originMapPage' : tab === 'solarterms' ? 'solarTermsPage' : tab === 'typepie' ? 'typePiePage' : tab === 'origin3d' ? 'origin3dPage' : tab === 'storage' ? 'storageGuidePage' : tab === 'process' ? 'processGuidePage' : tab === 'grade' ? 'gradePage' : tab === 'pricehistory' ? 'priceHistoryPage' : tab === 'halloffame' ? 'hallOfFamePage' : tab === 'term' ? 'termPage' : tab === 'news' ? 'newsPage' : tab === 'season' ? 'seasonPage' : tab === 'standard' ? 'standardPage' : 'gridPage';
+  const pageId = tab === 'grid' ? 'gridPage' : tab === 'compare' ? 'comparePage' : tab === 'timeline' ? 'timelinePage' : tab === 'origin' ? 'originPage' : tab === 'fav' ? 'favPage' : tab === 'recent' ? 'recentPage' : tab === 'ranking' ? 'rankingPage' : tab === 'encyclopedia' ? 'encyclopediaPage' : tab === 'pricemap' ? 'priceMapPage' : tab === 'priceline' ? 'priceChartPage' : tab === 'brewguide' ? 'brewHeatmapPage' : tab === 'solarterms' ? 'solarTermsPage' : tab === 'typepie' ? 'typePiePage' : tab === 'origin3d' ? 'origin3dPage' : tab === 'storage' ? 'storageGuidePage' : tab === 'process' ? 'processGuidePage' : tab === 'grade' ? 'gradePage' : tab === 'pricehistory' ? 'priceHistoryPage' : tab === 'halloffame' ? 'hallOfFamePage' : tab === 'term' ? 'termPage' : tab === 'news' ? 'newsPage' : tab === 'season' ? 'seasonPage' : tab === 'standard' ? 'standardPage' : 'gridPage';
   const page = document.getElementById(pageId);
   if (page) {
     page.style.opacity = '0';
