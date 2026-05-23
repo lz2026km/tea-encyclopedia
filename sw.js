@@ -1,101 +1,67 @@
-// sw.js — Service Worker for Tea Encyclopedia PWA v4.0
-// Cache First strategy for full offline support
-
-const CACHE_NAME = 'tea-v4.0';
-const CACHE_URLS = [
-  '/tea-encyclopedia/',
-  '/tea-encyclopedia/index.html',
-  '/tea-encyclopedia/tea_data.js',
-  '/tea-encyclopedia/tea_history.js'
+// Tea Encyclopedia v6.0 Service Worker
+var CACHE_NAME = 'tea-encyclopedia-v6';
+var urlsToCache = [
+  '/hermes/projects/tea-encyclopedia/index.html',
+  '/hermes/projects/tea-encyclopedia/tea_data.js'
 ];
 
-// Install: precache all resources
-self.addEventListener('install', event => {
+// Install event
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('[SW] Precaching all resources');
-        return cache.addAll(CACHE_URLS);
+      .then(function(cache) {
+        console.log('SW: Opened cache');
+        return cache.addAll(urlsToCache);
       })
-      .then(() => {
-        console.log('[SW] Skip waiting to activate immediately');
+      .then(function() {
         return self.skipWaiting();
       })
-      .catch(err => {
-        console.error('[SW] Install failed:', err);
-      })
   );
 });
 
-// Activate: clean old caches and claim clients
-self.addEventListener('activate', event => {
+// Activate event
+self.addEventListener('activate', function(event) {
   event.waitUntil(
-    caches.keys()
-      .then(keys => {
-        return Promise.all(
-          keys
-            .filter(key => key !== CACHE_NAME)
-            .map(key => {
-              console.log('[SW] Deleting old cache:', key);
-              return caches.delete(key);
-            })
-        );
-      })
-      .then(() => {
-        console.log('[SW] Claiming clients');
-        return self.clients.claim();
-      })
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheName !== CACHE_NAME) {
+            console.log('SW: Deleting old cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(function() {
+      return self.clients.claim();
+    })
   );
 });
 
-// Fetch: Cache First strategy for all resources
-self.addEventListener('fetch', event => {
-  // Only handle GET requests
-  if (event.request.method !== 'GET') return;
-
-  const url = new URL(event.request.url);
-
-  // Skip cross-origin requests except fonts
-  if (url.origin !== location.origin &&
-      !url.href.includes('fonts.googleapis.com') &&
-      !url.href.includes('fonts.gstatic.com')) return;
+// Fetch event - network first, fallback to cache
+self.addEventListener('fetch', function(event) {
+  // Skip cross-origin requests
+  if (!event.request.url.startsWith(self.location.origin)) {
+    return;
+  }
 
   event.respondWith(
-    caches.match(event.request)
-      .then(cached => {
-        if (cached) {
-          console.log('[SW] Cache hit:', url.pathname);
-          return cached;
+    fetch(event.request)
+      .then(function(response) {
+        // Don't cache non-success responses
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
         }
-
-        console.log('[SW] Cache miss, fetching:', url.pathname);
-        return fetch(event.request)
-          .then(response => {
-            // Valid response - cache it
-            if (response && response.status === 200) {
-              const clone = response.clone();
-              caches.open(CACHE_NAME)
-                .then(cache => {
-                  cache.put(event.request, clone);
-                  console.log('[SW] Cached:', url.pathname);
-                });
-            }
-            return response;
-          })
-          .catch(() => {
-            // Offline fallback for navigation
-            if (event.request.mode === 'navigate') {
-              return caches.match('/tea-encyclopedia/index.html');
-            }
-            console.log('[SW] Offline fallback for:', url.pathname);
+        // Clone the response
+        var responseToCache = response.clone();
+        caches.open(CACHE_NAME)
+          .then(function(cache) {
+            cache.put(event.request, responseToCache);
           });
+        return response;
+      })
+      .catch(function() {
+        // Network failed, try cache
+        return caches.match(event.request);
       })
   );
-});
-
-// Background update: notify clients of new version
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
 });
