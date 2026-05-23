@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="茶叶百科 v7.0 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<meta name="description" content="茶叶百科 v7.01 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>茶叶百科 v7.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶百科 v7.01 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,12 +12,12 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <link rel="canonical" href="https://tea.example.com/">
 <meta name="keywords" content="茶叶百科,绿茶,红茶,乌龙茶,白茶,黄茶,黑茶,名茶,茶叶品种,茶叶产地,茶叶等级,冲泡方法,品鉴指南">
-<meta property="og:title" content="茶叶百科 v7.0 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta property="og:title" content="茶叶百科 v7.01 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta property="og:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta property="og:image" content="https://tea.example.com/tea-og-image.jpg">
 <meta property="og:url" content="https://tea.example.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="茶叶百科 v7.0 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta name="twitter:title" content="茶叶百科 v7.01 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta name="twitter:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <script type="application/ld+json">
 {
@@ -39,7 +39,7 @@
 <link rel="preload" href="preload.js" as="script">
 <style>
 /* ============================================
-   茶叶百科 v7.0 — 清新雅致中国风
+   茶叶百科 v7.01 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -1491,6 +1491,33 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 .factory-tooltip.show { opacity: 1; }
 
+/* ===== FEEDBACK CARD ===== */
+.feedback-card {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  background: var(--white);
+  border: 2px solid var(--c1);
+  border-radius: 16px;
+  padding: .8rem 1.2rem;
+  margin-top: .8rem;
+  cursor: pointer;
+  transition: all .25s;
+  box-shadow: var(--shadow-sm);
+  font-family: inherit;
+}
+.feedback-card:hover {
+  border-color: var(--c2);
+  background: linear-gradient(135deg, var(--c4), var(--white));
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.feedback-card-icon { font-size: 1.5rem; flex-shrink: 0; }
+.feedback-card-content { flex: 1; display: flex; flex-direction: column; gap: .1rem; }
+.feedback-card-title { font-size: 1rem; font-weight: 600; color: var(--c1); }
+.feedback-card-desc { font-size: .78rem; color: var(--c3); }
+.feedback-card-arrow { font-size: 1.4rem; color: var(--c3); flex-shrink: 0; }
+
 /* ===== FEEDBACK MODAL ===== */
 .feedback-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 250; align-items: center; justify-content: center; padding: 1rem; }
 .feedback-modal-overlay.open { display: flex; }
@@ -1536,7 +1563,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <div id="versionUpdateBanner">
   <span class="vub-icon">🚀</span>
   <div class="vub-text">
-    <div class="vub-title" id="vubTitle">发现新版本 v7.0</div>
+    <div class="vub-title" id="vubTitle">发现新版本 v7.01</div>
     <div class="vub-desc" id="vubDesc">全新功能上线，点击查看详情</div>
   </div>
   <button class="vub-close" onclick="dismissVersionBanner()">×</button>
@@ -1603,7 +1630,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v7.0 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v7.01 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -1620,7 +1647,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v7.0</span>🍃</div>
+  <div class="hdr-logo"><span>v7.01</span>🍃</div>
   <div class="hdr-title">茶叶百科</div>
   <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
@@ -1721,6 +1748,16 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   <div id="dailyTeaCard" style="margin-top:.8rem;padding:.6rem 1rem;background:rgba(255,255,255,.15);border-radius:12px;font-size:.88rem;display:flex;align-items:center;gap:.5rem;cursor:pointer" onclick="showRandom()">
     <span id="dailyTeaIcon">☀️</span>
     <span id="dailyTeaText">每日推荐加载中…</span>
+  </div>
+
+  <!-- FEEDBACK CARD -->
+  <div class="feedback-card" onclick="openFeedbackModal()" role="button" tabindex="0" onkeypress="if(event.key==='Enter')openFeedbackModal()">
+    <span class="feedback-card-icon">📝</span>
+    <div class="feedback-card-content">
+      <span class="feedback-card-title">意见反馈</span>
+      <span class="feedback-card-desc">帮助我们做得更好</span>
+    </div>
+    <span class="feedback-card-arrow">›</span>
   </div>
 
   <!-- SKELETON SCREEN -->
@@ -7524,12 +7561,12 @@ function renderHallOfFamePage() {
 // 版本历史记录
 window.VERSION_HISTORY = [
   {
-    version: 'v7.0',
+    version: 'v7.01',
     date: '2026-05-23',
     changes: [
       '🚀 意见反馈：新增反馈入口模态框，支持姓名/邮箱/反馈内容提交',
       '🔔 版本检测：新增版本更新检测，localStorage版本低于7.0时显示更新提示banner',
-      '📝 版本更新：全站版本号 v6.7 → v7.0'
+      '📝 版本更新：全站版本号 v6.7 → v7.01'
     ]
   },
   {
@@ -7555,12 +7592,12 @@ window.VERSION_HISTORY = [
 ];
 
 // 在控制台输出版本信息
-console.log('%c🍃 茶叶百科 v7.0 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
+console.log('%c🍃 茶叶百科 v7.01 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
 console.log('版本历史:', window.VERSION_HISTORY);
 
 // ---------- VERSION UPDATE CHECK ----------
 (function checkVersionUpdate() {
-  const currentVersion = 'v7.0';
+  const currentVersion = 'v7.01';
   const savedVersion = localStorage.getItem('tea_app_version');
   if (savedVersion && parseFloat(savedVersion.replace('v','')) < 7.0) {
     const banner = document.getElementById('versionUpdateBanner');
@@ -7647,7 +7684,7 @@ function submitFeedback() {
     email: document.getElementById('feedbackEmail').value.trim(),
     content: content,
     timestamp: new Date().toISOString(),
-    version: 'v7.0'
+    version: 'v7.01'
   };
   try {
     var feedbacks = JSON.parse(localStorage.getItem('tea_feedbacks') || '[]');
@@ -7664,7 +7701,7 @@ function submitFeedback() {
 
 <!-- SITE FOOTER -->
 <div class="site-footer">
-  <div>🍃 茶叶百科 v7.0 · LZ出品</div>
+  <div>🍃 茶叶百科 v7.01 · LZ出品</div>
   <div class="footer-links">
     <a onclick="openFeedbackModal()">意见反馈</a>
   </div>
