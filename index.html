@@ -1421,6 +1421,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 .factory-tooltip.show { opacity: 1; }
 </style>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
 </head>
 <body>
 
@@ -1887,11 +1888,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
       <button class="factory-subtab" onclick="switchOriginSubTab('factory', this)">🏭 厂家分布</button>
     </div>
     <div id="origin3dContent">
-      <div class="origin3d-container" id="origin3dContainer">
-        <div class="origin3d-scene" id="origin3dScene"></div>
-        <div id="origin3dTooltip" class="origin3d-tooltip"></div>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:.5rem" id="origin3dLegend"></div>
+      <div id="chinaMapContainer" style="width:100%;height:420px"></div>
     </div>
     <div id="factoryMapContent" style="display:none">
       <div class="factory-map-container" id="factoryMapContainer"></div>
@@ -4274,7 +4271,7 @@ function switchTab(tab, btn) {
   if (tab === 'typepie') { renderTypePieChart(); }
   if (tab === 'origin3d') { 
     if (window.currentOriginSubTab === 'factory') { renderFactoryMap(); } 
-    else { renderOrigin3D(); } 
+    else { renderChinaMap(); } 
   }
   if (tab === 'storage') { renderStorageGuide(); }
   if (tab === 'process') { renderProcessGuide(); }
@@ -6448,7 +6445,7 @@ function renderSolarTermsPage() {
   var TD = window.TEA_DATA;
 
   function getProvince(origin) {
-    if (!origin) return '未知';
+    if (!origin) return null;
     var p = origin.replace(/[^\u4e00-\u9fa5]/g, '');
     var provMap = {
       '北京':'北京','天津':'天津','上海':'上海','重庆':'重庆',
@@ -6464,6 +6461,7 @@ function renderSolarTermsPage() {
     for (var k in provMap) { if (p.indexOf(k) === 0) return provMap[k]; }
     return p.slice(0, 2);
   }
+  window.getProvince = getProvince;
 
   // ===== 1. 茶叶价格热力图 =====
   window.renderPriceMap = function() {
@@ -6633,6 +6631,111 @@ function renderSolarTermsPage() {
     document.getElementById('modalBody').innerHTML = '<div style="padding:.5rem"><h3>📍 '+prov+' · '+teas.length+'种茶叶</h3><div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;max-height:60vh;overflow-y:auto">'+teas.map(function(t) { return '<span style="background:var(--c4);border:1.5px solid var(--border);border-radius:20px;padding:.15rem .6rem;font-size:.8rem;cursor:pointer" onclick="openModal('+t.id+')">'+t.name+'（'+t.type+'）</span>'; }).join('')+'</div></div>';
     document.getElementById('modalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
+  };
+
+  // ===== 3D. ECharts中国地图产区分布 =====
+  window._chinaMapChart = null;
+  window.renderChinaMap = function() {
+    var container = document.getElementById('chinaMapContainer');
+    if (!container) return;
+
+    // 销毁旧实例
+    if (window._chinaMapChart) {
+      window._chinaMapChart.dispose();
+      window._chinaMapChart = null;
+    }
+
+    // 统计每个省份的茶叶数量（跳过无效origin）
+    var provCount = {};
+    TD.forEach(function(t) {
+      var prov = getProvince(t.origin);
+      if (prov) provCount[prov] = (provCount[prov]||0) + 1;
+    });
+
+    // 构造ECharts数据
+    var mapData = Object.keys(provCount).map(function(name) {
+      return { name: name, value: provCount[name] };
+    });
+
+    // 获取最大茶叶数量用于visualMap
+    var maxCount = 1;
+    Object.values(provCount).forEach(function(v) { if (v > maxCount) maxCount = v; });
+
+    // 初始化图表
+    var chart = echarts.init(container, null, { renderer: 'canvas' });
+    window._chinaMapChart = chart;
+
+    // 注册地图（使用本地GeoJSON，避免CORS问题）
+    fetch('/china.json')
+      .then(function(res) { return res.json(); })
+      .then(function(geoJson) {
+        echarts.registerMap('china', geoJson);
+        chart.setOption(option);
+        // 点击省份弹出详情
+        chart.on('click', function(params) {
+          if (params.data && params.data.value > 0) {
+            openProvinceTeas(params.name);
+          }
+        });
+      })
+      .catch(function(e) { console.error('GeoJSON加载失败:', e); });
+
+    var option = {
+      tooltip: {
+        trigger: 'item',
+        formatter: function(params) {
+          if (!params.data) return params.name + '：无数据';
+          var teas = TD.filter(function(t) { var p = getProvince(t.origin); return p && p === params.name; });
+          var teaList = teas.slice(0, 8).map(function(t) { return t.name; }).join('、');
+          if (teas.length > 8) teaList += ' 等' + teas.length + '种';
+          if (teas.length === 0) teaList = '无数据';
+          return '<strong>📍 ' + params.name + '</strong>（' + teas.length + '种）<br/><span style="font-size:0.75rem">' + teaList + '</span>';
+        }
+      },
+      visualMap: {
+        min: 0,
+        max: maxCount,
+        text: ['多', '少'],
+        realtime: false,
+        calculable: true,
+        inRange: { color: ['#c8e6c9', '#66bb6a', '#2e7d32'] },
+        textStyle: { color: '#333' }
+      },
+      series: [{
+        name: '茶叶数量',
+        type: 'map',
+        map: 'china',
+        roam: true,
+        zoom: 1.2,
+        scaleLimit: { min: 0.8, max: 3 },
+        label: {
+          show: true,
+          fontSize: 9,
+          color: '#333'
+        },
+        itemStyle: {
+          areaColor: '#e8f5e9',
+          borderColor: '#666',
+          borderWidth: 0.5
+        },
+        emphasis: {
+          itemStyle: {
+            areaColor: '#e94560',
+            borderColor: '#fff',
+            borderWidth: 1.5
+          },
+          label: { show: true, fontSize: 11, color: '#fff', fontWeight: 'bold' }
+        },
+        data: mapData
+      }]
+    };
+
+    // 窗口调整时自适应（使用防抖避免频繁调用）
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() { if (window._chinaMapChart) window._chinaMapChart.resize(); }, 200);
+    });
   };
 
   // ===== 3B. 产区子Tab切换 =====
