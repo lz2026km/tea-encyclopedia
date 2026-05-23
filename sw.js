@@ -1,8 +1,8 @@
 // Tea Encyclopedia v6.0 Service Worker
 var CACHE_NAME = 'tea-encyclopedia-v6';
 var urlsToCache = [
-  '/hermes/projects/tea-encyclopedia/index.html',
-  '/hermes/projects/tea-encyclopedia/tea_data.js'
+  '/index.html',
+  '/tea_data.js'
 ];
 
 // Install event
