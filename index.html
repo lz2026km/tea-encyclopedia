@@ -2,17 +2,44 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="茶叶百科 v6.7 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<meta name="description" content="茶叶百科 v7.0 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>茶叶百科 v6.7 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶百科 v7.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
+<link rel="canonical" href="https://tea.example.com/">
+<meta name="keywords" content="茶叶百科,绿茶,红茶,乌龙茶,白茶,黄茶,黑茶,名茶,茶叶品种,茶叶产地,茶叶等级,冲泡方法,品鉴指南">
+<meta property="og:title" content="茶叶百科 v7.0 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta property="og:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<meta property="og:image" content="https://tea.example.com/tea-og-image.jpg">
+<meta property="og:url" content="https://tea.example.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="茶叶百科 v7.0 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta name="twitter:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TeaProduct",
+  "name": "茶叶百科",
+  "description": "收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识",
+  "category": "茶叶百科",
+  "brand": {
+    "@type": "Brand",
+    "name": "茶叶百科"
+  }
+}
+</script>
+<link rel="preload" href="lazy-load.js" as="script">
+<link rel="preload" href="virtual-list.js" as="script">
+<link rel="preload" href="skeleton-screen.js" as="script">
+<link rel="preload" href="debounce-throttle.js" as="script">
+<link rel="preload" href="preload.js" as="script">
 <style>
 /* ============================================
-   茶叶百科 v6.7 — 清新雅致中国风
+   茶叶百科 v7.0 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -30,6 +57,20 @@
   --radius: 12px;
   --font: 'Noto Serif SC', 'SimSun', serif;
   --base: 16px;
+}
+.dark {
+  --bg: #1a1a2e;
+  --white: #2d2d44;
+  --text: #e8e8e8;
+  --border: #4a4a6a;
+  --c1: #5a9c6f;
+  --c2: #74c69d;
+  --c3: #4a8a5a;
+  --c4: #2a2a3e;
+  --c5: #95d5b2;
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
 }
 [data-theme="dark"] {
   --bg: #1a1a2e;
@@ -1449,9 +1490,106 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 }
 
 .factory-tooltip.show { opacity: 1; }
+
+/* ===== FEEDBACK MODAL ===== */
+.feedback-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 250; align-items: center; justify-content: center; padding: 1rem; }
+.feedback-modal-overlay.open { display: flex; }
+.feedback-modal { background: var(--bg); border-radius: var(--radius); max-width: 480px; width: 100%; padding: 1.5rem; box-shadow: var(--shadow-lg); position: relative; }
+.feedback-modal .modal-close { position: absolute; top: .8rem; right: .8rem; background: var(--white); border: 2px solid var(--border); border-radius: 50%; width: 2.2rem; height: 2.2rem; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.feedback-modal .modal-close:hover { background: var(--c4); }
+.feedback-title { font-size: 1.3rem; font-weight: 700; color: var(--c5); margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+.feedback-form-group { margin-bottom: 1rem; }
+.feedback-label { font-size: .82rem; color: var(--c2); margin-bottom: .3rem; display: block; }
+.feedback-input, .feedback-textarea, .feedback-select { width: 100%; padding: .5rem .7rem; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); color: var(--text); font-size: .88rem; font-family: inherit; outline: none; box-sizing: border-box; }
+.feedback-input:focus, .feedback-textarea:focus, .feedback-select:focus { border-color: var(--c2); }
+.feedback-textarea { resize: vertical; min-height: 100px; }
+.feedback-rating { display: flex; gap: .3rem; margin-bottom: .5rem; }
+.feedback-star { background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #ddd; transition: color .15s; }
+.feedback-star.filled { color: #FFD700; }
+.feedback-submit { background: var(--c1); color: #fff; border: none; border-radius: 20px; padding: .6rem 1.5rem; font-size: .95rem; cursor: pointer; font-family: inherit; width: 100%; margin-top: .5rem; }
+.feedback-submit:hover { background: var(--c2); }
+.feedback-success { text-align: center; padding: 2rem 1rem; display: none; }
+.feedback-success.show { display: block; }
+.feedback-success-icon { font-size: 3rem; margin-bottom: .8rem; }
+.feedback-success-text { font-size: 1rem; color: var(--c5); font-weight: 600; }
+
+/* ===== VERSION UPDATE BANNER ===== */
+#versionUpdateBanner { display: none; position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(135deg, var(--c1), var(--c2)); color: #fff; padding: .6rem 1rem; z-index: 210; font-size: .88rem; box-shadow: var(--shadow-md); }
+#versionUpdateBanner.show { display: flex; align-items: center; gap: .8rem; justify-content: center; }
+#versionUpdateBanner .vub-icon { font-size: 1.2rem; }
+#versionUpdateBanner .vub-text { flex: 1; }
+#versionUpdateBanner .vub-title { font-weight: 700; margin-bottom: .1rem; }
+#versionUpdateBanner .vub-desc { font-size: .78rem; opacity: .9; }
+#versionUpdateBanner .vub-close { background: rgba(255,255,255,.2); border: none; color: #fff; border-radius: 50%; width: 1.6rem; height: 1.6rem; cursor: pointer; font-size: .9rem; display: flex; align-items: center; justify-content: center; }
+#versionUpdateBanner .vub-close:hover { background: rgba(255,255,255,.3); }
+
+/* ===== SITE FOOTER ===== */
+.site-footer { background: var(--white); border-top: 2px solid var(--border); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; font-size: .8rem; color: var(--c2); }
+.site-footer a { color: var(--c1); text-decoration: none; cursor: pointer; }
+.site-footer a:hover { text-decoration: underline; }
+.footer-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 </style>
 </head>
 <body>
+
+<!-- VERSION UPDATE BANNER -->
+<div id="versionUpdateBanner">
+  <span class="vub-icon">🚀</span>
+  <div class="vub-text">
+    <div class="vub-title" id="vubTitle">发现新版本 v7.0</div>
+    <div class="vub-desc" id="vubDesc">全新功能上线，点击查看详情</div>
+  </div>
+  <button class="vub-close" onclick="dismissVersionBanner()">×</button>
+</div>
+
+<!-- FEEDBACK MODAL -->
+<div class="feedback-modal-overlay" id="feedbackModalOverlay" onclick="if(event.target===this)closeFeedbackModal()">
+  <div class="feedback-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeFeedbackModal()">×</button>
+    <div class="feedback-title">📝 意见反馈</div>
+    <div id="feedbackFormContainer">
+      <div class="feedback-form-group">
+        <label class="feedback-label">您的姓名</label>
+        <input type="text" class="feedback-input" id="feedbackName" placeholder="请输入您的姓名">
+      </div>
+      <div class="feedback-form-group">
+        <label class="feedback-label">反馈类型</label>
+        <select class="feedback-select" id="feedbackType">
+          <option value="suggestion">💡 功能建议</option>
+          <option value="bug">🐛 Bug报告</option>
+          <option value="content">📄 内容纠错</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+      <div class="feedback-form-group">
+        <label class="feedback-label">满意度评分</label>
+        <div class="feedback-rating" id="feedbackRating">
+          <button class="feedback-star" data-rating="1">★</button>
+          <button class="feedback-star" data-rating="2">★</button>
+          <button class="feedback-star" data-rating="3">★</button>
+          <button class="feedback-star" data-rating="4">★</button>
+          <button class="feedback-star" data-rating="5">★</button>
+        </div>
+      </div>
+      <div class="feedback-form-group">
+        <label class="feedback-label">您的邮箱（选填）</label>
+        <input type="email" class="feedback-input" id="feedbackEmail" placeholder="example@email.com">
+      </div>
+      <div class="feedback-form-group">
+        <label class="feedback-label">反馈内容</label>
+        <textarea class="feedback-textarea" id="feedbackContent" placeholder="请详细描述您的问题或建议..."></textarea>
+      </div>
+      <button class="feedback-submit" onclick="submitFeedback()">提交反馈</button>
+    </div>
+    <div class="feedback-success" id="feedbackSuccess">
+      <div class="feedback-success-icon">✅</div>
+      <div class="feedback-success-text">感谢您的反馈！</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKIP TO CONTENT LINK -->
+<a href="#mainContent" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999" onfocus="this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';this.style.background='var(--c1)';this.style.color='#fff';this.style.padding='.5rem 1rem';this.style.borderRadius='0 0 8px 8px'">跳过到主要内容</a>
 
 <!-- LOADING PROGRESS BAR -->
 <div id="loadingBar"></div>
@@ -1465,7 +1603,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v6.7 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v7.0 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -1482,7 +1620,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v6.7</span>🍃</div>
+  <div class="hdr-logo"><span>v7.0</span>🍃</div>
   <div class="hdr-title">茶叶百科</div>
   <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
@@ -1498,9 +1636,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
       <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
       <button class="lang-btn" data-lang="ja" onclick="setLanguage('ja')">日</button>
     </div>
-    <button class="hdr-btn" onclick="showRandom()">🎲</button>
-    <button class="hdr-btn" id="favHeaderBtn" onclick="toggleFavPage()">❤️<span id="favCount">0</span></button>
-    <button class="hdr-btn" id="diaryHeaderBtn" onclick="toggleDiaryPage()">📓<span id="diaryHeaderCount">0</span></button>
+    <button class="hdr-btn" onclick="showRandom()" aria-label="随机茶叶">🎲</button>
+    <button class="hdr-btn" id="favHeaderBtn" onclick="toggleFavPage()" aria-label="收藏夹">❤️<span id="favCount">0</span></button>
+    <button class="hdr-btn" id="diaryHeaderBtn" onclick="toggleDiaryPage()" aria-label="品鉴笔记">📓<span id="diaryHeaderCount">0</span></button>
     <button class="hdr-btn" onclick="openEncyclopediaModal()" title="茶百科">📖</button>
     <button class="theme-mode-btn" id="themeModeBtn" onclick="toggleThemeDropdown()" title="切换主题">🌙 <span id="themeModeLabel">深色</span>
     </button>
@@ -1509,6 +1647,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
       <div class="theme-mode-option" data-mode="dark" onclick="setThemeMode('dark')"><span class="tmo-icon">🌙</span> 深色</div>
       <div class="theme-mode-option" data-mode="system" onclick="setThemeMode('system')"><span class="tmo-icon">💻</span> 跟随系统</div>
     </div>
+    <button class="hdr-btn" id="darkModeToggle" onclick="toggleDarkMode()" title="切换夜间模式">🌙</button>
     <!-- 右侧工具按钮 -->
     <button class="hdr-btn-outline" onclick="showToast('🔑 快捷键: / 搜索 | ? 帮助 | G 宫格 | L 列表 | T 主题 | R 随机茶叶')" title="快捷键帮助">❓</button>
     <button class="hdr-btn" onclick="openStatsModal()" title="茶叶统计">📊</button>
@@ -1570,7 +1709,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </aside>
 
 <!-- MAIN -->
-<main class="main">
+<main class="main" id="mainContent">
 
   <!-- BANNER -->
   <div class="banner">
@@ -2038,7 +2177,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- MOBILE FILTER BUTTON -->
-<button class="mobile-filter-btn" id="mobFilterBtn" onclick="openMobFilter()">🔍</button>
+<button class="mobile-filter-btn" id="mobFilterBtn" onclick="openMobFilter()" aria-label="筛选">🔍</button>
 
 <!-- S1 多维筛选面板（桌面端侧边，grid页顶部） -->
 <div class="s1-filter-panel" id="s1FilterPanel">
@@ -2111,8 +2250,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal" id="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" onclick="closeModal()" aria-label="关闭弹窗">✕</button>
     <div id="modalImgWrap"></div>
     <div class="modal-body" id="modalBody"></div>
   </div>
@@ -2136,8 +2275,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- VIDEO MODAL -->
 <div class="modal-overlay" id="videoModalOverlay" onclick="if(event.target===this)closeVideoModal()">
-  <div class="modal" id="videoModal" style="max-width:800px">
-    <button class="modal-close" onclick="closeVideoModal()">✕</button>
+  <div class="modal" id="videoModal" role="dialog" aria-modal="true" style="max-width:800px">
+    <button class="modal-close" onclick="closeVideoModal()" aria-label="关闭弹窗">✕</button>
     <div class="modal-header">
       <div class="modal-title">📺 冲泡视频</div>
     </div>
@@ -2149,8 +2288,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- BREW MODAL -->
 <div class="modal-overlay" id="brewModalOverlay" onclick="if(event.target===this)closeBrewModal()">
-  <div class="modal" id="brewModal" style="max-width:500px">
-    <button class="modal-close" onclick="closeBrewModal()">✕</button>
+  <div class="modal" id="brewModal" role="dialog" aria-modal="true" style="max-width:500px">
+    <button class="modal-close" onclick="closeBrewModal()" aria-label="关闭弹窗">✕</button>
     <div class="modal-header">
       <div class="modal-title">☕ 冲泡助手</div>
     </div>
@@ -2160,8 +2299,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- FOOD MODAL -->
 <div class="modal-overlay" id="foodModalOverlay" onclick="if(event.target===this)closeFoodModal()">
-  <div class="modal" id="foodModal" style="max-width:600px">
-    <button class="modal-close" onclick="closeFoodModal()">✕</button>
+  <div class="modal" id="foodModal" role="dialog" aria-modal="true" style="max-width:600px">
+    <button class="modal-close" onclick="closeFoodModal()" aria-label="关闭弹窗">✕</button>
     <div class="modal-header">
       <div class="modal-title">🍽️ 配茶美食指南</div>
     </div>
@@ -2171,8 +2310,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- DIARY MODAL -->
 <div class="modal-overlay" id="diaryModal" onclick="if(event.target===this)closeDiaryModal()">
-  <div class="modal" id="diaryModalInner" style="max-width:600px">
-    <button class="modal-close" onclick="closeDiaryModal()">✕</button>
+  <div class="modal" id="diaryModalInner" role="dialog" aria-modal="true" style="max-width:600px">
+    <button class="modal-close" onclick="closeDiaryModal()" aria-label="关闭弹窗">✕</button>
     <div class="modal-header">
       <div class="modal-title">📝 品鉴日记</div>
     </div>
@@ -2182,8 +2321,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- ENCYCLOPEDIA MODAL -->
 <div class="modal-overlay" id="encModalOverlay" onclick="if(event.target===this)closeEncyclopediaModal()">
-  <div class="modal" id="encModal" style="max-width:900px;max-height:85vh;overflow-y:auto">
-    <button class="modal-close" onclick="closeEncyclopediaModal()">✕</button>
+  <div class="modal" id="encModal" role="dialog" aria-modal="true" style="max-width:900px;max-height:85vh;overflow-y:auto">
+    <button class="modal-close" onclick="closeEncyclopediaModal()" aria-label="关闭弹窗">✕</button>
     <div class="modal-header">
       <div class="modal-title">📖 茶百科</div>
     </div>
@@ -2306,6 +2445,12 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <script src="lazy-modal.js"></script>
+<script src="lazy-load.js" defer></script>
+<script src="virtual-list.js" defer></script>
+<script src="skeleton-screen.js" defer></script>
+<script src="debounce-throttle.js" defer></script>
+<script src="preload.js" defer></script>
+<script src="code-split.js" defer></script>
 <script src="tea_data.js"></script>
 <script src="glossary_data.js"></script>
 <script src="news_data.js"></script>
@@ -2409,6 +2554,9 @@ const TEA_CALENDAR = [
   bar.style.width = '60%';
   loadFilterHistory();
   // 骨架屏先显示，JS加载后隐藏
+  if (window.SkeletonScreen) {
+    SkeletonScreen.init({ container: 'skeletonScreen', cardCount: 8 });
+  }
   bar.style.width = '70%';
   // 初始化 IndexedDB 浏览历史
   initIndexedDB();
@@ -2445,8 +2593,12 @@ const TEA_CALENDAR = [
   setTimeout(() => bar.classList.add('done'), 300);
   // 隐藏骨架屏
   setTimeout(() => {
-    const sk = document.getElementById('skeletonScreen');
-    if (sk) sk.classList.add('hidden');
+    if (window.SkeletonScreen) {
+      SkeletonScreen.hide('skeletonScreen');
+    } else {
+      const sk = document.getElementById('skeletonScreen');
+      if (sk) sk.classList.add('hidden');
+    }
   }, 100);
   // 二十四节气Banner
   renderSolarTermBanner();
@@ -2900,7 +3052,7 @@ function handleSort(value) {
     const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'card_' + tea.id);
     if (currentView === 'list') {
       return `
-      <div class="tea-card" style="animation-delay:${delay}s;flex-direction:row;height:120px" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
+      <div class="tea-card" role="article" style="animation-delay:${delay}s;flex-direction:row;height:120px" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
         <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
         <div style="width:120px;min-width:120px;overflow:hidden;background:var(--c4)">${carouselHTML}</div>
         <div class="tea-body" style="flex-direction:row;flex:1;align-items:center;gap:.5rem">
@@ -2913,15 +3065,15 @@ function handleSort(value) {
             <span class="tea-type-badge" style="position:static;display:inline-block">${tea.type}</span>
             <span class="tea-grade-badge" style="position:static;display:inline-block">${tea.grade}</span>
             <span class="tea-period">${tea.period||''}</span>
-            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
-            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})" aria-label="${isFav?'取消收藏':'收藏'}">${isFav?'❤️':'🤍'}</button>
+            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})" aria-label="分享">🔗</button>
           </div>
         </div>
         <div class="tea-detail" id="detail_${tea.id}"></div>
       </div>`;
     }
     return `
-    <div class="tea-card" style="animation-delay:${delay}s" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
+    <div class="tea-card" role="article" style="animation-delay:${delay}s" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
       <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
       ${carouselHTML}
       <span class="tea-type-badge">${tea.type}</span>
@@ -2933,8 +3085,8 @@ function handleSort(value) {
         <div class="tea-desc">${tea.desc}</div>
         <div class="tea-footer">
           <span class="tea-period">${tea.period||''}</span>
-          <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
-          <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+          <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})" aria-label="${isFav?'取消收藏':'收藏'}">${isFav?'❤️':'🤍'}</button>
+          <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})" aria-label="分享">🔗</button>
           <button class="tea-diary-btn" onclick="event.stopPropagation();openDiaryForTea(${tea.id})" title="品鉴笔记">📓</button>
         </div>
       </div>
@@ -2977,7 +3129,7 @@ function renderGrid() {
     const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'card_' + tea.id);
     if (view === 'list') {
       return `
-      <div class="tea-card" style="animation-delay:${delay}s;flex-direction:row;height:120px" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
+      <div class="tea-card" role="article" style="animation-delay:${delay}s;flex-direction:row;height:120px" data-id="${tea.id}" onclick="toggleTeaDetail(${tea.id})">
         <div class="card-check ${isChecked?'checked':''}" onclick="event.stopPropagation();toggleCompare(${tea.id},this)">${isChecked?'✓':''}</div>
         <div style="width:120px;min-width:120px;overflow:hidden;background:var(--c4)">${carouselHTML}</div>
         <div class="tea-body" style="flex-direction:row;flex:1;align-items:center;gap:.5rem">
@@ -2990,8 +3142,8 @@ function renderGrid() {
             <span class="tea-type-badge" style="position:static;display:inline-block">${tea.type}</span>
             <span class="tea-grade-badge" style="position:static;display:inline-block">${tea.grade}</span>
             <span class="tea-period">${tea.period||''}</span>
-            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
-            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})" aria-label="${isFav?'取消收藏':'收藏'}">${isFav?'❤️':'🤍'}</button>
+            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})" aria-label="分享">🔗</button>
           </div>
         </div>
         <div class="tea-detail" id="detail_${tea.id}"></div>
@@ -3024,8 +3176,8 @@ function renderGrid() {
           </div>
           <div class="tea-footer">
             <span class="tea-period">${tea.period||''}</span>
-            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})">${isFav?'❤️':'🤍'}</button>
-            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})">🔗</button>
+            <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})" aria-label="${isFav?'取消收藏':'收藏'}">${isFav?'❤️':'🤍'}</button>
+            <button class="tea-share-btn" onclick="event.stopPropagation();copyShare(${tea.id})" aria-label="分享">🔗</button>
             <button class="brew-quick-btn" onclick="event.stopPropagation();openBrewModal(${tea.id})">☕</button>
           </div>
         </div>
@@ -3336,7 +3488,7 @@ function renderFavGrid() {
     const imgUrls = getTeaImageUrl(tea);
     const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'fav_' + tea.id);
     return `
-    <div class="tea-card" onclick="openModal(${tea.id})">
+    <div class="tea-card" role="article" onclick="openModal(${tea.id})">
       ${carouselHTML}
       <span class="tea-type-badge">${tea.type}</span>
       <span class="tea-grade-badge">${tea.grade}</span>
@@ -3727,6 +3879,21 @@ function updateThemeModeUI() {
 function toggleThemeDropdown() {
   document.getElementById('themeModeDropdown').classList.toggle('show');
 }
+
+function toggleDarkMode() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('tea_dark_mode', isDark);
+  const btn = document.getElementById('darkModeToggle');
+  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+}
+
+// Load dark mode on init
+(function() {
+  const saved = localStorage.getItem('tea_dark_mode');
+  if (saved === 'true') {
+    document.documentElement.classList.add('dark');
+  }
+})();
 
 // Close dropdown when clicking outside
 document.addEventListener('click', function(e) {
@@ -4822,14 +4989,14 @@ function buildCarouselHTML(images, teaName, teaType, prefix) {
   if (!images || images.length === 0) return '';
   const total = images.length;
   const dots = images.map((_, i) =>
-    `<button class="carousel-dot ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="event.stopPropagation();switchCarousel('${prefix}',${i})"></button>`
+    `<button class="carousel-dot ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="event.stopPropagation();switchCarousel('${prefix}',${i})" aria-label="切换到第${i+1}张图片"></button>`
   ).join('');
   const placeholder = getTeaEmoji(teaType);
   const firstImg = images[0];
-  const counter = total > 1 ? `<div class="carousel-counter" id="${prefix}_counter">1/${total}</div>` : '';
+  const counter = total > 1 ? `<div class="carousel-counter" id="${prefix}_counter" aria-hidden="true">1/${total}</div>` : '';
   const arrows = total > 1 ? `
-    <button class="carousel-arrow prev" onclick="event.stopPropagation();switchCarousel('${prefix}',-1)">‹</button>
-    <button class="carousel-arrow next" onclick="event.stopPropagation();switchCarousel('${prefix}',1)">›</button>
+    <button class="carousel-arrow prev" onclick="event.stopPropagation();switchCarousel('${prefix}',-1)" aria-label="上一张">‹</button>
+    <button class="carousel-arrow next" onclick="event.stopPropagation();switchCarousel('${prefix}',1)" aria-label="下一张">›</button>
   ` : '';
   return `
     <div class="carousel-wrap" id="${prefix}_wrap">
@@ -4870,14 +5037,14 @@ function buildModalCarouselHTML(images, teaName, teaType) {
   if (!images || images.length === 0) return '';
   const total = images.length;
   const dots = images.map((_, i) =>
-    `<button class="carousel-dot ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="event.stopPropagation();switchModalCarousel(${i})"></button>`
+    `<button class="carousel-dot ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="event.stopPropagation();switchModalCarousel(${i})" aria-label="切换到第${i+1}张图片"></button>`
   ).join('');
   const placeholder = getTeaEmoji(teaType);
   const firstImg = images[0];
-  const counter = total > 1 ? `<div class="carousel-counter" id="modal_carousel_counter">1/${total}</div>` : '';
+  const counter = total > 1 ? `<div class="carousel-counter" id="modal_carousel_counter" aria-hidden="true">1/${total}</div>` : '';
   const arrows = total > 1 ? `
-    <button class="carousel-arrow prev" onclick="event.stopPropagation();switchModalCarousel(-1)">‹</button>
-    <button class="carousel-arrow next" onclick="event.stopPropagation();switchModalCarousel(1)">›</button>
+    <button class="carousel-arrow prev" onclick="event.stopPropagation();switchModalCarousel(-1)" aria-label="上一张">‹</button>
+    <button class="carousel-arrow next" onclick="event.stopPropagation();switchModalCarousel(1)" aria-label="下一张">›</button>
   ` : '';
   return `
     <div class="modal-carousel-wrap" id="modal_carousel_wrap">
@@ -5471,7 +5638,7 @@ function renderRecentGrid() {
     const imgUrls = getTeaImageUrl(tea);
     const carouselHTML = buildCarouselHTML(imgUrls, tea.name, tea.type, 'recent_' + tea.id);
     return `
-    <div class="tea-card" onclick="openModal(${tea.id})">
+    <div class="tea-card" role="article" onclick="openModal(${tea.id})">
       ${carouselHTML}
       <span class="tea-type-badge">${tea.type}</span>
       <span class="tea-grade-badge">${tea.grade}</span>
@@ -6620,7 +6787,7 @@ function renderSolarTermsPage() {
     gridEl.innerHTML = filtered.map(function(tea) {
       var imgUrls = typeof getTeaImageUrl === 'function' ? getTeaImageUrl(tea) : [];
       var carousel = typeof buildCarouselHTML === 'function' ? buildCarouselHTML(imgUrls, tea.name, tea.type, 'pie_'+tea.id) : '';
-      return '<div class="tea-card" onclick="openModal('+tea.id+')">'+carousel+'<span class="tea-type-badge">'+tea.type+'</span><span class="tea-grade-badge">'+tea.grade+'</span><div class="tea-body"><div class="tea-name">'+tea.name+'</div><div class="tea-origin">📍 '+tea.origin+'</div><div class="tea-desc">'+(tea.desc||'')+'</div></div></div>';
+      return '<div class="tea-card" role="article" onclick="openModal('+tea.id+')">'+carousel+'<span class="tea-type-badge">'+tea.type+'</span><span class="tea-grade-badge">'+tea.grade+'</span><div class="tea-body"><div class="tea-name">'+tea.name+'</div><div class="tea-origin">📍 '+tea.origin+'</div><div class="tea-desc">'+(tea.desc||'')+'</div></div></div>';
     }).join('');
   };
 
@@ -7357,20 +7524,16 @@ function renderHallOfFamePage() {
 // 版本历史记录
 window.VERSION_HISTORY = [
   {
-    version: 'v6.7',
+    version: 'v7.0',
     date: '2026-05-23',
     changes: [
-      '🌱 数据补充：修复28条空白type字段，新增乌龙茶/黄茶/普洱/红茶等品种',
-      '📊 数据扩容：绿茶139条/红茶71条/乌龙茶35条/普洱22条/黄茶16条，总计350条',
-      '🗺️ 产区地图：升级为12×7 Grid布局，按真实经纬度排列省份方块',
-      '🏭 工厂地图：同步升级为12×7 Grid布局',
-      '📍 产地Tab：增强为省份茶叶统计列表，支持按茶类筛选+点击展开',
-      '🐛 Bug修复：删除重复的switchStdTab stub函数',
-      '📷 图片覆盖：WIKI_IMAGES 278条映射，覆盖主要知名茶叶'
+      '🚀 意见反馈：新增反馈入口模态框，支持姓名/邮箱/反馈内容提交',
+      '🔔 版本检测：新增版本更新检测，localStorage版本低于7.0时显示更新提示banner',
+      '📝 版本更新：全站版本号 v6.7 → v7.0'
     ]
   },
   {
-    version: 'v6.5',
+    version: 'v6.7',
     date: '2026-05-22',
     changes: [
       '🗺️ Tab合并：删除重复的地图Tab，只保留产地+产区两个Tab',
@@ -7392,9 +7555,120 @@ window.VERSION_HISTORY = [
 ];
 
 // 在控制台输出版本信息
-console.log('%c🍃 茶叶百科 v6.7 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
+console.log('%c🍃 茶叶百科 v7.0 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
 console.log('版本历史:', window.VERSION_HISTORY);
+
+// ---------- VERSION UPDATE CHECK ----------
+(function checkVersionUpdate() {
+  const currentVersion = 'v7.0';
+  const savedVersion = localStorage.getItem('tea_app_version');
+  if (savedVersion && parseFloat(savedVersion.replace('v','')) < 7.0) {
+    const banner = document.getElementById('versionUpdateBanner');
+    const title = document.getElementById('vubTitle');
+    const desc = document.getElementById('vubDesc');
+    if (banner && title && desc) {
+      title.textContent = '发现新版本 ' + currentVersion;
+      desc.textContent = '版本 ' + savedVersion + ' → ' + currentVersion + '，新功能上线';
+      banner.classList.add('show');
+    }
+  }
+  localStorage.setItem('tea_app_version', currentVersion);
+})();
+
+function dismissVersionBanner() {
+  const banner = document.getElementById('versionUpdateBanner');
+  if (banner) banner.classList.remove('show');
+}
+
+// ---------- FEEDBACK MODAL ----------
+let feedbackRatingValue = 0;
+
+function openFeedbackModal() {
+  const overlay = document.getElementById('feedbackModalOverlay');
+  const form = document.getElementById('feedbackFormContainer');
+  const success = document.getElementById('feedbackSuccess');
+  if (overlay) {
+    overlay.classList.add('open');
+    feedbackRatingValue = 0;
+    updateFeedbackStars();
+    if (form) form.style.display = 'block';
+    if (success) success.classList.remove('show');
+    document.getElementById('feedbackType').value = 'suggestion';
+    document.getElementById('feedbackEmail').value = '';
+    document.getElementById('feedbackContent').value = '';
+  }
+}
+
+function closeFeedbackModal() {
+  const overlay = document.getElementById('feedbackModalOverlay');
+  if (overlay) overlay.classList.remove('open');
+}
+
+function updateFeedbackStars() {
+  document.querySelectorAll('.feedback-star').forEach(function(star) {
+    const rating = parseInt(star.getAttribute('data-rating'));
+    if (rating <= feedbackRatingValue) {
+      star.classList.add('filled');
+    } else {
+      star.classList.remove('filled');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.feedback-star').forEach(function(star) {
+    star.addEventListener('click', function() {
+      feedbackRatingValue = parseInt(this.getAttribute('data-rating'));
+      updateFeedbackStars();
+    });
+    star.addEventListener('mouseenter', function() {
+      const rating = parseInt(this.getAttribute('data-rating'));
+      document.querySelectorAll('.feedback-star').forEach(function(s) {
+        const r = parseInt(s.getAttribute('data-rating'));
+        if (r <= rating) s.textContent = '★';
+        else s.textContent = '☆';
+      });
+    });
+    star.addEventListener('mouseleave', function() {
+      updateFeedbackStars();
+    });
+  });
+});
+
+function submitFeedback() {
+  const content = document.getElementById('feedbackContent').value.trim();
+  if (!content) {
+    showToast('请输入反馈内容');
+    return;
+  }
+  const feedback = {
+    type: document.getElementById('feedbackType').value,
+    rating: feedbackRatingValue,
+    email: document.getElementById('feedbackEmail').value.trim(),
+    content: content,
+    timestamp: new Date().toISOString(),
+    version: 'v7.0'
+  };
+  try {
+    var feedbacks = JSON.parse(localStorage.getItem('tea_feedbacks') || '[]');
+    feedbacks.unshift(feedback);
+    localStorage.setItem('tea_feedbacks', JSON.stringify(feedbacks.slice(0, 100)));
+  } catch(e) {}
+  document.getElementById('feedbackFormContainer').style.display = 'none';
+  document.getElementById('feedbackSuccess').classList.add('show');
+  setTimeout(function() {
+    closeFeedbackModal();
+  }, 2000);
+}
 </script>
+
+<!-- SITE FOOTER -->
+<div class="site-footer">
+  <div>🍃 茶叶百科 v7.0 · LZ出品</div>
+  <div class="footer-links">
+    <a onclick="openFeedbackModal()">意见反馈</a>
+  </div>
+</div>
 
 </body>
 </html>
