@@ -1,7 +1,8 @@
 // 标准页
 function renderStandardPage() {
   var container = document.getElementById('standardPage');
-  if (!container) { container.innerHTML = '<div style="padding:1rem;color:var(--c2)">加载中...</div>'; return; }
+  if (!container) return;
+  container.innerHTML = '<div style="padding:1rem;color:var(--c2)">加载中...</div>';
   var content = document.getElementById('standardContent');
   if (!content) return;
   window._stdTab = window._stdTab || 'cn';

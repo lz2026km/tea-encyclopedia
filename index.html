@@ -1920,8 +1920,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     </div>
     <div id="origin3dContent">
       <div id="originBlockMap" style="display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(7,1fr);gap:3px;padding:10px;background:#f0f4f0;border-radius:14px;height:560px;max-width:958px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,0.12);aspect-ratio:1.7/1">
-      <div class="origin-block-legend" id="originBlockLegend"></div>
-      <div class="origin-block-tooltip" id="originBlockTooltip"></div>
+        <div class="origin-block-legend" id="originBlockLegend"></div>
+        <div class="origin-block-tooltip" id="originBlockTooltip"></div>
+      </div>
     </div>
     <div id="factoryMapContent" style="display:none">
       <div class="factory-map-container" id="factoryMapContainer"></div>
@@ -2748,7 +2749,7 @@ function bindCardEvents() {
       if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY) && duration < 500) {
         const teas = getFilteredTeas();
         if (teas.length === 0) return;
-        if (typeof currentCardIndex === 'undefined') currentCardIndex = -1;
+        if (typeof currentCardIndex === 'undefined') var currentCardIndex = -1;
         if (deltaX < 0) {
           // Swipe left -> next
           currentCardIndex = currentCardIndex >= teas.length - 1 ? 0 : currentCardIndex + 1;
