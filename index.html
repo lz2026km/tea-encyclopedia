@@ -2148,7 +2148,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
       <div class="modal-title">📺 冲泡视频</div>
     </div>
     <div class="video-wrap" id="videoWrap">
-      <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
+      <iframe id="videoIframe" src="" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
     </div>
   </div>
 </div>
@@ -2785,6 +2785,7 @@ function renderSidebarTags() {
 
   function tagList(arr, field, containerId) {
     const cont = document.getElementById(containerId);
+    const escape = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
     cont.innerHTML = arr.map(item => {
       const count = TEA_DATA.filter(t => {
         if (field === 'type') return t.type === item;
@@ -2793,7 +2794,7 @@ function renderSidebarTags() {
         if (field === 'period') return t.period === item;
       }).length;
       const active = currentFilters.type === item ? 'active' : '';
-      return `<span class="sb-tag ${active}" onclick="toggleFilter('${field}','${item}',this)">${item}<span class="sb-tag-count">${count}</span></span>`;
+      return `<span class="sb-tag ${active}" onclick="toggleFilter('${field}','${escape(item)}',this)">${escape(item)}<span class="sb-tag-count">${count}</span></span>`;
     }).join('');
   }
 
