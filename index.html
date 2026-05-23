@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<script>if (location.protocol === 'http:') { location.protocol = 'https:'; }</script>
 <meta charset="UTF-8">
 <meta http-equiv='Content-Security-Policy' content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: upload.wikimedia.org https://*.baidu.com https://*.sina.com.cn; font-src 'self'; connect-src 'self' https:; frame-src 'none';">
 <meta name="description" content="茶叶百科 v7.02 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
@@ -12,6 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <link rel="canonical" href="https://tea.example.com/">
+<link rel="amphtml" href="https://lz2026km.github.io/tea-encyclopedia/tea-amp.html">
 <meta name="keywords" content="茶叶百科,绿茶,红茶,乌龙茶,白茶,黄茶,黑茶,名茶,茶叶品种,茶叶产地,茶叶等级,冲泡方法,品鉴指南">
 <meta property="og:title" content="茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta property="og:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
@@ -475,6 +477,17 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .sidebar.collapsed .sb-section { display: none; }
 .sidebar.collapsed .sidebar-toggle { margin: 0 auto .8rem; }
 .sidebar.collapsed .sb-title { display: none; }
+
+/* ===== FAQ ACCORDION ===== */
+.faq-section { margin-bottom: 1.5rem; }
+.faq-title { font-size: 1.1rem; font-weight: 700; color: var(--c5); margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+.faq-item { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: .5rem; overflow: hidden; }
+.faq-q { padding: .8rem; cursor: pointer; font-weight: 600; background: var(--c4); user-select: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-q:hover { background: var(--c3); }
+.faq-q::after { content: '▼'; font-size: .7rem; transition: transform .2s; }
+.faq-item.open .faq-q::after { transform: rotate(180deg); }
+.faq-a { padding: .8rem; display: none; color: var(--c2); line-height: 1.7; }
+.faq-item.open .faq-a { display: block; }
 
 /* ===== CARD CHECKBOX ===== */
 .tea-card { position: relative; }
@@ -1747,12 +1760,18 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <div id="solarTermBanner" style="margin-top:.8rem;font-size:.9rem;opacity:.9"></div>
     <div id="teaCalendarBanner" style="margin-top:.6rem;font-size:.82rem;display:flex;gap:.3rem;flex-wrap:wrap;justify-content:center"></div>
   </div>
-  <div id="dailyTeaCard" style="margin-top:.8rem;padding:.6rem 1rem;background:rgba(255,255,255,.15);border-radius:12px;font-size:.88rem;display:flex;align-items:center;gap:.5rem;cursor:pointer" onclick="showRandom()">
+<div id="dailyTeaCard" style="margin-top:.8rem;padding:.6rem 1rem;background:rgba(255,255,255,.15);border-radius:12px;font-size:.88rem;display:flex;align-items:center;gap:.5rem;cursor:pointer" onclick="showRandom()">
     <span id="dailyTeaIcon">☀️</span>
     <span id="dailyTeaText">每日推荐加载中…</span>
   </div>
 
-  
+  <!-- FAQ ACCORDION -->
+  <div class="faq-section" id="faqSection">
+    <div class="faq-title">🍃 茶叶知识问答</div>
+    <div id="faqContainer"></div>
+  </div>
+
+  <!-- SKELETON SCREEN -->
 
   <!-- SKELETON SCREEN -->
   <div id="skeleton" style="padding:1rem">
@@ -3992,6 +4011,7 @@ function openModal(id) {
       <button class="diary-modal-btn" onclick="openDiaryForTea(${id})" title="品鉴笔记">📓 笔记</button>
       <button class="hdr-btn" onclick="shareTea(${id})" style="padding:.3rem .6rem;font-size:.8rem;flex-shrink:0" title="分享茶叶">📤 分享</button>
       <button class="hdr-btn" onclick="speakTea(${id})" style="padding:.3rem .6rem;font-size:.8rem;flex-shrink:0" title="🔊 朗读">🔊</button>
+      <button class="hdr-btn" onclick="generateSharePoster(${id})" style="padding:.3rem .6rem;font-size:.8rem;flex-shrink:0" title="生成分享海报">🖼️ 海报</button>
       <div class="modal-badges">
         <span class="modal-badge type">${tea.type}</span>
         <span class="modal-badge">${tea.grade}</span>
@@ -7760,6 +7780,52 @@ function submitFeedback() {
   setTimeout(function() {
     closeFeedbackModal();
   }, 2000);
+}
+
+function generateSharePoster(teaId) {
+  const tea = TEA_DATA.find(t => t.id === teaId);
+  if (!tea) return showToast('茶叶数据未找到');
+  const canvas = document.createElement('canvas');
+  canvas.width = 420; canvas.height = 600;
+  const ctx = canvas.getContext('2d');
+  // 渐变背景
+  const grad = ctx.createLinearGradient(0, 0, 0, 600);
+  grad.addColorStop(0, '#2D6A4F'); grad.addColorStop(0.3, '#40916C'); grad.addColorStop(1, '#1B4332');
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, 420, 600);
+  // 装饰边框
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 2;
+  ctx.strokeRect(15, 15, 390, 570);
+  // 标题
+  ctx.fillStyle = '#fff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText(tea.name, 210, 60);
+  // 类型标签
+  ctx.font = '16px sans-serif'; ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.fillText(tea.type + ' · ' + tea.grade, 210, 85);
+  ctx.fillText('📍 ' + tea.origin, 210, 108);
+  // 分割线
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.beginPath();
+  ctx.moveTo(40, 130); ctx.lineTo(380, 130); ctx.stroke();
+  // 简介(折行)
+  ctx.font = '15px sans-serif'; ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.textAlign = 'left';
+  const desc = tea.desc || tea.detail || '';
+  const maxWidth = 340, lineHeight = 24; let y = 155, line = '';
+  for (let i = 0; i < desc.length; i++) {
+    const testLine = line + desc[i];
+    if (ctx.measureText(testLine).width > maxWidth && line.length > 0) {
+      ctx.fillText(line, 40, y); y += lineHeight; line = desc[i]; if (y > 550) break;
+    } else { line = testLine; }
+  }
+  if (line && y < 560) ctx.fillText(line, 40, y);
+  // 底部标注
+  ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.font = '12px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('茶叶百科 v7.02 · LZ出品', 210, 580);
+  // 下载
+  canvas.toBlob(function(blob) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url;
+    a.download = (tea.name || 'tea') + '_share.png'; a.click();
+    URL.revokeObjectURL(url); showToast('海报已生成下载');
+  });
 }
 </script>
 
