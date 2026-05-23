@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="茶叶百科 v4.0 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，收录50种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>茶叶大全 v5.0 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶大全 v5.1 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
-   茶叶大全 v5.0 — 清新雅致中国风
+   茶叶大全 v5.1 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -53,6 +53,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .hdr-logo { font-size: 1.4rem; color: var(--c1); white-space: nowrap; }
 .hdr-logo span { background: var(--c1); color: #fff; border-radius: 8px; padding: .1em .4em; font-size: .9rem; margin-right: .3em; }
 .hdr-title { font-size: 1.3rem; color: var(--c5); font-weight: 700; flex: 1; }
+.hdr-owner { font-size: .78rem; color: var(--c2); white-space: nowrap; opacity: .7; }
 .hdr-search { flex: 2; max-width: 360px; }
 .hdr-search input { width: 100%; padding: .5rem .9rem; border: 2px solid var(--border); border-radius: 25px; background: var(--white); color: var(--text); font-size: .95rem; outline: none; }
 .hdr-search input:focus { border-color: var(--c2); box-shadow: 0 0 0 3px rgba(82,183,136,0.2); }
@@ -528,7 +529,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     margin: .5rem 0;
   }
   .tea-detail-panel::before {
-    content: '茶叶大全 v5.0 — ' attr(data-tea-name);
+    content: '茶叶大全 v5.1 — ' attr(data-tea-name);
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
@@ -730,7 +731,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v5.0 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v5.1 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -747,8 +748,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v5.0</span>🍃</div>
+  <div class="hdr-logo"><span>v5.1</span>🍃</div>
   <div class="hdr-title">茶叶大全</div>
+  <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="🔍 搜索茶叶名称、产地…" autocomplete="off">
     <div class="search-history" id="searchHistory"></div>
@@ -1767,7 +1769,7 @@ function handleSort(value) {
         <div style="width:120px;min-width:120px;overflow:hidden;background:var(--c4)">${carouselHTML}</div>
         <div class="tea-body" style="flex-direction:row;flex:1;align-items:center;gap:.5rem">
           <div style="flex:1">
-            <div class="tea-name">${tea.name}</div>
+            <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
             <div class="tea-origin">📍 ${tea.origin}</div>
             <div class="tea-desc" style="-webkit-line-clamp:1">${tea.desc}</div>
           </div>
@@ -1788,8 +1790,9 @@ function handleSort(value) {
       ${carouselHTML}
       <span class="tea-type-badge">${tea.type}</span>
       <span class="tea-grade-badge">${tea.grade}</span>
+      ${tea.fallbackImg ? '<span class="tea-type-badge" style="background:var(--c2);color:#fff;position:absolute;bottom:.3rem;right:.3rem;font-size:.6rem">⚠️代图</span>' : ''}
       <div class="tea-body">
-        <div class="tea-name">${tea.name}</div>
+        <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
         <div class="tea-origin">📍 ${tea.origin}</div>
         <div class="tea-desc">${tea.desc}</div>
         <div class="tea-footer">
@@ -1842,7 +1845,7 @@ function renderGrid() {
         <div style="width:120px;min-width:120px;overflow:hidden;background:var(--c4)">${carouselHTML}</div>
         <div class="tea-body" style="flex-direction:row;flex:1;align-items:center;gap:.5rem">
           <div style="flex:1">
-            <div class="tea-name">${tea.name}</div>
+            <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
             <div class="tea-origin">📍 ${tea.origin}</div>
             <div class="tea-desc" style="-webkit-line-clamp:1">${tea.desc}</div>
           </div>
@@ -1876,7 +1879,7 @@ function renderGrid() {
         <span class="tea-type-badge">${tea.type}</span>
         <span class="tea-grade-badge">${tea.grade}</span>
         <div class="tea-body">
-          <div class="tea-name">${tea.name}</div>
+          <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
           <div class="tea-origin">📍 ${tea.origin}</div>
           <div class="tea-desc">${tea.desc}</div>
           <div class="tea-rating">
@@ -2201,7 +2204,7 @@ function renderFavGrid() {
       <span class="tea-type-badge">${tea.type}</span>
       <span class="tea-grade-badge">${tea.grade}</span>
       <div class="tea-body">
-        <div class="tea-name">${tea.name}</div>
+        <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
         <div class="tea-origin">📍 ${tea.origin}</div>
         <div class="tea-desc">${tea.desc}</div>
       </div>
@@ -2755,199 +2758,287 @@ function debounce(fn, delay) {
 function getTeaImageUrl(tea) {
   // WIKI_IMAGES — 多图URL数组，每种茶可有多个图片
     const WIKI_IMAGES = {
-  '三峡绿茶': ['/images/三峡绿茶.jpg', '/images/三峡绿茶_yedi.jpg', '/images/三峡绿茶_tang.jpg', '/images/三峡绿茶_gancha.jpg'],
-  '东白春芽': ['/images/东白春芽.jpg', '/images/东白春芽_yedi.jpg', '/images/东白春芽_tang.jpg', '/images/东白春芽_gancha.jpg'],
-  '临海蟠毫': ['/images/临海蟠毫.jpg', '/images/临海蟠毫_yedi.jpg', '/images/临海蟠毫_tang.jpg', '/images/临海蟠毫_gancha.jpg'],
-  '乌牛早': ['/images/乌牛早.jpg', '/images/乌牛早_yedi.jpg', '/images/乌牛早_tang.jpg', '/images/乌牛早_gancha.jpg'],
-  '云南古树白茶': ['/images/云南古树白茶.jpg', '/images/云南古树白茶_yedi.jpg', '/images/云南古树白茶_tang.jpg', '/images/云南古树白茶_gancha.jpg'],
-  '云南普洱': ['/images/云南普洱.jpg', '/images/云南普洱_yedi.jpg', '/images/云南普洱_tang.jpg'],
-  '云南熟普洱': ['/images/云南熟普洱.jpg', '/images/云南熟普洱_yedi.jpg', '/images/云南熟普洱_tang.jpg', '/images/云南熟普洱_gancha.jpg'],
-  '云南熟砖·宫廷': ['/images/云南熟砖·宫廷.jpg', '/images/云南熟砖·宫廷_yedi.jpg', '/images/云南熟砖·宫廷_tang.jpg', '/images/云南熟砖·宫廷_gancha.jpg'],
-  '五指山红茶': ['/images/五指山红茶.jpg', '/images/五指山红茶_yedi.jpg', '/images/五指山红茶_tang.jpg', '/images/五指山红茶_gancha.jpg'],
-  '井冈山翠绿茶': ['/images/井冈山翠绿茶.jpg'],
-  '休宁松萝': ['/images/休宁松萝.jpg', '/images/休宁松萝_yedi.jpg', '/images/休宁松萝_tang.jpg', '/images/休宁松萝_gancha.jpg'],
-  '信阳毛尖': ['/images/信阳毛尖.jpg', '/images/信阳毛尖_yedi.jpg', '/images/信阳毛尖_tang.jpg', '/images/信阳毛尖_gancha.jpg'],
-  '信阳红': ['/images/信阳红.jpg', '/images/信阳红_yedi.jpg', '/images/信阳红_tang.jpg', '/images/信阳红_gancha.jpg'],
-  '倚邦': ['/images/倚邦.jpg', '/images/倚邦_yedi.jpg', '/images/倚邦_tang.jpg', '/images/倚邦_gancha.jpg'],
-  '六堡茶': ['/images/六堡茶.jpg', '/images/六堡茶_yedi.jpg', '/images/六堡茶_tang.jpg', '/images/六堡茶_gancha.jpg'],
-  '六堡茶·特级': ['/images/六堡茶·特级.jpg', '/images/六堡茶·特级_yedi.jpg', '/images/六堡茶·特级_tang.jpg', '/images/六堡茶·特级_gancha.jpg'],
-  '六安瓜片': ['/images/六安瓜片.jpg', '/images/六安瓜片_yedi.jpg', '/images/六安瓜片_tang.jpg'],
-  '兰溪毛峰': ['/images/兰溪毛峰.jpg', '/images/兰溪毛峰_yedi.jpg', '/images/兰溪毛峰_tang.jpg', '/images/兰溪毛峰_gancha.jpg'],
-  '冰岛': ['/images/冰岛.jpg', '/images/冰岛_yedi.jpg', '/images/冰岛_tang.jpg', '/images/冰岛_gancha.jpg'],
-  '冻顶乌龙': ['/images/冻顶乌龙.jpg', '/images/冻顶乌龙_yedi.jpg', '/images/冻顶乌龙_tang.jpg', '/images/冻顶乌龙_gancha.jpg'],
-  '凤凰单丛': ['/images/凤凰单丛.jpg', '/images/凤凰单丛_yedi.jpg', '/images/凤凰单丛_tang.jpg', '/images/凤凰单丛_gancha.jpg'],
-  '凤凰单丛-鸭屎香': ['/images/凤凰单丛-鸭屎香.jpg', '/images/凤凰单丛-鸭屎香_yedi.jpg', '/images/凤凰单丛-鸭屎香_tang.jpg', '/images/凤凰单丛-鸭屎香_gancha.jpg'],
-  '凤凰水仙': ['/images/凤凰水仙.jpg', '/images/凤凰水仙_yedi.jpg', '/images/凤凰水仙_tang.jpg'],
-  '刮风寨': ['/images/刮风寨.jpg', '/images/刮风寨_yedi.jpg', '/images/刮风寨_tang.jpg', '/images/刮风寨_gancha.jpg'],
-  '千家寨': ['/images/千家寨.jpg', '/images/千家寨_yedi.jpg', '/images/千家寨_tang.jpg', '/images/千家寨_gancha.jpg'],
-  '千岛银针': ['/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg', '/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg'],
-  '南泉毛峰': ['/images/南泉毛峰.jpg', '/images/南泉毛峰_yedi.jpg', '/images/南泉毛峰_tang.jpg', '/images/南泉毛峰_gancha.jpg'],
-  '南糯山': ['/images/南糯山.jpg', '/images/南糯山_yedi.jpg', '/images/南糯山_tang.jpg', '/images/南糯山_gancha.jpg'],
-  '古丈毛尖': ['/images/古丈毛尖.jpg', '/images/古丈毛尖_yedi.jpg', '/images/古丈毛尖_tang.jpg', '/images/古丈毛尖_gancha.jpg'],
-  '君山银针': ['/images/君山银针.jpg', '/images/君山银针_yedi.jpg', '/images/君山银针_tang.jpg', '/images/君山银针_gancha.jpg'],
-  '四面山茶': ['/images/四面山茶.jpg'],
-  '坦洋工夫': ['/images/坦洋工夫.jpg', '/images/坦洋工夫_yedi.jpg', '/images/坦洋工夫_tang.jpg', '/images/坦洋工夫_gancha.jpg'],
-  '大叶青': ['/images/大叶青.jpg', '/images/大叶青_yedi.jpg', '/images/大叶青_tang.jpg', '/images/大叶青_gancha.jpg'],
-  '大吉岭红茶': ['/images/大吉岭红茶.jpg', '/images/大吉岭红茶_yedi.jpg', '/images/大吉岭红茶_tang.jpg'],
-  '大悟红茶': ['/images/大悟红茶.jpg', '/images/大悟红茶_yedi.jpg', '/images/大悟红茶_tang.jpg', '/images/大悟红茶_gancha.jpg'],
-  '大禹岭茶': ['/images/大禹岭茶.jpg', '/images/大禹岭茶_yedi.jpg', '/images/大禹岭茶_tang.jpg', '/images/大禹岭茶_gancha.jpg'],
-  '大红袍': ['/images/大红袍.jpg', '/images/大红袍_yedi.jpg', '/images/大红袍_tang.jpg', '/images/大红袍_gancha.jpg'],
-  '天方富硒茶': ['/images/天方富硒茶.jpg'],
-  '太平猴魁': ['/images/太平猴魁.jpg', '/images/太平猴魁_yedi.jpg', '/images/太平猴魁_tang.jpg', '/images/太平猴魁_gancha.jpg'],
-  '太湖翠竹': ['/images/太湖翠竹.jpg', '/images/太湖翠竹_yedi.jpg', '/images/太湖翠竹_tang.jpg', '/images/太湖翠竹_gancha.jpg'],
-  '婺州举岩': ['/images/婺州举岩.jpg'],
-  '婺源毛尖': ['/images/婺源毛尖.jpg', '/images/婺源毛尖_yedi.jpg', '/images/婺源毛尖_tang.jpg', '/images/婺源毛尖_gancha.jpg'],
-  '宁强雀舌': ['/images/宁强雀舌.jpg', '/images/宁强雀舌_yedi.jpg', '/images/宁强雀舌_tang.jpg', '/images/宁强雀舌_gancha.jpg'],
-  '宁红': ['/images/宁红.jpg', '/images/宁红_yedi.jpg', '/images/宁红_tang.jpg', '/images/宁红_gancha.jpg'],
-  '宁红工夫': ['/images/宁红工夫.jpg'],
-  '安化松针': ['/images/安化松针.jpg', '/images/安化松针_yedi.jpg', '/images/安化松针_tang.jpg'],
-  '安化红茶': ['/images/安化红茶.jpg', '/images/安化红茶_yedi.jpg', '/images/安化红茶_tang.jpg', '/images/安化红茶_gancha.jpg'],
-  '安化茯砖·金花': ['/images/安化茯砖·金花.jpg', '/images/安化茯砖·金花_yedi.jpg', '/images/安化茯砖·金花_tang.jpg'],
-  '安化黑茶': ['/images/安化黑茶.jpg', '/images/安化黑茶_yedi.jpg', '/images/安化黑茶_tang.jpg'],
-  '安吉白茶': ['/images/安吉白茶.jpg', '/images/安吉白茶_yedi.jpg', '/images/安吉白茶_tang.jpg', '/images/安吉白茶_gancha.jpg'],
-  '安溪铁观音': ['/images/安溪铁观音.jpg', '/images/安溪铁观音_yedi.jpg', '/images/安溪铁观音_tang.jpg', '/images/安溪铁观音_gancha.jpg'],
-  '宜兴红茶': ['/images/宜兴红茶.jpg', '/images/宜兴红茶_yedi.jpg', '/images/宜兴红茶_tang.jpg', '/images/宜兴红茶_gancha.jpg'],
-  '宜红': ['/images/宜红.jpg', '/images/宜红_yedi.jpg', '/images/宜红_tang.jpg', '/images/宜红_gancha.jpg'],
-  '寒露茶': ['/images/寒露茶.jpg', '/images/寒露茶_yedi.jpg', '/images/寒露茶_tang.jpg', '/images/寒露茶_gancha.jpg'],
-  '寿眉': ['/images/寿眉.jpg', '/images/寿眉_yedi.jpg', '/images/寿眉_tang.jpg', '/images/寿眉_gancha.jpg'],
-  '岭头单丛': ['/images/岭头单丛.jpg', '/images/岭头单丛_yedi.jpg', '/images/岭头单丛_tang.jpg', '/images/岭头单丛_gancha.jpg'],
-  '岳麓毛尖': ['/images/岳麓毛尖.jpg', '/images/岳麓毛尖_yedi.jpg', '/images/岳麓毛尖_tang.jpg', '/images/岳麓毛尖_gancha.jpg'],
-  '峨眉山白茶': ['/images/峨眉山白茶.jpg', '/images/峨眉山白茶_yedi.jpg', '/images/峨眉山白茶_tang.jpg', '/images/峨眉山白茶_gancha.jpg'],
-  '川红': ['/images/川红.jpg', '/images/川红_yedi.jpg', '/images/川红_tang.jpg', '/images/川红_gancha.jpg'],
-  '川红工夫': ['/images/川红工夫.jpg', '/images/川红工夫_yedi.jpg', '/images/川红工夫_tang.jpg'],
-  '平水珠茶': ['/images/平水珠茶.jpg', '/images/平水珠茶_yedi.jpg', '/images/平水珠茶_tang.jpg', '/images/平水珠茶_gancha.jpg'],
-  '平阳黄汤': ['/images/平阳黄汤.jpg'],
-  '广别': ['/images/广别.jpg', '/images/广别_yedi.jpg', '/images/广别_tang.jpg', '/images/广别_gancha.jpg'],
-  '庐山云雾': ['/images/庐山云雾.jpg', '/images/庐山云雾_yedi.jpg', '/images/庐山云雾_tang.jpg', '/images/庐山云雾_gancha.jpg'],
-  '庐山云雾茶': ['/images/庐山云雾茶.jpg', '/images/庐山云雾茶_yedi.jpg', '/images/庐山云雾茶_tang.jpg', '/images/庐山云雾茶_gancha.jpg'],
-  '建阳白茶': ['/images/建阳白茶.jpg', '/images/建阳白茶_yedi.jpg', '/images/建阳白茶_tang.jpg', '/images/建阳白茶_gancha.jpg'],
-  '恩施玉露': ['/images/恩施玉露.jpg', '/images/恩施玉露_yedi.jpg', '/images/恩施玉露_tang.jpg'],
-  '恩施红': ['/images/恩施红.jpg', '/images/恩施红_yedi.jpg', '/images/恩施红_tang.jpg', '/images/恩施红_gancha.jpg'],
-  '政和工夫': ['/images/政和工夫.jpg', '/images/政和工夫_yedi.jpg', '/images/政和工夫_tang.jpg', '/images/政和工夫_gancha.jpg'],
-  '政和白茶': ['/images/政和白茶.jpg', '/images/政和白茶_yedi.jpg', '/images/政和白茶_tang.jpg', '/images/政和白茶_gancha.jpg'],
-  '政和红茶': ['/images/政和红茶.jpg', '/images/政和红茶_yedi.jpg', '/images/政和红茶_tang.jpg', '/images/政和红茶_gancha.jpg'],
-  '敬亭绿雪': ['/images/敬亭绿雪.jpg', '/images/敬亭绿雪_yedi.jpg', '/images/敬亭绿雪_tang.jpg', '/images/敬亭绿雪_gancha.jpg'],
-  '文君绿茶': ['/images/文君绿茶.jpg', '/images/文君绿茶_yedi.jpg', '/images/文君绿茶_tang.jpg', '/images/文君绿茶_gancha.jpg'],
-  '日月潭红茶': ['/images/日月潭红茶.jpg', '/images/日月潭红茶_yedi.jpg', '/images/日月潭红茶_tang.jpg', '/images/日月潭红茶_gancha.jpg'],
-  '日照红茶': ['/images/日照红茶.jpg', '/images/日照红茶_yedi.jpg', '/images/日照红茶_tang.jpg', '/images/日照红茶_gancha.jpg'],
-  '昔归': ['/images/昔归.jpg', '/images/昔归_yedi.jpg', '/images/昔归_tang.jpg', '/images/昔归_gancha.jpg'],
-  '昭君白茶': ['/images/昭君白茶.jpg', '/images/昭君白茶_yedi.jpg', '/images/昭君白茶_tang.jpg', '/images/昭君白茶_gancha.jpg'],
-  '昭平红': ['/images/昭平红.jpg'],
-  '普洱古树·生茶': ['/images/普洱古树·生茶.jpg', '/images/普洱古树·生茶_yedi.jpg', '/images/普洱古树·生茶_tang.jpg'],
-  '普洱紫芽': ['/images/普洱紫芽.jpg', '/images/普洱紫芽_yedi.jpg', '/images/普洱紫芽_tang.jpg', '/images/普洱紫芽_gancha.jpg'],
-  '景迈山': ['/images/景迈山.jpg', '/images/景迈山_yedi.jpg', '/images/景迈山_tang.jpg', '/images/景迈山_gancha.jpg'],
-  '景迈山古树': ['/images/景迈山古树.jpg', '/images/景迈山古树_yedi.jpg', '/images/景迈山古树_tang.jpg', '/images/景迈山古树_gancha.jpg'],
-  '曼松': ['/images/曼松.jpg', '/images/曼松_yedi.jpg', '/images/曼松_tang.jpg', '/images/曼松_gancha.jpg'],
-  '月光白': ['/images/月光白.jpg', '/images/月光白_yedi.jpg', '/images/月光白_tang.jpg', '/images/月光白_gancha.jpg'],
-  '望海茶': ['/images/望海茶.jpg', '/images/望海茶_yedi.jpg', '/images/望海茶_tang.jpg', '/images/望海茶_gancha.jpg'],
-  '杜仲茶': ['/images/杜仲茶.jpg', '/images/杜仲茶_yedi.jpg', '/images/杜仲茶_tang.jpg'],
-  '松柏长青': ['/images/松柏长青.jpg', '/images/松柏长青_yedi.jpg', '/images/松柏长青_tang.jpg', '/images/松柏长青_gancha.jpg'],
-  '柿叶茶': ['/images/柿叶茶.jpg', '/images/柿叶茶_yedi.jpg', '/images/柿叶茶_tang.jpg'],
-  '桂红袍': ['/images/桂红袍.jpg', '/images/桂红袍_yedi.jpg', '/images/桂红袍_tang.jpg', '/images/桂红袍_gancha.jpg'],
-  '桂花乌龙': ['/images/桂花乌龙.jpg', '/images/桂花乌龙_yedi.jpg', '/images/桂花乌龙_tang.jpg'],
-  '桂花龙井': ['/images/桂花龙井.jpg', '/images/桂花龙井_yedi.jpg', '/images/桂花龙井_tang.jpg', '/images/桂花龙井_gancha.jpg'],
-  '梧州六堡·老茶': ['/images/梧州六堡·老茶.jpg', '/images/梧州六堡·老茶_yedi.jpg', '/images/梧州六堡·老茶_tang.jpg', '/images/梧州六堡·老茶_gancha.jpg'],
-  '梧州六堡茶红茶': ['/images/梧州六堡茶红茶.jpg', '/images/梧州六堡茶红茶_yedi.jpg', '/images/梧州六堡茶红茶_tang.jpg', '/images/梧州六堡茶红茶_gancha.jpg'],
-  '梨山茶': ['/images/梨山茶.jpg', '/images/梨山茶_yedi.jpg', '/images/梨山茶_tang.jpg'],
-  '正安白茶': ['/images/正安白茶.jpg', '/images/正安白茶_yedi.jpg', '/images/正安白茶_tang.jpg', '/images/正安白茶_gancha.jpg'],
-  '正山小种': ['/images/正山小种.jpg', '/images/正山小种_yedi.jpg', '/images/正山小种_tang.jpg'],
-  '武夷山野茶': ['/images/武夷山野茶.jpg', '/images/武夷山野茶_yedi.jpg', '/images/武夷山野茶_tang.jpg', '/images/武夷山野茶_gancha.jpg'],
-  '武夷岩茶': ['/images/武夷岩茶.jpg', '/images/武夷岩茶_yedi.jpg', '/images/武夷岩茶_tang.jpg'],
-  '武夷岩茶（绿茶类）': ['/images/武夷岩茶（绿茶类）.jpg', '/images/武夷岩茶（绿茶类）_yedi.jpg', '/images/武夷岩茶（绿茶类）_tang.jpg'],
-  '永川秀芽': ['/images/永川秀芽.jpg', '/images/永川秀芽_yedi.jpg', '/images/永川秀芽_tang.jpg', '/images/永川秀芽_gancha.jpg'],
-  '永州红茶': ['/images/永州红茶.jpg', '/images/永州红茶_yedi.jpg', '/images/永州红茶_tang.jpg', '/images/永州红茶_gancha.jpg'],
-  '永春佛手': ['/images/永春佛手.jpg', '/images/永春佛手_yedi.jpg', '/images/永春佛手_tang.jpg', '/images/永春佛手_gancha.jpg'],
-  '汉中仙毫': ['/images/汉中仙毫.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_gancha.jpg'],
-  '沩山毛尖': ['/images/沩山毛尖.jpg', '/images/沩山毛尖_yedi.jpg', '/images/沩山毛尖_tang.jpg'],
-  '泾阳茯茶': ['/images/泾阳茯茶.jpg', '/images/泾阳茯茶_yedi.jpg', '/images/泾阳茯茶_tang.jpg', '/images/泾阳茯茶_gancha.jpg'],
-  '泾阳茯茶·手筑': ['/images/泾阳茯茶·手筑.jpg', '/images/泾阳茯茶·手筑_yedi.jpg', '/images/泾阳茯茶·手筑_tang.jpg', '/images/泾阳茯茶·手筑_gancha.jpg'],
-  '洛神花茶': ['/images/洛神花茶.jpg', '/images/洛神花茶_yedi.jpg', '/images/洛神花茶_tang.jpg'],
-  '海堤红': ['/images/海堤红.jpg', '/images/海堤红_yedi.jpg', '/images/海堤红_tang.jpg', '/images/海堤红_gancha.jpg'],
-  '温州黄汤': ['/images/温州黄汤.jpg', '/images/温州黄汤_yedi.jpg', '/images/温州黄汤_tang.jpg', '/images/温州黄汤_gancha.jpg'],
-  '湖北老青茶': ['/images/湖北老青茶.jpg', '/images/湖北老青茶_yedi.jpg', '/images/湖北老青茶_tang.jpg', '/images/湖北老青茶_gancha.jpg'],
-  '湖红工夫': ['/images/湖红工夫.jpg'],
-  '滇红': ['/images/滇红.jpg', '/images/滇红_yedi.jpg', '/images/滇红_tang.jpg', '/images/滇红_gancha.jpg'],
-  '滇红金芽': ['/images/滇红金芽.jpg', '/images/滇红金芽_yedi.jpg', '/images/滇红金芽_tang.jpg'],
-  '潮州凤凰红茶': ['/images/潮州凤凰红茶.jpg', '/images/潮州凤凰红茶_yedi.jpg', '/images/潮州凤凰红茶_tang.jpg'],
-  '特级白牡丹': ['/images/特级白牡丹.jpg', '/images/特级白牡丹_yedi.jpg', '/images/特级白牡丹_tang.jpg'],
-  '玫瑰普洱': ['/images/玫瑰普洱.jpg', '/images/玫瑰普洱_yedi.jpg', '/images/玫瑰普洱_tang.jpg'],
-  '玫瑰红茶': ['/images/玫瑰红茶.jpg', '/images/玫瑰红茶_yedi.jpg', '/images/玫瑰红茶_tang.jpg', '/images/玫瑰红茶_gancha.jpg'],
-  '珠兰大方': ['/images/珠兰大方.jpg', '/images/珠兰大方_yedi.jpg', '/images/珠兰大方_tang.jpg', '/images/珠兰大方_gancha.jpg'],
-  '珠兰花茶': ['/images/珠兰花茶.jpg', '/images/珠兰花茶_yedi.jpg', '/images/珠兰花茶_tang.jpg', '/images/珠兰花茶_gancha.jpg'],
-  '珠兰芽珠': ['/images/珠兰芽珠.jpg', '/images/珠兰芽珠_yedi.jpg', '/images/珠兰芽珠_tang.jpg', '/images/珠兰芽珠_gancha.jpg'],
-  '瑞草魁': ['/images/瑞草魁.jpg', '/images/瑞草魁_yedi.jpg', '/images/瑞草魁_tang.jpg', '/images/瑞草魁_gancha.jpg'],
-  '白毫银针': ['/images/白毫银针.jpg', '/images/白毫银针_yedi.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg'],
-  '白牡丹': ['/images/白牡丹.jpg', '/images/白牡丹_yedi.jpg', '/images/白牡丹_tang.jpg', '/images/白牡丹_gancha.jpg'],
-  '白琳工夫': ['/images/白琳工夫.jpg', '/images/白琳工夫_yedi.jpg', '/images/白琳工夫_tang.jpg', '/images/白琳工夫_gancha.jpg'],
-  '白芽奇兰': ['/images/白芽奇兰.jpg', '/images/白芽奇兰_yedi.jpg', '/images/白芽奇兰_tang.jpg', '/images/白芽奇兰_gancha.jpg'],
-  '白露茶': ['/images/白露茶.jpg', '/images/白露茶_yedi.jpg', '/images/白露茶_tang.jpg', '/images/白露茶_gancha.jpg'],
-  '碧螺春': ['/images/碧螺春.jpg', '/images/碧螺春_yedi.jpg', '/images/碧螺春_tang.jpg'],
-  '祁门红茶': ['/images/祁门红茶.jpg', '/images/祁门红茶_yedi.jpg', '/images/祁门红茶_tang.jpg', '/images/祁门红茶_gancha.jpg'],
-  '福安白茶': ['/images/福安白茶.jpg', '/images/福安白茶_yedi.jpg', '/images/福安白茶_tang.jpg', '/images/福安白茶_gancha.jpg'],
-  '秦岭云雾茶': ['/images/秦岭云雾茶.jpg', '/images/秦岭云雾茶_yedi.jpg', '/images/秦岭云雾茶_tang.jpg', '/images/秦岭云雾茶_gancha.jpg'],
+  '西湖龙井': ['/images/西湖龙井.jpg', '/images/西湖龙井_yedi.jpg', '/images/西湖龙井_gancha.jpg', '/images/西湖龙井_tang.jpg'],
+  '碧螺春': ['/images/碧螺春.jpg', '/images/碧螺春_tang.jpg', '/images/碧螺春_yedi.jpg'],
+  '黄山毛峰': ['/images/黄山毛峰.jpg', '/images/黄山毛峰_tang.jpg', '/images/黄山毛峰_yedi.jpg', '/images/黄山毛峰_gancha.jpg'],
+  '信阳毛尖': ['/images/信阳毛尖_yedi.jpg', '/images/信阳毛尖.jpg', '/images/信阳毛尖_gancha.jpg', '/images/信阳毛尖_tang.jpg'],
+  '六安瓜片': ['/images/六安瓜片.jpg', '/images/六安瓜片_tang.jpg', '/images/六安瓜片_yedi.jpg'],
+  '太平猴魁': ['/images/太平猴魁_tang.jpg', '/images/太平猴魁_yedi.jpg', '/images/太平猴魁.jpg', '/images/太平猴魁_gancha.jpg'],
   '竹叶青': ['/images/竹叶青.jpg'],
-  '竹叶青红茶': ['/images/竹叶青红茶.jpg', '/images/竹叶青红茶_yedi.jpg', '/images/竹叶青红茶_tang.jpg', '/images/竹叶青红茶_gancha.jpg'],
-  '紫阳毛尖': ['/images/紫阳毛尖.jpg', '/images/紫阳毛尖_yedi.jpg', '/images/紫阳毛尖_tang.jpg', '/images/紫阳毛尖_gancha.jpg'],
-  '绞股蓝茶': ['/images/绞股蓝茶.jpg', '/images/绞股蓝茶_yedi.jpg', '/images/绞股蓝茶_tang.jpg', '/images/绞股蓝茶_gancha.jpg'],
+  '恩施玉露': ['/images/恩施玉露_yedi.jpg', '/images/恩施玉露_tang.jpg', '/images/恩施玉露.jpg'],
+  '正山小种': ['/images/正山小种_tang.jpg', '/images/正山小种.jpg', '/images/正山小种_yedi.jpg'],
+  '金骏眉': ['/images/金骏眉_yedi.jpg', '/images/金骏眉.jpg', '/images/金骏眉_tang.jpg', '/images/金骏眉_gancha.jpg'],
+  '祁门红茶': ['/images/祁门红茶.jpg', '/images/祁门红茶_tang.jpg', '/images/祁门红茶_yedi.jpg', '/images/祁门红茶_gancha.jpg'],
+  '滇红': ['/images/滇红.jpg', '/images/滇红_yedi.jpg', '/images/滇红_tang.jpg', '/images/滇红_gancha.jpg'],
+  '英德红茶': ['/images/英德红茶_gancha.jpg', '/images/英德红茶.jpg', '/images/英德红茶_yedi.jpg', '/images/英德红茶_tang.jpg'],
+  '川红': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '宁红': ['/images/宁红.jpg', '/images/宁红_gancha.jpg', '/images/宁红_yedi.jpg', '/images/宁红_tang.jpg'],
+  '宜红': ['/images/宜红_yedi.jpg', '/images/宜红.jpg', '/images/宜红_gancha.jpg', '/images/宜红_tang.jpg'],
+  '安溪铁观音': ['/images/安溪铁观音_gancha.jpg', '/images/安溪铁观音_tang.jpg', '/images/安溪铁观音_yedi.jpg', '/images/安溪铁观音.jpg'],
+  '大红袍': ['/images/大红袍_gancha.jpg', '/images/大红袍_yedi.jpg', '/images/大红袍.jpg', '/images/大红袍_tang.jpg'],
+  '凤凰单丛': ['/images/凤凰单丛.jpg', '/images/凤凰单丛_yedi.jpg', '/images/凤凰单丛_gancha.jpg', '/images/凤凰单丛_tang.jpg'],
+  '东方美人': ['/images/白芽奇兰_gancha.jpg', '/images/白芽奇兰_tang.jpg', '/images/白芽奇兰_yedi.jpg', '/images/白芽奇兰.jpg'],
+  '冻顶乌龙': ['/images/冻顶乌龙_gancha.jpg', '/images/冻顶乌龙_yedi.jpg', '/images/冻顶乌龙.jpg', '/images/冻顶乌龙_tang.jpg'],
+  '武夷岩茶': ['/images/武夷岩茶_tang.jpg', '/images/武夷岩茶_yedi.jpg', '/images/武夷岩茶.jpg'],
+  '永春佛手': ['/images/永春佛手.jpg', '/images/永春佛手_gancha.jpg', '/images/永春佛手_yedi.jpg', '/images/永春佛手_tang.jpg'],
+  '白芽奇兰': ['/images/白芽奇兰_gancha.jpg', '/images/白芽奇兰_tang.jpg', '/images/白芽奇兰_yedi.jpg', '/images/白芽奇兰.jpg'],
+  '白毫银针': ['/images/白毫银针.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg', '/images/白毫银针_yedi.jpg'],
+  '白牡丹': ['/images/白牡丹_tang.jpg', '/images/白牡丹.jpg', '/images/白牡丹_gancha.jpg', '/images/白牡丹_yedi.jpg'],
+  '贡眉': ['/images/贡眉.jpg', '/images/贡眉_tang.jpg', '/images/贡眉_yedi.jpg', '/images/贡眉_gancha.jpg'],
+  '寿眉': ['/images/寿眉_yedi.jpg', '/images/寿眉.jpg', '/images/寿眉_tang.jpg', '/images/寿眉_gancha.jpg'],
+  '月光白': ['/images/月光白.jpg', '/images/月光白_yedi.jpg', '/images/月光白_gancha.jpg', '/images/月光白_tang.jpg'],
+  '资溪白茶': ['/images/资溪白茶_tang.jpg', '/images/资溪白茶_yedi.jpg', '/images/资溪白茶.jpg', '/images/资溪白茶_gancha.jpg'],
+  '君山银针': ['/images/君山银针_yedi.jpg', '/images/君山银针_tang.jpg', '/images/君山银针_gancha.jpg', '/images/君山银针.jpg'],
+  '蒙顶甘露': ['/images/蒙顶甘露_yedi.jpg', '/images/蒙顶甘露.jpg', '/images/蒙顶甘露_tang.jpg', '/images/蒙顶甘露_gancha.jpg'],
+  '霍山黄芽': ['/images/霍山黄芽_gancha.jpg', '/images/霍山黄芽.jpg', '/images/霍山黄芽_yedi.jpg', '/images/霍山黄芽_tang.jpg'],
+  '平阳黄汤': ['/images/平阳黄汤.jpg'],
+  '沩山毛尖': ['/images/沩山毛尖.jpg', '/images/沩山毛尖_tang.jpg', '/images/沩山毛尖_yedi.jpg'],
+  '云南普洱': ['/images/云南普洱_tang.jpg', '/images/云南普洱_yedi.jpg', '/images/云南普洱.jpg'],
+  '安化黑茶': ['/images/安化黑茶_yedi.jpg', '/images/安化黑茶_tang.jpg', '/images/安化黑茶.jpg'],
+  '六堡茶': ['/images/六堡茶_yedi.jpg', '/images/六堡茶_tang.jpg', '/images/六堡茶_gancha.jpg', '/images/六堡茶.jpg'],
+  '藏茶': ['/images/藏茶_yedi.jpg', '/images/藏茶.jpg', '/images/藏茶_tang.jpg', '/images/藏茶_gancha.jpg'],
+  '青砖茶': ['/images/青砖茶_yedi.jpg', '/images/青砖茶_tang.jpg', '/images/青砖茶.jpg', '/images/青砖茶_gancha.jpg'],
+  '湖北老青茶': ['/images/湖北老青茶_gancha.jpg', '/images/湖北老青茶.jpg', '/images/湖北老青茶_yedi.jpg', '/images/湖北老青茶_tang.jpg'],
+  '泾阳茯茶': ['/images/泾阳茯茶.jpg', '/images/泾阳茯茶_tang.jpg', '/images/泾阳茯茶_gancha.jpg', '/images/泾阳茯茶_yedi.jpg'],
+  '云南熟普洱': ['/images/云南熟普洱_tang.jpg', '/images/云南熟普洱.jpg', '/images/云南熟普洱_yedi.jpg', '/images/云南熟普洱_gancha.jpg'],
+  '茉莉花茶': ['/images/茉莉花茶_gancha.jpg', '/images/茉莉花茶_tang.jpg', '/images/茉莉花茶.jpg', '/images/茉莉花茶_yedi.jpg'],
+  '桂花乌龙': ['/images/桂花乌龙.jpg', '/images/桂花乌龙_tang.jpg', '/images/桂花乌龙_yedi.jpg'],
+  '苦丁茶': ['/images/苦丁茶_gancha.jpg', '/images/苦丁茶_yedi.jpg', '/images/苦丁茶_tang.jpg', '/images/苦丁茶.jpg'],
+  '杜仲茶': ['/images/杜仲茶_yedi.jpg', '/images/杜仲茶_tang.jpg', '/images/杜仲茶.jpg'],
+  '柿叶茶': ['/images/柿叶茶_tang.jpg', '/images/柿叶茶_yedi.jpg', '/images/柿叶茶.jpg'],
   '罗布麻茶': ['/images/罗布麻茶.jpg', '/images/罗布麻茶_yedi.jpg', '/images/罗布麻茶_tang.jpg'],
-  '老寿眉': ['/images/老寿眉.jpg', '/images/老寿眉_yedi.jpg', '/images/老寿眉_tang.jpg', '/images/老寿眉_gancha.jpg'],
-  '老班章': ['/images/老班章.jpg', '/images/老班章_yedi.jpg', '/images/老班章_tang.jpg', '/images/老班章_gancha.jpg'],
-  '老青茶·陈香': ['/images/老青茶·陈香.jpg', '/images/老青茶·陈香_yedi.jpg', '/images/老青茶·陈香_tang.jpg', '/images/老青茶·陈香_gancha.jpg'],
-  '肯尼亚红茶': ['/images/肯尼亚红茶.jpg', '/images/肯尼亚红茶_yedi.jpg', '/images/肯尼亚红茶_tang.jpg', '/images/肯尼亚红茶_gancha.jpg'],
-  '苦丁茶': ['/images/苦丁茶.jpg', '/images/苦丁茶_yedi.jpg', '/images/苦丁茶_tang.jpg', '/images/苦丁茶_gancha.jpg'],
-  '英山云雾茶': ['/images/英山云雾茶.jpg', '/images/英山云雾茶_yedi.jpg', '/images/英山云雾茶_tang.jpg', '/images/英山云雾茶_gancha.jpg'],
-  '英山红茶': ['/images/英山红茶.jpg', '/images/英山红茶_yedi.jpg', '/images/英山红茶_tang.jpg', '/images/英山红茶_gancha.jpg'],
-  '英德红茶': ['/images/英德红茶.jpg', '/images/英德红茶_yedi.jpg', '/images/英德红茶_tang.jpg', '/images/英德红茶_gancha.jpg'],
-  '英德红茶-金毫': ['/images/英德红茶-金毫.jpg', '/images/英德红茶-金毫_yedi.jpg', '/images/英德红茶-金毫_tang.jpg', '/images/英德红茶-金毫_gancha.jpg'],
-  '茉莉大白毫': ['/images/茉莉大白毫.jpg', '/images/茉莉大白毫_yedi.jpg', '/images/茉莉大白毫_tang.jpg', '/images/茉莉大白毫_gancha.jpg'],
-  '茉莉花茶': ['/images/茉莉花茶.jpg', '/images/茉莉花茶_yedi.jpg', '/images/茉莉花茶_tang.jpg', '/images/茉莉花茶_gancha.jpg'],
-  '茉莉银针': ['/images/茉莉银针.jpg', '/images/茉莉银针_yedi.jpg', '/images/茉莉银针_tang.jpg'],
-  '茉莉龙珠': ['/images/茉莉龙珠.jpg', '/images/茉莉龙珠_yedi.jpg', '/images/茉莉龙珠_tang.jpg'],
-  '荒野银针': ['/images/荒野银针.jpg', '/images/荒野银针_yedi.jpg', '/images/荒野银针_tang.jpg', '/images/荒野银针_gancha.jpg'],
-  '荔枝红茶': ['/images/荔枝红茶.jpg', '/images/荔枝红茶_yedi.jpg', '/images/荔枝红茶_tang.jpg', '/images/荔枝红茶_gancha.jpg'],
-  '莫干黄芽': ['/images/莫干黄芽.jpg', '/images/莫干黄芽_yedi.jpg', '/images/莫干黄芽_tang.jpg', '/images/莫干黄芽_gancha.jpg'],
-  '莽枝': ['/images/莽枝.jpg', '/images/莽枝_yedi.jpg', '/images/莽枝_tang.jpg', '/images/莽枝_gancha.jpg'],
-  '菊花茶': ['/images/菊花茶.jpg', '/images/菊花茶_yedi.jpg', '/images/菊花茶_tang.jpg'],
-  '蒙顶甘露': ['/images/蒙顶甘露.jpg', '/images/蒙顶甘露_yedi.jpg', '/images/蒙顶甘露_tang.jpg', '/images/蒙顶甘露_gancha.jpg'],
-  '蒙顶黄芽': ['/images/蒙顶黄芽.jpg', '/images/蒙顶黄芽_yedi.jpg', '/images/蒙顶黄芽_tang.jpg', '/images/蒙顶黄芽_gancha.jpg'],
-  '藏茶': ['/images/藏茶.jpg', '/images/藏茶_yedi.jpg', '/images/藏茶_tang.jpg', '/images/藏茶_gancha.jpg'],
-  '西湖龙井': ['/images/西湖龙井.jpg', '/images/西湖龙井_yedi.jpg', '/images/西湖龙井_tang.jpg', '/images/西湖龙井_gancha.jpg'],
-  '诏安八仙': ['/images/诏安八仙.jpg', '/images/诏安八仙_yedi.jpg', '/images/诏安八仙_tang.jpg', '/images/诏安八仙_gancha.jpg'],
-  '贡眉': ['/images/贡眉.jpg', '/images/贡眉_yedi.jpg', '/images/贡眉_tang.jpg', '/images/贡眉_gancha.jpg'],
-  '贵定云雾黄芽': ['/images/贵定云雾黄芽.jpg', '/images/贵定云雾黄芽_yedi.jpg', '/images/贵定云雾黄芽_tang.jpg', '/images/贵定云雾黄芽_gancha.jpg'],
-  '资溪白茶': ['/images/资溪白茶.jpg', '/images/资溪白茶_yedi.jpg', '/images/资溪白茶_tang.jpg', '/images/资溪白茶_gancha.jpg'],
-  '越红工夫': ['/images/越红工夫.jpg', '/images/越红工夫_yedi.jpg'],
-  '远安黄茶': ['/images/远安黄茶.jpg', '/images/远安黄茶_yedi.jpg', '/images/远安黄茶_tang.jpg', '/images/远安黄茶_gancha.jpg'],
-  '遵义红': ['/images/遵义红.jpg', '/images/遵义红_yedi.jpg', '/images/遵义红_tang.jpg', '/images/遵义红_gancha.jpg'],
-  '那卡': ['/images/那卡.jpg', '/images/那卡_yedi.jpg', '/images/那卡_tang.jpg'],
-  '邦崴': ['/images/邦崴.jpg', '/images/邦崴_yedi.jpg', '/images/邦崴_tang.jpg', '/images/邦崴_gancha.jpg'],
-  '邦苯': ['/images/邦苯.jpg', '/images/邦苯_yedi.jpg', '/images/邦苯_tang.jpg', '/images/邦苯_gancha.jpg'],
-  '都匀毛尖': ['/images/都匀毛尖.jpg', '/images/都匀毛尖_yedi.jpg', '/images/都匀毛尖_tang.jpg', '/images/都匀毛尖_gancha.jpg'],
-  '采花毛尖': ['/images/采花毛尖.jpg', '/images/采花毛尖_yedi.jpg', '/images/采花毛尖_tang.jpg', '/images/采花毛尖_gancha.jpg'],
+  '绞股蓝茶': ['/images/绞股蓝茶_yedi.jpg', '/images/绞股蓝茶_gancha.jpg', '/images/绞股蓝茶_tang.jpg', '/images/绞股蓝茶.jpg'],
+  '安吉白茶': ['/images/安吉白茶_gancha.jpg', '/images/安吉白茶_tang.jpg', '/images/安吉白茶.jpg', '/images/安吉白茶_yedi.jpg'],
+  '都匀毛尖': ['/images/都匀毛尖.jpg', '/images/都匀毛尖_gancha.jpg', '/images/都匀毛尖_yedi.jpg', '/images/都匀毛尖_tang.jpg'],
+  '庐山云雾': ['/images/庐山云雾.jpg', '/images/庐山云雾_gancha.jpg', '/images/庐山云雾_tang.jpg', '/images/庐山云雾_yedi.jpg'],
+  '政和工夫': ['/images/政和工夫_tang.jpg', '/images/政和工夫_gancha.jpg', '/images/政和工夫.jpg', '/images/政和工夫_yedi.jpg'],
+  '坦洋工夫': ['/images/坦洋工夫_yedi.jpg', '/images/坦洋工夫_gancha.jpg', '/images/坦洋工夫.jpg', '/images/坦洋工夫_tang.jpg'],
+  '白琳工夫': ['/images/白琳工夫_gancha.jpg', '/images/白琳工夫_tang.jpg', '/images/白琳工夫.jpg', '/images/白琳工夫_yedi.jpg'],
+  '海堤红': ['/images/海堤红_yedi.jpg', '/images/海堤红_tang.jpg', '/images/海堤红.jpg', '/images/海堤红_gancha.jpg'],
   '金丝滇红': ['/images/金丝滇红.jpg', '/images/金丝滇红_yedi.jpg', '/images/金丝滇红_tang.jpg', '/images/金丝滇红_gancha.jpg'],
-  '金坛雀舌': ['/images/金坛雀舌.jpg', '/images/金坛雀舌_yedi.jpg', '/images/金坛雀舌_tang.jpg', '/images/金坛雀舌_gancha.jpg'],
-  '金银花茶': ['/images/金银花茶.jpg', '/images/金银花茶_yedi.jpg', '/images/金银花茶_tang.jpg', '/images/金银花茶_gancha.jpg'],
-  '金骏眉': ['/images/金骏眉.jpg', '/images/金骏眉_yedi.jpg', '/images/金骏眉_tang.jpg', '/images/金骏眉_gancha.jpg'],
-  '锡兰红茶': ['/images/锡兰红茶.jpg'],
-  '阿萨姆红茶': ['/images/阿萨姆红茶.jpg', '/images/阿萨姆红茶_yedi.jpg', '/images/阿萨姆红茶_tang.jpg', '/images/阿萨姆红茶_gancha.jpg'],
-  '阿里山乌龙': ['/images/阿里山乌龙.jpg', '/images/阿里山乌龙_yedi.jpg', '/images/阿里山乌龙_tang.jpg', '/images/阿里山乌龙_gancha.jpg'],
-  '陕红工夫': ['/images/陕红工夫.jpg', '/images/陕红工夫_yedi.jpg', '/images/陕红工夫_tang.jpg', '/images/陕红工夫_gancha.jpg'],
-  '雅安康砖': ['/images/雅安康砖.jpg', '/images/雅安康砖_yedi.jpg', '/images/雅安康砖_tang.jpg', '/images/雅安康砖_gancha.jpg'],
-  '雅安藏茶·金尖': ['/images/雅安藏茶·金尖.jpg', '/images/雅安藏茶·金尖_yedi.jpg', '/images/雅安藏茶·金尖_tang.jpg', '/images/雅安藏茶·金尖_gancha.jpg'],
-  '雨花茶': ['/images/雨花茶.jpg', '/images/雨花茶_yedi.jpg', '/images/雨花茶_tang.jpg'],
-  '雪水云绿': ['/images/雪水云绿.jpg'],
-  '雪青红茶': ['/images/雪青红茶.jpg', '/images/雪青红茶_yedi.jpg', '/images/雪青红茶_tang.jpg', '/images/雪青红茶_gancha.jpg'],
-  '霍山黄芽': ['/images/霍山黄芽.jpg', '/images/霍山黄芽_yedi.jpg', '/images/霍山黄芽_tang.jpg', '/images/霍山黄芽_gancha.jpg'],
-  '霞浦元宵茶': ['/images/霞浦元宵茶.jpg'],
-  '青砖茶': ['/images/青砖茶.jpg', '/images/青砖茶_yedi.jpg', '/images/青砖茶_tang.jpg', '/images/青砖茶_gancha.jpg'],
-  '青砖茶·米砖': ['/images/青砖茶·米砖.jpg', '/images/青砖茶·米砖_yedi.jpg', '/images/青砖茶·米砖_tang.jpg'],
-  '革登': ['/images/革登.jpg', '/images/革登_yedi.jpg', '/images/革登_tang.jpg', '/images/革登_gancha.jpg'],
+  '英德红茶-金毫': ['/images/英德红茶-金毫_gancha.jpg', '/images/英德红茶-金毫_yedi.jpg', '/images/英德红茶-金毫_tang.jpg', '/images/英德红茶-金毫.jpg'],
+  '老班章': ['/images/老班章_tang.jpg', '/images/老班章_gancha.jpg', '/images/老班章_yedi.jpg', '/images/老班章.jpg'],
+  '冰岛': ['/images/冰岛_yedi.jpg', '/images/冰岛_tang.jpg', '/images/冰岛_gancha.jpg', '/images/冰岛.jpg'],
+  '昔归': ['/images/昔归.jpg', '/images/昔归_tang.jpg', '/images/昔归_gancha.jpg', '/images/昔归_yedi.jpg'],
+  '刮风寨': ['/images/刮风寨_tang.jpg', '/images/刮风寨_yedi.jpg', '/images/刮风寨_gancha.jpg', '/images/刮风寨.jpg'],
+  '曼松': ['/images/曼松_tang.jpg', '/images/曼松.jpg', '/images/曼松_yedi.jpg', '/images/曼松_gancha.jpg'],
+  '倚邦': ['/images/倚邦.jpg', '/images/倚邦_tang.jpg', '/images/倚邦_gancha.jpg', '/images/倚邦_yedi.jpg'],
+  '景迈山': ['/images/景迈山.jpg', '/images/景迈山_yedi.jpg', '/images/景迈山_gancha.jpg', '/images/景迈山_tang.jpg'],
+  '南糯山': ['/images/南糯山_gancha.jpg', '/images/南糯山_yedi.jpg', '/images/南糯山_tang.jpg', '/images/南糯山.jpg'],
+  '凤凰水仙': ['/images/凤凰水仙_tang.jpg', '/images/凤凰水仙.jpg', '/images/凤凰水仙_yedi.jpg'],
+  '诏安八仙': ['/images/诏安八仙_tang.jpg', '/images/诏安八仙.jpg', '/images/诏安八仙_yedi.jpg', '/images/诏安八仙_gancha.jpg'],
+  '岭头单丛': ['/images/岭头单丛_tang.jpg', '/images/岭头单丛_gancha.jpg', '/images/岭头单丛.jpg', '/images/岭头单丛_yedi.jpg'],
+  '阿里山乌龙': ['/images/阿里山乌龙_tang.jpg', '/images/阿里山乌龙.jpg', '/images/阿里山乌龙_yedi.jpg', '/images/阿里山乌龙_gancha.jpg'],
+  '梨山茶': ['/images/梨山茶.jpg', '/images/梨山茶_yedi.jpg', '/images/梨山茶_tang.jpg'],
+  '大禹岭茶': ['/images/大禹岭茶_yedi.jpg', '/images/大禹岭茶_tang.jpg', '/images/大禹岭茶_gancha.jpg', '/images/大禹岭茶.jpg'],
+  '松柏长青': ['/images/松柏长青_yedi.jpg', '/images/松柏长青.jpg', '/images/松柏长青_tang.jpg', '/images/松柏长青_gancha.jpg'],
+  '凤凰单丛-鸭屎香': ['/images/凤凰单丛-鸭屎香_tang.jpg', '/images/凤凰单丛-鸭屎香_yedi.jpg', '/images/凤凰单丛-鸭屎香.jpg', '/images/凤凰单丛-鸭屎香_gancha.jpg'],
+  '建阳白茶': ['/images/建阳白茶_tang.jpg', '/images/建阳白茶.jpg', '/images/建阳白茶_gancha.jpg', '/images/建阳白茶_yedi.jpg'],
+  '蒙顶黄芽': ['/images/蒙顶黄芽_yedi.jpg', '/images/蒙顶黄芽_gancha.jpg', '/images/蒙顶黄芽.jpg', '/images/蒙顶黄芽_tang.jpg'],
+  '珠兰花茶': ['/images/珠兰花茶_tang.jpg', '/images/珠兰花茶_yedi.jpg', '/images/珠兰花茶_gancha.jpg', '/images/珠兰花茶.jpg'],
+  '玫瑰红茶': ['/images/玫瑰红茶_yedi.jpg', '/images/玫瑰红茶_gancha.jpg', '/images/玫瑰红茶_tang.jpg', '/images/玫瑰红茶.jpg'],
   '顾渚紫笋': ['/images/顾渚紫笋.jpg'],
-  '黄山毛峰': ['/images/黄山毛峰.jpg', '/images/黄山毛峰_yedi.jpg', '/images/黄山毛峰_tang.jpg', '/images/黄山毛峰_gancha.jpg'],
-  '黄山绿牡丹': ['/images/黄山绿牡丹.jpg', '/images/黄山绿牡丹_yedi.jpg', '/images/黄山绿牡丹_tang.jpg', '/images/黄山绿牡丹_gancha.jpg'],
-  '黔红贵茶': ['/images/黔红贵茶.jpg', '/images/黔红贵茶_yedi.jpg', '/images/黔红贵茶_tang.jpg'],
-  '黔红金针': ['/images/黔红金针.jpg', '/images/黔红金针_yedi.jpg', '/images/黔红金针_tang.jpg', '/images/黔红金针_gancha.jpg'],
+  '临海蟠毫': ['/images/临海蟠毫_tang.jpg', '/images/临海蟠毫_gancha.jpg', '/images/临海蟠毫_yedi.jpg', '/images/临海蟠毫.jpg'],
+  '望海茶': ['/images/望海茶.jpg', '/images/望海茶_yedi.jpg', '/images/望海茶_gancha.jpg', '/images/望海茶_tang.jpg'],
+  '雪水云绿': ['/images/雪水云绿.jpg'],
+  '千岛银针': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '乌牛早': ['/images/乌牛早_gancha.jpg', '/images/乌牛早_tang.jpg', '/images/乌牛早_yedi.jpg', '/images/乌牛早.jpg'],
+  '平水珠茶': ['/images/平水珠茶_gancha.jpg', '/images/平水珠茶_yedi.jpg', '/images/平水珠茶.jpg', '/images/平水珠茶_tang.jpg'],
+  '兰溪毛峰': ['/images/兰溪毛峰_yedi.jpg', '/images/兰溪毛峰_gancha.jpg', '/images/兰溪毛峰_tang.jpg', '/images/兰溪毛峰.jpg'],
+  '东白春芽': ['/images/东白春芽_gancha.jpg', '/images/东白春芽_yedi.jpg', '/images/东白春芽_tang.jpg', '/images/东白春芽.jpg'],
+  '婺州举岩': ['/images/婺州举岩.jpg'],
+  '休宁松萝': ['/images/休宁松萝_tang.jpg', '/images/休宁松萝.jpg', '/images/休宁松萝_gancha.jpg', '/images/休宁松萝_yedi.jpg'],
+  '敬亭绿雪': ['/images/敬亭绿雪_tang.jpg', '/images/敬亭绿雪_gancha.jpg', '/images/敬亭绿雪_yedi.jpg', '/images/敬亭绿雪.jpg'],
+  '黄山绿牡丹': ['/images/黄山绿牡丹_gancha.jpg', '/images/黄山绿牡丹_tang.jpg', '/images/黄山绿牡丹.jpg', '/images/黄山绿牡丹_yedi.jpg'],
+  '天方富硒茶': ['/images/天方富硒茶.jpg'],
+  '瑞草魁': ['/images/瑞草魁_gancha.jpg', '/images/瑞草魁_yedi.jpg', '/images/瑞草魁_tang.jpg', '/images/瑞草魁.jpg'],
+  '雨花茶': ['/images/雨花茶_tang.jpg', '/images/雨花茶_yedi.jpg', '/images/雨花茶.jpg'],
+  '金坛雀舌': ['/images/金坛雀舌_tang.jpg', '/images/金坛雀舌_gancha.jpg', '/images/金坛雀舌_yedi.jpg', '/images/金坛雀舌.jpg'],
+  '太湖翠竹': ['/images/太湖翠竹_tang.jpg', '/images/太湖翠竹_yedi.jpg', '/images/太湖翠竹_gancha.jpg', '/images/太湖翠竹.jpg'],
+  '湖红工夫': ['/images/湖红工夫.jpg'],
+  '黔红金针': ['/images/黔红金针_yedi.jpg', '/images/黔红金针_tang.jpg', '/images/黔红金针.jpg', '/images/黔红金针_gancha.jpg'],
+  '桂红袍': ['/images/桂红袍_yedi.jpg', '/images/桂红袍_tang.jpg', '/images/桂红袍.jpg', '/images/桂红袍_gancha.jpg'],
+  '越红工夫': ['/images/越红工夫.jpg', '/images/越红工夫_yedi.jpg'],
+  '陕红工夫': ['/images/陕红工夫_yedi.jpg', '/images/陕红工夫_tang.jpg', '/images/陕红工夫.jpg', '/images/陕红工夫_gancha.jpg'],
+  '日照红茶': ['/images/日照红茶_gancha.jpg', '/images/日照红茶.jpg', '/images/日照红茶_yedi.jpg', '/images/日照红茶_tang.jpg'],
+  '信阳红': ['/images/信阳红_gancha.jpg', '/images/信阳红_tang.jpg', '/images/信阳红.jpg', '/images/信阳红_yedi.jpg'],
+  '遵义红': ['/images/遵义红_yedi.jpg', '/images/遵义红.jpg', '/images/遵义红_gancha.jpg', '/images/遵义红_tang.jpg'],
+  '昭平红': ['/images/昭平红.jpg'],
+  '宜兴红茶': ['/images/宜兴红茶.jpg', '/images/宜兴红茶_gancha.jpg', '/images/宜兴红茶_yedi.jpg', '/images/宜兴红茶_tang.jpg'],
+  '恩施红': ['/images/恩施红.jpg', '/images/恩施红_tang.jpg', '/images/恩施红_yedi.jpg', '/images/恩施红_gancha.jpg'],
+  '政和红茶': ['/images/政和红茶_gancha.jpg', '/images/政和红茶_yedi.jpg', '/images/政和红茶.jpg', '/images/政和红茶_tang.jpg'],
+  '永州红茶': ['/images/永州红茶_tang.jpg', '/images/永州红茶_gancha.jpg', '/images/永州红茶_yedi.jpg', '/images/永州红茶.jpg'],
+  '大悟红茶': ['/images/大悟红茶_gancha.jpg', '/images/大悟红茶_tang.jpg', '/images/大悟红茶_yedi.jpg', '/images/大悟红茶.jpg'],
+  '五指山红茶': ['/images/五指山红茶_tang.jpg', '/images/五指山红茶.jpg', '/images/五指山红茶_gancha.jpg', '/images/五指山红茶_yedi.jpg'],
+  '英山红茶': ['/images/英山红茶.jpg', '/images/英山红茶_gancha.jpg', '/images/英山红茶_tang.jpg', '/images/英山红茶_yedi.jpg'],
+  '雪青红茶': ['/images/雪青红茶_tang.jpg', '/images/雪青红茶_gancha.jpg', '/images/雪青红茶.jpg', '/images/雪青红茶_yedi.jpg'],
+  '川红工夫': ['/images/川红工夫_yedi.jpg', '/images/川红工夫.jpg', '/images/川红工夫_tang.jpg'],
+  '宁红工夫': ['/images/宁红工夫.jpg'],
+  '滇红金芽': ['/images/滇红金芽.jpg', '/images/滇红金芽_yedi.jpg', '/images/滇红金芽_tang.jpg'],
+  '日月潭红茶': ['/images/日月潭红茶_tang.jpg', '/images/日月潭红茶_yedi.jpg', '/images/日月潭红茶.jpg', '/images/日月潭红茶_gancha.jpg'],
+  '竹叶青红茶': ['/images/竹叶青红茶.jpg', '/images/竹叶青红茶_gancha.jpg', '/images/竹叶青红茶_yedi.jpg', '/images/竹叶青红茶_tang.jpg'],
+  '大吉岭红茶': ['/images/大吉岭红茶_yedi.jpg', '/images/大吉岭红茶_tang.jpg', '/images/大吉岭红茶.jpg'],
+  '阿萨姆红茶': ['/images/阿萨姆红茶_gancha.jpg', '/images/阿萨姆红茶_tang.jpg', '/images/阿萨姆红茶_yedi.jpg', '/images/阿萨姆红茶.jpg'],
+  '锡兰红茶': ['/images/锡兰红茶.jpg'],
+  '肯尼亚红茶': ['/images/肯尼亚红茶.jpg', '/images/肯尼亚红茶_yedi.jpg', '/images/肯尼亚红茶_tang.jpg', '/images/肯尼亚红茶_gancha.jpg'],
+  '潮州凤凰红茶': ['/images/潮州凤凰红茶_tang.jpg', '/images/潮州凤凰红茶_yedi.jpg', '/images/潮州凤凰红茶.jpg'],
+  '安化红茶': ['/images/安化红茶_yedi.jpg', '/images/安化红茶.jpg', '/images/安化红茶_tang.jpg', '/images/安化红茶_gancha.jpg'],
+  '梧州六堡茶红茶': ['/images/梧州六堡茶红茶_tang.jpg', '/images/梧州六堡茶红茶_gancha.jpg', '/images/梧州六堡茶红茶.jpg', '/images/梧州六堡茶红茶_yedi.jpg'],
+  '黔红贵茶': ['/images/黔红贵茶_tang.jpg', '/images/黔红贵茶_yedi.jpg', '/images/黔红贵茶.jpg'],
+  '武夷山野茶': ['/images/武夷山野茶_tang.jpg', '/images/武夷山野茶_yedi.jpg', '/images/武夷山野茶_gancha.jpg', '/images/武夷山野茶.jpg'],
+  '荔枝红茶': ['/images/荔枝红茶.jpg', '/images/荔枝红茶_gancha.jpg', '/images/荔枝红茶_tang.jpg', '/images/荔枝红茶_yedi.jpg'],
+  '荒野银针': ['/images/荒野银针_yedi.jpg', '/images/荒野银针_gancha.jpg', '/images/荒野银针.jpg', '/images/荒野银针_tang.jpg'],
+  '特级白牡丹': ['/images/特级白牡丹.jpg', '/images/特级白牡丹_yedi.jpg', '/images/特级白牡丹_tang.jpg'],
+  '老寿眉': ['/images/老寿眉.jpg', '/images/老寿眉_gancha.jpg', '/images/老寿眉_yedi.jpg', '/images/老寿眉_tang.jpg'],
+  '白露茶': ['/images/白露茶_yedi.jpg', '/images/白露茶_gancha.jpg', '/images/白露茶.jpg', '/images/白露茶_tang.jpg'],
+  '寒露茶': ['/images/寒露茶_yedi.jpg', '/images/寒露茶_gancha.jpg', '/images/寒露茶_tang.jpg', '/images/寒露茶.jpg'],
+  '政和白茶': ['/images/政和白茶.jpg', '/images/政和白茶_yedi.jpg', '/images/政和白茶_gancha.jpg', '/images/政和白茶_tang.jpg'],
+  '云南古树白茶': ['/images/云南古树白茶_gancha.jpg', '/images/云南古树白茶.jpg', '/images/云南古树白茶_yedi.jpg', '/images/云南古树白茶_tang.jpg'],
+  '峨眉山白茶': ['/images/峨眉山白茶.jpg', '/images/峨眉山白茶_yedi.jpg', '/images/峨眉山白茶_gancha.jpg', '/images/峨眉山白茶_tang.jpg'],
+  '正安白茶': ['/images/正安白茶_yedi.jpg', '/images/正安白茶_gancha.jpg', '/images/正安白茶.jpg', '/images/正安白茶_tang.jpg'],
+  '福安白茶': ['/images/福安白茶.jpg', '/images/福安白茶_tang.jpg', '/images/福安白茶_gancha.jpg', '/images/福安白茶_yedi.jpg'],
+  '六堡茶·特级': ['/images/六堡茶·特级_gancha.jpg', '/images/六堡茶·特级_yedi.jpg', '/images/六堡茶·特级.jpg', '/images/六堡茶·特级_tang.jpg'],
+  '雅安藏茶·金尖': ['/images/雅安藏茶·金尖_gancha.jpg', '/images/雅安藏茶·金尖.jpg', '/images/雅安藏茶·金尖_yedi.jpg', '/images/雅安藏茶·金尖_tang.jpg'],
+  '老青茶·陈香': ['/images/老青茶·陈香_gancha.jpg', '/images/老青茶·陈香_yedi.jpg', '/images/老青茶·陈香_tang.jpg', '/images/老青茶·陈香.jpg'],
+  '安化茯砖·金花': ['/images/安化茯砖·金花_tang.jpg', '/images/安化茯砖·金花.jpg', '/images/安化茯砖·金花_yedi.jpg'],
+  '普洱古树·生茶': ['/images/普洱古树·生茶_yedi.jpg', '/images/普洱古树·生茶.jpg', '/images/普洱古树·生茶_tang.jpg'],
+  '青砖茶·米砖': ['/images/青砖茶·米砖_tang.jpg', '/images/青砖茶·米砖_yedi.jpg', '/images/青砖茶·米砖.jpg'],
+  '云南熟砖·宫廷': ['/images/云南熟砖·宫廷_gancha.jpg', '/images/云南熟砖·宫廷_tang.jpg', '/images/云南熟砖·宫廷.jpg', '/images/云南熟砖·宫廷_yedi.jpg'],
+  '泾阳茯茶·手筑': ['/images/泾阳茯茶·手筑_yedi.jpg', '/images/泾阳茯茶·手筑_tang.jpg', '/images/泾阳茯茶·手筑.jpg', '/images/泾阳茯茶·手筑_gancha.jpg'],
+  '梧州六堡·老茶': ['/images/梧州六堡·老茶_gancha.jpg', '/images/梧州六堡·老茶_tang.jpg', '/images/梧州六堡·老茶_yedi.jpg', '/images/梧州六堡·老茶.jpg'],
+  '雅安康砖': ['/images/雅安康砖_gancha.jpg', '/images/雅安康砖.jpg', '/images/雅安康砖_tang.jpg', '/images/雅安康砖_yedi.jpg'],
+  '普洱紫芽': ['/images/普洱紫芽_tang.jpg', '/images/普洱紫芽.jpg', '/images/普洱紫芽_gancha.jpg', '/images/普洱紫芽_yedi.jpg'],
+  '千家寨': ['/images/千家寨.jpg', '/images/千家寨_gancha.jpg', '/images/千家寨_tang.jpg', '/images/千家寨_yedi.jpg'],
+  '景迈山古树': ['/images/景迈山古树_yedi.jpg', '/images/景迈山古树_tang.jpg', '/images/景迈山古树.jpg', '/images/景迈山古树_gancha.jpg'],
+  '邦崴': ['/images/邦崴.jpg', '/images/邦崴_gancha.jpg', '/images/邦崴_yedi.jpg', '/images/邦崴_tang.jpg'],
+  '邦苯': ['/images/邦苯_yedi.jpg', '/images/邦苯.jpg', '/images/邦苯_tang.jpg', '/images/邦苯_gancha.jpg'],
+  '那卡': ['/images/那卡.jpg', '/images/那卡_yedi.jpg', '/images/那卡_tang.jpg'],
+  '广别': ['/images/广别_tang.jpg', '/images/广别_gancha.jpg', '/images/广别_yedi.jpg', '/images/广别.jpg'],
+  '莽枝': ['/images/莽枝_gancha.jpg', '/images/莽枝_yedi.jpg', '/images/莽枝_tang.jpg', '/images/莽枝.jpg'],
+  '革登': ['/images/革登_gancha.jpg', '/images/革登_tang.jpg', '/images/革登.jpg', '/images/革登_yedi.jpg'],
+  '远安黄茶': ['/images/远安黄茶_tang.jpg', '/images/远安黄茶.jpg', '/images/远安黄茶_yedi.jpg', '/images/远安黄茶_gancha.jpg'],
+  '莫干黄芽': ['/images/莫干黄芽.jpg', '/images/莫干黄芽_yedi.jpg', '/images/莫干黄芽_gancha.jpg', '/images/莫干黄芽_tang.jpg'],
+  '大叶青': ['/images/大叶青_gancha.jpg', '/images/大叶青.jpg', '/images/大叶青_yedi.jpg', '/images/大叶青_tang.jpg'],
+  '温州黄汤': ['/images/温州黄汤_tang.jpg', '/images/温州黄汤_yedi.jpg', '/images/温州黄汤_gancha.jpg', '/images/温州黄汤.jpg'],
+  '贵定云雾黄芽': ['/images/贵定云雾黄芽_yedi.jpg', '/images/贵定云雾黄芽.jpg', '/images/贵定云雾黄芽_tang.jpg', '/images/贵定云雾黄芽_gancha.jpg'],
+  '昭君白茶': ['/images/昭君白茶_tang.jpg', '/images/昭君白茶_yedi.jpg', '/images/昭君白茶.jpg', '/images/昭君白茶_gancha.jpg'],
+  '文君绿茶': ['/images/文君绿茶_tang.jpg', '/images/文君绿茶.jpg', '/images/文君绿茶_yedi.jpg', '/images/文君绿茶_gancha.jpg'],
+  '太行毛尖': ['/images/信阳毛尖_yedi.jpg', '/images/信阳毛尖.jpg', '/images/信阳毛尖_gancha.jpg', '/images/信阳毛尖_tang.jpg'],
+  '燕山翠茗': ['/images/信阳毛尖_yedi.jpg', '/images/信阳毛尖.jpg', '/images/信阳毛尖_gancha.jpg', '/images/信阳毛尖_tang.jpg'],
+  '晋北红茶': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '张库茶道': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '辽红': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '凤城老窖': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '长白山红松': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '吉林白茶': ['/images/月光白.jpg', '/images/月光白_yedi.jpg', '/images/月光白_gancha.jpg', '/images/月光白_tang.jpg'],
+  '五大连池茶': ['/images/月光白.jpg', '/images/月光白_yedi.jpg', '/images/月光白_gancha.jpg', '/images/月光白_tang.jpg'],
+  '小兴安岭茶': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '古丈毛尖': ['/images/古丈毛尖.jpg', '/images/古丈毛尖_gancha.jpg', '/images/古丈毛尖_yedi.jpg', '/images/古丈毛尖_tang.jpg'],
+  '石门银峰': ['/images/安化松针_tang.jpg', '/images/安化松针.jpg', '/images/安化松针_yedi.jpg'],
+  '桐柏玉叶': ['/images/信阳毛尖_yedi.jpg', '/images/信阳毛尖.jpg', '/images/信阳毛尖_gancha.jpg', '/images/信阳毛尖_tang.jpg'],
+  '仰天雪绿': ['/images/信阳毛尖_yedi.jpg', '/images/信阳毛尖.jpg', '/images/信阳毛尖_gancha.jpg', '/images/信阳毛尖_tang.jpg'],
+  '狗牯脑茶': ['/images/庐山云雾.jpg', '/images/庐山云雾_gancha.jpg', '/images/庐山云雾_tang.jpg', '/images/庐山云雾_yedi.jpg'],
+  '靖安白茶': ['/images/正安白茶_yedi.jpg', '/images/正安白茶_gancha.jpg', '/images/正安白茶.jpg', '/images/正安白茶_tang.jpg'],
+  '采花毛尖': ['/images/采花毛尖_gancha.jpg', '/images/采花毛尖_yedi.jpg', '/images/采花毛尖_tang.jpg', '/images/采花毛尖.jpg'],
+  '邓村绿茶': ['/images/恩施玉露_yedi.jpg', '/images/恩施玉露_tang.jpg', '/images/恩施玉露.jpg'],
+  '龟山岩绿': ['/images/安化松针_tang.jpg', '/images/安化松针.jpg', '/images/安化松针_yedi.jpg'],
+  '峡州碧峰': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '安化松针': ['/images/安化松针_tang.jpg', '/images/安化松针.jpg', '/images/安化松针_yedi.jpg'],
+  '沅陵碣滩茶': ['/images/恩施玉露_yedi.jpg', '/images/恩施玉露_tang.jpg', '/images/恩施玉露.jpg'],
+  '南岳云雾': ['/images/庐山云雾.jpg', '/images/庐山云雾_gancha.jpg', '/images/庐山云雾_tang.jpg', '/images/庐山云雾_yedi.jpg'],
+  '高桥银峰': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '婺源茗眉': ['/images/婺源毛尖_tang.jpg', '/images/婺源毛尖_gancha.jpg', '/images/婺源毛尖.jpg', '/images/婺源毛尖_yedi.jpg'],
+  '浮梁仙芝': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '金刚碧绿': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '圣水绿茶': ['/images/英山云雾茶_yedi.jpg', '/images/英山云雾茶_gancha.jpg', '/images/英山云雾茶_tang.jpg', '/images/英山云雾茶.jpg'],
+  '双井绿': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '麻姑茶': ['/images/庐山云雾.jpg', '/images/庐山云雾_gancha.jpg', '/images/庐山云雾_tang.jpg', '/images/庐山云雾_yedi.jpg'],
+  '上饶白眉': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '远安鹿苑': ['/images/远安黄茶_tang.jpg', '/images/远安黄茶.jpg', '/images/远安黄茶_yedi.jpg', '/images/远安黄茶_gancha.jpg'],
+  '千岛玉叶': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '雁荡毛峰': ['/images/黄山毛峰.jpg', '/images/黄山毛峰_tang.jpg', '/images/黄山毛峰_yedi.jpg', '/images/黄山毛峰_gancha.jpg'],
+  '松阳银猴': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '普陀佛茶': ['https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huangshan_Maofeng_Tea.jpg/440px-Huangshan_Maofeng_Tea.jpg'],
+  '金山翠芽': ['/images/雨花茶_tang.jpg', '/images/雨花茶_yedi.jpg', '/images/雨花茶.jpg'],
+  '扬州绿杨春': ['/images/雨花茶_tang.jpg', '/images/雨花茶_yedi.jpg', '/images/雨花茶.jpg'],
+  '无锡毫茶': ['/images/雨花茶_tang.jpg', '/images/雨花茶_yedi.jpg', '/images/雨花茶.jpg'],
+  '南京雨花茶': ['/images/雨花茶_tang.jpg', '/images/雨花茶_yedi.jpg', '/images/雨花茶.jpg'],
+  '岳西翠兰': ['/images/黄山毛峰.jpg', '/images/黄山毛峰_tang.jpg', '/images/黄山毛峰_yedi.jpg', '/images/黄山毛峰_gancha.jpg'],
+  '桐城小花': ['/images/黄山毛峰.jpg', '/images/黄山毛峰_tang.jpg', '/images/黄山毛峰_yedi.jpg', '/images/黄山毛峰_gancha.jpg'],
+  '舒城兰花': ['/images/黄山毛峰.jpg', '/images/黄山毛峰_tang.jpg', '/images/黄山毛峰_yedi.jpg', '/images/黄山毛峰_gancha.jpg'],
+  '闽北水仙': ['/images/凤凰水仙_tang.jpg', '/images/凤凰水仙.jpg', '/images/凤凰水仙_yedi.jpg'],
+  '福州茉莉': ['/images/茉莉花茶_gancha.jpg', '/images/茉莉花茶_tang.jpg', '/images/茉莉花茶.jpg', '/images/茉莉花茶_yedi.jpg'],
+  '霞浦元宵茶': ['/images/霞浦元宵茶.jpg'],
+  '漳平水仙': ['/images/凤凰水仙_tang.jpg', '/images/凤凰水仙.jpg', '/images/凤凰水仙_yedi.jpg'],
+  '上犹毛尖': ['/images/千岛银针_tang.jpg', '/images/千岛银针_gancha.jpg', '/images/千岛银针.jpg', '/images/千岛银针_yedi.jpg'],
+  '瑞金白茶': ['/images/白牡丹_tang.jpg', '/images/白牡丹.jpg', '/images/白牡丹_gancha.jpg', '/images/白牡丹_yedi.jpg'],
+  '井冈翠绿': ['/images/井冈山翠绿茶.jpg'],
+  '峨眉毛峰': ['/images/峨眉山白茶.jpg', '/images/峨眉山白茶_yedi.jpg', '/images/峨眉山白茶_gancha.jpg', '/images/峨眉山白茶_tang.jpg'],
+  '巴南银针': ['/images/永川秀芽_yedi.jpg', '/images/永川秀芽_gancha.jpg', '/images/永川秀芽.jpg', '/images/永川秀芽_tang.jpg'],
+  '永川秀芽': ['/images/永川秀芽_yedi.jpg', '/images/永川秀芽_gancha.jpg', '/images/永川秀芽.jpg', '/images/永川秀芽_tang.jpg'],
+  '南川红碎茶': ['/images/川红_tang.jpg', '/images/川红_yedi.jpg', '/images/川红.jpg', '/images/川红_gancha.jpg'],
+  '湄潭翠芽': ['/images/都匀毛尖.jpg', '/images/都匀毛尖_gancha.jpg', '/images/都匀毛尖_yedi.jpg', '/images/都匀毛尖_tang.jpg'],
+  '梵净山翠峰': ['/images/遵义红_yedi.jpg', '/images/遵义红.jpg', '/images/遵义红_gancha.jpg', '/images/遵义红_tang.jpg'],
+  '石阡苔茶': ['/images/遵义红_yedi.jpg', '/images/遵义红.jpg', '/images/遵义红_gancha.jpg', '/images/遵义红_tang.jpg'],
+  '普洱茶': ['/images/云南普洱_tang.jpg', '/images/云南普洱_yedi.jpg', '/images/云南普洱.jpg'],
+  '下关沱茶': ['/images/云南普洱_tang.jpg', '/images/云南普洱_yedi.jpg', '/images/云南普洱.jpg'],
+  '南糯白毫': ['/images/云南普洱_tang.jpg', '/images/云南普洱_yedi.jpg', '/images/云南普洱.jpg'],
+  '景迈古茶': ['/images/景迈山.jpg', '/images/景迈山_yedi.jpg', '/images/景迈山_gancha.jpg', '/images/景迈山_tang.jpg'],
+  '宝洪茶': ['/images/碧螺春.jpg', '/images/碧螺春_tang.jpg', '/images/碧螺春_yedi.jpg'],
+  '潮州单丛': ['/images/凤凰单丛.jpg', '/images/凤凰单丛_yedi.jpg', '/images/凤凰单丛_gancha.jpg', '/images/凤凰单丛_tang.jpg'],
+  '仁化银毫': ['/images/英德红茶_gancha.jpg', '/images/英德红茶.jpg', '/images/英德红茶_yedi.jpg', '/images/英德红茶_tang.jpg'],
+  '乐昌白毛茶': ['/images/英德红茶_gancha.jpg', '/images/英德红茶.jpg', '/images/英德红茶_yedi.jpg', '/images/英德红茶_tang.jpg'],
+  '横县茉莉花茶': ['/images/茉莉花茶_gancha.jpg', '/images/茉莉花茶_tang.jpg', '/images/茉莉花茶.jpg', '/images/茉莉花茶_yedi.jpg'],
+  '桂林毛尖': ['/images/白毫银针.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg', '/images/白毫银针_yedi.jpg'],
+  '凌云白毫': ['/images/白毫银针.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg', '/images/白毫银针_yedi.jpg'],
+  '昭平红茶': ['/images/昭平红.jpg'],
+  '白沙绿茶': ['/images/白毫银针.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg', '/images/白毫银针_yedi.jpg'],
+  '平和白芽奇兰': ['/images/白芽奇兰_gancha.jpg', '/images/白芽奇兰_tang.jpg', '/images/白芽奇兰_yedi.jpg', '/images/白芽奇兰.jpg'],
+  '阿里山茶': ['/images/梨山茶.jpg', '/images/梨山茶_yedi.jpg', '/images/梨山茶_tang.jpg'],
+  '紫阳毛尖': ['/images/紫阳毛尖_gancha.jpg', '/images/紫阳毛尖.jpg', '/images/紫阳毛尖_tang.jpg', '/images/紫阳毛尖_yedi.jpg'],
+  '汉中仙毫': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '商南泉茗': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '陇南绿茶': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '文县绿茶': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '康砖茶': ['/images/藏茶_yedi.jpg', '/images/藏茶.jpg', '/images/藏茶_tang.jpg', '/images/藏茶_gancha.jpg'],
+  '青海砖茶': ['/images/藏茶_yedi.jpg', '/images/藏茶.jpg', '/images/藏茶_tang.jpg', '/images/藏茶_gancha.jpg'],
+  '八宝茶配料': ['/images/苦丁茶_gancha.jpg', '/images/苦丁茶_yedi.jpg', '/images/苦丁茶_tang.jpg', '/images/苦丁茶.jpg'],
+  '和田红柳茶': ['/images/苦丁茶_gancha.jpg', '/images/苦丁茶_yedi.jpg', '/images/苦丁茶_tang.jpg', '/images/苦丁茶.jpg'],
+  '印度大吉岭红茶': ['/images/大吉岭红茶_yedi.jpg', '/images/大吉岭红茶_tang.jpg', '/images/大吉岭红茶.jpg'],
+  '印度阿萨姆红茶': ['/images/阿萨姆红茶_gancha.jpg', '/images/阿萨姆红茶_tang.jpg', '/images/阿萨姆红茶_yedi.jpg', '/images/阿萨姆红茶.jpg'],
+  '斯里兰卡锡兰红茶': ['/images/锡兰红茶.jpg'],
+  '日本抹茶': ['/images/碧螺春.jpg', '/images/碧螺春_tang.jpg', '/images/碧螺春_yedi.jpg'],
+  '日本煎茶': ['/images/碧螺春.jpg', '/images/碧螺春_tang.jpg', '/images/碧螺春_yedi.jpg'],
+  '日本玉露': ['/images/碧螺春.jpg', '/images/碧螺春_tang.jpg', '/images/碧螺春_yedi.jpg'],
+  '英国伯爵红茶': ['/images/锡兰红茶.jpg'],
+  '越南河内茶': ['/images/英德红茶_gancha.jpg', '/images/英德红茶.jpg', '/images/英德红茶_yedi.jpg', '/images/英德红茶_tang.jpg'],
+  '泰国冰茶': ['/images/英德红茶_gancha.jpg', '/images/英德红茶.jpg', '/images/英德红茶_yedi.jpg', '/images/英德红茶_tang.jpg'],
+  '客家炒茶': ['/images/凤凰单丛.jpg', '/images/凤凰单丛_yedi.jpg', '/images/凤凰单丛_gancha.jpg', '/images/凤凰单丛_tang.jpg'],
+  '桂平西山茶': ['/images/白毫银针.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg', '/images/白毫银针_yedi.jpg'],
+  '覃塘毛尖': ['/images/白毫银针.jpg', '/images/白毫银针_tang.jpg', '/images/白毫银针_gancha.jpg', '/images/白毫银针_yedi.jpg'],
+  '水满茶': ['/images/五指山红茶_tang.jpg', '/images/五指山红茶.jpg', '/images/五指山红茶_gancha.jpg', '/images/五指山红茶_yedi.jpg'],
+  '武夷肉桂': ['/images/武夷岩茶_tang.jpg', '/images/武夷岩茶_yedi.jpg', '/images/武夷岩茶.jpg'],
+  '金萱茶': ['/images/白芽奇兰_gancha.jpg', '/images/白芽奇兰_tang.jpg', '/images/白芽奇兰_yedi.jpg', '/images/白芽奇兰.jpg'],
+  '四季春茶': ['/images/白芽奇兰_gancha.jpg', '/images/白芽奇兰_tang.jpg', '/images/白芽奇兰_yedi.jpg', '/images/白芽奇兰.jpg'],
+  '杉林溪茶': ['/images/梨山茶.jpg', '/images/梨山茶_yedi.jpg', '/images/梨山茶_tang.jpg'],
+  '午子仙毫': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '秦巴雾毫': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '碧口龙井': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '康县龙井': ['/images/汉中仙毫_gancha.jpg', '/images/汉中仙毫_tang.jpg', '/images/汉中仙毫_yedi.jpg', '/images/汉中仙毫.jpg'],
+  '青海茯茶': ['/images/藏茶_yedi.jpg', '/images/藏茶.jpg', '/images/藏茶_tang.jpg', '/images/藏茶_gancha.jpg'],
+  '枸杞芽茶': ['/images/苦丁茶_gancha.jpg', '/images/苦丁茶_yedi.jpg', '/images/苦丁茶_tang.jpg', '/images/苦丁茶.jpg'],
+  '尼泊尔红茶': ['/images/大吉岭红茶_yedi.jpg', '/images/大吉岭红茶_tang.jpg', '/images/大吉岭红茶.jpg'],
+  '土耳其红茶': ['/images/肯尼亚红茶.jpg', '/images/肯尼亚红茶_yedi.jpg', '/images/肯尼亚红茶_tang.jpg', '/images/肯尼亚红茶_gancha.jpg'],
+  '阿根廷马黛茶': ['/images/肯尼亚红茶.jpg', '/images/肯尼亚红茶_yedi.jpg', '/images/肯尼亚红茶_tang.jpg', '/images/肯尼亚红茶_gancha.jpg'],
+  '韩国传统绿茶': ['/images/碧螺春.jpg', '/images/碧螺春_tang.jpg', '/images/碧螺春_yedi.jpg'],
+  '缅甸红茶': ['/images/滇红.jpg', '/images/滇红_yedi.jpg', '/images/滇红_tang.jpg', '/images/滇红_gancha.jpg'],
+  '马拉维红茶': ['/images/滇红.jpg', '/images/滇红_yedi.jpg', '/images/滇红_tang.jpg', '/images/滇红_gancha.jpg'],
+  '老挝茶': ['/images/云南普洱_tang.jpg', '/images/云南普洱_yedi.jpg', '/images/云南普洱.jpg'],
+  '印尼红茶': ['/images/滇红.jpg', '/images/滇红_yedi.jpg', '/images/滇红_tang.jpg', '/images/滇红_gancha.jpg'],
+  '摩洛哥薄荷茶': ['/images/珠兰花茶_tang.jpg', '/images/珠兰花茶_yedi.jpg', '/images/珠兰花茶_gancha.jpg', '/images/珠兰花茶.jpg']
 };
+
+
   if (WIKI_IMAGES[tea.name]) return WIKI_IMAGES[tea.name];
   // 按茶类默认图
   const typeDefault = {
@@ -3636,7 +3727,7 @@ function renderRecentGrid() {
       <span class="tea-type-badge">${tea.type}</span>
       <span class="tea-grade-badge">${tea.grade}</span>
       <div class="tea-body">
-        <div class="tea-name">${tea.name}</div>
+        <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
         <div class="tea-origin">📍 ${tea.origin}</div>
         <div class="tea-desc">${tea.desc}</div>
       </div>
@@ -4487,7 +4578,7 @@ window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; t
     var modalOverlay = document.querySelector('.modal-overlay');
     if (modalOverlay) observer.observe(modalOverlay, {attributes:true, attributeFilter:['class']});
 
-    console.log('🍵 茶叶百科 v5.0 功能已加载：茶汤色卡 | 五行可视化 | 茶山地图 | 今日茶史 | 收藏标签 | 饮茶记录');
+    console.log('🍵 茶叶百科 v5.1 功能已加载：茶汤色卡 | 五行可视化 | 茶山地图 | 今日茶史 | 收藏标签 | 饮茶记录');
   }
 
   if (document.readyState === 'loading') {
@@ -4589,7 +4680,7 @@ window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; t
 
 <script>
 // ============================================================
-//  茶叶百科 v5.0 — 社交游戏化功能
+//  茶叶百科 v5.1 — 社交游戏化功能
 // ============================================================
 
 // -------------------- 工具函数 --------------------
@@ -5069,7 +5160,7 @@ function openShareCard(teaId) {
   ctx.fillText('📱', w / 2, 515);
   ctx.fillStyle = '#fff';
   ctx.font = '10px sans-serif';
-  ctx.fillText('茶叶百科 v5.0', w / 2, 540);
+  ctx.fillText('茶叶百科 v5.1', w / 2, 540);
 
   // 底部装饰条
   ctx.fillStyle = primary;
@@ -5078,7 +5169,7 @@ function openShareCard(teaId) {
   // 底部版权
   ctx.fillStyle = '#999';
   ctx.font = '11px "Noto Serif SC", "SimSun", serif';
-  ctx.fillText('茶叶百科 v5.0 · 分享自茶道爱好者', w / 2, h - 20);
+  ctx.fillText('茶叶百科 v5.1 · LZ出品 · 茶道爱好者', w / 2, h - 20);
 
   canvas._shareTea = tea;
 }
@@ -5157,11 +5248,11 @@ function copyShareCard() {
   });
   observer.observe(document.body, { childList: true, subtree: true });
 
-  console.log('🍵 茶叶百科 v5.0 社交游戏化：成就系统 | 茶道问答(50题) | 段位系统 | 分享卡片 已加载');
+  console.log('🍵 茶叶百科 v5.1 社交游戏化：成就系统 | 茶道问答(50题) | 段位系统 | 分享卡片 已加载');
 })();
 </script>
 
-<!-- ===== V5.0 数据可视化功能 JS ===== -->
+<!-- ===== V5.1 数据可视化功能 JS ===== -->
 <script>
 (function() {
   'use strict';
@@ -5386,7 +5477,7 @@ function copyShareCard() {
     }).join('') || '<span style="font-size:.8rem;color:var(--c2)">暂无相似茶叶</span>';
   };
 
-  console.log('🍵 V5.0 数据可视化功能已加载：价格地图 | 茶类占比饼图 | 3D产区地图 | 相似茶推荐');
+  console.log('🍵 V5.1 数据可视化功能已加载：价格地图 | 茶类占比饼图 | 3D产区地图 | 相似茶推荐');
 })();
 </script>
 
