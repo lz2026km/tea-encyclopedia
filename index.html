@@ -468,6 +468,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .sidebar-toggle { background: var(--c1); color: #fff; border: none; border-radius: 50%; width: 1.6rem; height: 1.6rem; cursor: pointer; font-size: .8rem; display: flex; align-items: center; justify-content: center; margin-bottom: .8rem; transition: background .2s; }
 .sidebar-toggle:hover { background: var(--c2); }
 .sidebar.collapsed { width: 60px; min-width: 60px; padding: .8rem .5rem; }
+.sidebar-link-item { display: flex; align-items: center; gap: .4rem; padding: .4rem .6rem; background: var(--c4); border-radius: 8px; cursor: pointer; font-size: .85rem; color: var(--c2); text-decoration: none; transition: all .2s; }
+.sidebar-link-item:hover { background: var(--c1); color: #fff; }
+.sidebar-link-item span:first-child { font-size: 1rem; }
+
 .sidebar.collapsed .sb-section { display: none; }
 .sidebar.collapsed .sidebar-toggle { margin: 0 auto .8rem; }
 .sidebar.collapsed .sb-title { display: none; }
@@ -1733,6 +1737,15 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
       </div>
     </div>
   </div>
+  <!-- 侧边栏底部功能链接 -->
+  <div class="sb-section" id="quickLinksSection" style="margin-top:.5rem">
+    <div class="sb-title">💡 快捷入口</div>
+    <div style="display:flex;flex-direction:column;gap:.3rem">
+      <a class="sidebar-link-item" onclick="openFeedbackModal()" title="意见反馈">
+        <span>📝</span><span>意见反馈</span>
+      </a>
+    </div>
+  </div>
 </aside>
 
 <!-- MAIN -->
@@ -1750,15 +1763,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <span id="dailyTeaText">每日推荐加载中…</span>
   </div>
 
-  <!-- FEEDBACK CARD -->
-  <div class="feedback-card" onclick="openFeedbackModal()" role="button" tabindex="0" onkeypress="if(event.key==='Enter')openFeedbackModal()">
-    <span class="feedback-card-icon">📝</span>
-    <div class="feedback-card-content">
-      <span class="feedback-card-title">意见反馈</span>
-      <span class="feedback-card-desc">帮助我们做得更好</span>
-    </div>
-    <span class="feedback-card-arrow">›</span>
-  </div>
+  
 
   <!-- SKELETON SCREEN -->
   <div id="skeleton" style="padding:1rem">
