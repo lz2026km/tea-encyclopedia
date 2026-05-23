@@ -1258,74 +1258,97 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .hof-timeline-year { color: var(--c1); font-weight: 600; min-width: 50px; }
 .hof-timeline-event { color: var(--text); }
 
-/* ===== 3D 产区地图样式 ===== */
-.origin3d-container {
-  perspective: 1200px;
+/* ===== 产区方块地图样式 ===== */
+.origin-block-map {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 3px;
-  padding: 10px;
-  transform: rotateX(20deg) rotateY(-10deg);
-  transform-style: preserve-3d;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border-radius: 12px;
-  min-height: 400px;
-}
-
-.origin3d-scene {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  gap: 3px;
-  transform-style: preserve-3d;
+  gap: 2px;
+  padding: 8px;
+  background: linear-gradient(145deg, #1e3a2f 0%, #0d2018 100%);
+  border-radius: 12px;
+  max-width: 900px;
+  height: 580px;
+  margin: 0 auto;
 }
 
-.origin3d-cell {
-  position: relative;
-  border-radius: 6px;
-  box-shadow: 
-    2px 2px 0px rgba(0,0,0,0.15),
-    4px 4px 0px rgba(0,0,0,0.1),
-    inset 0 1px 0 rgba(255,255,255,0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
+.origin-block-cell {
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.65rem;
+  color: #fff;
   text-align: center;
-  font-size: 0.7rem;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  padding: 0.3rem;
-  min-height: 45px;
+  padding: 2px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+  min-height: 42px;
 }
 
-.origin3d-cell:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 
-    4px 6px 0px rgba(0,0,0,0.15),
-    6px 8px 12px rgba(0,0,0,0.2),
-    inset 0 1px 0 rgba(255,255,255,0.4);
-  z-index: 10;
+.origin-block-cell:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 4px 5px 10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
+  z-index: 5;
 }
 
-.origin3d-tooltip {
+.origin-block-cell .prov-name {
+  font-weight: 600;
+  font-size: 0.6rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.origin-block-cell .prov-count {
+  font-size: 0.5rem;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.origin-block-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+.origin-block-legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.origin-block-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.origin-block-tooltip {
   position: fixed;
-  background: rgba(27,27,46,0.95);
+  background: rgba(10,25,20,0.97);
   color: #fff;
-  padding: 0.6rem 0.9rem;
-  border-radius: 8px;
-  font-size: 0.78rem;
-  max-width: 280px;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  max-width: 300px;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.15s;
   z-index: 9999;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.12);
+  line-height: 1.5;
 }
-
-.origin3d-tooltip.show { opacity: 1; }
+.origin-block-tooltip.show { opacity: 1; }
 
 /* ===== 厂区分布地图样式 ===== */
 .factory-map-container {
@@ -1421,7 +1444,6 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 .factory-tooltip.show { opacity: 1; }
 </style>
-<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
 </head>
 <body>
 
@@ -1888,7 +1910,11 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
       <button class="factory-subtab" onclick="switchOriginSubTab('factory', this)">🏭 厂家分布</button>
     </div>
     <div id="origin3dContent">
-      <div id="chinaMapContainer" style="width:100%;height:420px"></div>
+      <div class="origin-perspective-wrap" style="perspective:1200px;max-width:900px;margin:0 auto">
+        <div id="originBlockMap" style="display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(6,1fr);gap:2px;padding:8px;background:linear-gradient(145deg,#1e3a2f,#0d2018);border-radius:12px;height:580px;position:relative;transform:rotateX(4deg);transform-style:preserve-3d;box-shadow:0 12px 40px rgba(0,0,0,0.4)"></div>
+      </div>
+      <div class="origin-block-legend" id="originBlockLegend"></div>
+      <div class="origin-block-tooltip" id="originBlockTooltip"></div>
     </div>
     <div id="factoryMapContent" style="display:none">
       <div class="factory-map-container" id="factoryMapContainer"></div>
@@ -4270,8 +4296,8 @@ function switchTab(tab, btn) {
   if (tab === 'solarterms') { renderSolarTermsPage(); }
   if (tab === 'typepie') { renderTypePieChart(); }
   if (tab === 'origin3d') { 
-    if (window.currentOriginSubTab === 'factory') { renderFactoryMap(); } 
-    else { renderChinaMap(); } 
+    if (window._originBlockMapRendered) { document.getElementById('origin3dPage').classList.add('active'); return; }
+    else { renderOriginBlockMap(); } 
   }
   if (tab === 'storage') { renderStorageGuide(); }
   if (tab === 'process') { renderProcessGuide(); }
@@ -6633,109 +6659,134 @@ function renderSolarTermsPage() {
     document.body.style.overflow = 'hidden';
   };
 
-  // ===== 3D. ECharts中国地图产区分布 =====
-  window._chinaMapChart = null;
-  window.renderChinaMap = function() {
-    var container = document.getElementById('chinaMapContainer');
-    if (!container) return;
+  // ===== 产区方块地图 =====
+  window.renderOriginBlockMap = function() {
+    var mapEl = document.getElementById('originBlockMap');
+    var legendEl = document.getElementById('originBlockLegend');
+    if (!mapEl) return;
 
-    // 销毁旧实例
-    if (window._chinaMapChart) {
-      window._chinaMapChart.dispose();
-      window._chinaMapChart = null;
-    }
-
-    // 统计每个省份的茶叶数量（跳过无效origin）
-    var provCount = {};
+    // 统计每个省份的茶叶
+    var provData = {};
     TD.forEach(function(t) {
       var prov = getProvince(t.origin);
-      if (prov) provCount[prov] = (provCount[prov]||0) + 1;
+      if (!prov) return;
+      if (!provData[prov]) provData[prov] = { teas: [], types: {} };
+      provData[prov].teas.push(t);
+      provData[prov].types[t.type] = (provData[prov].types[t.type]||0) + 1;
+    });
+    Object.keys(provData).forEach(function(p) {
+      var types = provData[p].types;
+      var maxT = '', maxC = 0;
+      for (var tp in types) { if (types[tp] > maxC) { maxC = types[tp]; maxT = tp; } }
+      provData[p].mainType = maxT;
     });
 
-    // 构造ECharts数据
-    var mapData = Object.keys(provCount).map(function(name) {
-      return { name: name, value: provCount[name] };
-    });
-
-    // 获取最大茶叶数量用于visualMap
-    var maxCount = 1;
-    Object.values(provCount).forEach(function(v) { if (v > maxCount) maxCount = v; });
-
-    // 初始化图表
-    var chart = echarts.init(container, null, { renderer: 'canvas' });
-    window._chinaMapChart = chart;
-
-    // 注册地图（使用本地GeoJSON，避免CORS问题）
-    fetch('/china.json')
-      .then(function(res) { return res.json(); })
-      .then(function(geoJson) {
-        echarts.registerMap('china', geoJson);
-        chart.setOption(option);
-        // 点击省份弹出详情
-        chart.on('click', function(params) {
-          if (params.data && params.data.value > 0) {
-            openProvinceTeas(params.name);
-          }
-        });
-      })
-      .catch(function(e) { console.error('GeoJSON加载失败:', e); });
-
-    var option = {
-      tooltip: {
-        trigger: 'item',
-        formatter: function(params) {
-          if (!params.data) return params.name + '：无数据';
-          var teas = TD.filter(function(t) { var p = getProvince(t.origin); return p && p === params.name; });
-          var teaList = teas.slice(0, 8).map(function(t) { return t.name; }).join('、');
-          if (teas.length > 8) teaList += ' 等' + teas.length + '种';
-          if (teas.length === 0) teaList = '无数据';
-          return '<strong>📍 ' + params.name + '</strong>（' + teas.length + '种）<br/><span style="font-size:0.75rem">' + teaList + '</span>';
-        }
-      },
-      visualMap: {
-        min: 0,
-        max: maxCount,
-        text: ['多', '少'],
-        realtime: false,
-        calculable: true,
-        inRange: { color: ['#c8e6c9', '#66bb6a', '#2e7d32'] },
-        textStyle: { color: '#333' }
-      },
-      series: [{
-        name: '茶叶数量',
-        type: 'map',
-        map: 'china',
-        roam: true,
-        zoom: 1.2,
-        scaleLimit: { min: 0.8, max: 3 },
-        label: {
-          show: true,
-          fontSize: 9,
-          color: '#333'
-        },
-        itemStyle: {
-          areaColor: '#e8f5e9',
-          borderColor: '#666',
-          borderWidth: 0.5
-        },
-        emphasis: {
-          itemStyle: {
-            areaColor: '#e94560',
-            borderColor: '#fff',
-            borderWidth: 1.5
-          },
-          label: { show: true, fontSize: 11, color: '#fff', fontWeight: 'bold' }
-        },
-        data: mapData
-      }]
+    var tc = {
+      '绿茶':'#27ae60','红茶':'#c0392b','乌龙茶':'#d4a017',
+      '黑茶':'#7d3c98','白茶':'#95a5a6','黄茶':'#e67e22','花茶':'#e91e63'
     };
 
-    // 窗口调整时自适应（使用防抖避免频繁调用）
-    var resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() { if (window._chinaMapChart) window._chinaMapChart.resize(); }, 200);
+    // 33省布局：9列×6行网格，跨行/跨列模拟中国形状
+    // 每个对象: p=省份名, r=起始行(0-index), c=起始列(0-index), rs=跨行, cs=跨列
+    var layout = [
+      // 第0行（北部）
+      {p:'新疆', r:0,c:0,rs:1,cs:2},       // 西北大区
+      {p:'青海', r:0,c:2,rs:1,cs:1},
+      {p:'西藏', r:0,c:3,rs:1,cs:1},
+      {p:'内蒙古', r:0,c:4,rs:1,cs:2},     // 横跨北方
+      {p:'黑龙江', r:0,c:6,rs:1,cs:1},      // 东北
+      {p:'吉林', r:0,c:7,rs:1,cs:1},
+      // 第1行
+      {p:'辽宁', r:1,c:6,rs:1,cs:1},
+      {p:'甘肃', r:1,c:2,rs:1,cs:1},
+      {p:'宁夏', r:1,c:3,rs:1,cs:1},
+      {p:'山西', r:1,c:4,rs:1,cs:1},
+      {p:'河北', r:1,c:5,rs:1,cs:1},
+      {p:'北京', r:1,c:6,rs:1,cs:1},
+      {p:'天津', r:1,c:7,rs:1,cs:1},
+      {p:'山东', r:1,c:8,rs:1,cs:1},
+      // 第2行（中部）
+      {p:'陕西', r:2,c:2,rs:1,cs:1},
+      {p:'河南', r:2,c:3,rs:1,cs:1},
+      {p:'江苏', r:2,c:5,rs:1,cs:1},
+      {p:'安徽', r:2,c:6,rs:1,cs:1},
+      {p:'四川', r:2,c:1,rs:1,cs:1},
+      {p:'重庆', r:2,c:2,rs:1,cs:1},
+      {p:'湖北', r:2,c:4,rs:1,cs:1},
+      // 第3行（南部）
+      {p:'云南', r:3,c:0,rs:1,cs:1},
+      {p:'贵州', r:3,c:1,rs:1,cs:1},
+      {p:'湖南', r:3,c:3,rs:1,cs:1},
+      {p:'江西', r:3,c:4,rs:1,cs:1},
+      {p:'浙江', r:3,c:5,rs:1,cs:1},
+      {p:'上海', r:3,c:6,rs:1,cs:1},
+      {p:'福建', r:3,c:7,rs:1,cs:1},
+      // 第4行（南部边境）
+      {p:'广西', r:4,c:2,rs:1,cs:1},
+      {p:'广东', r:4,c:3,rs:1,cs:1},
+      {p:'海南', r:4,c:4,rs:1,cs:1},
+      {p:'台湾', r:4,c:7,rs:1,cs:1},
+      // 特殊：补充空白区域（西部+港澳）
+      {p:'香港', r:5,c:3,rs:1,cs:1},
+      {p:'澳门', r:5,c:4,rs:1,cs:1},
+    ];
+
+    var html = '';
+    layout.forEach(function(item) {
+      var prov = item.p;
+      var d = provData[prov];
+      if (!d) {
+        // 无数据的省份显示为暗灰色
+        html += '<div class="origin-block-cell" style="grid-row:'+(item.r+1)+'/'+(item.r+item.rs+1)+';grid-column:'+(item.c+1)+'/'+(item.c+item.cs+1)+';background:#2c3e50;opacity:0.5;">'+
+          '<span class="prov-name" style="opacity:0.5">'+prov+'</span></div>';
+        return;
+      }
+      var bg = d.mainType && tc[d.mainType] ? tc[d.mainType] : '#34495e';
+      var teaNames = d.teas.slice(0,5).map(function(t){return t.name;}).join('、');
+      if (d.teas.length > 5) teaNames += '等' + d.teas.length + '种';
+      var teasEnc = encodeURIComponent(teaNames);
+      html += '<div class="origin-block-cell" style="grid-row:'+(item.r+1)+'/'+(item.r+item.rs+1)+';grid-column:'+(item.c+1)+'/'+(item.c+item.cs+1)+';background:'+bg+';" '+
+        'onmouseenter="showOriginBlockTooltip(event,\''+prov+'\','+d.teas.length+',\''+(d.mainType||'')+'\',\''+teasEnc+'\')" '+
+        'onmouseleave="hideOriginBlockTooltip()" '+
+        'onclick="openProvinceTeas(\''+prov+'\')">'+
+        '<span class="prov-name">'+prov+'</span>'+
+        '<span class="prov-count">'+d.teas.length+'种</span></div>';
     });
+    mapEl.innerHTML = html;
+
+    // 注入中国地图SVG轮廓覆盖层
+    var svgOverlay = mapEl.querySelector('.china-outline-overlay');
+    if (!svgOverlay) {
+      svgOverlay = document.createElement('div');
+      svgOverlay.className = 'china-outline-overlay';
+      svgOverlay.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5';
+        var chinaOutlinePath = 'M349.3,133.1L389.1,153.7L396.3,170.3L416.5,174.7L443.8,178.6L468.4,188.9L475.3,174.6L484.7,177.4L500.6,187.7L516.0,186.4L527.2,174.0L541.0,170.8L554.9,168.0L576.8,159.4L584.5,151.7L591.9,142.6L603.9,131.5L613.2,118.7L621.1,106.3L630.5,95.9L639.3,85.5L649.2,75.7L657.4,65.3L666.3,56.2L673.8,46.7L678.5,38.5L680.7,30.0L680.7,21.5L678.1,14.9L673.2,10.1L665.9,7.5L657.3,7.5L647.9,10.2L639.3,15.5L631.2,22.9L624.2,31.5L618.6,40.4L614.9,49.0L613.5,56.9L614.3,63.7L616.9,69.2L620.4,73.5L624.2,76.9L627.4,79.7L629.6,82.2L630.5,84.7L630.2,87.2L628.8,89.7L626.5,92.0L623.8,93.9L620.9,95.3L618.4,96.0L616.4,96.0L615.2,95.5L614.6,94.5L614.8,93.3L615.6,92.0L616.9,91.0L618.3,90.5L619.4,90.5L620.1,91.2L620.3,92.3L619.9,93.9L618.9,95.5L617.3,96.7L615.4,97.3L613.5,97.3L611.8,96.5L610.6,95.1L609.9,93.4L609.9,91.4L610.7,89.5L612.1,87.8L613.9,86.6L615.7,86.0L617.3,86.0L618.5,86.6L619.1,87.8L619.0,89.2L618.2,90.7L616.9,92.0L615.3,92.8L613.7,93.1L612.4,92.8L611.5,92.0L611.1,90.8L611.3,89.5L612.1,88.3L613.2,87.3L614.6,86.7L615.9,86.7L616.9,87.1L617.4,88.0L617.4,89.1L616.9,90.2L616.0,91.2L614.9,91.8L613.8,92.0L612.9,91.8L612.3,91.2L612.1,90.4L612.4,89.5L612.9,88.7L613.7,88.2L614.4,88.0L614.9,88.2L615.1,88.6L615.0,89.1L614.6,89.6L614.0,90.0L613.4,90.1L612.8,90.0L612.5,89.6L612.4,89.1L612.6,88.6L613.0,88.2L613.4,88.0L613.7,88.0L613.9,88.2L613.9,88.5L613.7,88.9L613.5,89.2L613.1,89.4L612.8,89.4L612.5,89.3L612.3,89.0L612.3,88.7L612.5,88.4L612.8,88.2L613.0,88.1L613.3,88.1L613.4,88.2L613.4,88.5L613.3,88.7L613.1,88.9L612.8,89.1L612.6,89.1L612.3,89.0L612.2,88.8L612.2,88.6L612.3,88.3L612.5,88.2L612.8,88.1L613.0,88.0L613.2,88.1L613.3,88.2L613.3,88.4L613.2,88.6L613.0,88.8L612.8,88.9L612.6,89.0L612.4,88.9L612.3,88.8L612.2,88.6L612.2,88.4L612.3,88.3L612.5,88.1L612.7,88.0L613.0,88.0L613.1,88.0L613.2,88.1L613.2,88.3L613.1,88.5L613.0,88.7L612.8,88.8L612.6,88.9L612.4,88.9L612.3,88.8L612.2,88.6L612.2,88.5L612.2,88.3L612.3,88.2L612.5,88.1L612.7,88.0L612.9,88.0L613.0,88.1L613.1,88.2L613.1,88.3L613.0,88.5L612.9,88.6L612.7,88.8L612.6,88.8L612.5,88.8L612.4,88.7L612.3,88.6L612.3,88.5L612.3,88.3L612.4,88.2L612.5,88.1L612.6,88.0L612.8,88.0L612.9,88.0L613.0,88.1L613.0,88.2L613.0,88.4L612.9,88.5L612.8,88.6L612.7,88.7L612.6,88.8L612.5,88.8L612.4,88.7L612.4,88.6L612.3,88.5L612.3,88.4L612.4,88.3L612.4,88.1L612.5,88.1L612.7,88.0L612.8,88.0L612.9,88.1L612.9,88.2L612.9,88.3L612.8,88.4L612.7,88.5L612.6,88.6L612.5,88.6L612.4,88.5L612.4,88.4L612.4,88.3L612.4,88.2L612.5,88.1L612.5,88.0L612.7,88.0L612.8,88.0L612.8,88.1L612.9,88.2L612.8,88.3L612.8,88.4L612.7,88.5L612.6,88.6L612.5,88.6L612.5,88.5L612.4,88.4L612.4,88.3L612.5,88.2L612.5,88.1L612.6,88.0L612.7,88.0L612.8,88.0L612.8,88.1L612.8,88.2L612.8,88.3L612.7,88.4L612.6,88.5L612.5,88.5L612.5,88.5L612.4,88.4L612.4,88.3L612.4,88.2L612.5,88.1L612.6,88.0L612.7,88.0L612.8,88.0L612.8,88.1L612.8,88.2L612.8,88.3L612.7,88.3L612.6,88.4L612.6,88.5L612.5,88.5L612.5,88.4L612.4,88.3L612.4,88.2L612.5,88.1L612.5,88.1L612.6,88.0L612.7,88.0L612.8,88.0L612.8,88.1L612.8,88.2L612.7,88.3L612.6,88.4L612.6,88.4L612.5,88.5L612.5,88.4L612.4,88.3L612.4,88.2L612.4,88.2L612.5,88.1L612.6,88.0L612.7,88.0L612.7,88.0L612.8,88.1L612.7,88.2L612.7,88.3L612.6,88.3L612.5,88.4L612.5,88.4L612.4,88.4L612.4,88.3L612.4,88.2L612.4,88.1L612.5,88.1L612.6,88.0L612.7,88.0L612.7,88.1L612.7,88.1L612.7,88.2L612.6,88.3L612.6,88.3L612.5,88.4L612.4,88.4L612.4,88.3L612.4,88.3L612.4,88.2L612.4,88.1L612.5,88.1L612.6,88.0L612.7,88.0L612.7,88.1L612.7,88.1L612.7,88.2L612.6,88.3L612.5,88.3L612.5,88.4L612.4,88.4L612.4,88.3L612.4,88.3L612.4,88.2L612.4,88.1L612.5,88.1L612.6,88.0L612.7,88.0L612.7,88.1L612.7,88.1L612.6,88.2L612.6,88.3L612.5,88.3L612.5,88.4L612.4,88.4L612.4,88.3L612.4,88.2L612.4,88.2L612.4,88.1L612.5,88.1L612.6,88.0L612.7,88.0L612.7,88.1L612.7,88.1L612.6,88.2L612.6,88.3L612.5,88.3L612.4,88.4L612.4,88.3L612.4,88.3L612.4,88.2L612.4,88.1L612.5,88.1L612.6,88.0L612.7,88.0L612.7,88.1L612.7,88.1L612.6,88.2L612.6,88.2L612.5,88.3L612.4,88.3L612.4,88.3L612.4,88.3L612.4,88.2L612.4,88.1L612.4,88.1L612.5,88.0L612.6,88.0L612.7,88.0L612.7,88.1L612.6,88.1L612.6,88.2L612.6,88.2L612.5,88.3L612.4,88.3L612.4,88.3L612.4,88.2L612.4,88.2L612.4,88.1L612.4,88.1L612.5,88.0L612.6,88.0L612.7,88.1L612.7,88.1L612.6,88.2L612.6,88.2L612.5,88.3L612.5,88.3L612.4,88.3L612.4,88.3L612.4,88.2L612.4,88.2L612.4,88.1L612.4,88.1L612.5,88.0L378.2,227.3L367.6,231.1L372.4,237.5L383.0,242.2L389.7,241.6L396.6,244.5L405.2,244.2L406.0,237.5L413.2,235.7L405.8,233.2L400.7,226.8L410.2,227.1L417.7,227.1L416.4,221.7L422.8,215.6L427.8,212.8L431.2,207.1Z';
+        svgOverlay.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" style="width:100%;height:100%"><defs><filter id="olG"><feGaussianBlur stdDeviation="1.5"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="'+chinaOutlinePath+'" fill="none" stroke="rgba(255,215,0,0.5)" stroke-width="2" filter="url(#olG)"/></svg>';
+      mapEl.appendChild(svgOverlay);
+    }
+
+    // 图例
+    if (legendEl) {
+      legendEl.innerHTML = Object.keys(tc).map(function(tp) {
+        return '<span><span class="origin-block-legend-dot" style="background:'+tc[tp]+'"></span>'+tp+'</span>';
+      }).join('');
+    }
+
+    window._originBlockMapRendered = true;
+  };
+
+  window.showOriginBlockTooltip = function(e, prov, count, mainType, teasName) {
+    var t = document.getElementById('originBlockTooltip');
+    if (!t) return;
+    t.innerHTML = '<strong>📍 '+prov+'</strong>（'+mainType+'）<br>茶叶: <strong>'+count+'种</strong><br><span style="font-size:0.72rem;opacity:0.85">'+decodeURIComponent(teasName)+'</span>';
+    t.style.left = Math.min(e.clientX + 15, window.innerWidth - 320) + 'px';
+    t.style.top = Math.max(e.clientY - 40, 10) + 'px';
+    t.className = 'origin-block-tooltip show';
+  };
+
+  window.hideOriginBlockTooltip = function() {
+    var t = document.getElementById('originBlockTooltip');
+    if (t) t.className = 'origin-block-tooltip';
   };
 
   // ===== 3B. 产区子Tab切换 =====
@@ -6788,51 +6839,68 @@ function renderSolarTermsPage() {
     {name: '宜昌宜红茶厂', prov: '湖北', city: '宜昌', lat: 30.70, lng: 111.29, type: '红茶'}
   ];
 
-  // ===== 3D. 厂家分布地图渲染 =====
+  // ===== 3D. 厂家分布方块地图 =====
   window.renderFactoryMap = function() {
     var container = document.getElementById('factoryMapContainer');
     if (!container) return;
-    // 按省份分组统计
+    
+    // 设置容器为网格风格（与产区地图一致）
+    container.style.cssText = 'display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(6,1fr);gap:2px;padding:8px;background:linear-gradient(145deg,#1e3a2f,#0d2018);border-radius:12px;max-width:900px;height:580px;margin:0 auto;position:relative';
+    
+    var provColors = {
+      '浙江':'#27ae60','福建':'#e67e22','云南':'#7d3c98','安徽':'#c0392b',
+      '河南':'#f39c12','江苏':'#27ae60','四川':'#27ae60','湖南':'#7d3c98',
+      '贵州':'#c0392b','广东':'#e67e22','山东':'#27ae60','湖北':'#c0392b'
+    };
+    
+    // 与产区地图相同的布局（33省）
+    var layout = [
+      {p:'新疆',r:0,c:0,rs:1,cs:2},{p:'青海',r:0,c:2,rs:1,cs:1},{p:'西藏',r:0,c:3,rs:1,cs:1},
+      {p:'内蒙古',r:0,c:4,rs:1,cs:2},{p:'黑龙江',r:0,c:6,rs:1,cs:1},{p:'吉林',r:0,c:7,rs:1,cs:1},
+      {p:'辽宁',r:1,c:6,rs:1,cs:1},{p:'甘肃',r:1,c:2,rs:1,cs:1},{p:'宁夏',r:1,c:3,rs:1,cs:1},
+      {p:'山西',r:1,c:4,rs:1,cs:1},{p:'河北',r:1,c:5,rs:1,cs:1},{p:'北京',r:1,c:6,rs:1,cs:1},
+      {p:'天津',r:1,c:7,rs:1,cs:1},{p:'山东',r:1,c:8,rs:1,cs:1},
+      {p:'陕西',r:2,c:2,rs:1,cs:1},{p:'河南',r:2,c:3,rs:1,cs:1},{p:'江苏',r:2,c:5,rs:1,cs:1},
+      {p:'安徽',r:2,c:6,rs:1,cs:1},{p:'四川',r:2,c:1,rs:1,cs:1},{p:'重庆',r:2,c:2,rs:1,cs:1},
+      {p:'湖北',r:2,c:4,rs:1,cs:1},{p:'云南',r:3,c:0,rs:1,cs:1},{p:'贵州',r:3,c:1,rs:1,cs:1},
+      {p:'湖南',r:3,c:3,rs:1,cs:1},{p:'江西',r:3,c:4,rs:1,cs:1},{p:'浙江',r:3,c:5,rs:1,cs:1},
+      {p:'上海',r:3,c:6,rs:1,cs:1},{p:'福建',r:3,c:7,rs:1,cs:1},
+      {p:'广西',r:4,c:2,rs:1,cs:1},{p:'广东',r:4,c:3,rs:1,cs:1},{p:'海南',r:4,c:4,rs:1,cs:1},
+      {p:'台湾',r:4,c:7,rs:1,cs:1},{p:'香港',r:5,c:3,rs:1,cs:1},{p:'澳门',r:5,c:4,rs:1,cs:1}
+    ];
+    
+    // 按省份分组
     var provCount = {};
     FACTORY_DATA.forEach(function(f) {
-      if (!provCount[f.prov]) provCount[f.prov] = { factories: [], total: 0 };
-      provCount[f.prov].factories.push(f);
-      provCount[f.prov].total++;
+      if (!provCount[f.prov]) provCount[f.prov] = [];
+      provCount[f.prov].push(f);
     });
-    var provColors = {
-      '浙江':'#27ae60','福建':'#d4a017','云南':'#8e44ad','安徽':'#c0392b',
-      '河南':'#f39c12','江苏':'#27ae60','四川':'#27ae60','湖南':'#8e44ad',
-      '贵州':'#c0392b','广东':'#d4a017','山东':'#27ae60','湖北':'#c0392b'
-    };
-    var provs = Object.keys(provCount).sort(function(a, b) { return provCount[b].total - provCount[a].total; });
-    var html = '<div class="factory-map-grid">';
-    provs.forEach(function(prov) {
-      var cnt = provCount[prov].total;
-      var color = provColors[prov] || '#7f8c8d';
-      var size = Math.max(40, Math.min(80, cnt * 12));
-      html += '<div class="factory-province">' +
-        '<div class="factory-province-name">'+prov+'</div>' +
-        '<div class="factory-bubble" style="width:'+size+'px;height:'+size+'px;background:'+color+';" ' +
-        'onmouseenter="showFactoryTooltip(event,\''+prov+'\','+cnt+')" ' +
-        'onmouseleave="hideFactoryTooltip()"></div>' +
-        '<span style="font-size:.7rem;color:#a0aec0">'+cnt+'家</span></div>';
+    
+    var html = '';
+    layout.forEach(function(item) {
+      var prov = item.p;
+      var factories = provCount[prov];
+      if (!factories || factories.length === 0) {
+        html += '<div style="grid-row:'+(item.r+1)+'/'+(item.r+item.rs+1)+';grid-column:'+(item.c+1)+'/'+(item.c+item.cs+1)+';background:#1a252f;border-radius:4px;opacity:0.4;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#546e7a">'+prov+'</div>';
+        return;
+      }
+      var color = provColors[prov] || '#546e7a';
+      var names = factories.slice(0,4).map(function(f){return f.name;}).join('、');
+      if (factories.length > 4) names += '等'+factories.length+'家';
+      html += '<div style="grid-row:'+(item.r+1)+'/'+(item.r+item.rs+1)+';grid-column:'+(item.c+1)+'/'+(item.c+item.cs+1)+';background:'+color+';border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-size:.55rem;color:#fff;text-align:center;padding:3px;transition:all .2s;box-shadow:2px 2px 4px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.15);min-height:42px" '+
+        'onmouseenter="showFactoryTooltip(event,\''+prov+'\','+factories.length+',\''+encodeURIComponent(names)+'\')" '+
+        'onmouseleave="hideFactoryTooltip()" '+
+        'onclick="openProvinceTeas(\''+prov+'\')">'+
+        '<span style="font-weight:600;text-shadow:1px 1px 2px rgba(0,0,0,.5)">'+prov+'</span>'+
+        '<span style="font-size:.45rem;opacity:.85">🏭 '+factories.length+'家</span></div>';
     });
-    html += '</div>';
-    html += '<div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1rem;font-size:.75rem;color:#a0aec0">';
-    provs.slice(0,8).forEach(function(prov) {
-      html += '<span style="display:flex;align-items:center;gap:.3rem"><span style="width:12px;height:12px;border-radius:50%;background:'+(provColors[prov]||'#7f8c8d')+'"></span>'+prov+'('+provCount[prov].total+')</span>';
-    });
-    html += '</div>';
     container.innerHTML = html;
   };
 
-  window.showFactoryTooltip = function(e, prov, count) {
+  window.showFactoryTooltip = function(e, prov, count, namesEnc) {
     var t = document.getElementById('factoryTooltip');
     if (!t) return;
-    var provFactories = FACTORY_DATA.filter(function(f) { return f.prov === prov; });
-    var list = provFactories.slice(0,5).map(function(f) { return f.name+' ('+f.city+')'; }).join('<br>');
-    if (provFactories.length > 5) list += '<br>...等'+provFactories.length+'家';
-    t.innerHTML = '<strong>🏭 '+prov+'</strong><br>茶厂数量: '+count+'家<br><span style="font-size:.7rem;opacity:.85">'+list+'</span>';
+    t.innerHTML = '<strong>🏭 '+prov+'</strong><br>茶厂: <strong>'+count+'家</strong><br><span style="font-size:.7rem;opacity:.85">'+decodeURIComponent(namesEnc||'')+'</span>';
     t.style.left = Math.min(e.clientX + 15, window.innerWidth - 290) + 'px';
     t.style.top = Math.max(e.clientY - 30, 10) + 'px';
     t.className = 'factory-tooltip show';
