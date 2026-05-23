@@ -1,5 +1,5 @@
-// 茶叶百科 v6.5 Service Worker - 优化版
-const CACHE_NAME = 'tea-encyclopedia-v6.5';
+// 茶叶百科 v7.02 Service Worker - 优化版
+const CACHE_NAME = 'tea-encyclopedia-v7.02';
 const OFFLINE_URL = '/index.html';
 
 // 资源分类

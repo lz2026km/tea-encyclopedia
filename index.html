@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="茶叶百科 v7.01 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<meta http-equiv='Content-Security-Policy' content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: upload.wikimedia.org https://*.baidu.com https://*.sina.com.cn; font-src 'self'; connect-src 'self' https:; frame-src 'none';">
+<meta name="description" content="茶叶百科 v7.02 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>茶叶百科 v7.01 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,12 +13,12 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <link rel="canonical" href="https://tea.example.com/">
 <meta name="keywords" content="茶叶百科,绿茶,红茶,乌龙茶,白茶,黄茶,黑茶,名茶,茶叶品种,茶叶产地,茶叶等级,冲泡方法,品鉴指南">
-<meta property="og:title" content="茶叶百科 v7.01 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta property="og:title" content="茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta property="og:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta property="og:image" content="https://tea.example.com/tea-og-image.jpg">
 <meta property="og:url" content="https://tea.example.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="茶叶百科 v7.01 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta name="twitter:title" content="茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta name="twitter:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <script type="application/ld+json">
 {
@@ -39,7 +40,7 @@
 <link rel="preload" href="preload.js" as="script">
 <style>
 /* ============================================
-   茶叶百科 v7.01 — 清新雅致中国风
+   茶叶百科 v7.02 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -1619,7 +1620,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v7.01 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v7.02 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -1636,7 +1637,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v7.01</span>🍃</div>
+  <div class="hdr-logo"><span>v7.02</span>🍃</div>
   <div class="hdr-title">茶叶百科</div>
   <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
@@ -2573,6 +2574,36 @@ const TEA_CALENDAR = [
   {month:'12月',tea:'老白茶',icon:'🍵',tip:'煮茶养生'}
 ];
 
+// ---------- PINYIN INITIALS ----------
+const PINYIN_MAP = {
+  '碧':'B','螺':'L','春':'C','红':'H','茶':'C','龙':'L','井':'J','乌':'W','龙':'L',
+  '普':'P','洱':'E','茉':'M','莉':'L','花':'H','铁':'T','观':'G','音':'Y','大':'D',
+  '红':'H','袍':'P','黄':'H','山':'S','毛':'M','峰':'F','恩':'E','施':'S','玉':'Y',
+  '露':'L','白':'B','毫':'H','银':'Y','针':'Z','祁':'Q','门':'M','正':'Z','山':'S',
+  '楂':'Z','陈':'C','皮':'P','桂':'G','花':'H','薄':'B','荷':'H','决':'J','明':'M',
+  '玫':'M','瑰':'G','枸':'G','杞':'Q','菊':'J','枣':'Z','紫':'Z','苏':'S','姜':'J',
+  '莲':'L','心':'X','甘':'G','露':'L','雨':'Y','前':'Q','狮':'S','虎':'H','龙':'L',
+  '云':'Y','鹰':'Y','鹤':'H','雀':'Q','罗':'L','汉':'H','松':'S','梦':'M','华':'H',
+  '秀':'X','芽':'Y','岩':'Y','肉':'R','桂':'G','叶':'Y','水':'S','仙':'X','眉':'M',
+  '凤':'F','凰':'H','在':'Z','昔':'X','阳':'Y','半':'B','岛':'D','内':'N','崖':'Y',
+  '芝':'Z','麻':'M','柠':'N','檬':'M','柚':'Y','枣':'Z','核':'H','桃':'T','杏':'X',
+  '荔':'L','枝':'Z','芒':'M','果':'G','鳖':'B','松':'S','竹':'Z','梅':'M','兰':'L',
+  '菊':'J','芙':'F','蓉':'R','荷':'H','菱':'L','瓜':'G','芦':'L','根':'G','叶':'Y',
+  '草':'C','药':'Y','金':'J','银':'Y','木':'M','石':'S','水':'S','火':'H','土':'T',
+  '金':'J','银':'Y','铜':'T','铁':'T','锡':'X','珍':'Z','珠':'Z','玉':'Y','石':'S',
+  '珊':'S','瑚':'H','玛':'M','瑙':'N','琥':'H','珀':'P','象':'X','牙':'Y','骨':'G',
+  '角':'J','竹':'Z','木':'M','藤':'T','草':'C','棉':'M','丝':'S','纱':'S','绸':'C',
+  '锦':'J','绣':'X','织':'Z','染':'R','陶':'T','瓷':'C','铁':'T','铜':'T','锡':'X',
+  '银':'Y','金':'J'
+};
+function toPinyinInitials(chineseText) {
+  let result = '';
+  for (const char of chineseText) {
+    result += PINYIN_MAP[char] || char;
+  }
+  return result;
+}
+
 // ---------- INIT ----------
 (function init() {
   const bar = document.getElementById('loadingBar');
@@ -3039,7 +3070,7 @@ function getFilteredTeas() {
     if (currentFilters.season && tea.suitableSeason && !tea.suitableSeason.includes(currentFilters.season)) return false;
     if (searchText) {
       const s = searchText.toLowerCase();
-      if (!tea.name.includes(searchText) && !tea.desc.includes(searchText) && !tea.origin.includes(searchText) && !tea.type.includes(searchText)) return false;
+      if (!tea.name.includes(searchText) && !tea.desc.includes(searchText) && !tea.origin.includes(searchText) && !tea.type.includes(searchText) && !toPinyinInitials(tea.name).toLowerCase().includes(s)) return false;
     }
     return true;
   });
@@ -7556,12 +7587,12 @@ function renderHallOfFamePage() {
 // 版本历史记录
 window.VERSION_HISTORY = [
   {
-    version: 'v7.01',
+    version: 'v7.02',
     date: '2026-05-23',
     changes: [
       '🚀 意见反馈：新增反馈入口模态框，支持姓名/邮箱/反馈内容提交',
       '🔔 版本检测：新增版本更新检测，localStorage版本低于7.0时显示更新提示banner',
-      '📝 版本更新：全站版本号 v6.7 → v7.01'
+      '📝 版本更新：全站版本号 v6.7 → v7.02'
     ]
   },
   {
@@ -7587,12 +7618,12 @@ window.VERSION_HISTORY = [
 ];
 
 // 在控制台输出版本信息
-console.log('%c🍃 茶叶百科 v7.01 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
+console.log('%c🍃 茶叶百科 v7.02 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
 console.log('版本历史:', window.VERSION_HISTORY);
 
 // ---------- VERSION UPDATE CHECK ----------
 (function checkVersionUpdate() {
-  const currentVersion = 'v7.01';
+  const currentVersion = 'v7.02';
   const savedVersion = localStorage.getItem('tea_app_version');
   if (savedVersion && parseFloat(savedVersion.replace('v','')) < 7.0) {
     const banner = document.getElementById('versionUpdateBanner');
@@ -7674,6 +7705,35 @@ document.addEventListener('DOMContentLoaded', function() {
       updateFeedbackStars();
     });
   });
+
+  // ---------- KEYBOARD SHORTCUTS ----------
+  let gridFocusIndex = -1;
+  document.addEventListener('keydown', function(e) {
+    // '/' or Ctrl+K -> focus search input
+    if (e.key === '/' || (e.ctrlKey && e.key === 'k')) {
+      e.preventDefault();
+      const si = document.getElementById('searchInput');
+      if (si) si.focus();
+    }
+    // Escape -> close all modals
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal.active, .modal[style*="block"]').forEach(function(m) {
+        m.style.display = 'none';
+        m.classList.remove('active');
+      });
+    }
+    // Arrow Up/Down -> navigate tea grid
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      const cards = document.querySelectorAll('#teaGrid .tea-card');
+      if (cards.length === 0) return;
+      e.preventDefault();
+      if (gridFocusIndex >= 0) cards[gridFocusIndex].style.outline = '';
+      if (e.key === 'ArrowDown') gridFocusIndex = (gridFocusIndex + 1) % cards.length;
+      else gridFocusIndex = (gridFocusIndex - 1 + cards.length) % cards.length;
+      cards[gridFocusIndex].style.outline = '2px solid var(--c1)';
+      cards[gridFocusIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
 });
 
 function submitFeedback() {
@@ -7688,7 +7748,7 @@ function submitFeedback() {
     email: document.getElementById('feedbackEmail').value.trim(),
     content: content,
     timestamp: new Date().toISOString(),
-    version: 'v7.01'
+    version: 'v7.02'
   };
   try {
     var feedbacks = JSON.parse(localStorage.getItem('tea_feedbacks') || '[]');
@@ -7705,7 +7765,7 @@ function submitFeedback() {
 
 <!-- SITE FOOTER -->
 <div class="site-footer">
-  <div>🍃 茶叶百科 v7.01 · LZ出品</div>
+  <div>🍃 茶叶百科 v7.02 · LZ出品</div>
   <div class="footer-links">
     <a onclick="openFeedbackModal()">意见反馈</a>
   </div>
