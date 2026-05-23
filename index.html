@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="茶叶百科 v4.0 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，收录50种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>茶叶大全 v5.3 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶大全 v5.3.1 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="茶叶百科">
 <style>
 /* ============================================
-   茶叶大全 v5.3 — 清新雅致中国风
+   茶叶大全 v5.3.1 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -529,7 +529,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     margin: .5rem 0;
   }
   .tea-detail-panel::before {
-    content: '茶叶大全 v5.3 — ' attr(data-tea-name);
+    content: '茶叶大全 v5.3.1 — ' attr(data-tea-name);
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
@@ -731,7 +731,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v5.3 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v5.3.1 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -748,7 +748,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v5.3</span>🍃</div>
+  <div class="hdr-logo"><span>v5.3.1</span>🍃</div>
   <div class="hdr-title">茶叶大全</div>
   <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
@@ -2232,6 +2232,7 @@ function toggleFavPage() {
 
 // ---------- MODAL ----------
 function openModal(id) {
+  try {
   const tea = TEA_DATA.find(t => t.id === id);
   if (!tea) return;
   const imgUrls = getTeaImageUrl(tea);
@@ -2300,6 +2301,7 @@ function openModal(id) {
 
   // 渲染相似茶推荐
   renderSimilarTeas(id);
+  } catch(e) { console.warn('openModal error:', e.message); }
 }
 
 function closeModal() {
@@ -4579,7 +4581,7 @@ window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; t
     var modalOverlay = document.querySelector('.modal-overlay');
     if (modalOverlay) observer.observe(modalOverlay, {attributes:true, attributeFilter:['class']});
 
-    console.log('🍵 茶叶百科 v5.3 功能已加载：茶汤色卡 | 五行可视化 | 茶山地图 | 今日茶史 | 收藏标签 | 饮茶记录');
+    console.log('🍵 茶叶百科 v5.3.1 功能已加载：茶汤色卡 | 五行可视化 | 茶山地图 | 今日茶史 | 收藏标签 | 饮茶记录');
   }
 
   if (document.readyState === 'loading') {
@@ -4681,7 +4683,7 @@ window.LazyModal = { loaded: {}, ensure(name) { if (this.loaded[name]) return; t
 
 <script>
 // ============================================================
-//  茶叶百科 v5.3 — 社交游戏化功能
+//  茶叶百科 v5.3.1 — 社交游戏化功能
 // ============================================================
 
 // -------------------- 工具函数 --------------------
@@ -5161,7 +5163,7 @@ function openShareCard(teaId) {
   ctx.fillText('📱', w / 2, 515);
   ctx.fillStyle = '#fff';
   ctx.font = '10px sans-serif';
-  ctx.fillText('茶叶百科 v5.3', w / 2, 540);
+  ctx.fillText('茶叶百科 v5.3.1', w / 2, 540);
 
   // 底部装饰条
   ctx.fillStyle = primary;
@@ -5170,7 +5172,7 @@ function openShareCard(teaId) {
   // 底部版权
   ctx.fillStyle = '#999';
   ctx.font = '11px "Noto Serif SC", "SimSun", serif';
-  ctx.fillText('茶叶百科 v5.3 · LZ出品 · 茶道爱好者', w / 2, h - 20);
+  ctx.fillText('茶叶百科 v5.3.1 · LZ出品 · 茶道爱好者', w / 2, h - 20);
 
   canvas._shareTea = tea;
 }
@@ -5249,7 +5251,7 @@ function copyShareCard() {
   });
   observer.observe(document.body, { childList: true, subtree: true });
 
-  console.log('🍵 茶叶百科 v5.3 社交游戏化：成就系统 | 茶道问答(50题) | 段位系统 | 分享卡片 已加载');
+  console.log('🍵 茶叶百科 v5.3.1 社交游戏化：成就系统 | 茶道问答(50题) | 段位系统 | 分享卡片 已加载');
 })();
 </script>
 
