@@ -1563,17 +1563,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </head>
 <body>
 
-<!-- VERSION UPDATE BANNER -->
-<div id="versionUpdateBanner">
-  <span class="vub-icon">🚀</span>
-  <div class="vub-text">
-    <div class="vub-title" id="vubTitle">发现新版本 v7.01</div>
-    <div class="vub-desc" id="vubDesc">全新功能上线，点击查看详情</div>
-  </div>
-  <button class="vub-close" onclick="dismissVersionBanner()">×</button>
-</div>
 
-<!-- FEEDBACK MODAL -->
 <div class="feedback-modal-overlay" id="feedbackModalOverlay" onclick="if(event.target===this)closeFeedbackModal()">
   <div class="feedback-modal" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeFeedbackModal()">×</button>
@@ -1743,6 +1733,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
     <div style="display:flex;flex-direction:column;gap:.3rem">
       <a class="sidebar-link-item" onclick="openFeedbackModal()" title="意见反馈">
         <span>📝</span><span>意见反馈</span>
+      </a>
+      <a class="sidebar-link-item" onclick="showVersionHistory()" title="版本更新">
+        <span>🚀</span><span>版本更新</span>
       </a>
     </div>
   </div>
@@ -7620,6 +7613,15 @@ console.log('版本历史:', window.VERSION_HISTORY);
 function dismissVersionBanner() {
   const banner = document.getElementById('versionUpdateBanner');
   if (banner) banner.classList.remove('show');
+}
+
+function showVersionHistory() {
+  const history = window.VERSION_HISTORY || [];
+  const list = history.map(v => `• v${v.version} — ${v.date} — ${v.desc}`).join('\n');
+  const msg = history.length > 0
+    ? `📜 版本历史：\n\n${list}\n\n📌 当前版本：v${window.currentVersion || '7.01'}`
+    : `📌 当前版本：v${window.currentVersion || '7.01'}\n\n暂无历史记录`;
+  alert(msg);
 }
 
 // ---------- FEEDBACK MODAL ----------
