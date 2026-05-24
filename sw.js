@@ -1,5 +1,5 @@
-// 茶叶百科 v7.1 Service Worker - 优化版
-const CACHE_NAME = 'tea-encyclopedia-v7.1';
+// 茶叶百科 v7.02 Service Worker - 优化版
+const CACHE_NAME = 'tea-encyclopedia-v7.02';
 const OFFLINE_URL = '/index.html';
 
 // 资源分类
@@ -326,20 +326,7 @@ async function syncTeaData() {
   }
 }
 
-// 定期清理 - 使用指数退避策略减少不必要的唤醒
-let cacheCleanupInterval = 60000;
-let lastCleanup = Date.now();
-async function scheduledCleanup() {
-  if (Date.now() - lastCleanup >= cacheCleanupInterval) {
-    await cleanupCache();
-    lastCleanup = Date.now();
-    // 逐渐增加间隔，最大5分钟
-    cacheCleanupInterval = Math.min(cacheCleanupInterval * 1.5, 300000);
-  }
-}
-// 改为基于消息触发而非固定间隔
-self.addEventListener('message', (event) => {
-  if (event.data?.action === 'cleanupCache') {
-    cleanupCache();
-  }
-});
+// 定期清理
+setInterval(() => {
+  cleanupCache();
+}, 60000); // 每分钟检查一次
