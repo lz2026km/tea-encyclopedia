@@ -2,9 +2,9 @@
 function renderStandardPage() {
   var container = document.getElementById('standardPage');
   if (!container) return;
-  container.innerHTML = '<div style="padding:1rem;color:var(--c2)">加载中...</div>';
   var content = document.getElementById('standardContent');
   if (!content) return;
+  content.innerHTML = '<div style="padding:1rem;color:var(--c2)">加载中...</div>';
   window._stdTab = window._stdTab || 'cn';
   renderStandard();
 }
