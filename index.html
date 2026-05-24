@@ -4,9 +4,9 @@
 <script>if (location.protocol === 'http:') { location.protocol = 'https:'; }</script>
 <meta charset="UTF-8">
 <meta http-equiv='Content-Security-Policy' content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: upload.wikimedia.org https://*.baidu.com https://*.sina.com.cn; font-src 'self'; connect-src 'self' https:; frame-src 'none';">
-<meta name="description" content="茶叶百科 v7.02 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<meta name="description" content="茶叶百科 v7.1 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶百科 v7.1 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,12 +15,12 @@
 <link rel="canonical" href="https://tea.example.com/">
 <link rel="amphtml" href="https://lz2026km.github.io/tea-encyclopedia/tea-amp.html">
 <meta name="keywords" content="茶叶百科,绿茶,红茶,乌龙茶,白茶,黄茶,黑茶,名茶,茶叶品种,茶叶产地,茶叶等级,冲泡方法,品鉴指南">
-<meta property="og:title" content="茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta property="og:title" content="茶叶百科 v7.1 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta property="og:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta property="og:image" content="https://tea.example.com/tea-og-image.jpg">
 <meta property="og:url" content="https://tea.example.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta name="twitter:title" content="茶叶百科 v7.1 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta name="twitter:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <script type="application/ld+json">
 {
@@ -42,7 +42,7 @@
 <link rel="preload" href="preload.js" as="script">
 <style>
 /* ============================================
-   茶叶百科 v7.02 — 清新雅致中国风
+   茶叶百科 v7.1 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -407,7 +407,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 /* ===== TIMELINE VIEW ===== */
 .timeline { display: none; }
 .timeline.active { display: block; }
-.timeline-item { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+.timeline-item { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; cursor: pointer; transition: transform .2s; }
+.timeline-item:hover { transform: translateX(4px); }
 .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c1); border: 3px solid var(--c3); flex-shrink: 0; margin-top: .4rem; }
 .timeline-content { flex: 1; background: var(--white); border-radius: var(--radius); padding: 1rem 1.2rem; border: 1.5px solid var(--border); box-shadow: var(--shadow); }
 .timeline-era { font-size: .78rem; color: var(--c2); margin-bottom: .2rem; }
@@ -1617,6 +1618,15 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   </div>
 </div>
 
+<!-- TIMELINE DETAIL MODAL -->
+<div class="feedback-modal-overlay" id="timelineModalOverlay" onclick="if(event.target===this)closeTimelineModal()">
+  <div class="feedback-modal" onclick="event.stopPropagation()" style="max-width:560px">
+    <button class="modal-close" onclick="closeTimelineModal()">×</button>
+    <div class="feedback-title" id="timelineModalTitle">📜 历史详情</div>
+    <div id="timelineModalBody"></div>
+  </div>
+</div>
+
 <!-- SKIP TO CONTENT LINK -->
 <style>.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}.skip-link:focus{left:0;top:0;width:auto;height:auto;overflow:visible;background:var(--c1);color:#fff;padding:.5rem 1rem;border-radius:0 0 8px 8px}</style>
 <a href="#mainContent" class="skip-link">跳过到主要内容</a>
@@ -1633,7 +1643,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v7.02 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v7.1 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -1650,7 +1660,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v7.02</span>🍃</div>
+  <div class="hdr-logo"><span>v7.1</span>🍃</div>
   <div class="hdr-title">茶叶百科</div>
   <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
@@ -3139,6 +3149,7 @@ function handleSort(value) {
           <div style="flex:1">
             <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
             <div class="tea-origin">📍 ${tea.origin}</div>
+            <div class="tea-created-era" style="font-size:.72rem">📅 ${tea.createdEra || tea.inventionYear || tea.period || '不详'}</div>
             <div class="tea-desc" style="-webkit-line-clamp:1">${tea.desc}</div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;padding-right:.5rem">
@@ -3163,6 +3174,7 @@ function handleSort(value) {
         <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
         <div class="tea-origin">📍 ${tea.origin}</div>
         <div class="tea-desc">${tea.desc}</div>
+        <div class="tea-created-era">📅 创制：${tea.createdEra || tea.inventionYear || tea.period || '不详'}</div>
         <div class="tea-footer">
           <span class="tea-period">${tea.period||''}</span>
           <button class="tea-fav-btn ${isFav?'faved':''}" onclick="event.stopPropagation();toggleFav(${tea.id})" aria-label="${isFav?'取消收藏':'收藏'}">${isFav?'❤️':'🤍'}</button>
@@ -3216,6 +3228,7 @@ function renderGrid() {
           <div style="flex:1">
             <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
             <div class="tea-origin">📍 ${tea.origin}</div>
+            <div class="tea-created-era" style="font-size:.72rem">📅 ${tea.createdEra || tea.inventionYear || tea.period || '不详'}</div>
             <div class="tea-desc" style="-webkit-line-clamp:1">${tea.desc}</div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;padding-right:.5rem">
@@ -3251,6 +3264,7 @@ function renderGrid() {
           <div class="tea-name">${tea.name}${tea.fallbackImg ? ' ⚠️' : ''}</div>
           <div class="tea-origin">📍 ${tea.origin}</div>
           <div class="tea-desc">${tea.desc}</div>
+          <div class="tea-created-era">📅 创制：${tea.createdEra || tea.inventionYear || tea.period || '不详'}</div>
           <div class="tea-rating">
             ${[1,2,3,4,5].map(n => `<span class="star ${(tea.rating&&n<=Math.round(tea.rating))?'filled':''}">★</span>`).join('')}
           </div>
@@ -4045,7 +4059,7 @@ function openModal(id) {
     </div>
     <div class="modal-section">
       <div class="modal-section-title">☕ 冲泡方法</div>
-      <div class="modal-text">${tea.brewing ? `水温：${tea.brewing.temperature || '85-90℃'}｜茶具：${tea.brewing.teaware || '盖碗'}｜步骤：${tea.brewing.steps ? tea.brewing.steps.replace(/[；;]/g,' → ') : '常规冲泡'}` : '85-90℃热水，冲泡2-3分钟'}</div>
+      <div class="modal-text">${(() => { if (tea.waterTemp && tea.steepingTime) { return `水温：${tea.waterTemp}｜浸泡时间：${tea.steepingTime}｜茶具：${tea.brewing?.teaware || '盖碗'}｜步骤：${tea.brewing?.steps?.replace(/[；;]/g,' → ') || '常规冲泡'}`; } else if (tea.brewing) { return `水温：${tea.brewing.temperature || '85-90℃'}｜茶具：${tea.brewing.teaware || '盖碗'}｜步骤：${tea.brewing.steps ? tea.brewing.steps.replace(/[；;]/g,' → ') : '常规冲泡'}`; } return '85-90℃热水，冲泡2-3分钟'; })()}</div>
     </div>
     <div class="modal-section">
       <div class="modal-section-title">🍽️ 配餐推荐</div>
@@ -4438,8 +4452,8 @@ function renderEncyclopediaTab() {
 // ---------- TIMELINE ----------
 function renderTimeline() {
   const list = document.getElementById('timelineList');
-  list.innerHTML = TEA_HISTORY.map(h => `
-    <div class="timeline-item">
+  list.innerHTML = TEA_HISTORY.map((h, i) => `
+    <div class="timeline-item" onclick="openTimelineModal(${i})" style="cursor:pointer">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
         <div class="timeline-era">${h.era}</div>
@@ -7607,12 +7621,12 @@ function renderHallOfFamePage() {
 // 版本历史记录
 window.VERSION_HISTORY = [
   {
-    version: 'v7.02',
-    date: '2026-05-23',
+    version: 'v7.1',
+    date: '2026-05-24',
     changes: [
-      '🚀 意见反馈：新增反馈入口模态框，支持姓名/邮箱/反馈内容提交',
-      '🔔 版本检测：新增版本更新检测，localStorage版本低于7.0时显示更新提示banner',
-      '📝 版本更新：全站版本号 v6.7 → v7.02'
+      '📦 数据增补：茶叶品种+30条、历史事件+5条、节气茶饮+3条、茶具知识+10条',
+      '🔍 功能增强：热门搜索气泡、创制时间字段、省份简介、性价比排行榜、时间线详情弹窗',
+      '📝 版本更新：v7.02 → v7.1'
     ]
   },
   {
@@ -7638,12 +7652,12 @@ window.VERSION_HISTORY = [
 ];
 
 // 在控制台输出版本信息
-console.log('%c🍃 茶叶百科 v7.02 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
+console.log('%c🍃 茶叶百科 v7.1 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
 console.log('版本历史:', window.VERSION_HISTORY);
 
 // ---------- VERSION UPDATE CHECK ----------
 (function checkVersionUpdate() {
-  const currentVersion = 'v7.02';
+  const currentVersion = 'v7.1';
   const savedVersion = localStorage.getItem('tea_app_version');
   if (savedVersion && parseFloat(savedVersion.replace('v','')) < 7.0) {
     const banner = document.getElementById('versionUpdateBanner');
@@ -7693,6 +7707,38 @@ function openFeedbackModal() {
 
 function closeFeedbackModal() {
   const overlay = document.getElementById('feedbackModalOverlay');
+  if (overlay) overlay.classList.remove('open');
+}
+
+function openTimelineModal(index) {
+  const h = TEA_HISTORY[index];
+  if (!h) return;
+  const overlay = document.getElementById('timelineModalOverlay');
+  const title = document.getElementById('timelineModalTitle');
+  const body = document.getElementById('timelineModalBody');
+  if (overlay && title && body) {
+    title.innerHTML = '📜 ' + h.period;
+    body.innerHTML = `
+      <div style="background:var(--c4);border-radius:12px;padding:1rem;margin-bottom:1rem;border-left:4px solid var(--c1)">
+        <div style="font-size:.78rem;color:var(--c2);margin-bottom:.3rem">时代</div>
+        <div style="font-size:1rem;font-weight:700;color:var(--c5)">${h.era}</div>
+      </div>
+      <div style="margin-bottom:1rem">
+        <div style="font-size:.82rem;color:var(--c1);font-weight:700;margin-bottom:.5rem">📖 详细介绍</div>
+        <div style="font-size:.92rem;line-height:1.9;color:var(--text)">${h.desc}</div>
+      </div>
+      <div style="margin-bottom:1rem">
+        <div style="font-size:.82rem;color:var(--c1);font-weight:700;margin-bottom:.5rem">🍵 相关茶叶</div>
+        ${getRelatedTeas(h.period)}
+      </div>
+      <button onclick="closeTimelineModal()" style="background:var(--c1);color:#fff;border:none;border-radius:20px;padding:.5rem 1.5rem;font-size:.9rem;cursor:pointer;font-family:inherit;width:100%;margin-top:.5rem">关闭</button>
+    `;
+    overlay.classList.add('open');
+  }
+}
+
+function closeTimelineModal() {
+  const overlay = document.getElementById('timelineModalOverlay');
   if (overlay) overlay.classList.remove('open');
 }
 
@@ -7768,7 +7814,7 @@ function submitFeedback() {
     email: document.getElementById('feedbackEmail').value.trim(),
     content: content,
     timestamp: new Date().toISOString(),
-    version: 'v7.02'
+    version: 'v7.1'
   };
   try {
     var feedbacks = JSON.parse(localStorage.getItem('tea_feedbacks') || '[]');
@@ -7818,7 +7864,7 @@ function generateSharePoster(teaId) {
   if (line && y < 560) ctx.fillText(line, 40, y);
   // 底部标注
   ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.font = '12px sans-serif'; ctx.textAlign = 'center';
-  ctx.fillText('茶叶百科 v7.02 · LZ出品', 210, 580);
+  ctx.fillText('茶叶百科 v7.1 · LZ出品', 210, 580);
   // 下载
   canvas.toBlob(function(blob) {
     const url = URL.createObjectURL(blob);
@@ -7831,7 +7877,7 @@ function generateSharePoster(teaId) {
 
 <!-- SITE FOOTER -->
 <div class="site-footer">
-  <div>🍃 茶叶百科 v7.02 · LZ出品</div>
+  <div>🍃 茶叶百科 v7.1 · LZ出品</div>
   <div class="footer-links">
     <a onclick="openFeedbackModal()">意见反馈</a>
   </div>
