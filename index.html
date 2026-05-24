@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script>if (location.protocol === 'http:') { location.protocol = 'https:'; }</script>
+<script>
+// HTTPS 重定向（使用 location.replace 避免循环）
+if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+  location.replace('https://' + location.host + location.pathname + location.search);
+}
+</script>
 <meta charset="UTF-8">
 <meta http-equiv='Content-Security-Policy' content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: upload.wikimedia.org https://*.baidu.com https://*.sina.com.cn; font-src 'self'; connect-src 'self' https:; frame-src 'none';">
-<meta name="description" content="茶叶百科 v7.02 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
+<meta name="description" content="茶叶百科 v7.1 - 收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科</title>
+<title>茶叶百科 v7.1 — 茶叶历史·品种·趣事·产地·等级百科</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2D6A4F">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,12 +20,12 @@
 <link rel="canonical" href="https://tea.example.com/">
 <link rel="amphtml" href="https://lz2026km.github.io/tea-encyclopedia/tea-amp.html">
 <meta name="keywords" content="茶叶百科,绿茶,红茶,乌龙茶,白茶,黄茶,黑茶,名茶,茶叶品种,茶叶产地,茶叶等级,冲泡方法,品鉴指南">
-<meta property="og:title" content="茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta property="og:title" content="茶叶百科 v7.1 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta property="og:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <meta property="og:image" content="https://tea.example.com/tea-og-image.jpg">
 <meta property="og:url" content="https://tea.example.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="茶叶百科 v7.02 — 茶叶历史·品种·趣事·产地·等级百科">
+<meta name="twitter:title" content="茶叶百科 v7.1 — 茶叶历史·品种·趣事·产地·等级百科">
 <meta name="twitter:description" content="收录绿茶、红茶、乌龙茶、白茶、黄茶、黑茶六大茶类，350种名茶品种、产地、等级、冲泡方法、品鉴指南和趣味茶知识">
 <script type="application/ld+json">
 {
@@ -42,7 +47,7 @@
 <link rel="preload" href="preload.js" as="script">
 <style>
 /* ============================================
-   茶叶百科 v7.02 — 清新雅致中国风
+   茶叶百科 v7.1 — 清新雅致中国风
    ============================================ */
 :root {
   --c1: #2D6A4F;     /* 茶山绿 - 主色 */
@@ -1633,7 +1638,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 </div>
 
 <!-- PRINT HEADER -->
-<div class="print-header">茶叶大全 v7.02 — 打印时间：<span id="printDate"></span></div>
+<div class="print-header">茶叶大全 v7.1 — 打印时间：<span id="printDate"></span></div>
 
 <!-- PWA INSTALL BAR -->
 <div class="pwa-install-bar" id="pwaInstallBar">
@@ -1650,7 +1655,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="hdr-logo"><span>v7.02</span>🍃</div>
+  <div class="hdr-logo"><span>v7.1</span>🍃</div>
   <div class="hdr-title">茶叶百科</div>
   <div class="hdr-owner">📦 LZ出品</div>
   <div class="search-wrap">
@@ -2501,7 +2506,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <script src="debounce-throttle.js" defer></script>
 <script src="preload.js" defer></script>
 <script src="code-split.js" defer></script>
-<script src="tea_data.js"></script>
+<script src="tea_data.js" defer></script>
 <script src="glossary_data.js"></script>
 <script src="news_data.js"></script>
 <script src="season_data.js"></script>
@@ -7607,12 +7612,12 @@ function renderHallOfFamePage() {
 // 版本历史记录
 window.VERSION_HISTORY = [
   {
-    version: 'v7.02',
+    version: 'v7.1',
     date: '2026-05-23',
     changes: [
       '🚀 意见反馈：新增反馈入口模态框，支持姓名/邮箱/反馈内容提交',
       '🔔 版本检测：新增版本更新检测，localStorage版本低于7.0时显示更新提示banner',
-      '📝 版本更新：全站版本号 v6.7 → v7.02'
+      '📝 版本更新：全站版本号 v7.02 → v7.1，修复性能和安全问题'
     ]
   },
   {
@@ -7638,12 +7643,12 @@ window.VERSION_HISTORY = [
 ];
 
 // 在控制台输出版本信息
-console.log('%c🍃 茶叶百科 v7.02 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
+console.log('%c🍃 茶叶百科 v7.1 ', 'background:#2D6A4F;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;');
 console.log('版本历史:', window.VERSION_HISTORY);
 
 // ---------- VERSION UPDATE CHECK ----------
 (function checkVersionUpdate() {
-  const currentVersion = 'v7.02';
+  const currentVersion = 'v7.1';
   const savedVersion = localStorage.getItem('tea_app_version');
   if (savedVersion && parseFloat(savedVersion.replace('v','')) < 7.0) {
     const banner = document.getElementById('versionUpdateBanner');
@@ -7768,7 +7773,7 @@ function submitFeedback() {
     email: document.getElementById('feedbackEmail').value.trim(),
     content: content,
     timestamp: new Date().toISOString(),
-    version: 'v7.02'
+    version: 'v7.1'
   };
   try {
     var feedbacks = JSON.parse(localStorage.getItem('tea_feedbacks') || '[]');
@@ -7818,7 +7823,7 @@ function generateSharePoster(teaId) {
   if (line && y < 560) ctx.fillText(line, 40, y);
   // 底部标注
   ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.font = '12px sans-serif'; ctx.textAlign = 'center';
-  ctx.fillText('茶叶百科 v7.02 · LZ出品', 210, 580);
+  ctx.fillText('茶叶百科 v7.1 · LZ出品', 210, 580);
   // 下载
   canvas.toBlob(function(blob) {
     const url = URL.createObjectURL(blob);
@@ -7831,7 +7836,7 @@ function generateSharePoster(teaId) {
 
 <!-- SITE FOOTER -->
 <div class="site-footer">
-  <div>🍃 茶叶百科 v7.02 · LZ出品</div>
+  <div>🍃 茶叶百科 v7.1 · LZ出品</div>
   <div class="footer-links">
     <a onclick="openFeedbackModal()">意见反馈</a>
   </div>
